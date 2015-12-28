@@ -1,0 +1,59 @@
+{
+  "name": "ando",
+  "version": "0.0.1",
+  "description": "Front-end architecture for Casper Storefront",
+  "scripts": {
+    "postinstall": "jspm dl-loader --latest && jspm install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm install && postinstall && gulp && server",
+    "server": "json-server --watch data/db.json --port 3002"
+  },
+  "author": "Casper Dev Team",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/CasperSleep/Casper/issues"
+  },
+  "homepage": "https://github.com/CasperSleep/Casper",
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "chai": "^3.4.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-data": "^1.2.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nunjucks": "^2.0.0",
+    "gulp-nunjucks-render": "^1.0.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "istanbul": "^0.4.1",
+    "jspm": "^0.16.19",
+    "mocha": "^2.3.4",
+    "sinon": "^1.17.2"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.3.13",
+    "critical": "^0.7.0",
+    "nunjucks": "^2.2.0",
+    "path": "^0.12.7",
+    "request": "^2.67.0"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "app/assets"
+    },
+    "configFile": "app/assets/systemjs_config.js",
+    "dependencies": {
+      "axios": "npm:axios@^0.8.1",
+      "request": "npm:request@^2.67.0",
+      "rx": "npm:rx@^4.0.7",
+      "rx-dom": "npm:rx-dom@^7.0.3",
+      "then-request": "npm:then-request@^2.1.1"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}

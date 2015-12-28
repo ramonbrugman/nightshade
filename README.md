@@ -19,14 +19,20 @@ nvm use
 ```
 
 
-You'll also need CLI for [JSPM](), Gulp, and json-server for local data.
+### Dependencies
+
+You'll also need CLI for [JSPM](), Gulp, and json-server. These are best installed globally.
 
 ```sh
 npm install jspm gulp json-server -g
 ```
 
-Then run `gulp` to get started. This will run `npm install` and ensure you have
-the latest packages.
+Then run `npm install` to get packages. This will run `postinstall` that installs jspm packages. 
+
+
+### Local Server
+
+Run `gulp` to start the server at port `3001`. Run `npm start` to kickoff the json server at `:3003`. 
 
 BrowserSync will watch and reload your JS, HTML, CSS and images.
 

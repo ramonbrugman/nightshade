@@ -8,17 +8,17 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const nunjucks = require('gulp-nunjucks');
 const nunjucksRender = require('gulp-nunjucks-render');
-const mocha = require('gulp-mocha');
+// const mocha = require('gulp-mocha');
 const critical = require('critical');
 const sourcemaps = require('gulp-sourcemaps');
 
 // Run tests
-gulp.task('test', () => {
-  return gulp.src('./test/dropdown.js', {read: false})
-    .pipe(mocha({
-      reporter: 'nyan'
-  }));
-});
+// gulp.task('test', () => {
+//   return gulp.src('./test/dropdown.js', {read: false})
+//     .pipe(mocha({
+//       reporter: 'nyan'
+//   }));
+// });
 
 // Compile Sass
 gulp.task('sass', () => {
@@ -86,7 +86,7 @@ gulp.task('browser-sync', () => {
     gulp.watch("app/assets/js/**/*.js", browserSync.reload);
     gulp.watch("app/scss/**/*.scss", ['sass']);
     gulp.watch(["app/**/*.html", "dist/**/*.html"], ['html-watch']);
-    gulp.watch(["test/**"], ['test']);
+    // gulp.watch(["test/**"], ['test']);
 
 });
 

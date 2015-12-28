@@ -7,8 +7,17 @@ Ando currently powers Casper Storefront and Nightshade Design System.
 
 ## Getting Started
 
-Ando use Node `5.0.0`. If you have nvm installed, you set the correct version
-engine from `.nvmrc` with `nvm use`.
+Ando use Node `5.3.0`. If you have nvm installed, you set the correct version
+engine from `.nvmrc`. 
+
+```sh
+# check/set Node version
+nvm use
+# if you need to install 5.3.0
+nvm install 5.3.0
+nvm use
+```
+
 
 You'll also need CLI for [JSPM](), Gulp, and json-server for local data.
 

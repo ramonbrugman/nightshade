@@ -1,0 +1,14 @@
+{% extends "./base.html" %}
+
+{% block body %}
+    <h1>Casper Press</h1>
+
+
+{% endblock%}
+
+
+{% block module_loader %}
+  System.import('js/pages/PressPage.js').then( function(mod){
+    mod.PressPage.init();
+  } );
+{% endblock %}

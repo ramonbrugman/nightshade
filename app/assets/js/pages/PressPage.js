@@ -15,7 +15,7 @@ init() {
 setupTemplates() {
   console.log(`setting up templates`);
 
-  request('GET', 'http://localhost:3002/press').done(function (res) {
+  request('GET', 'http://localhost:3003/press').done(function (res) {
     const data = JSON.parse(res.getBody());
     const tpl = nunjucks.render('press_item.html', { data: data });
     const page = document.getElementById('page');

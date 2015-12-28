@@ -15,7 +15,7 @@ init() {
 setupTemplates() {
   console.log(`setting up templates`);
 
-  request('GET', 'http://localhost:3002/reviews').done(function (res) {
+  request('GET', 'http://localhost:3003/reviews').done(function (res) {
     var data = JSON.parse(res.getBody());
     var tpl = nunjucks.render('review_item.html', { reviews: data });
     var page = document.getElementById('page');

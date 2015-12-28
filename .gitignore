@@ -21,6 +21,7 @@ coverage
 
 # Build directory
 dist
+app/assets/css/
 
 # node-waf configuration
 .lock-wscript
@@ -30,7 +31,7 @@ build/Release
 
 # Dependency directory
 node_modules
-*/jspm_packages
+app/assets/jspm_packages/
 
 # Ignore cache
 /.sass-cache

@@ -1,7 +1,6 @@
 require('babel-core/register');
 
 const gulp = require('gulp');
-const path = require('path');
 const fs = require('fs');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');

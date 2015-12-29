@@ -16,9 +16,9 @@ setupTemplates() {
   console.log(`setting up templates`);
 
   request('GET', 'http://localhost:3003/reviews').done(function (res) {
-    var data = JSON.parse(res.getBody());
-    var tpl = nunjucks.render('review_item.html', { reviews: data });
-    var page = document.getElementById('page');
+    const data = JSON.parse(res.getBody());
+    const tpl = nunjucks.render('review_item.html', { reviews: data });
+    const page = document.getElementById('content');
 
     page.innerHTML = tpl;
   });

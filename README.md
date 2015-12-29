@@ -7,6 +7,7 @@ Ando currently powers Casper Storefront and Nightshade Design System.
 
 ## Getting Started
 
+<<<<<<< HEAD
 
 Ando uses Node `5.0.0`. If you have nvm installed, you set the correct version
 engine from `.nvmrc`.
@@ -40,7 +41,7 @@ BrowserSync will watch and reload your JS, HTML, CSS and images.
 
 ## Directory Structure
 
-At its most basic, Ando is a directory architecture and buid scripts. The core
+At it's most basic, Ando is a directory architecture and build scripts. The core
 of the code is in `app` folder. Compiled code is built to `dist` folder.
 
 ```

@@ -1,0 +1,14 @@
+{% extends "./base.html" %}
+
+{% block body %}
+    <h1>Casper Mattress Reviews</h1>
+
+
+{% endblock%}
+
+
+{% block module_loader %}
+  System.import('js/pages/ReviewsPage.js').then( function(mod){
+    mod.ReviewsPage.init();
+  } );
+{% endblock %}

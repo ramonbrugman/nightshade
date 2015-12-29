@@ -1,0 +1,9 @@
+{% macro review_item(review) %}
+    <h3>{{ review.title }}</h3>
+    <span class="date">{{ review.date }}</span>
+    {{ review.body }}
+{% endmacro %}
+
+{% for review in reviews %}
+    {{ review_item(review) }}
+{% endfor %}

@@ -1,0 +1,16 @@
+@import "layout/regions_states";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: size(condensed-header-height);
+
+  @include respond-at-and-above($break-main-nav) {
+    padding-top: size(header-height);
+  }
+
+  .no-cssvmaxunit & {
+    height: 100%;
+  }
+}

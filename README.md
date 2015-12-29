@@ -7,8 +7,6 @@ Ando currently powers Casper Storefront and Nightshade Design System.
 
 ## Getting Started
 
-<<<<<<< HEAD
-
 Ando uses Node `5.0.0`. If you have nvm installed, you set the correct version
 engine from `.nvmrc`.
 

@@ -23,7 +23,7 @@ const concat = require('gulp-concat');
 
 // Compile Sass
 gulp.task('sass', () => {
-  return gulp.src('./app/scss/*.scss')
+  return gulp.src('./app/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
@@ -35,16 +35,16 @@ gulp.task('sass', () => {
 
 // Critical css
 gulp.task('critical', ['sass', 'compile'], (cb) =>  {
-    critical.generate({
-        inline: true,
-        base: 'dist/',
-        css: ['app/assets/css/application.css'],
-        src: 'index.html',
-        dest: 'dist/index-critical.html',
-        minify: true,
-        width: 320,
-        height: 480
-    });
+  critical.generate({
+    inline: true,
+    base: 'dist/',
+    css: ['app/assets/css/application.css'],
+    src: 'index.html',
+    dest: 'dist/index-critical.html',
+    minify: true,
+    width: 320,
+    height: 480
+  });
 });
 
 

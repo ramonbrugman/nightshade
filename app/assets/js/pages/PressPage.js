@@ -18,7 +18,7 @@ setupTemplates() {
   request('GET', 'http://localhost:3003/press').done(function (res) {
     const data = JSON.parse(res.getBody());
     const tpl = nunjucks.render('press_item.html', { data: data });
-    const page = document.getElementById('page');
+    const page = document.getElementById('content');
 
     page.innerHTML = tpl;
   });

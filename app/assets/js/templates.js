@@ -17,9 +17,9 @@ frame.set("press", l_press);
 var t_2 = "";t_2 += "\n    <h3>";
 t_2 += runtime.suppressValue(runtime.memberLookup((l_press),"title"), env.opts.autoescape);
 t_2 += "</h3>\n    <span class=\"date\">";
-t_2 += runtime.suppressValue(runtime.memberLookup((l_press),"date"), env.opts.autoescape);
+t_2 += runtime.suppressValue(runtime.memberLookup((l_press),"publish_at"), env.opts.autoescape);
 t_2 += "</span>\n    ";
-t_2 += runtime.suppressValue(runtime.memberLookup((l_press),"body"), env.opts.autoescape);
+t_2 += runtime.suppressValue(runtime.memberLookup((l_press),"publisher"), env.opts.autoescape);
 t_2 += "\n";
 ;
 frame = frame.pop();
@@ -65,6 +65,7 @@ root: root
 
 })();
 })();
+
 (function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["review_item.html"] = (function() {
 function root(env, context, frame, runtime, cb) {
 var lineno = null;
@@ -132,4 +133,3 @@ root: root
 
 })();
 })();
-

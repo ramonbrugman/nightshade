@@ -11,6 +11,7 @@ const nunjucksRender = require('gulp-nunjucks-render');
 const critical = require('critical');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
+const rename = require('gulp-rename');
 
 
 // Run tests
@@ -23,12 +24,13 @@ const concat = require('gulp-concat');
 
 // Compile Sass
 gulp.task('sass', () => {
-  return gulp.src('./app/**/*.scss')
+  return gulp.src('./app/scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
+    .pipe(rename('application.css'))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./app/assets/css/'))
+    .pipe(gulp.dest('./app/assets/css'))
     .pipe(browserSync.stream());
 });
 

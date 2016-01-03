@@ -8,7 +8,13 @@
 
 
 {% block module_loader %}
-  System.import('js/pages/PressPage.js').then( function(mod){
+  System.import('/assets/js/pages/PressPage.js').then( function(mod){
     mod.PressPage.init();
   } );
+
+  System.import('/modules/press/PressComponent.js').then( function(mod){
+    mod.PressComponent.init();
+  } );
+
+
 {% endblock %}

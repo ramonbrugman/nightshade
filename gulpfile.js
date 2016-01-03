@@ -1,4 +1,6 @@
-require('babel-core/register');
+// 'use strict';
+
+// require('babel-core/register');
 
 const gulp = require('gulp');
 const fs = require('fs');
@@ -13,6 +15,15 @@ const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 
+const file_paths =  {
+    'base': './app',
+    'dest': './dist',
+    'css': './dist/assets/css/',
+    'local_sass': './app/assets/scss/',
+    'module_sass': './app/modules/',
+    'views': './app/views/'
+};
+
 
 // Run tests
 // gulp.task('test', () => {
@@ -22,15 +33,16 @@ const rename = require('gulp-rename');
 //   }));
 // });
 
+
 // Compile Sass
 gulp.task('sass', () => {
-  return gulp.src('./app/scss/**/*.scss')
+  return gulp.src(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss'])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(rename('application.css'))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./app/assets/css'))
+    .pipe(gulp.dest(file_paths.css))
     .pipe(browserSync.stream());
 });
 
@@ -40,7 +52,7 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
   critical.generate({
     inline: true,
     base: 'dist/',
-    css: ['app/assets/css/application.css'],
+    css: ['dist/css/application.css'],
     src: 'index.html',
     dest: 'dist/index-critical.html',
     minify: true,
@@ -59,12 +71,12 @@ gulp.task('compile', () => {
 });
 
 
-// Precompile templates for rendering in the browser
+// Precompile templates to js for rendering in the browser
 gulp.task('precompile', () => {
-  return gulp.src('./app/templates/**/*.html')
+  return gulp.src(['./app/templates/**/*.html', './app/modules/**/*.html'])
     .pipe(nunjucks())
     .pipe(concat('templates.js'))
-    .pipe(gulp.dest('./app/assets/js'));
+    .pipe(gulp.dest('./dist/assets/js'));
 });
 
 
@@ -75,22 +87,21 @@ gulp.task('html-watch', ['compile', 'precompile'], browserSync.reload);
 // @TODO fix sha error and set https: true,
 gulp.task('browser-sync', () => {
     browserSync.init({
-        logPrefix: "Ando",
+        logPrefix: 'Ando',
         server: {
-          baseDir: ["./app", "./dist"]
+          baseDir: ['./app', './dist', './']
         },
         middleware: function (req, res, next) {
-            console.log('Adding CORS header for ' + req.method + ': ' + req.url);
             res.setHeader('Access-Control-Allow-Origin', '*');
             next();
         }
       });
 
 
-    gulp.watch(["app/assets/js/**/*.js"], browserSync.reload);
-    gulp.watch("app/scss/**/*.scss", ['sass']);
-    gulp.watch(["app/**/*.html", "dist/**/*.html"], ['html-watch']);
-    // gulp.watch(["test/**"], ['test']);
+  gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ], browserSync.reload);
+  gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss' ], ['sass']);
+  gulp.watch(['app/modules/**/*.html', 'app/templates/**/*.html', 'dist/**/*.html'], ['html-watch']);
+    // gulp.watch(['test/**'], ['test']);
 
 });
 

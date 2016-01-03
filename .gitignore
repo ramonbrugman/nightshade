@@ -31,7 +31,7 @@ build/Release
 
 # Dependency directory
 node_modules
-app/assets/jspm_packages/
+jspm_packages
 
 # Ignore cache
 /.sass-cache

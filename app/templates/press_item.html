@@ -1,9 +1,0 @@
-{% macro press_item(press) %}
-    <h3>{{ press.title }}</h3>
-    <span class="date">{{ press.publish_at }}</span>
-    {{ press.publisher }}
-{% endmacro %}
-
-{% for press in data %}
-    {{ press_item(press) }}
-{% endfor %}

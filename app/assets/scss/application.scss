@@ -1,6 +1,7 @@
 // CORE site configuration files
 // These files do not generate output and are used across the site
 
+
 @import "vendor/bower/accoutrement-a11y/a11y";
 @import "vendor/bower/accoutrement-color/color";
 @import "vendor/bower/accoutrement-pseudo/pseudo-elements";
@@ -21,9 +22,10 @@
 @import "base/typography/bundle";
 @import "base/grids";
 
+// Casper modules
+@import "./app/modules/minicart/bundle";
+@import "./app/modules/review_item/styles";
 
+// Local sass files that are app specific
 @import "layout/regions";
-@import "menu/main_menu";
-@import "minicart/bundle";
 
-@import "minicart/bundle";

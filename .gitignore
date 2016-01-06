@@ -21,7 +21,6 @@ coverage
 
 # Build directory
 dist
-app/assets/css/
 
 # node-waf configuration
 .lock-wscript

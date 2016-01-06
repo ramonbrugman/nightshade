@@ -1,6 +1,6 @@
 import Rx from "rx";
 import "rx-dom";
-import { DropdownMenu } from 'js/components/DropdownMenu';
+import { DropdownMenu } from 'app/assets/js/components/DropdownMenu';
 
 export const BasePage = {
 

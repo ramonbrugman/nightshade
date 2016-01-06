@@ -34,10 +34,7 @@
     "nunjucks": "^2.2.0"
   },
   "jspm": {
-    "directories": {
-      "baseURL": "app/assets"
-    },
-    "configFile": "app/assets/systemjs_config.js",
+    "configFile": "systemjs_config.js",
     "dependencies": {
       "rx": "npm:rx@^4.0.7",
       "rx-dom": "npm:rx-dom@^7.0.3",

@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
 
-  <script src="/assets/js/nunjucks-slim.min.js"></script>
-  <script src="/assets/js/templates.js"></script>
+  <script src="/dist/assets/js/vendor/nunjucks-slim.min.js"></script>
+  <script src="/dist/assets/js/templates.js"></script>
   <script src="//cdn.polyfill.io/v2/polyfill.min.js?flags=gated,always&features=default,matchMedia" async defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/dom4/1.4.8/dom4.js" async defer></script>
-  <link href="/assets/css/application.css" media="screen" rel="stylesheet">
+  <link href="/dist/assets/css/application.css" media="screen" rel="stylesheet">
 
 </head>
 
@@ -21,8 +21,8 @@
     </div>
   </body>
 
-  <script src="/assets/jspm_packages/system.js"></script>
-  <script src="/assets/systemjs_config.js"></script>
+  <script src="/jspm_packages/system.js"></script>
+  <script src="/systemjs_config.js"></script>
   <script>
     {% block module_loader %}
       System.import('js/pages/BasePage.js').then( function(mod){

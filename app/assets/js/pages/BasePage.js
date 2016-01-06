@@ -7,7 +7,7 @@ export const BasePage = {
 init() {
   console.log(` base page activated `);
 
-  nunjucks.configure(`app/templates/`, { autoescape: true, watch: false });
+  nunjucks.configure(`app/modules/`, { autoescape: true, watch: false });
 
 
   DropdownMenu.initializeMenu( {

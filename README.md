@@ -36,6 +36,11 @@ Run `gulp` to start the server at port `3001`. Run `npm start` to kickoff the js
 
 BrowserSync will watch and reload your JS, HTML, CSS and images.
 
+Ando currently has a few routes you can test: 
+
+* `/press` loads press items
+* `/mattresses/reviews` loads reviews. there's dummy style sheet for the `reivew_item` module
+
 
 ## Directory Structure
 

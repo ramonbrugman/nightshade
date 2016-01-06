@@ -52,7 +52,7 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
   critical.generate({
     inline: true,
     base: 'dist/',
-    css: ['dist/css/application.css'],
+    css: ['dist/assets/css/application.css'],
     src: 'index.html',
     dest: 'dist/index-critical.html',
     minify: true,

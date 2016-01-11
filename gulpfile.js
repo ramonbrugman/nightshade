@@ -65,7 +65,7 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
 // Compile templates to html
 gulp.task('compile', () => {
     nunjucksRender.nunjucks.configure(['./app/views'], {watch: false});
-    return gulp.src('./app/views/**/*.html')
+    return gulp.src(['./app/views/**/*.html', '!./app/views/**/_*.html'])
       .pipe(nunjucksRender())
       .pipe(gulp.dest('./dist'));
 });
@@ -73,7 +73,7 @@ gulp.task('compile', () => {
 
 // Precompile templates to js for rendering in the browser
 gulp.task('precompile', () => {
-  return gulp.src(['./app/templates/**/*.html', './app/modules/**/*.html'])
+  return gulp.src(['./app/templates/**/[^_]*.html'])
     .pipe(nunjucks())
     .pipe(concat('templates.js'))
     .pipe(gulp.dest('./dist/assets/js'));
@@ -100,7 +100,7 @@ gulp.task('browser-sync', () => {
 
   gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ], browserSync.reload);
   gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss' ], ['sass']);
-  gulp.watch(['app/modules/**/*.html', 'app/templates/**/*.html', 'dist/**/*.html'], ['html-watch']);
+  gulp.watch(['app/views/**/*.html', 'app/modules/**/*.html', 'app/templates/**/*.html', 'dist/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
 
 });

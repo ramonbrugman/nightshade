@@ -2,7 +2,7 @@
 
 Front-end architecture for static web applications.
 
-Ando currently powers Casper Storefront and Nightshade Design System.
+Ando currently powers [Casper Storefront](https://github.com/CasperSleep/storefront-static) and [Nightshade Design System](https://github.com/CasperSleep/nightshade).
 
 
 ## Getting Started

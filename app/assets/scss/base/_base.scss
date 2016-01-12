@@ -2,7 +2,6 @@
 @import 'plugins/root';
 
 html {
-  @extend %verlag-light;
   background: color(background);
   color: color(text);
   max-width: 100%;
@@ -10,6 +9,7 @@ html {
 }
 
 body {
+  @extend %verlag-light;
   margin: 0 auto;
   width: 100%;
 }

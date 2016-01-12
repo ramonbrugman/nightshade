@@ -21,10 +21,10 @@
 @import "base/colors_config";
 @import "base/typography/bundle";
 @import "base/grids";
+@import "base/base";
 
 // Casper modules
 @import "./app/modules/review_item/styles";
 
 // Local sass files that are app specific
 @import "layout/regions";
-

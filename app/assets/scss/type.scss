@@ -1,0 +1,104 @@
+@import 'vendor/bower/accoutrement-a11y/a11y';
+@import 'vendor/bower/accoutrement-color/color';
+@import 'vendor/bower/accoutrement-pseudo/pseudo-elements';
+@import 'vendor/bower/susy/susy';
+
+@import './node_modules/nightshade-styles/plugins/positioning';
+@import './node_modules/nightshade-styles/plugins/z-index';
+@import './node_modules/nightshade-styles/plugins/queries_config';
+@import './node_modules/nightshade-styles/plugins/visual_utilities';
+@import './node_modules/nightshade-styles/plugins/animations';
+@import './node_modules/nightshade-styles/plugins/arrows_config';
+
+@import './node_modules/nightshade-styles/base/z-index_config';
+@import './node_modules/nightshade-styles/base/breakpoints_config';
+@import './node_modules/nightshade-styles/base/sizing_config';
+@import './node_modules/nightshade-styles/base/fonts_config';
+@import './node_modules/nightshade-styles/base/colors_config';
+@import './node_modules/nightshade-styles/base/typography/bundle';
+@import './node_modules/nightshade-styles/base/typography';
+@import './node_modules/nightshade-styles/base/grids';
+@import './node_modules/nightshade-styles/base/base';
+
+// Type Studies styles
+@import './node_modules/nightshade-styles/modules/buttons';
+@import './node_modules/nightshade-styles/modules/forms/forms';
+@import './node_modules/nightshade-styles/modules/layout/bundle';
+@import './node_modules/nightshade-styles/modules/home/bundle';
+@import './node_modules/nightshade-styles/modules/products/shared';
+@import './node_modules/nightshade-styles/modules/products/add_to_cart';
+@import './node_modules/nightshade-styles/modules/products/purchase';
+@import './node_modules/nightshade-styles/modules/products/specs';
+@import './node_modules/nightshade-styles/modules/products/mattress/bundle';
+@import './node_modules/nightshade-styles/modules/reviews/review';
+@import './node_modules/nightshade-styles/modules/pages/legal';
+
+.type-heading {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid color(border);
+}
+
+.type-study {
+  margin: 3em 0 6em;
+}
+
+// Style resets
+.sandwich__text {
+  transform: none;
+  width: 900px;
+  margin: 0 auto;
+
+  p {
+    font-size: 2em;
+
+    .homepage-module & {
+      margin-bottom: 2.5rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .btn:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.add-to-cart {
+  position: static;
+
+  .r-section-wrapper {
+    padding: 0 23px;
+  }
+}
+
+.add-to-cart-inner {
+  margin: 0 auto;
+}
+
+.paired-h1,
+.product-prop-info {
+  width: auto;
+  padding: 0 29%;
+}
+
+.paired-h3 {
+  padding: 0 38%;
+}
+
+.review-details-wrapper {
+  width: auto;
+  float: none;
+  padding: 0 15%;
+}
+
+.legal-section {
+  padding: 0;
+}
+
+.tech-specs-section-copy {
+  width: auto;
+}
+
+.form-fieldset {
+  width: auto;
+  padding: 0 20%;
+}

@@ -41,7 +41,6 @@ gulp.task('sass', () => {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(rename('application.css'))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest(file_paths.css))
     .pipe(browserSync.stream());

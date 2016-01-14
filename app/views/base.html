@@ -11,16 +11,13 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/dom4/1.4.8/dom4.js" async defer></script>
   <link rel="preconnect" href="//cloud.typography.com/" crossorigin>
   <link href="/dist/assets/css/application.css" media="screen" rel="stylesheet">
+  {% block head_styles %}{% endblock %}
 
 </head>
 
-  <body class="house">
+  <body>
     <div class="container">
-      <div id="page" class="app-content js-app-content">
-        {% block body %}{% endblock %}
-
-        <div id="content"></div>
-      </div>
+      {% block body_content %}{% endblock %}
     </div>
   </body>
 

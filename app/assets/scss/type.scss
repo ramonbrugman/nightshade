@@ -43,9 +43,14 @@
 }
 
 // Style resets
+.container {
+  padding-top: 0;
+}
+
 .sandwich__text {
   transform: none;
-  width: 900px;
+  width: auto;
+  max-width: 900px;
   margin: 0 auto;
 
   p {
@@ -74,20 +79,25 @@
   margin: 0 auto;
 }
 
-.paired-h1,
+.design-value-prop--fibers-copy-block,
 .product-prop-info {
   width: auto;
-  padding: 0 29%;
+  max-width: 425px;
+  margin: 0 auto;
+  padding-left: 0;
 }
 
-.paired-h3 {
-  padding: 0 38%;
+.sheets-infographic-option-copy {
+  display: inline-block;
+  max-width: 248px;
 }
 
 .review-details-wrapper {
   width: auto;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0;
   float: none;
-  padding: 0 15%;
 }
 
 .legal-section {
@@ -100,5 +110,6 @@
 
 .form-fieldset {
   width: auto;
-  padding: 0 20%;
+  max-width: 620px;
+  margin: 0 auto;
 }

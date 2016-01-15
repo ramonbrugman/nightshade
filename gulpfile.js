@@ -14,6 +14,7 @@ const critical = require('critical');
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
+const sassdoc = require('sassdoc');
 
 const file_paths =  {
     'base': './app',
@@ -40,7 +41,6 @@ gulp.task('sass', () => {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(rename('application.css'))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest(file_paths.css))
     .pipe(browserSync.stream());
@@ -65,7 +65,7 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
 // Compile templates to html
 gulp.task('compile', () => {
     nunjucksRender.nunjucks.configure(['./app/views'], {watch: false});
-    return gulp.src('./app/views/**/*.html')
+    return gulp.src('./app/views/**/[^_]*.html')
       .pipe(nunjucksRender())
       .pipe(gulp.dest('./dist'));
 });
@@ -86,28 +86,41 @@ gulp.task('html-watch', ['compile', 'precompile'], browserSync.reload);
 // Static server
 // @TODO fix sha error and set https: true,
 gulp.task('browser-sync', () => {
-    browserSync.init({
-        logPrefix: 'Ando',
-        server: {
-          baseDir: ['./app', './dist', './']
-        },
-        middleware: function (req, res, next) {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            next();
-        }
-      });
+  browserSync.init({
+      logPrefix: 'Ando',
+      browser: false,
+      server: {
+        baseDir: ['./app', './dist', './']
+      },
+      middleware: function (req, res, next) {
+          res.setHeader('Access-Control-Allow-Origin', '*');
+          next();
+      }
+    });
 
 
   gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ], browserSync.reload);
   gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss' ], ['sass']);
-  gulp.watch(['app/modules/**/*.html', 'app/templates/**/*.html', 'dist/**/*.html'], ['html-watch']);
+  gulp.watch(['app/views/**/*.html', 'app/modules/**/*.html', 'app/templates/**/*.html', 'dist/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
 
 });
 
 
+//Sassdoc task
+gulp.task('sassdoc', () => {
+  return gulp.src(['app/**/*.scss', 'app/modules/**/*.scss', './node_modules/nightshade-styles/**/*.scss'])
+  .pipe(sassdoc({
+      dest: './dist/sassdoc'
+  }));
+});
+
+// clean tasks
+// @@@ TODO: tasks to remove generated files (Dist)
+
+
 // Start task (default gulp)
-gulp.task('default', ['compile', 'precompile', 'sass', 'browser-sync']);
+gulp.task('default', ['compile', 'precompile', 'sass', 'sassdoc', 'browser-sync']);
 
 
 // Build task

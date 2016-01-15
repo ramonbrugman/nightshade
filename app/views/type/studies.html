@@ -1,6 +1,67 @@
 {% extends "./base.html" %}
 
-{% block body %}
+{% block head_styles %}
+<link href="/dist/assets/css/type.css" media="screen" rel="stylesheet">
+{% endblock %}
 
+{% block body_content %}
+<div class="r-section-wrapper r-inner">
+  <h3 class="type-heading">Homepage Module</h3>
+  <div class="type-study homepage-module r-centered">
+    {% include "./type/_homepage-module.html" %}
+  </div>
+  <h3 class="type-heading">Homepage Video Callout</h3>
+  <div class="type-study r-centered">
+    {% include "./type/_homepage-video-callout.html" %}
+  </div>
+  <h3 class="type-heading">Purchase Module</h3>
+  <div class="type-study r-centered">
+    {% include "./type/_purchase-module.html" %}
+  </div>
+  <h3 class="type-heading">Paired with H1</h3>
+  <div class="type-study paired-h1">
+    {% include "./type/_paired-with-h1.html" %}
+  </div>
+  <h3 class="type-heading">Paired with H2</h3>
+  <div class="type-study">
+    {% include "./type/_paired-with-h2.html" %}
+  </div>
+  <h3 class="type-heading">Paired with H3</h3>
+  <div class="type-study paired-h3 r-centered">
+    {% include "./type/_paired-with-h3.html" %}
+  </div>
+  <h3 class="type-heading">Paired with Body Serif</h3>
+  <div class="type-study">
+    {% include "./type/_paired-with-body-serif.html" %}
+  </div>
+  <h3 class="type-heading">Full Width</h3>
+  <div class="type-study">
+    {% include "./type/_full-width.html" %}
+  </div>
+  <h3 class="type-heading">Numerals (Large)</h3>
+  <div class="type-study">
+    {% include "./type/_numerals-large.html" %}
+  </div>
+  <h3 class="type-heading">Numerals (Medium)</h3>
+  <div class="type-study">
+    {% include "./type/_numerals-medium.html" %}
+  </div>
+  <h3 class="type-heading">Numerals (Small)</h3>
+  <div class="type-study r-centered">
+    {% include "./type/_numerals-small.html" %}
+  </div>
+  <h3 class="type-heading">Link (sans-serif)</h3>
+  <div class="type-study r-centered">
+    {% include "./type/_link-sans.html" %}
+  </div>
+  <h3 class="type-heading">Link (serif)</h3>
+  <div class="type-study r-centered">
+    {% include "./type/_link-serif.html" %}
+  </div>
+  <h3 class="type-heading">Form Field</h3>
+  <div class="type-study">
+    {% include "./type/_form-field.html" %}
+  </div>
+</div>
 
 {% endblock%}

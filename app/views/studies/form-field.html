@@ -1,0 +1,89 @@
+{% extends "./studies.html" %}
+
+{% macro form_field(type) %}
+<h3 class="type-heading">Form Field ({{ type }})</h3>
+<div class="type-study">
+  <div class="form-fieldset form-fieldset--payment" data-hook="" id="payment">
+  <div data-hook="checkout_payment_step">
+  <ul class="form-field-group--gateways" data-hook="" id="payment-methods">
+  <li class="form-payment-method form-payment-method-gateway js-form-payment-method-gateway" data-hook="" id="payment_method_2" style="display: list-item;">
+  <div class="form-field">
+  <label class="form-label" for="name_on_card_2">Name on card
+  <abbr class="is-required">
+  *
+  </abbr>
+  </label><input autocomplete="cc-name" class="form-input required" id="name_on_card_2" name="payment_source[2][name]" tabindex="1" type="text" value="Joseph Cortbawi">
+  </div>
+  <div class="form-field" data-hook="card_number">
+  <label class="form-label" for="card_number">Card Number
+  <abbr class="is-required">
+  *
+  </abbr>
+  <span class="card-type body--sans is-hidden -backdrop" id="js-card-type"></span>
+  </label><input autocomplete="cc-number" class="form-input js-form-input-card-number cardNumber required" id="card_number" inputmode="numeric" maxlength="19" name="payment_source[2][number]" pattern="d+" tabindex="1" type="text" value="" x-inputmode="numeric">
+  </div>
+  <div class="form-field-group">
+  <div class="form-field" data-hook="card_expiration">
+  <label class="form-label" for="card_expiry">Expiration
+  <abbr class="is-required">
+  *
+  </abbr>
+  </label><input autocomplete="cc-exp" class="required form-input js-form-input-expiry cardExpiry" id="card_expiry" name="payment_source[2][expiry]" placeholder="MM / YY" tabindex="1" type="text" value="">
+  </div>
+  <div class="form-field" data-hook="card_code">
+  <label class="form-label" for="card_code">Security Code
+  <abbr class="is-required">
+  *
+  </abbr>
+  </label><input autocomplete="cc-csc" class="form-input js-form-input-cvv cardCode required" id="card_code" inputmode="numeric" maxlength="5" name="payment_source[2][verification_value]" pattern="\d*" tabindex="1" type="text" value="" x-inputmode="numeric">
+  <p><a class="form-help" data-hook="cvv_link" href="/content/cvv" id="cvv_link" target="_blank">What's this?</a></p>
+  </div>
+  </div>
+  <input class="ccType" id="cc_type" name="payment_source[2][cc_type]" type="hidden" value="">
+  <div class="form-field form-field-card-scan is-hidden" id="js-form-field-card-scan">
+  <input autocomplate="off" class="js-form-input form-input" id="cardExpirationMonth" name="ios-expiry-month" type="text">
+  <input autocomplete="off" class="js-form-input form-input" id="cardExpirationYear" name="ios-expiry-year" type="text">
+  </div>
+
+  </li>
+  <li class="form-payment-method form-payment-method-affirm js-form-payment-method-affirm" data-hook="" id="payment_method_5" style="display: none;">
+  <div class="affirm-learn-more-section">
+  <h2 class="form-legend">0% FINANCING WITH AFFIRM</h2>
+  <div class="flash flash--notice affirm-coupon-codes is-hidden">
+  <p class="affirm-coupon-remove-text">Gift and offer codes are not valid for use by the customers that elect to finance their purchase through Affirm.</p>
+  <button class="btn btn--secondary coupon-remove-button" id="remove-promos-button" name="button" type="button">Remove Code</button>
+  </div>
+  <p class="-spaced">Affirm is a new service, created by PayPal founder Max Levchin, that offers straightforward financing.</p>
+  <p class="-spaced">Casper and Affirm have teamed up to provide interest-free and fee-free financing for your new mattress.</p>
+  <div class="learn-items">
+  <div class="financing-callout-item financing-callout-item--payment">
+  <h4>EASY MONTHLY PAYMENTS</h4>
+  <p class="-spaced">
+  Provide your basic information. Get instantly approved.
+  <br>
+  Pay over 6 months with 0% interest.
+  </p>
+  </div>
+  <div class="financing-callout-item financing-callout-item--flexible">
+  <h4>FLEXIBLE PAYMENT</h4>
+  <p class="-spaced">
+  Simply pay your monthly bill using a bank transfer, check, or debit card at
+  <a href="https://affirm.com" target="_blank">affirm.com</a>
+  </p>
+  </div>
+  </div>
+
+  </div>
+
+  </li>
+  </ul>
+  </div>
+  </div>
+</div>
+{% endmacro %}
+
+{% block type_study %}
+    {% for font in fonts %}
+      {{ form_field(font) }}
+    {% endfor %}
+{% endblock %}

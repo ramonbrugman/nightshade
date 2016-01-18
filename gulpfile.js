@@ -80,6 +80,13 @@ gulp.task('precompile', () => {
 });
 
 
+// Move fonts to dist
+gulp.task('fonts', () => {
+  return gulp.src(['./app/assets/fonts/*'])
+    .pipe(gulp.dest('./dist/assets/fonts'));
+});
+
+
 // Watch templates
 gulp.task('html-watch', ['compile', 'precompile'], browserSync.reload);
 
@@ -120,7 +127,7 @@ gulp.task('sassdoc', () => {
 
 
 // Start task (default gulp)
-gulp.task('default', ['compile', 'precompile', 'sass', 'sassdoc', 'browser-sync']);
+gulp.task('default', ['compile', 'precompile', 'fonts', 'sass', 'sassdoc', 'browser-sync']);
 
 
 // Build task

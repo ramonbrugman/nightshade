@@ -1,100 +1,113 @@
-<div class="tech-specs-section-copy tech-specs-dimensions-table-section">
-<table class="tech-specs-table">
-<tbody><tr class="tech-specs-table-row">
-<th class="tech-specs-table-corner"></th>
-<th class="tech-specs-table-header">
-Flat Sheet <br>(W x L)
-</th>
-<th class="tech-specs-table-header">
-Fitted Sheet <br>(W x L x D)
-</th>
-<th class="tech-specs-table-header">
-Duvet Cover <br>(W x L)
-</th>
-</tr>
-<tr class="tech-specs-table-row">
-<td class="tech-specs-table-cell-size tech-specs-dimensions-title">
-Twin
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-66” X 96”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-39” X 75” X 14”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-68” X 86”
-</td>
-</tr>
-<tr class="tech-specs-table-row">
-<td class="tech-specs-table-cell-size tech-specs-dimensions-title">
-Twin XL
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-66” X 96”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-39” X 80” X 14”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-68” X 86”
-</td>
-</tr>
-<tr class="tech-specs-table-row">
-<td class="tech-specs-table-cell-size tech-specs-dimensions-title">
-Full
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-81” X 96”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-54” X 75” X 14”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-88” X 92”
-</td>
-</tr>
-<tr class="tech-specs-table-row">
-<td class="tech-specs-table-cell-size tech-specs-dimensions-title">
-Queen
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-94” X 108”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-60” X 80” X 14”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-88” X 92”
-</td>
-</tr>
-<tr class="tech-specs-table-row">
-<td class="tech-specs-table-cell-size tech-specs-dimensions-title">
-King
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-112” X 108”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-76” X 80” X 14”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-106” X 92”
-</td>
-</tr>
-<tr class="tech-specs-table-row">
-<td class="tech-specs-table-cell-size tech-specs-dimensions-title">
-Cal King
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-112” X 108”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-72” X 84” X 14”
-</td>
-<td class="tech-specs-dimensions-size tech-specs-table-cell">
-106” X 92”
-</td>
-</tr>
-</tbody></table>
+{% extends "./studies.html" %}
+
+{% macro numerals_small(font) %}
+<h3 class="type-heading">Numerals (small) ({{ font }})</h3>
+<div class="type-study r-centered">
+  <div class="tech-specs-section-copy tech-specs-dimensions-table-section" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>
+  <table class="tech-specs-table">
+  <tbody><tr class="tech-specs-table-row">
+  <th class="tech-specs-table-corner"></th>
+  <th class="tech-specs-table-header">
+  Flat Sheet <br>(W x L)
+  </th>
+  <th class="tech-specs-table-header">
+  Fitted Sheet <br>(W x L x D)
+  </th>
+  <th class="tech-specs-table-header">
+  Duvet Cover <br>(W x L)
+  </th>
+  </tr>
+  <tr class="tech-specs-table-row">
+  <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+  Twin
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  66” X 96”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  39” X 75” X 14”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  68” X 86”
+  </td>
+  </tr>
+  <tr class="tech-specs-table-row">
+  <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+  Twin XL
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  66” X 96”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  39” X 80” X 14”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  68” X 86”
+  </td>
+  </tr>
+  <tr class="tech-specs-table-row">
+  <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+  Full
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  81” X 96”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  54” X 75” X 14”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  88” X 92”
+  </td>
+  </tr>
+  <tr class="tech-specs-table-row">
+  <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+  Queen
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  94” X 108”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  60” X 80” X 14”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  88” X 92”
+  </td>
+  </tr>
+  <tr class="tech-specs-table-row">
+  <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+  King
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  112” X 108”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  76” X 80” X 14”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  106” X 92”
+  </td>
+  </tr>
+  <tr class="tech-specs-table-row">
+  <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+  Cal King
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  112” X 108”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  72” X 84” X 14”
+  </td>
+  <td class="tech-specs-dimensions-size tech-specs-table-cell">
+  106” X 92”
+  </td>
+  </tr>
+  </tbody></table>
+  </div>
 </div>
+{% endmacro %}
+
+{% block type_study %}
+    {% for font in fonts %}
+      {{ numerals_small(font) }}
+    {% endfor %}
+{% endblock %}

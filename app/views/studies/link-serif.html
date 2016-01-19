@@ -1,3 +1,16 @@
-<div class="form-help">
-<a class="add-to-cart-financing-link" href="#">0% financing for $<span class="js-financing-amount">142</span>/month
-</a></div>
+{% extends "./studies.html" %}
+
+{% macro link_serif(font) %}
+<h3 class="type-heading">Link (serif) ({{ font }})</h3>
+<div class="type-study r-centered">
+  <div class="form-help">
+  <a class="add-to-cart-financing-link" href="#" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>0% financing for $<span class="js-financing-amount">142</span>/month
+  </a></div>
+</div>
+{% endmacro %}
+
+{% block type_study %}
+    {% for font in fonts %}
+      {{ link_serif(font) }}
+    {% endfor %}
+{% endblock %}

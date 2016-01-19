@@ -1,6 +1,19 @@
-<div class="showroom-hours r-centered block">
-<h2>Walk-Ins Welcome</h2>
-<div class="body--sans">Mon 12pm-7pm</div>
-<div class="body--sans">Tues-Fri 10am-7pm</div>
-<div class="body--sans">Sat-Sun 10am-6pm</div>
+{% extends "./studies.html" %}
+
+{% macro numerals_medium(font) %}
+<h3 class="type-heading">Numerals (medium) ({{ font }})</h3>
+<div class="type-study">
+  <div class="showroom-hours r-centered block">
+  <h2>Walk-Ins Welcome</h2>
+  <div class="body--sans" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>Mon 12pm-7pm</div>
+  <div class="body--sans" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>Tues-Fri 10am-7pm</div>
+  <div class="body--sans" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>Sat-Sun 10am-6pm</div>
+  </div>
 </div>
+{% endmacro %}
+
+{% block type_study %}
+    {% for font in fonts %}
+      {{ numerals_medium(font) }}
+    {% endfor %}
+{% endblock %}

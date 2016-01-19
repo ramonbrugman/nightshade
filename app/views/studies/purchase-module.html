@@ -1,63 +1,86 @@
-<section class="add-to-cart">
-<div class="add-to-cart-inner r-section-wrapper">
-<h1 class="add-to-cart-title r-centered">The Casper Mattress</h1>
-<p class="product-description body--sans-small">Springy latex and high-density memory foams come together to create one perfect sleep surface.</p>
-<!-- / consider refactoring to make ships-by a module on the backend -->
-<ul class="product-purchase-details">
-</ul>
+{% extends "./studies.html" %}
 
-<form accept-charset="UTF-8" action="/orders/populate" data-remote="true" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"></div><div class="add-to-cart-form mattresses" data-hook="inside_product_cart_form" id="inside-product-cart-form" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-<div class="form-field--atc form-field--size">
-<div class="form-input--atc">
-<div class="size-selector js-size-selector size-selector--exposed">
-<span class="size-selector-exposed-cta">CHOOSE A SIZE:</span>
-<span class="size-selector-exposed-dimensions js-size-selector-exposed-dimensions">60” X 80” X 10”</span>
-<div class="size-selector-selected js-size-selector-selected">
-<span class="size-selector-name form-label--alt js-size-selector-name">Queen</span>
-<span class="size-selector-dimensions js-size-selector-dimensions">60” X 80” X 10”</span>
-</div>
-<input class="js-mattress-variant-id-input" id="variant_id" name="variant_id" type="hidden" value="5">
-<ul class="size-selector-options js-size-selector-options">
-<li class="size-selector-option js-size-selector-option" data-dimensions="39” X 75” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>500</span>" data-size="Twin" data-sku="CA001-01-GRY-1" data-variant-id="2">
-<span class="size-selector-name">Twin</span>
-<span class="size-selector-dimensions">39” X 75” X 10”</span>
-</li>
-<li class="size-selector-option js-size-selector-option" data-dimensions="39” X 80” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>600</span>" data-size="Twin XL" data-sku="CA001-01-GRY-2" data-variant-id="3">
-<span class="size-selector-name">Twin XL</span>
-<span class="size-selector-dimensions">39” X 80” X 10”</span>
-</li>
-<li class="size-selector-option js-size-selector-option" data-dimensions="54” X 75” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>750</span>" data-size="Full" data-sku="CA001-01-GRY-3" data-variant-id="4">
-<span class="size-selector-name">Full</span>
-<span class="size-selector-dimensions">54” X 75” X 10”</span>
-</li>
-<li class="size-selector-option js-size-selector-option is-selected" data-dimensions="60” X 80” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>850</span>" data-size="Queen" data-sku="CA001-01-GRY-4" data-variant-id="5">
-<span class="size-selector-name">Queen</span>
-<span class="size-selector-dimensions">60” X 80” X 10”</span>
-</li>
-<li class="size-selector-option js-size-selector-option" data-dimensions="76” X 80” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>950</span>" data-size="King" data-sku="CA001-01-GRY-5" data-variant-id="6">
-<span class="size-selector-name">King</span>
-<span class="size-selector-dimensions">76” X 80” X 10”</span>
-</li>
-<li class="size-selector-option js-size-selector-option" data-dimensions="72” X 84” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>950</span>" data-size="CAL King" data-sku="CA001-01-GRY-6" data-variant-id="7">
-<span class="size-selector-name">CAL King</span>
-<span class="size-selector-dimensions">72” X 84” X 10”</span>
-</li>
-</ul>
-</div>
+{% macro purchase_module(font, index) %}
+<h3 class="type-heading">Purchase Module ({{ font }})</h3>
+<div class="type-study r-centered study-{{ index }}">
+  {% if font != 'Verlag' %}
+    <style scoped>
+      .study-{{ index }} .body--sans-small,
+      .study-{{ index }} .size-selector--exposed .size-selector-exposed-cta,
+      .study-{{ index }} .size-selector--exposed .size-selector-exposed-dimensions,
+      .study-{{ index }} .size-selector--exposed .size-selector-option {
+        font-family: "{{ font }}";
+      }
+    </style>
+  {% endif %}
+  <section class="add-to-cart">
+  <div class="add-to-cart-inner r-section-wrapper">
+  <h1 class="add-to-cart-title r-centered">The Casper Mattress</h1>
+  <p class="product-description body--sans-small">Springy latex and high-density memory foams come together to create one perfect sleep surface.</p>
+  <!-- / consider refactoring to make ships-by a module on the backend -->
+  <ul class="product-purchase-details">
+  </ul>
 
-</div>
-</div>
-<input class="title" id="quantity" min="1" name="quantity" type="hidden" value="1">
-<link href="http://schema.org/InStock" itemprop="availability">
-<div class="form-actions"><div class="form-field form-field--price">
-<div class="form-input--price is-us js-add-to-cart-price-text" itemprop="price"><span class="currency-unit">$</span><span class="currency-value">850</span></div>
-</div><button class="btn btn--accent btn--loading add-to-cart-button js-add-to-cart-button" name="button" type="submit">Add To Cart
-</button></div>
-<div class="form-help">
-<a class="add-to-cart-financing-link" href="#">0% financing for $<span class="js-financing-amount">142</span>/month
-</a></div>
-</div>
-</form>
+  <form accept-charset="UTF-8" action="/orders/populate" data-remote="true" method="post"><div style="display:none"><input name="utf8" type="hidden" value="✓"></div><div class="add-to-cart-form mattresses" data-hook="inside_product_cart_form" id="inside-product-cart-form" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+  <div class="form-field--atc form-field--size">
+  <div class="form-input--atc">
+  <div class="size-selector js-size-selector size-selector--exposed">
+  <span class="size-selector-exposed-cta">CHOOSE A SIZE:</span>
+  <span class="size-selector-exposed-dimensions js-size-selector-exposed-dimensions">60” X 80” X 10”</span>
+  <div class="size-selector-selected js-size-selector-selected">
+  <span class="size-selector-name form-label--alt js-size-selector-name">Queen</span>
+  <span class="size-selector-dimensions js-size-selector-dimensions">60” X 80” X 10”</span>
+  </div>
+  <input class="js-mattress-variant-id-input" id="variant_id" name="variant_id" type="hidden" value="5">
+  <ul class="size-selector-options js-size-selector-options">
+  <li class="size-selector-option js-size-selector-option" data-dimensions="39” X 75” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>500</span>" data-size="Twin" data-sku="CA001-01-GRY-1" data-variant-id="2">
+  <span class="size-selector-name">Twin</span>
+  <span class="size-selector-dimensions">39” X 75” X 10”</span>
+  </li>
+  <li class="size-selector-option js-size-selector-option" data-dimensions="39” X 80” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>600</span>" data-size="Twin XL" data-sku="CA001-01-GRY-2" data-variant-id="3">
+  <span class="size-selector-name">Twin XL</span>
+  <span class="size-selector-dimensions">39” X 80” X 10”</span>
+  </li>
+  <li class="size-selector-option js-size-selector-option" data-dimensions="54” X 75” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>750</span>" data-size="Full" data-sku="CA001-01-GRY-3" data-variant-id="4">
+  <span class="size-selector-name">Full</span>
+  <span class="size-selector-dimensions">54” X 75” X 10”</span>
+  </li>
+  <li class="size-selector-option js-size-selector-option is-selected" data-dimensions="60” X 80” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>850</span>" data-size="Queen" data-sku="CA001-01-GRY-4" data-variant-id="5">
+  <span class="size-selector-name">Queen</span>
+  <span class="size-selector-dimensions">60” X 80” X 10”</span>
+  </li>
+  <li class="size-selector-option js-size-selector-option" data-dimensions="76” X 80” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>950</span>" data-size="King" data-sku="CA001-01-GRY-5" data-variant-id="6">
+  <span class="size-selector-name">King</span>
+  <span class="size-selector-dimensions">76” X 80” X 10”</span>
+  </li>
+  <li class="size-selector-option js-size-selector-option" data-dimensions="72” X 84” X 10”" data-price="<span class=&quot;currency-unit&quot;>$</span><span class=&quot;currency-value&quot;>950</span>" data-size="CAL King" data-sku="CA001-01-GRY-6" data-variant-id="7">
+  <span class="size-selector-name">CAL King</span>
+  <span class="size-selector-dimensions">72” X 84” X 10”</span>
+  </li>
+  </ul>
+  </div>
 
+  </div>
+  </div>
+  <input class="title" id="quantity" min="1" name="quantity" type="hidden" value="1">
+  <link href="http://schema.org/InStock" itemprop="availability">
+  <div class="form-actions"><div class="form-field form-field--price">
+  <div class="form-input--price is-us js-add-to-cart-price-text" itemprop="price"><span class="currency-unit">$</span><span class="currency-value">850</span></div>
+  </div><button class="btn btn--accent btn--loading add-to-cart-button js-add-to-cart-button" name="button" type="submit">Add To Cart
+  </button></div>
+  <div class="form-help">
+  <a class="add-to-cart-financing-link" href="#">0% financing for $<span class="js-financing-amount">142</span>/month
+  </a></div>
+  </div>
+  </form>
+
+  </div>
+  </section>
 </div>
-</section>
+{% endmacro %}
+
+{% block type_study %}
+    {% for font in fonts %}
+      {{ purchase_module(font, loop.index) }}
+    {% endfor %}
+{% endblock %}

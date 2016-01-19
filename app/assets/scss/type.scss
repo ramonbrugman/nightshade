@@ -27,8 +27,18 @@
 @import './node_modules/nightshade-styles/modules/products/purchase';
 @import './node_modules/nightshade-styles/modules/products/specs';
 @import './node_modules/nightshade-styles/modules/products/mattress/bundle';
+@import './node_modules/nightshade-styles/modules/products/sheets/infographic';
 @import './node_modules/nightshade-styles/modules/reviews/review';
 @import './node_modules/nightshade-styles/modules/pages/legal';
+
+.type-nav {
+  position: fixed;
+  top: 28px;
+  left: 13px;
+  padding: 7px 10px;
+  background: color(background);
+  border-radius: 5px;
+}
 
 .type-heading {
   padding-bottom: 0.5em;
@@ -82,11 +92,6 @@
   max-width: 425px;
   margin: 0 auto;
   padding-left: 0;
-}
-
-.sheets-infographic-option-copy {
-  display: inline-block;
-  max-width: 248px;
 }
 
 .review-details-wrapper {

@@ -7,28 +7,29 @@
 @import 'vendor/bower/accoutrement-pseudo/pseudo-elements';
 @import 'vendor/bower/susy/susy';
 
-@import './node_modules/nightshade-styles/plugins/positioning';
-@import './node_modules/nightshade-styles/plugins/z-index';
-@import './node_modules/nightshade-styles/plugins/queries_config';
-@import './node_modules/nightshade-styles/plugins/visual_utilities';
-@import './node_modules/nightshade-styles/plugins/animations';
-@import './node_modules/nightshade-styles/plugins/arrows_config';
 
-@import './node_modules/nightshade-styles/base/z-index_config';
-@import './node_modules/nightshade-styles/base/breakpoints_config';
-@import './node_modules/nightshade-styles/base/sizing_config';
-@import './node_modules/nightshade-styles/base/fonts_config';
-@import './node_modules/nightshade-styles/base/colors_config';
-@import './node_modules/nightshade-styles/base/typography/bundle';
-@import './node_modules/nightshade-styles/base/grids';
-@import './node_modules/nightshade-styles/base/base';
+@import './node_modules/@casper/nightshade-styles/utilities/positioning';
+@import './node_modules/@casper/nightshade-styles/utilities/z-index';
+@import './node_modules/@casper/nightshade-styles/utilities/queries_config';
+@import './node_modules/@casper/nightshade-styles/utilities/visual_utilities';
+@import './node_modules/@casper/nightshade-styles/utilities/animations';
+@import './node_modules/@casper/nightshade-styles/utilities/arrows_config';
+
+@import './node_modules/@casper/nightshade-styles/base/z-index_config';
+@import './node_modules/@casper/nightshade-styles/base/breakpoints_config';
+@import './node_modules/@casper/nightshade-styles/base/sizing_config';
+@import './node_modules/@casper/nightshade-styles/base/fonts_config';
+@import './node_modules/@casper/nightshade-styles/base/colors_config';
+@import './node_modules/@casper/nightshade-styles/base/typography/bundle';
+@import './node_modules/@casper/nightshade-styles/base/grids';
+@import './node_modules/@casper/nightshade-styles/base/base';
 
 
 // Casper modules
 //@import './app/modules/minicart/bundle';
 @import './app/modules/review_item/styles';
-@import './node_modules/nightshade-styles/modules/buttons';
-@import './node_modules/nightshade-styles/modules/forms/forms';
-@import './node_modules/nightshade-styles/modules/layout/bundle';
+@import './node_modules/@casper/nightshade-styles/modules/buttons';
+@import './node_modules/@casper/nightshade-styles/modules/forms/forms';
+@import './node_modules/@casper/nightshade-styles/modules/layout/bundle';
 
 // Local sass files that are app specific

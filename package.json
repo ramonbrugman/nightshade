@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/CasperSleep/Ando",
   "devDependencies": {
+    "@casper/nightshade-styles": "github:caspersleep/nightshade-styles",
     "browser-sync": "^2.10.0",
     "critical": "^0.7.0",
     "gulp": "^3.9.0",
@@ -29,7 +30,6 @@
     "gulp-sourcemaps": "^1.6.0",
     "istanbul": "^0.4.1",
     "jspm": "^0.16.19",
-    "nightshade-styles": "git+https://github.com/CasperSleep/nightshade-styles.git",
     "sassdoc": "^2.1.19"
   },
   "dependencies": {

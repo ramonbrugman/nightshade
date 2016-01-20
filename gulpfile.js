@@ -107,7 +107,7 @@ gulp.task('browser-sync', () => {
 
 
   gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ], browserSync.reload);
-  gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss' ], ['sass']);
+  gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss', './node_modules/@casper/nightshade-styles/**/*.scss' ], ['sass']);
   gulp.watch(['app/views/**/*.html', 'app/modules/**/*.html', 'app/templates/**/*.html', 'dist/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
 

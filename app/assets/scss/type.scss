@@ -30,6 +30,7 @@
 @import './node_modules/@casper/nightshade-styles/modules/products/sheets/infographic';
 @import './node_modules/@casper/nightshade-styles/modules/reviews/review';
 @import './node_modules/@casper/nightshade-styles/modules/pages/legal';
+@import 'sheets_purchase';
 
 .type-nav {
   position: fixed;
@@ -86,6 +87,30 @@
 
 .add-to-cart-inner {
   margin: 0 auto;
+}
+
+.type-study--sheets {
+  @include respond-at-and-above($break-large) {
+    background: color(light-background);
+  }
+
+  .fieldset-product-purchase-inner {
+    display: inline-block;
+    width: 50%;
+
+    @include respond-below($break-large - 1) {
+      width: 100%;
+    }
+  }
+}
+
+.product-purchase-details--ships-by {
+  margin-left: 0;
+  padding-left: 0;
+
+  &:before {
+    display: none;
+  }
 }
 
 .design-value-prop--fibers-copy-block,

@@ -1,7 +1,6 @@
-{% extends "./base.html" %}
+{% extends './base.html' %}
 
-{% import '../modules/icons/icons.html' as icon %}
-
+{% from '../modules/icons/icons.html' import icon %}
 
 
 {% block head_styles %}
@@ -12,12 +11,12 @@
 <div class="r-section-wrapper r-inner">
   <nav class="type-nav"><a href="/">< Back</a></nav>
 
-  {{ icon.icon('logo') }}
-  {{ icon.icon('cart-closed') }}
-  {{ icon.icon('dog') }}
-  {{ icon.icon('ear') }}
-  {{ icon.icon('edit') }}
-  {{ icon.icon('airbnb') }}
+  {{ icon('logo') }}
+  {{ icon('cart-closed') }}
+  {{ icon('dog') }}
+  {{ icon('ear') }}
+  {{ icon('edit') }}
+  {{ icon('airbnb') }}
 
 </div>
 {% endblock%}

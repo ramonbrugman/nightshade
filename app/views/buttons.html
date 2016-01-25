@@ -1,0 +1,68 @@
+{% extends "./base.html" %}
+
+{% import "../modules/buttons/buttons.html" %}
+
+{% block head_styles %}
+<style>
+  .button-row {
+    margin: 1em 0;
+  }
+  [data-button="play"] {
+    margin-top: 0;
+  }
+</style>
+{% endblock %}
+
+{% block body_content %}
+<div class="r-section-wrapper r-inner">
+  <nav class="type-nav"><a href="/">< Back</a></nav>
+  <h2>Buttons</h2>
+  <div class="button-row">
+    {{ button('Primary') }}
+  </div>
+  <div class="button-row">
+    {{ button('Secondary', 'secondary') }}
+  </div>
+  <div class="button-row">
+    {{ button('Accent', 'accent') }}
+  </div>
+  <div class="button-row">
+    {{ button('Ghost', 'ghost') }}
+  </div>
+  <div class="button-row">
+    {{ button('Simple', 'simple') }}
+  </div>
+  <div class="button-row">
+    {{ button('Play', 'play') }}
+  </div>
+
+  <h3>Small Buttons</h3>
+  <div class="button-row">
+    {{ button('Primary (small)', size='small') }}
+  </div>
+  <div class="button-row">
+    {{ button('Secondary (small)', 'secondary', 'small') }}
+  </div>
+  <div class="button-row">
+    {{ button('Accent (small)', 'accent', 'small') }}
+  </div>
+  <div class="button-row">
+    {{ button('Ghost (small)', 'ghost', 'small') }}
+  </div>
+  <div class="button-row">
+    {{ button('Simple (small)', 'simple', 'small') }}
+  </div>
+
+  <h3>Full Width Buttons</h3>
+  <div class="button-row">
+    {{ button('Primary (full)', size='full') }}
+  </div>
+  <div class="button-row">
+    {{ button('Secondary (full)', 'secondary', 'full') }}
+  </div>
+  <div class="button-row">
+    {{ button('Accent (full/small)', 'accent', 'full small') }}
+  </div>
+
+</div>
+{% endblock%}

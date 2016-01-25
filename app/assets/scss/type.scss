@@ -32,15 +32,6 @@
 @import './node_modules/@casper/nightshade-styles/modules/pages/legal';
 @import 'sheets_purchase';
 
-.type-nav {
-  position: fixed;
-  top: 28px;
-  left: 13px;
-  padding: 7px 10px;
-  background: color(background);
-  border-radius: 5px;
-}
-
 .type-heading {
   padding-bottom: 0.5em;
   border-bottom: 1px solid color(border);

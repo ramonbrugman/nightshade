@@ -1,0 +1,23 @@
+{% extends "./base.html" %}
+
+{% import '../modules/icons/icons.html' as icon %}
+
+
+
+{% block head_styles %}
+{% endblock %}
+
+
+{% block body_content %}
+<div class="r-section-wrapper r-inner">
+  <nav class="type-nav"><a href="/">< Back</a></nav>
+
+  {{ icon.icon('logo') }}
+  {{ icon.icon('cart-closed') }}
+  {{ icon.icon('dog') }}
+  {{ icon.icon('ear') }}
+  {{ icon.icon('edit') }}
+  {{ icon.icon('airbnb') }}
+
+</div>
+{% endblock%}

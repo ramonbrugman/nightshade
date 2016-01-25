@@ -2,11 +2,11 @@
 
 {% macro homepage_module(font) %}
 <h3 class="type-heading">Homepage Module ({{ font }})</h3>
-<div class="type-study homepage-module r-centered">
+<div class="type-study homepage-module r-centered ">
   <div class="sandwich__text">
     <h1 class="-dark">The Dream Team</h1>
     <p class="body--sans" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>More than a year in the making, our new sheets and pillow are engineered to perfectly complement the Casper mattress and create the world's best sleep environment.</p>
-    <a class="btn--ghost btn" href="/mattress">Shop the Mattress</a><a class="btn--ghost btn" href="/sheets">Shop the Sheets</a><a class="btn--ghost btn" href="/pillows">Shop the Pillow</a>
+    <a data-button="ghost" class="btn--ghost btn" href="/mattress">Shop the Mattress</a><a data-button="ghost" class="btn--ghost btn" href="/sheets">Shop the Sheets</a><a data-button="ghost" class="btn--ghost btn" href="/pillows">Shop the Pillow</a>
   </div>
 </div>
 {% endmacro %}

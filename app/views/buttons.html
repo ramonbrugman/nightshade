@@ -1,6 +1,6 @@
 {% extends "./base.html" %}
 
-{% import "../modules/buttons/buttons.html" %}
+{% from '../modules/buttons/buttons.html' import button %}
 
 {% block head_styles %}
 <style>
@@ -41,16 +41,10 @@
     {{ button('Primary (small)', size='small') }}
   </div>
   <div class="button-row">
-    {{ button('Secondary (small)', 'secondary', 'small') }}
+    {{ button('Secondary (small)', 'secondary', 'small', 'submit') }}
   </div>
   <div class="button-row">
     {{ button('Accent (small)', 'accent', 'small') }}
-  </div>
-  <div class="button-row">
-    {{ button('Ghost (small)', 'ghost', 'small') }}
-  </div>
-  <div class="button-row">
-    {{ button('Simple (small)', 'simple', 'small') }}
   </div>
 
   <h3>Full Width Buttons</h3>
@@ -62,6 +56,14 @@
   </div>
   <div class="button-row">
     {{ button('Accent (full/small)', 'accent', 'full small') }}
+  </div>
+
+  <h3>Button Links</h3>
+  <div class="button-row">
+    {{ button('Back to Index', type='link', href='/') }}
+  </div>
+  <div class="button-row">
+    {{ button('Casper.com', 'secondary', type='link', href='https://www.casper.com') }}
   </div>
 
 </div>

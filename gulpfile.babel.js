@@ -1,6 +1,4 @@
-
-gulp.task('default', ['static', 'test']);
-rt gulp from'gulp';
+import gulp from'gulp';
 import browsersync from 'browser-sync';
 import fs from'fs';
 import sass from'gulp-sass';
@@ -64,7 +62,7 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
 
 // Compile templates to html
 gulp.task('compile', () => {
-    nunjucksRender.nunjucks.configure(['./app/views'], {watch: false});
+    nunjucksRender.nunjucks.configure(['./app/views', './app/modules'], {watch: false});
     return gulp.src('./app/views/**/[^_]*.html')
       .pipe(nunjucksRender())
       .pipe(gulp.dest('./dist'));
@@ -97,7 +95,7 @@ gulp.task('browser-sync', () => {
       logPrefix: 'Ando',
       browser: false,
       server: {
-        baseDir: ['./app', './dist', './']
+        baseDir: ['./app', './dist', './', './node_modules/@casper']
       },
       middleware: function (req, res, next) {
           res.setHeader('Access-Control-Allow-Origin', '*');
@@ -108,7 +106,7 @@ gulp.task('browser-sync', () => {
 
   gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ], browserSync.reload);
   gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss', './node_modules/@casper/nightshade-styles/**/*.scss' ], ['sass']);
-  gulp.watch(['app/views/**/*.html', 'app/modules/**/*.html', 'app/templates/**/*.html', 'dist/**/*.html'], ['html-watch']);
+  gulp.watch(['./app/views/**/*.html', './app/modules/**/*.html', './app/templates/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
 
 });

@@ -29,7 +29,19 @@
 //@import './app/modules/minicart/bundle';
 @import './app/modules/review_item/styles';
 @import './node_modules/@casper/nightshade-styles/modules/buttons';
+@import './node_modules/@casper/nightshade-styles/modules/links';
 @import './node_modules/@casper/nightshade-styles/modules/forms/forms';
 @import './node_modules/@casper/nightshade-styles/modules/layout/bundle';
 
 // Local sass files that are app specific
+
+
+// Styles that need to be moved to files
+.type-nav {
+  position: fixed;
+  top: 28px;
+  left: 13px;
+  padding: 7px 10px;
+  background: color(background);
+  border-radius: 5px;
+}

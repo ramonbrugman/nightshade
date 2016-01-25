@@ -1,0 +1,7 @@
+{% macro button(text, style='primary', size=size, type='button', href=href) %}
+  {% if type == 'link' %}
+    <a href="{{ href }}" data-button="{{ style }}"{% if size %} data-size="{{ size }}"{% endif %}>{{ text }}</a>
+  {% else %}
+    <button type="{{ type }}" data-button="{{ style }}"{% if size %} data-size="{{ size }}"{% endif %}>{{ text }}</button>
+  {% endif %}
+{% endmacro %}

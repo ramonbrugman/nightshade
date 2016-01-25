@@ -1,20 +1,18 @@
-// 'use strict';
+import gulp from'gulp';
+import browsersync from 'browser-sync';
+import fs from'fs';
+import sass from'gulp-sass';
+import autoprefixer from'gulp-autoprefixer';
+import nunjucks from'gulp-nunjucks';
+import nunjucksRender from'gulp-nunjucks-render';
+// import mocha from'gulp-mocha';
+import critical from'critical';
+import sourcemaps from'gulp-sourcemaps';
+import concat from'gulp-concat';
+import rename from'gulp-rename';
+import sassdoc from'sassdoc';
 
-// require('babel-core/register');
-
-const gulp = require('gulp');
-const fs = require('fs');
-const browserSync = require('browser-sync').create();
-const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const nunjucks = require('gulp-nunjucks');
-const nunjucksRender = require('gulp-nunjucks-render');
-// const mocha = require('gulp-mocha');
-const critical = require('critical');
-const sourcemaps = require('gulp-sourcemaps');
-const concat = require('gulp-concat');
-const rename = require('gulp-rename');
-const sassdoc = require('sassdoc');
+const browserSync = browsersync.create();
 
 const file_paths =  {
     'base': './app',
@@ -64,7 +62,7 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
 
 // Compile templates to html
 gulp.task('compile', () => {
-    nunjucksRender.nunjucks.configure(['./app/views'], {watch: false});
+    nunjucksRender.nunjucks.configure(['./app/views', './app/modules'], {watch: false});
     return gulp.src('./app/views/**/[^_]*.html')
       .pipe(nunjucksRender())
       .pipe(gulp.dest('./dist'));
@@ -97,7 +95,7 @@ gulp.task('browser-sync', () => {
       logPrefix: 'Ando',
       browser: false,
       server: {
-        baseDir: ['./app', './dist', './']
+        baseDir: ['./app', './dist', './', './node_modules/@casper']
       },
       middleware: function (req, res, next) {
           res.setHeader('Access-Control-Allow-Origin', '*');
@@ -108,7 +106,7 @@ gulp.task('browser-sync', () => {
 
   gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ], browserSync.reload);
   gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss', './node_modules/@casper/nightshade-styles/**/*.scss' ], ['sass']);
-  gulp.watch(['app/views/**/*.html', 'app/modules/**/*.html', 'app/templates/**/*.html', 'dist/**/*.html'], ['html-watch']);
+  gulp.watch(['./app/views/**/*.html', './app/modules/**/*.html', './app/templates/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
 
 });
@@ -132,3 +130,4 @@ gulp.task('default', ['compile', 'precompile', 'fonts', 'sass', 'sassdoc', 'brow
 
 // Build task
 gulp.task('build', ['critical']);
+

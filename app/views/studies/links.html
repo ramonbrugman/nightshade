@@ -1,0 +1,15 @@
+{% extends "./studies.html" %}
+
+{% from './studies/macros.html' import link_sans, link_serif %}
+
+{% block type_study %}
+
+  {% for font in fonts %}
+    {{ link_sans(font) }}
+  {% endfor %}
+
+  {% for font in fonts %}
+    {{ link_serif(font) }}
+  {% endfor %}
+
+{% endblock %}

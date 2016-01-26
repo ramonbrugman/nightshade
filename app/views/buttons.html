@@ -15,7 +15,9 @@
 
 {% block body_content %}
 <div class="r-section-wrapper r-inner">
-  <nav class="type-nav"><a href="/">< Back</a></nav>
+  {{ button('< Back', 'ghost', 'small', 'link', href='/', class='btn-back') }}
+  {{ button('Background', 'ghost', 'small', class='toggle-background', id='toggle-background') }}
+
   <h2>Buttons</h2>
   <div class="button-row">
     {{ button('Primary') }}

@@ -1,7 +1,7 @@
-{% macro button(text, style='primary', size=size, type='button', href=href) %}
+{% macro button(text, style='primary', size=size, type='button', class=class, id=id, href=href) %}
   {% if type == 'link' %}
-    <a href="{{ href }}" data-button="{{ style }}"{% if size %} data-size="{{ size }}"{% endif %}>{{ text }}</a>
+    <a href="{{ href }}" data-button="{{ style }}"{% if size %} data-size="{{ size }}"{% endif %}{% if class %} class="{{ class }}"{% endif %}{% if id %} id="{{ id }}"{% endif %}>{{ text }}</a>
   {% else %}
-    <button type="{{ type }}" data-button="{{ style }}"{% if size %} data-size="{{ size }}"{% endif %}>{{ text }}</button>
+    <button type="{{ type }}" data-button="{{ style }}"{% if size %} data-size="{{ size }}"{% endif %}{% if class %} class="{{ class }}"{% endif %}{% if id %} id="{{ id }}"{% endif %}>{{ text }}</button>
   {% endif %}
 {% endmacro %}

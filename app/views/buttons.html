@@ -33,7 +33,7 @@
     {{ button('Simple', 'simple') }}
   </div>
   <div class="button-row">
-    {{ button('Play', 'play') }}
+    {{ button('Play', 'play', id='btn-play') }}
   </div>
 
   <h3>Small Buttons</h3>
@@ -60,7 +60,7 @@
 
   <h3>Button Links</h3>
   <div class="button-row">
-    {{ button('Back to Index', type='link', href='/') }}
+    {{ button('Back to Index', type='link', href='/', class='js-btn-back') }}
   </div>
   <div class="button-row">
     {{ button('Casper.com', 'secondary', type='link', href='https://www.casper.com') }}

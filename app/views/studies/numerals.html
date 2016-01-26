@@ -1,0 +1,19 @@
+{% extends "./studies.html" %}
+
+{% from './studies/macros.html' import numerals_large, numerals_medium, numerals_small %}
+
+{% block type_study %}
+
+  {% for font in fonts %}
+    {{ numerals_large(font) }}
+  {% endfor %}
+
+  {% for font in fonts %}
+    {{ numerals_medium(font) }}
+  {% endfor %}
+
+  {% for font in fonts %}
+    {{ numerals_small(font) }}
+  {% endfor %}
+
+{% endblock %}

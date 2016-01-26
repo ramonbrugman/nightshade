@@ -1,6 +1,7 @@
 {% extends './base.html' %}
 
 {% from '../modules/icons/icons.html' import icon %}
+{% from '../modules/buttons/buttons.html' import button %}
 
 
 {% block head_styles %}
@@ -9,7 +10,7 @@
 
 {% block body_content %}
 <div class="r-section-wrapper r-inner">
-  <nav class="type-nav"><a href="/">< Back</a></nav>
+  {{ button('< Back', 'ghost', 'small', 'link', href='/', class='btn-back') }}
 
   {{ icon('logo') }}
   {{ icon('cart-closed') }}

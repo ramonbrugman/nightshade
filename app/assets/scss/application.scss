@@ -37,11 +37,18 @@
 
 
 // Styles that need to be moved to files
-.type-nav {
+.btn-back {
   position: fixed;
-  top: 28px;
-  left: 13px;
-  padding: 7px 10px;
-  background: color(background);
-  border-radius: 5px;
+  top: 20px;
+  left: 20px;
+}
+
+.toggle-background {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.background-gray {
+  background: color(light-background);
 }

@@ -31,5 +31,10 @@
       } );
     {% endblock %}
   </script>
+  <script>
+    document.getElementById('toggle-background').addEventListener('click', function() {
+      document.documentElement.classList.toggle('background-gray');
+    });
+  </script>
 
 </html>

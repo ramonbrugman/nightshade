@@ -1,15 +1,18 @@
 {% extends "./base.html" %}
 
+{% from '../modules/buttons/buttons.html' import button %}
+
 {% block head_styles %}
 <link href="/dist/assets/css/fonts.css" media="screen" rel="stylesheet">
 <link href="/dist/assets/css/type.css" media="screen" rel="stylesheet">
 {% endblock %}
 
-{% set fonts = ['Verlag', 'Calibre Light', 'Apercu Light', 'Avenir Next Regular', 'Brandon Light', 'Nobel Light'] %}
+{% set fonts = ['Calibre Light'] %}
 
 {% block body_content %}
 <div class="r-section-wrapper r-inner">
-  <nav class="type-nav"><a href="/">< Back</a></nav>
+  {{ button('< Back', 'ghost', 'small', 'link', href='/', class='btn-back') }}
+  {{ button('Background', 'ghost', 'small', class='toggle-background', id='toggle-background') }}
 
   {% block type_study %}{% endblock %}
 

@@ -1,12 +1,10 @@
 // CORE site configuration files
 // These files do not generate output and are used across the site
 
-
 @import 'vendor/bower/accoutrement-a11y/a11y';
 @import 'vendor/bower/accoutrement-color/color';
 @import 'vendor/bower/accoutrement-pseudo/pseudo-elements';
 @import 'vendor/bower/susy/susy';
-
 
 @import './node_modules/@casper/nightshade-styles/utilities/positioning';
 @import './node_modules/@casper/nightshade-styles/utilities/z-index';
@@ -24,6 +22,7 @@
 @import './node_modules/@casper/nightshade-styles/base/grids';
 @import './node_modules/@casper/nightshade-styles/base/base';
 
+@import './node_modules/@casper/nightshade-styles/utilities/display_helpers';
 
 // Casper modules
 //@import './app/modules/minicart/bundle';
@@ -34,7 +33,6 @@
 @import './node_modules/@casper/nightshade-styles/modules/layout/bundle';
 
 // Local sass files that are app specific
-
 
 // Styles that need to be moved to files
 .btn-back {

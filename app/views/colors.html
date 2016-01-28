@@ -9,18 +9,31 @@
   .color-swatches-item {
     display: inline-block;
     vertical-align: top;
-    margin: 0 1em 1em;
+    margin: 0 0.85rem 0.85rem;
+    text-align: left;
+      font-size: 0.85em;
   }
   .color-swatches-swatch {
     width: 140px;
     height: 140px;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
   }
-  .color-swatches-name {
-    font-size: 0.85em;
+  .color-swatches-name,
+  .color-swatches-hex,
+  .color-swatches-cmyk {
+    display: block;
   }
 </style>
 {% endblock %}
+
+{% macro color_swatch(name, hex, cmyk) %}
+<div class="color-swatches-item">
+  <div class="color-swatches-swatch" style="background-color: {{ hex }}"></div>
+  <code class="color-swatches-name">{{ name }}</code>
+  <code class="color-swatches-hex">{{ hex }}</code>
+  <code class="color-swatches-cmyk">{{ cmyk }}</code>
+</div>
+{% endmacro %}
 
 {% block body_content %}
 <div class="r-section-wrapper r-inner r-centered">
@@ -28,38 +41,14 @@
   {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
 
   <h2>Colors</h2>
-  <ul class="color-swatches">
-    <li class="color-swatches-item">
-      <div class="color-swatches-swatch" style="background-color: #00237e"></div>
-      <code class="color-swatches-name">primary</code><br>
-      <code>#00237e</code>
-    </li><!--
- --><li class="color-swatches-item">
-      <div class="color-swatches-swatch" style="background-color: #001856"></div>
-      <code class="color-swatches-name">primary-dark</code><br>
-      <code>#001856</code>
-    </li><!--
- --><li class="color-swatches-item">
-      <div class="color-swatches-swatch" style="background-color: #5fe6be"></div>
-      <code class="color-swatches-name">secondary</code><br>
-      <code>#5fe6be</code>
-    </li><!--
- --><li class="color-swatches-item">
-      <div class="color-swatches-swatch" style="background-color: #ec5446"></div>
-      <code class="color-swatches-name">accent</code><br>
-      <code>#ec5446</code>
-    </li><!--
- --><li class="color-swatches-item">
-      <div class="color-swatches-swatch" style="background-color: #ffffff; border: 1px solid #dbdbdb;"></div>
-      <code class="color-swatches-name">background</code><br>
-      <code>#ffffff</code>
-    </li><!--
- --><li class="color-swatches-item">
-      <div class="color-swatches-swatch" style="background-color: #f5f5f5"></div>
-      <code class="color-swatches-name">light-background</code><br>
-      <code>#f5f5f5</code>
-    </li>
-  </ul>
+  <div class="color-swatches">
+    {{ color_swatch('primary', '#00237e', '100, 94, 20, 12') }}
+    {{ color_swatch('primary-dark', '#001856', '0, 0, 0, 0') }}
+    {{ color_swatch('secondary', '#5fe6be', '100, 94, 20, 12') }}
+    {{ color_swatch('accent', '#ec5446', '0, 0, 0, 0') }}
+    {{ color_swatch('background', '#ffffff', '0, 0, 0, 0') }}
+    {{ color_swatch('light-background', '#f5f5f5', '0, 0, 0, 0') }}
+  </div>
 
 </div>
 {% endblock%}

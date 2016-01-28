@@ -1,0 +1,65 @@
+{% extends "./base.html" %}
+
+{% from '../modules/buttons/buttons.html' import button %}
+
+{% block title %}Colors | Nightshade{% endblock %}
+
+{% block head_styles %}
+<style>
+  .color-swatches-item {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 1em 1em;
+  }
+  .color-swatches-swatch {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 0.5em;
+  }
+  .color-swatches-name {
+    font-size: 0.85em;
+  }
+</style>
+{% endblock %}
+
+{% block body_content %}
+<div class="r-section-wrapper r-inner r-centered">
+  {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
+  {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
+
+  <h2>Colors</h2>
+  <ul class="color-swatches">
+    <li class="color-swatches-item">
+      <div class="color-swatches-swatch" style="background-color: #00237e"></div>
+      <code class="color-swatches-name">primary</code><br>
+      <code>#00237e</code>
+    </li><!--
+ --><li class="color-swatches-item">
+      <div class="color-swatches-swatch" style="background-color: #001856"></div>
+      <code class="color-swatches-name">primary-dark</code><br>
+      <code>#001856</code>
+    </li><!--
+ --><li class="color-swatches-item">
+      <div class="color-swatches-swatch" style="background-color: #5fe6be"></div>
+      <code class="color-swatches-name">secondary</code><br>
+      <code>#5fe6be</code>
+    </li><!--
+ --><li class="color-swatches-item">
+      <div class="color-swatches-swatch" style="background-color: #ec5446"></div>
+      <code class="color-swatches-name">accent</code><br>
+      <code>#ec5446</code>
+    </li><!--
+ --><li class="color-swatches-item">
+      <div class="color-swatches-swatch" style="background-color: #ffffff; border: 1px solid #dbdbdb;"></div>
+      <code class="color-swatches-name">background</code><br>
+      <code>#ffffff</code>
+    </li><!--
+ --><li class="color-swatches-item">
+      <div class="color-swatches-swatch" style="background-color: #f5f5f5"></div>
+      <code class="color-swatches-name">light-background</code><br>
+      <code>#f5f5f5</code>
+    </li>
+  </ul>
+
+</div>
+{% endblock%}

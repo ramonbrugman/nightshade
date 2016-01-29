@@ -1,0 +1,50 @@
+{% extends "./base.html" %}
+
+{% from '../modules/buttons/buttons.html' import button %}
+
+{% block title %}Colors | Nightshade{% endblock %}
+
+{% block head_styles %}
+<link href="/dist/assets/css/colors.css" media="screen" rel="stylesheet">
+{% endblock %}
+
+{% macro color_swatch(name, hex, cmyk, class=class) %}
+<div class="color-swatches-item">
+  <div class="color-swatches-swatch {{ class }}" {% if not class %}style="background-color: {{ hex }}"{% endif %}></div>
+  <code class="color-swatches-name">{{ name }}</code>
+  <code class="color-swatches-hex">{{ hex }}</code>
+  <code class="color-swatches-cmyk">{{ cmyk }}</code>
+</div>
+{% endmacro %}
+
+{% block body_content %}
+<div class="r-section-wrapper r-inner r-centered">
+  {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
+  {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
+
+  <h2>Colors</h2>
+  <div class="color-swatches">
+    {{ color_swatch('primary', '#00237e', '100, 94, 20, 12') }}
+    {{ color_swatch('primary-dark', '#001856', '0, 0, 0, 0') }}
+    {{ color_swatch('secondary', '#5fe6be', '100, 94, 20, 12') }}
+    {{ color_swatch('accent', '#ec5446', '0, 0, 0, 0') }}
+    {{ color_swatch('background', '#ffffff', '0, 0, 0, 0') }}
+    {{ color_swatch('light-background', '#f5f5f5', '0, 0, 0, 0') }}
+  </div>
+  <h3>Color Shades (15% steps)</h3>
+  <div class="color-swatches">
+    {{ color_swatch('primary--light1', '', '', 'primary--light1') }}
+    {{ color_swatch('primary--light2', '', '', 'primary--light2') }}
+    {{ color_swatch('primary--light3', '', '', 'primary--light3') }}
+    {{ color_swatch('primary--light4', '', '', 'primary--light4') }}
+    {{ color_swatch('primary--light5', '', '', 'primary--light5') }}
+    <br>
+    {{ color_swatch('secondary--dark1', '', '', 'secondary--dark1') }}
+    {{ color_swatch('secondary--dark2', '', '', 'secondary--dark2') }}
+    {{ color_swatch('secondary--dark3', '', '', 'secondary--dark3') }}
+    {{ color_swatch('secondary--dark4', '', '', 'secondary--dark4') }}
+    {{ color_swatch('secondary--dark5', '', '', 'secondary--dark5') }}
+  </div>
+
+</div>
+{% endblock%}

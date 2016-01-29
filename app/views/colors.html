@@ -5,30 +5,12 @@
 {% block title %}Colors | Nightshade{% endblock %}
 
 {% block head_styles %}
-<style>
-  .color-swatches-item {
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 0.85rem 0.85rem;
-    text-align: left;
-      font-size: 0.85em;
-  }
-  .color-swatches-swatch {
-    width: 140px;
-    height: 140px;
-    margin-bottom: 0.5rem;
-  }
-  .color-swatches-name,
-  .color-swatches-hex,
-  .color-swatches-cmyk {
-    display: block;
-  }
-</style>
+<link href="/dist/assets/css/colors.css" media="screen" rel="stylesheet">
 {% endblock %}
 
-{% macro color_swatch(name, hex, cmyk) %}
+{% macro color_swatch(name, hex, cmyk, class=class) %}
 <div class="color-swatches-item">
-  <div class="color-swatches-swatch" style="background-color: {{ hex }}"></div>
+  <div class="color-swatches-swatch {{ class }}" {% if not class %}style="background-color: {{ hex }}"{% endif %}></div>
   <code class="color-swatches-name">{{ name }}</code>
   <code class="color-swatches-hex">{{ hex }}</code>
   <code class="color-swatches-cmyk">{{ cmyk }}</code>
@@ -48,6 +30,20 @@
     {{ color_swatch('accent', '#ec5446', '0, 0, 0, 0') }}
     {{ color_swatch('background', '#ffffff', '0, 0, 0, 0') }}
     {{ color_swatch('light-background', '#f5f5f5', '0, 0, 0, 0') }}
+  </div>
+  <h3>Color Shades (15% steps)</h3>
+  <div class="color-swatches">
+    {{ color_swatch('primary--light1', '', '', 'primary--light1') }}
+    {{ color_swatch('primary--light2', '', '', 'primary--light2') }}
+    {{ color_swatch('primary--light3', '', '', 'primary--light3') }}
+    {{ color_swatch('primary--light4', '', '', 'primary--light4') }}
+    {{ color_swatch('primary--light5', '', '', 'primary--light5') }}
+    <br>
+    {{ color_swatch('primary--dark1', '', '', 'primary--dark1') }}
+    {{ color_swatch('primary--dark2', '', '', 'primary--dark2') }}
+    {{ color_swatch('primary--dark3', '', '', 'primary--dark3') }}
+    {{ color_swatch('primary--dark4', '', '', 'primary--dark4') }}
+    {{ color_swatch('primary--dark5', '', '', 'primary--dark5') }}
   </div>
 
 </div>

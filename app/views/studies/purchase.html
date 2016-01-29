@@ -10,6 +10,8 @@
     {{ purchase_module(font, loop.index) }}
   {% endfor %}
 
+	{{ purchase_module('Verlag', 2) }}
+
   {% for font in fonts %}
     {{ sheets_purchase_module(font, loop.index) }}
   {% endfor %}

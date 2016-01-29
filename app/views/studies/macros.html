@@ -24,10 +24,7 @@
 <div class="type-study r-centered study-{{ index }}">
   {% if font != 'Verlag' %}
     <style scoped>
-      .study-{{ index }} .body--sans-small,
-      .study-{{ index }} .size-selector--exposed .size-selector-exposed-cta,
-      .study-{{ index }} .size-selector--exposed .size-selector-exposed-dimensions,
-      .study-{{ index }} .size-selector--exposed .size-selector-option {
+      .study-{{ index }} .body--sans-small {
         font-family: "{{ font }}";
       }
     </style>
@@ -1123,7 +1120,7 @@
 <div class="type-study">
   <div class="design-value-prop--fibers-copy-block">
   <h1 class="-dark">Friendly Fibers</h1>
-  <p class="body--sans design-value-prop-copy-paragraph" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>
+  <p class="body--sans-large design-value-prop-copy-paragraph" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>
   Ultimately, we determined the best solution was to fill our pillow with synthetic fibers, which are specifically engineered to suit a wide range of needs. They have properties that surpass down, they’re hypoallergenic, and they last longer than other fill types.
   </p>
   </div>
@@ -1135,7 +1132,7 @@
 <div class="type-study">
   <div class="product-prop-info">
   <h2 class="product-prop-title -dark">JUST THE RIGHT SINK,<br> JUST THE RIGHT BOUNCE</h2>
-  <p class="product-prop-copy body--sans" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>Our patent-pending combination of latex and memory foams offers the perfect balance of contouring comfort and healthy bounce, creating an award-winning sleep surface that conforms to your body with minimal sinkage.</p>
+  <p class="product-prop-copy body--sans-medium" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>Our patent-pending combination of latex and memory foams offers the perfect balance of contouring comfort and healthy bounce, creating an award-winning sleep surface that conforms to your body with minimal sinkage.</p>
   </div>
 </div>
 {% endmacro %}
@@ -1146,15 +1143,15 @@
 
   <ul class="js-sheets-infographic-gallery product-infographic-options sheets-infographic-options">
   <li class="product-infographic-option sheets-infographic-option sheets-infographic-option--flat-sheet">
-  <h3 class="product-infographic-option-title sheets-infographic-option-title">
+  <h4 class="product-infographic-option-title sheets-infographic-option-title">
   FLAT SHEET
-  </h3>
+  </h4>
   <p class="body--sans-small product-infographic-option-copy sheets-infographic-option-copy" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>
   A classic cuff runs along both sides of the top edge, so you’ll always know which end is which. It’s also perfect for folding down and tucking in.
   </p>
   </li>
   <li class="product-infographic-option sheets-infographic-option sheets-infographic-option--fitted-sheet">
-  <h3 class="product-infographic-option-title sheets-infographic-option-title">
+  <h4 class="product-infographic-option-title sheets-infographic-option-title">
   FITTED SHEET
   </h3>
   <p class="body--sans-small product-infographic-option-copy sheets-infographic-option-copy" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>
@@ -1162,17 +1159,17 @@
   </p>
   </li>
   <li class="product-infographic-option sheets-infographic-option sheets-infographic-option--pillowcases">
-  <h3 class="product-infographic-option-title sheets-infographic-option-title">
+  <h4 class="product-infographic-option-title sheets-infographic-option-title">
   PILLOWCASES
-  </h3>
+  </h4>
   <p class="body--sans-small product-infographic-option-copy sheets-infographic-option-copy" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>
   The envelope closure keeps your pillow in place and out of sight. The breathable percale weave also keeps you cool through the night.
   </p>
   </li>
   <li class="product-infographic-option sheets-infographic-option sheets-infographic-option--duvet-cover">
-  <h3 class="product-infographic-option-title sheets-infographic-option-title">
+  <h4 class="product-infographic-option-title sheets-infographic-option-title">
   DUVET COVER
-  </h3>
+  </h4>
   <p class="body--sans-small product-infographic-option-copy sheets-infographic-option-copy" {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>
   With soft sheeting material on both sides, the duvet cover can be easily flipped. Even smarter, hidden openings offer easy access to the securing snaps in each corner.
   </p>
@@ -1205,15 +1202,15 @@
 
   <p {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>Your new Casper mattress is covered by a 10 year limited warranty (the “<strong>Mattress Warranty</strong>”).This limited Mattress Warranty gives you specific legal rights, and you may also have other rights which vary from state to state.</p>
 
-  <h3 id="a-products-covered-by-this-limited-mattress-warranty">A. Products Covered by this Limited Mattress Warranty</h3>
+  <h4 id="a-products-covered-by-this-limited-mattress-warranty">A. Products Covered by this Limited Mattress Warranty</h3>
 
   <p {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>This limited Mattress Warranty extends to mattresses manufactured by Casper Sleep, Inc. (“<strong>Casper</strong>”) and purchased directly from Casper or Casper’s authorized retailers (the “<strong>Mattresses</strong>”). Some parts of this limited Mattress Warranty also extend to covers sold with Mattresses (“<strong>Mattress Covers</strong>”). Mattresses are designed to work on a firm, solid-surface, on a bed base that is structurally capable of supporting the weight of the Mattress and user(s). This Mattress Warranty does not cover your Product if you use it in a manner incompatible with that intended design.</p>
 
-  <h3 id="b-who-this-mattress-warranty-extends-to">B. Who this Mattress Warranty Extends To</h3>
+  <h4 id="b-who-this-mattress-warranty-extends-to">B. Who this Mattress Warranty Extends To</h3>
 
   <p {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>This limited Mattress Warranty extends to the original purchaser of any Mattress. All Casper warranties, including any implied warranties, are valid only for the period of time the Mattress is owned by the original purchaser of the Mattress. The “original purchaser,” for the purposes of this Mattress Warranty, is the first purchaser of the Mattress from Casper or a Casper authorized retailer.&nbsp;<strong>Please retain a copy of your receipt as proof of purchase</strong>.&nbsp;All Casper limited warranties are not transferable.</p>
 
-  <h3 id="c-caspers-limited-mattress-warranty-and-responsibilities">C. Casper's Limited Mattress Warranty and Responsibilities</h3>
+  <h4 id="c-caspers-limited-mattress-warranty-and-responsibilities">C. Casper's Limited Mattress Warranty and Responsibilities</h3>
 
   <p {% if font != 'Verlag' %}style="font-family: '{{ font }}'"{% endif %}>Casper warrants the Mattress in its original packaging sold to you against the defects in material and workmanship set forth below (“<strong>Defects</strong>”) for a period of 10 years from the time your Mattress is purchased by you, when the Mattress is used normally for its intended purposes and on a bed base that is structurally capable of supporting the weight of the Mattress and user(s).</p>
   </section>

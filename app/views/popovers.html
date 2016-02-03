@@ -1,0 +1,27 @@
+{% extends "./base.html" %}
+
+{% from '../modules/buttons/buttons.html' import button %}
+
+{% block title %}Popovers | Nightshade{% endblock %}
+
+{% block head_styles %}
+<style>
+</style>
+{% endblock %}
+
+{% block body_content %}
+<div class="r-section-wrapper r-inner">
+  {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
+  {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
+
+  <h2>Popovers</h2>
+
+
+</div>
+{% endblock%}
+
+{% block module_loader %}
+  System.import('modules/popovers/Popovers.js').then( function(mod){
+    mod.Popovers.init();
+  } );
+{% endblock %}

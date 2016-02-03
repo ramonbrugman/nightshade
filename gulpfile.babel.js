@@ -1,16 +1,18 @@
-import gulp from'gulp';
+import gulp from 'gulp';
 import browsersync from 'browser-sync';
-import fs from'fs';
-import sass from'gulp-sass';
-import autoprefixer from'gulp-autoprefixer';
-import nunjucks from'gulp-nunjucks';
-import nunjucksRender from'gulp-nunjucks-render';
-// import mocha from'gulp-mocha';
-import critical from'critical';
-import sourcemaps from'gulp-sourcemaps';
-import concat from'gulp-concat';
-import rename from'gulp-rename';
-import sassdoc from'sassdoc';
+import fs from 'fs';
+import sass from 'gulp-sass';
+import autoprefixer from 'gulp-autoprefixer';
+import nunjucks from 'gulp-nunjucks';
+import nunjucksRender from 'gulp-nunjucks-render';
+// import mocha from 'gulp-mocha';
+import critical from 'critical';
+import sourcemaps from 'gulp-sourcemaps';
+import concat from 'gulp-concat';
+import rename from 'gulp-rename';
+import sassdoc from 'sassdoc';
+import nodesass from 'node-sass';
+import importOnce from 'node-sass-import-once';
 
 const browserSync = browsersync.create();
 
@@ -23,6 +25,29 @@ const file_paths =  {
     'views': './app/views/'
 };
 
+// Import Colors JSON as Sass map
+sass.render({
+  file: './app/assets/test/colors.json',
+  importer: importOnce,
+  importOnce: {
+    index: false,
+    css: false,
+    bower: false
+  }
+});
+gulp.task('import-colors', () => {
+  return gulp.src(['./app/assets/test/*'])
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      importer: importOnce,
+      importOnce: {
+        index: true,
+        css: true,
+        bower: true
+      }
+    }).on('error', sass.logError))
+    .pipe(gulp.dest('./dist/assets/css/imports'));
+});
 
 // Run tests
 // gulp.task('test', () => {
@@ -130,4 +155,3 @@ gulp.task('default', ['compile', 'precompile', 'fonts', 'sass', 'sassdoc', 'brow
 
 // Build task
 gulp.task('build', ['critical']);
-

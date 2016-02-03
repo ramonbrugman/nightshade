@@ -6,7 +6,12 @@
     $i: index($steps, $step);
     $background-color: mix(color($colorName), $mixColor, (100 - $step));
     .#{$colorName}--#{$type}#{$i} {
-      background: $background-color;
+      .color-swatches-swatch {
+        background: $background-color;
+      }
+      .color-swatches-hex:before {
+        content: "#{$background-color}";
+      }
     }
   }
 }

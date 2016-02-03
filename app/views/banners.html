@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+
+{% from '../modules/buttons/buttons.html' import button %}
+
+{% block title %}Banners | Nightshade{% endblock %}
+
+{% block head_styles %}
+<link href="/dist/assets/css/fonts.css" media="screen" rel="stylesheet">
+<style>
+  [data-banner] {
+    margin-bottom: 2em;
+  }
+</style>
+{% endblock %}
+
+{% block body_content %}
+<div class="r-section-wrapper r-centered">
+  {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
+  {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
+
+  <h2>Banners</h2>
+  <div data-banner>
+    <p data-banner-inner>Free shipping and returns on all orders</p>
+  </div>
+  <div data-banner="background">
+    <p data-banner-inner>Banner with white background</p>
+  </div>
+
+</div>
+{% endblock%}

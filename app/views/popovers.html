@@ -1,6 +1,7 @@
 {% extends "./base.html" %}
 
 {% from '../modules/buttons/buttons.html' import button %}
+{% from '../modules/popovers/popovers.html' import popover %}
 
 {% block title %}Popovers | Nightshade{% endblock %}
 
@@ -15,7 +16,10 @@
   {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
 
   <h2>Popovers</h2>
-
+  <span class="popover-container">
+    <span class="popover-toggle">?</span>
+    {{ popover('bottom', 'Density refers to the amount of material per cubic foot. High-density materials are more durable.') }}
+  </span>
 
 </div>
 {% endblock%}

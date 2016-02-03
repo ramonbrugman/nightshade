@@ -1,1 +1,4 @@
 // Popover styles
+[data-popover] {
+  @include is-hidden;
+}

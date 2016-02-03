@@ -1,8 +1,6 @@
 @import 'vendor/bower/accoutrement-color/color';
 @import './node_modules/@casper/nightshade-styles/base/colors_config';
 
-$color-steps: 10, 20, 30, 40, 50;
-
 @mixin color-steps($steps, $colorName, $mixColor: white, $type: 'light') {
   @each $step in $steps {
     $i: index($steps, $step);
@@ -13,9 +11,14 @@ $color-steps: 10, 20, 30, 40, 50;
   }
 }
 
-@include color-steps($color-steps, 'primary');
-@include color-steps($color-steps, 'secondary', #5a5a5f, 'dark');
-@include color-steps($color-steps, 'light-blue', #5a5a5f, 'dark');
+$gray-steps: 0, 15, 25, 50, 60, 75, 85, 91, 95;
+@include color-steps($gray-steps, 'base-gray');
+
+
+@include color-steps((0, 30, 65), 'primary', #0b153c, 'dark');
+@include color-steps((0, 25, 50), 'light-blue', #a7e4ea, 'dark');
+@include color-steps((0, 45, 85), 'secondary', #6ee8c4, 'dark');
+@include color-steps((0, 85, 95), 'accent', #ec5446, 'dark');
 
 .color-swatches {
   margin-bottom: 2em;

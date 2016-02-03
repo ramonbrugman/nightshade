@@ -1,6 +1,7 @@
 {% extends "./base.html" %}
 
 {% from '../modules/buttons/buttons.html' import button %}
+{% from '../modules/icons/icons.html' import icon %}
 
 {% block title %}Banners | Nightshade{% endblock %}
 
@@ -24,6 +25,10 @@
   </div>
   <div data-banner="background">
     <p data-banner-inner>Banner with white background</p>
+  </div>
+  <div data-banner>
+    <p data-banner-inner><a class="link-arrow" href="/faq">Your question may also be answered on our FAQ page
+{{ icon('arrow', true) }}</a></p>
   </div>
 
 </div>

@@ -30,6 +30,7 @@
 @import './app/modules/review_item/styles';
 @import './node_modules/@casper/nightshade-styles/modules/media/base';
 @import './node_modules/@casper/nightshade-styles/modules/buttons';
+@import './node_modules/@casper/nightshade-styles/modules/icons';
 @import './node_modules/@casper/nightshade-styles/modules/forms/forms';
 @import './node_modules/@casper/nightshade-styles/modules/layout/helpers';
 @import './node_modules/@casper/nightshade-styles/modules/layout/regions';
@@ -63,4 +64,23 @@
 
 .section-heading {
   margin-bottom: 1em;
+}
+
+.link-arrow {
+
+  &:hover {
+    .icon-arrow {
+      transform: translateX(3px);
+    }
+  }
+
+  .icon-arrow {
+    @include circle(8px, border);
+    box-sizing: content-box;
+    position: relative;
+    margin-left: 3px;
+    padding: 6px;
+    fill: color(text);
+    transition: transform 0.15s ease-out;
+  }
 }

@@ -7,19 +7,36 @@
 
 {% block head_styles %}
 <style>
+  .popover-example {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+  }
+  .popover-toggle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #666;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+  }
 </style>
 {% endblock %}
 
 {% block body_content %}
-<div class="r-section-wrapper r-inner">
+<div class="r-section-wrapper r-centered">
   {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
   {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
 
   <h2>Popovers</h2>
-  <span class="popover-container">
-    <span class="popover-toggle">?</span>
-    {{ popover('bottom', 'Density refers to the amount of material per cubic foot. High-density materials are more durable.') }}
-  </span>
+  <div class="popover-example">
+    <span class="popover-container">
+      <span class="popover-toggle">?</span>
+      {{ popover('bottom', 'Density refers to the amount of material per cubic foot. High-density materials are more durable.') }}
+    </span>
+  </div>
 
 </div>
 {% endblock%}

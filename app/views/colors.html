@@ -10,6 +10,8 @@
   {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
   {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
 
+  <div id="swatch-palette"></div>
+
   <h2>Colors</h2>
   <div class="color-swatches">
     {{ color_swatch('primary', '#00237e', '100, 94, 20, 12') }}
@@ -22,42 +24,15 @@
   </div>
   <h3>Color Shades </h3>
   <div class="color-swatches">
-    {{ color_swatch('base-gray--light1', '#505050', '', 'base-gray--light1') }}
-    {{ color_swatch('base-gray--light2', '#6a6a6a', '', 'base-gray--light2') }}
-    {{ color_swatch('base-gray--light3', '#7c7c7c', '', 'base-gray--light3') }}
-    {{ color_swatch('base-gray--light4', '#a8a8a8', '', 'base-gray--light4') }}
-    {{ color_swatch('base-gray--light5', '#b9b9b9', '', 'base-gray--light5') }}
-    {{ color_swatch('base-gray--light6', '#cbcbcb', '', 'base-gray--light6') }}
-    {{ color_swatch('base-gray--light7', '#d3d3d3', '', 'base-gray--light7') }}
-    {{ color_swatch('base-gray--light8', '#e5e5e5', '', 'base-gray--light8') }}
-    {{ color_swatch('base-gray--light9', '#efefef', '', 'base-gray--light9') }}
-    {{ color_swatch('base-gray--light10', '#f6f6f6', '', 'base-gray--light10') }}
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    {{ color_swatch('primary--dark1', '#00237e', '', 'primary--dark1') }}
-    {{ color_swatch('primary--dark2', '#031f6a', '', 'primary--dark2') }}
-    {{ color_swatch('primary--dark3', '#071a53', '', 'primary--dark3') }}
-
-    <br>
-    {{ color_swatch('secondary--dark1', '#c6f6e8', '', 'secondary--dark1') }}
-    {{ color_swatch('secondary--dark2', '#9ef0d8', '', 'secondary--dark2') }}
-    {{ color_swatch('secondary--dark3', '#7beac9', '', 'secondary--dark3') }}
-
-    <br>
-    {{ color_swatch('light-blue--dark1', '#edf9fa', '', 'light-blue--dark1') }}
-    {{ color_swatch('light-blue--dark2', '#dcf4f6', '', 'light-blue--dark2') }}
-    {{ color_swatch('light-blue--dark3', '#caeff2', '', 'light-blue--dark3') }}
-
-    <br>
-    {{ color_swatch('accent--dark1', '#fbd4d0', '', 'accent--dark1') }}
-    {{ color_swatch('accent--dark2', '#ee675b', '', 'accent--dark2') }}
-    {{ color_swatch('accent--dark3', '#ed5a4d', '', 'accent--dark3') }}
-
+    <div id="swatch-stacks"></div>
   </div>
 
 </div>
 {% endblock%}
+
+{% block module_loader %}
+  System.import('modules/color/ColorsPage.js').then( function(mod){
+    mod.ColorPage.init();
+  } );
+{% endblock %}
+

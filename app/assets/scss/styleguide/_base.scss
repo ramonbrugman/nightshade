@@ -1,0 +1,47 @@
+// Styles that need to be moved to files
+.container {
+  padding-top: size(large) !important;
+}
+
+.btn-back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+.toggle-background {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.background-gray {
+  background: color(light-background);
+}
+
+.nav--study {
+  margin-bottom: 2em;
+}
+
+.section-heading {
+  margin-bottom: 1em;
+}
+
+.link-arrow {
+
+  &:hover {
+    .icon-arrow {
+      transform: translateX(3px);
+    }
+  }
+
+  .icon-arrow {
+    @include circle(8px, border);
+    box-sizing: content-box;
+    position: relative;
+    margin-left: 3px;
+    padding: 6px;
+    fill: color(text);
+    transition: transform 0.15s ease-out;
+  }
+}

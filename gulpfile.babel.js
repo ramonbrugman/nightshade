@@ -6,12 +6,14 @@ import autoprefixer from'gulp-autoprefixer';
 import nunjucks from'gulp-nunjucks';
 import nunjucksRender from'gulp-nunjucks-render';
 // import mocha from'gulp-mocha';
-import critical from'critical';
-import sourcemaps from'gulp-sourcemaps';
-import concat from'gulp-concat';
-import rename from'gulp-rename';
-import sassdoc from'sassdoc';
-import plumber from'gulp-plumber';
+import critical from 'critical';
+import sourcemaps from 'gulp-sourcemaps';
+import concat from 'gulp-concat';
+import rename from 'gulp-rename';
+import sassdoc from 'sassdoc';
+import jsonSass from 'json-sass';
+import source from 'vinyl-source-stream';
+import plumber from 'gulp-plumber';
 
 
 const browserSync = browsersync.create();
@@ -23,7 +25,8 @@ const file_paths =  {
     'css': './dist/assets/css/',
     'local_sass': './app/assets/scss/',
     'module_sass': './app/modules/',
-    'views': './app/views/'
+    'views': './app/views/',
+    'nighthsade': './node_modules/@casper/nightshade-styles/modules/'
 };
 
 // @@@ Maybe pull these out into utilities
@@ -42,6 +45,7 @@ const createFile = (name, data) => {
 //   }));
 // });
 
+
 // Generates a file of all the icons
 gulp.task('icons-config', () => {
 
@@ -58,8 +62,15 @@ gulp.task('icons-config', () => {
 
       createFile(`./app/modules/icons/icons_list.js`, `export const icons_list = ` + JSON.stringify(icons));
     });
+});
 
-
+// Generate colors config
+gulp.task('colors-config', () => {
+  fs.createReadStream(file_paths.nighthsade + 'color/config.json')
+    .pipe(jsonSass({
+      prefix: '$colors:',
+    }))
+    .pipe(fs.createWriteStream(file_paths.nighthsade + 'color/_config.scss'));
 });
 
 
@@ -141,6 +152,10 @@ gulp.task('browser-sync', () => {
   gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss', './node_modules/@casper/nightshade-styles/**/*.scss' ], ['sass']);
   gulp.watch(['./app/views/**/*.html', './app/modules/**/*.html', './app/templates/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
+  gulp.watch(['./node_modules/@casper/nightshade-styles/**/*.json' ], ['colors-config']);
+
+
+
 
 });
 

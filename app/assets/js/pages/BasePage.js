@@ -4,7 +4,7 @@ init() {
   console.log(` base page activated `);
 
   // Configure nunjucks
-  nunjucks.configure(`app/modules/`, { autoescape: true, watch: false });
+  nunjucks.configure([`app/modules/`, `node_modules/@casper/`], { autoescape: true, watch: false });
 
 },
 

@@ -1,0 +1,21 @@
+// Icon page in styleguide
+
+.icons-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icons-list-item {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 33%;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.icon-name  {
+  order: 3;
+  font-size: 11px;
+  margin-top: 1.5em;
+}

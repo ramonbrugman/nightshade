@@ -62,13 +62,13 @@ gulp.task('icons-config', () => {
 
       createFile(`./app/modules/icons/icons_list.js`, `export const icons_list = ` + JSON.stringify(icons));
     });
-
+});
 
 // Generate colors config
 gulp.task('colors-config', () => {
   fs.createReadStream(file_paths.nighthsade + 'color/config.json')
     .pipe(jsonSass({
-      prefix: '$colors: ',
+      prefix: '$colors:',
     }))
     .pipe(fs.createWriteStream(file_paths.nighthsade + 'color/_config.scss'));
 });

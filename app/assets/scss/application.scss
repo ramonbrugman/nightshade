@@ -24,18 +24,19 @@
 @import './node_modules/@casper/nightshade-styles/modules/layout/base';
 @import './node_modules/@casper/nightshade-styles/utilities/display_helpers';
 
-// Casper modules
-//@import './app/modules/minicart/bundle';
-@import './app/modules/banners/styles';
-@import './app/modules/review_item/styles';
 @import './node_modules/@casper/nightshade-styles/modules/media/base';
 @import './node_modules/@casper/nightshade-styles/modules/buttons';
-@import './node_modules/@casper/nightshade-styles/modules/icons';
+@import './node_modules/@casper/nightshade-styles/modules/icons/base';
 @import './node_modules/@casper/nightshade-styles/modules/forms/forms';
 @import './node_modules/@casper/nightshade-styles/modules/layout/helpers';
 @import './node_modules/@casper/nightshade-styles/modules/layout/regions';
 
+
 // Local sass files that are app specific
+@import './app/modules/banners/styles';
+@import './app/modules/review_item/styles';
+@import './app/modules/icons/base';
+
 
 // Styles that need to be moved to files
 .container {

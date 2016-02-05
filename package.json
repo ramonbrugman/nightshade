@@ -26,6 +26,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-nunjucks": "^2.0.0",
     "gulp-nunjucks-render": "^1.0.0",
+    "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",

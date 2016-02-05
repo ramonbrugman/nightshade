@@ -11,8 +11,11 @@ import sourcemaps from'gulp-sourcemaps';
 import concat from'gulp-concat';
 import rename from'gulp-rename';
 import sassdoc from'sassdoc';
+import plumber from'gulp-plumber';
+
 
 const browserSync = browsersync.create();
+const reload      = browserSync.reload;
 
 const file_paths =  {
     'base': './app',
@@ -92,6 +95,7 @@ gulp.task('compile', () => {
   nunjucksRender.nunjucks.configure(['./app/views', './node_modules/@casper', './app/modules'], {watch: false});
 
     return gulp.src('./app/views/**/[^_]*.html')
+      .pipe(plumber())
       .pipe(nunjucksRender())
       .pipe(gulp.dest('./dist'));
 });
@@ -100,6 +104,7 @@ gulp.task('compile', () => {
 // Precompile templates to js for rendering in the browser
 gulp.task('precompile', () => {
   return gulp.src(['./app/templates/**/*.html', './app/modules/**/*.html', './node_modules/@casper/nightshade-styles/**/*.html'])
+    .pipe(plumber())
     .pipe(nunjucks())
     .pipe(concat('templates.js'))
     .pipe(gulp.dest('./dist/assets/js'));
@@ -132,7 +137,7 @@ gulp.task('browser-sync', () => {
     });
 
 
-  gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ], browserSync.reload);
+  gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ]).on("change", reload);
   gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss', './node_modules/@casper/nightshade-styles/**/*.scss' ], ['sass']);
   gulp.watch(['./app/views/**/*.html', './app/modules/**/*.html', './app/templates/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);

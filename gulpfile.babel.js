@@ -23,6 +23,13 @@ const file_paths =  {
     'views': './app/views/'
 };
 
+// @@@ Maybe pull these out into utilities
+const createFile = (name, data) => {
+  fs.writeFile(`${name}`, data , (err) => {
+    if (err) return console.log(err);
+    console.log(`${name} successfully created`)
+  });
+}
 
 // Run tests
 // gulp.task('test', () => {
@@ -31,6 +38,26 @@ const file_paths =  {
 //       reporter: 'nyan'
 //   }));
 // });
+
+// Generates a file of all the icons
+gulp.task('icons-config', () => {
+
+  const dir = './node_modules/@casper/nightshade-icons/lib/storefront';
+  const icons = [];
+
+  return fs.readdir(dir, (err, files) => {
+      if (err) throw err;
+
+      // Bit naughty but since all of these are .svg, we'll gamble
+      for (let file of files) {
+        icons.push(file.slice(0, -4));
+      }
+
+      createFile(`./app/modules/icons/icons_list.js`, `export const icons_list = ` + JSON.stringify(icons));
+    });
+
+
+});
 
 
 // Compile Sass

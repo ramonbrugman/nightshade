@@ -89,7 +89,8 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
 
 // Compile templates to html
 gulp.task('compile', () => {
-    nunjucksRender.nunjucks.configure(['./app/views', './app/modules'], {watch: false});
+  nunjucksRender.nunjucks.configure(['./app/views', './node_modules/@casper', './app/modules'], {watch: false});
+
     return gulp.src('./app/views/**/[^_]*.html')
       .pipe(nunjucksRender())
       .pipe(gulp.dest('./dist'));
@@ -98,7 +99,7 @@ gulp.task('compile', () => {
 
 // Precompile templates to js for rendering in the browser
 gulp.task('precompile', () => {
-  return gulp.src(['./app/templates/**/*.html', './app/modules/**/*.html'])
+  return gulp.src(['./app/templates/**/*.html', './app/modules/**/*.html', './node_modules/@casper/nightshade-styles/**/*.html'])
     .pipe(nunjucks())
     .pipe(concat('templates.js'))
     .pipe(gulp.dest('./dist/assets/js'));
@@ -113,7 +114,7 @@ gulp.task('fonts', () => {
 
 
 // Watch templates
-gulp.task('html-watch', ['compile', 'precompile'], browserSync.reload);
+gulp.task('html-watch', ['precompile', 'compile']).on("change", reload);
 
 // Static server
 // @TODO fix sha error and set https: true,
@@ -152,7 +153,7 @@ gulp.task('sassdoc', () => {
 
 
 // Start task (default gulp)
-gulp.task('default', ['compile', 'precompile', 'fonts', 'sass', 'sassdoc', 'browser-sync']);
+gulp.task('default', ['precompile', 'compile', 'fonts', 'sass', 'sassdoc', 'browser-sync']);
 
 
 // Build task

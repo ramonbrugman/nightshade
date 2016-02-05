@@ -17,13 +17,15 @@
 @import './node_modules/@casper/nightshade-styles/base/breakpoints_config';
 @import './node_modules/@casper/nightshade-styles/base/sizing_config';
 @import './node_modules/@casper/nightshade-styles/base/fonts_config';
-@import './node_modules/@casper/nightshade-styles/base/colors_config';
+
 @import './node_modules/@casper/nightshade-styles/base/typography/bundle';
 @import './node_modules/@casper/nightshade-styles/base/typography';
 @import './node_modules/@casper/nightshade-styles/base/grids';
 @import './node_modules/@casper/nightshade-styles/modules/layout/base';
 @import './node_modules/@casper/nightshade-styles/utilities/display_helpers';
 
+
+@import './node_modules/@casper/nightshade-styles/modules/color/config';
 @import './node_modules/@casper/nightshade-styles/modules/media/base';
 @import './node_modules/@casper/nightshade-styles/modules/buttons';
 @import './node_modules/@casper/nightshade-styles/modules/icons/base';
@@ -36,6 +38,7 @@
 @import './app/modules/banners/styles';
 @import './app/modules/review_item/styles';
 @import './app/modules/icons/base';
+@import './app/modules/color/bundle';
 
 
 // Styles that need to be moved to files

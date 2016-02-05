@@ -1,21 +1,9 @@
 {% extends "./base.html" %}
 
 {% from '../modules/buttons/buttons.html' import button %}
+{% from '../modules/color/macros.html' import color_swatch %}
 
 {% block title %}Colors | Nightshade{% endblock %}
-
-{% block head_styles %}
-<link href="/dist/assets/css/colors.css" media="screen" rel="stylesheet">
-{% endblock %}
-
-{% macro color_swatch(name, hex, cmyk, class=class) %}
-<div class="color-swatches-item">
-  <div class="color-swatches-swatch {{ class }}" {% if not class %}style="background-color: {{ hex }}"{% endif %}></div>
-  <code class="color-swatches-name">{{ name }}</code>
-  <code class="color-swatches-hex">{{ hex }}</code>
-  <code class="color-swatches-cmyk">{{ cmyk }}</code>
-</div>
-{% endmacro %}
 
 {% block body_content %}
 <div class="r-section-wrapper r-inner r-centered">
@@ -53,7 +41,7 @@
     {{ color_swatch('primary--dark1', '#00237e', '', 'primary--dark1') }}
     {{ color_swatch('primary--dark2', '#031f6a', '', 'primary--dark2') }}
     {{ color_swatch('primary--dark3', '#071a53', '', 'primary--dark3') }}
- 
+
     <br>
     {{ color_swatch('secondary--dark1', '#c6f6e8', '', 'secondary--dark1') }}
     {{ color_swatch('secondary--dark2', '#9ef0d8', '', 'secondary--dark2') }}
@@ -68,7 +56,7 @@
     {{ color_swatch('accent--dark1', '#fbd4d0', '', 'accent--dark1') }}
     {{ color_swatch('accent--dark2', '#ee675b', '', 'accent--dark2') }}
     {{ color_swatch('accent--dark3', '#ed5a4d', '', 'accent--dark3') }}
-    
+
   </div>
 
 </div>

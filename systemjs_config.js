@@ -18,6 +18,7 @@ System.config({
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
+    "pepjs": "npm:pepjs@0.4.1",
     "request": "npm:request@2.67.0",
     "rx": "npm:rx@4.0.7",
     "rx-dom": "npm:rx-dom@7.0.3",
@@ -528,6 +529,9 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
+    "npm:pepjs@0.4.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:pinkie-promise@2.0.0": {
       "pinkie": "npm:pinkie@2.0.1"

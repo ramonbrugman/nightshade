@@ -7,7 +7,7 @@ export const PopoversPage = {
 
   init() {
     this.__proto__.init();
-    Popovers.init({togglerSelector: `.js-popover-toggle`, popoverSelector: `.js-popover`});
+    Popovers.popover({togglerSelector: `.js-popover-toggle`, popoverSelector: `.js-popover`});
   },
 
 };

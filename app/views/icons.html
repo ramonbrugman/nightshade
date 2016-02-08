@@ -1,7 +1,6 @@
 {% extends './base.html' %}
 
-{% from '../modules/icons/icons.html' import icon %}
-{% from '../modules/buttons/buttons.html' import button %}
+{% from 'buttons/buttons.html' import button %}
 
 {% block title %}Icons | Nightshade{% endblock %}
 
@@ -13,12 +12,15 @@
 <div class="r-section-wrapper r-inner">
   {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
 
-  {{ icon('logo') }}
-  {{ icon('cart-closed') }}
-  {{ icon('dog') }}
-  {{ icon('ear') }}
-  {{ icon('edit') }}
-  {{ icon('airbnb') }}
-
+  <h2>Icons</h2>
+  <section id="icons-content"></section>
 </div>
 {% endblock%}
+
+{% block module_loader %}
+  System.import('modules/icons/IconsPage.js').then( function(mod){
+    mod.IconsPage.init();
+  } );
+{% endblock %}
+
+

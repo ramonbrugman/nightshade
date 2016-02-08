@@ -6,13 +6,18 @@ import autoprefixer from'gulp-autoprefixer';
 import nunjucks from'gulp-nunjucks';
 import nunjucksRender from'gulp-nunjucks-render';
 // import mocha from'gulp-mocha';
-import critical from'critical';
-import sourcemaps from'gulp-sourcemaps';
-import concat from'gulp-concat';
-import rename from'gulp-rename';
-import sassdoc from'sassdoc';
+import critical from 'critical';
+import sourcemaps from 'gulp-sourcemaps';
+import concat from 'gulp-concat';
+import rename from 'gulp-rename';
+import sassdoc from 'sassdoc';
+import jsonSass from 'json-sass';
+import source from 'vinyl-source-stream';
+import plumber from 'gulp-plumber';
+
 
 const browserSync = browsersync.create();
+const reload      = browserSync.reload;
 
 const file_paths =  {
     'base': './app',
@@ -20,9 +25,17 @@ const file_paths =  {
     'css': './dist/assets/css/',
     'local_sass': './app/assets/scss/',
     'module_sass': './app/modules/',
-    'views': './app/views/'
+    'views': './app/views/',
+    'nighthsade': './node_modules/@casper/nightshade-styles/modules/'
 };
 
+// @@@ Maybe pull these out into utilities
+const createFile = (name, data) => {
+  fs.writeFile(`${name}`, data , (err) => {
+    if (err) return console.log(err);
+    console.log(`${name} successfully created`)
+  });
+}
 
 // Run tests
 // gulp.task('test', () => {
@@ -31,6 +44,34 @@ const file_paths =  {
 //       reporter: 'nyan'
 //   }));
 // });
+
+
+// Generates a file of all the icons
+gulp.task('icons-config', () => {
+
+  const dir = './node_modules/@casper/nightshade-icons/lib/storefront';
+  const icons = [];
+
+  return fs.readdir(dir, (err, files) => {
+      if (err) throw err;
+
+      // Bit naughty but since all of these are .svg, we'll gamble
+      for (let file of files) {
+        icons.push(file.slice(0, -4));
+      }
+
+      createFile(`./app/modules/icons/icons_list.js`, `export const icons_list = ` + JSON.stringify(icons));
+    });
+});
+
+// Generate colors config
+gulp.task('colors-config', () => {
+  fs.createReadStream(file_paths.nighthsade + 'color/config.json')
+    .pipe(jsonSass({
+      prefix: '$colors:',
+    }))
+    .pipe(fs.createWriteStream(file_paths.nighthsade + 'color/_config.scss'));
+});
 
 
 // Compile Sass
@@ -62,8 +103,10 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
 
 // Compile templates to html
 gulp.task('compile', () => {
-    nunjucksRender.nunjucks.configure(['./app/views', './app/modules'], {watch: false});
+  nunjucksRender.nunjucks.configure(['./app/views', './node_modules/@casper', './app/modules'], {watch: false});
+
     return gulp.src('./app/views/**/[^_]*.html')
+      .pipe(plumber())
       .pipe(nunjucksRender())
       .pipe(gulp.dest('./dist'));
 });
@@ -71,7 +114,8 @@ gulp.task('compile', () => {
 
 // Precompile templates to js for rendering in the browser
 gulp.task('precompile', () => {
-  return gulp.src(['./app/templates/**/*.html', './app/modules/**/*.html'])
+  return gulp.src(['./app/templates/**/*.html', './app/modules/**/*.html', './node_modules/@casper/nightshade-styles/**/*.html'])
+    .pipe(plumber())
     .pipe(nunjucks())
     .pipe(concat('templates.js'))
     .pipe(gulp.dest('./dist/assets/js'));
@@ -86,7 +130,7 @@ gulp.task('fonts', () => {
 
 
 // Watch templates
-gulp.task('html-watch', ['compile', 'precompile'], browserSync.reload);
+gulp.task('html-watch', ['precompile', 'compile']).on("change", reload);
 
 // Static server
 // @TODO fix sha error and set https: true,
@@ -104,10 +148,14 @@ gulp.task('browser-sync', () => {
     });
 
 
-  gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ], browserSync.reload);
+  gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ]).on("change", reload);
   gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss', './node_modules/@casper/nightshade-styles/**/*.scss' ], ['sass']);
   gulp.watch(['./app/views/**/*.html', './app/modules/**/*.html', './app/templates/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
+  gulp.watch(['./node_modules/@casper/nightshade-styles/**/*.json' ], ['colors-config']);
+
+
+
 
 });
 
@@ -125,7 +173,7 @@ gulp.task('sassdoc', () => {
 
 
 // Start task (default gulp)
-gulp.task('default', ['compile', 'precompile', 'fonts', 'sass', 'sassdoc', 'browser-sync']);
+gulp.task('default', ['precompile', 'compile', 'fonts', 'sass', 'sassdoc', 'browser-sync']);
 
 
 // Build task

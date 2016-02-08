@@ -38,7 +38,7 @@
   border-radius: size(normal-corners);
   text-align: center;
   cursor: default;
-  box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.08);
 
   &:after {
     content: ""; // Make arrows display

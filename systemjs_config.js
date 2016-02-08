@@ -23,6 +23,7 @@ System.config({
     "rx": "npm:rx@4.0.7",
     "rx-dom": "npm:rx-dom@7.0.3",
     "then-request": "npm:then-request@2.1.1",
+    "viljamis/feature.js": "github:viljamis/feature.js@1.0.1",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },

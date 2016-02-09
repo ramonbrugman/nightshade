@@ -40,7 +40,7 @@ export const Tooltips = {
           e.stopPropagation();
           this._setupExpandingAndCollapsing(tooltipEl);
         });
-        this._handleClickOffPopovers();
+        this._handleClickOffTooltips();
       } else {
         el.addEventListener(`pointerenter`, () => {
           this.expandTooltip(tooltipEl);
@@ -60,7 +60,7 @@ export const Tooltips = {
   */
   _setupExpandingAndCollapsing(tooltipEl) {
     if (tooltipEl.classList.contains(this.collapsedClass)) {
-      this.collapseOpenPopovers();
+      this.collapseOpenTooltips();
       this.expandTooltip(tooltipEl);
     } else {
       this.collapseTooltip(tooltipEl);

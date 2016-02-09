@@ -23,7 +23,6 @@
 @import './node_modules/@casper/nightshade-styles/base/grids';
 @import './node_modules/@casper/nightshade-styles/utilities/display_helpers';
 
-
 @import './node_modules/@casper/nightshade-styles/modules/color/config';
 @import './node_modules/@casper/nightshade-styles/modules/buttons';
 @import './node_modules/@casper/nightshade-styles/modules/media/base';
@@ -31,7 +30,6 @@
 @import './node_modules/@casper/nightshade-styles/modules/forms/forms';
 @import './node_modules/@casper/nightshade-styles/modules/layout/helpers';
 @import './node_modules/@casper/nightshade-styles/modules/layout/regions';
-
 @import './node_modules/@casper/nightshade-styles/modules/layout/base';
 
 // Local sass files that are app specific
@@ -39,6 +37,6 @@
 @import './app/modules/review_item/styles';
 @import './app/modules/icons/base';
 @import './app/modules/color/bundle';
+@import './app/modules/popovers/styles';
 
 @import 'styleguide/base';
-

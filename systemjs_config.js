@@ -20,10 +20,12 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "fs": "github:jspm/nodelibs-fs@0.1.2",
     "path": "github:jspm/nodelibs-path@0.1.0",
+    "pepjs": "npm:pepjs@0.4.1",
     "request": "npm:request@2.67.0",
     "rx": "npm:rx@4.0.7",
     "rx-dom": "npm:rx-dom@7.0.3",
     "then-request": "npm:then-request@2.1.1",
+    "viljamis/feature.js": "github:viljamis/feature.js@1.0.1",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -530,6 +532,9 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
+    "npm:pepjs@0.4.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:pinkie-promise@2.0.0": {
       "pinkie": "npm:pinkie@2.0.1"

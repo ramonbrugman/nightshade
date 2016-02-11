@@ -8,7 +8,7 @@ import pepjs from 'pepjs';
 
 export const Tooltips = {
 
-  collapsedClass: `is-hidden`,
+  collapsedClass: `is-invisible`,
 
   /**
    * Queries page for Tooltips to be initialized, caching them to variables

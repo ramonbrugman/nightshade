@@ -21,6 +21,10 @@
   pointer-events: none;
   z-index: 1;
 
+  &.is-invisible {
+    visibility: hidden;
+  }
+
   &:after {
     content: "";
     @include arrow('bottom', #6a6a6a, 10px);  // Replace with map value

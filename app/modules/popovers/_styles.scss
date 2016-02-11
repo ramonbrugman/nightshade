@@ -39,6 +39,10 @@
   cursor: default;
   z-index: 1;
 
+  &.is-invisible {
+    visibility: hidden;
+  }
+
   &:after {
     content: ""; // Make arrows display
   }

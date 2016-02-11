@@ -7,7 +7,7 @@ import pepjs from 'pepjs';
 
 export const Popovers = {
 
-  collapsedClass: `is-hidden`,
+  collapsedClass: `is-invisible`,
 
   /**
    * Queries page for Popovers to be initialized, caching them to variables

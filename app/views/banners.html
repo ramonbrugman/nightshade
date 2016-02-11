@@ -1,7 +1,7 @@
 {% extends "./base.html" %}
 
 {% from 'buttons/buttons.html' import button %}
-{% from 'nightshade-styles/modules/icons/macros_patterns.html' import icon %}
+{% from 'nightshade-styles/modules/icons/macros_patterns.html' import svg %}
 
 {% block title %}Banners | Nightshade{% endblock %}
 
@@ -27,8 +27,8 @@
     <p data-banner-inner>Banner with white background</p>
   </div>
   <div data-banner>
-    <p data-banner-inner><a class="link-arrow" href="/faq">Your question may also be answered on our FAQ page
-{{ icon('arrow', true) }}</a></p>
+    <p data-banner-inner><a class="link-arrow" href="/faq">Your question may also be answered fon our FAQ page
+{{ svg('arrow') }}</a></p>
   </div>
 
 </div>

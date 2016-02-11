@@ -1,0 +1,50 @@
+{% extends "./base.html" %}
+
+{% from '../modules/buttons/buttons.html' import button %}
+{% from '../modules/tooltips/tooltips.html' import tooltip %}
+
+{% block title %}Tooltips | Nightshade{% endblock %}
+
+{% block head_styles %}
+<style>
+  .tooltip-example {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    margin: 3em 0;
+  }
+  .tooltip-toggle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #666;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: default;
+  }
+</style>
+{% endblock %}
+
+{% block body_content %}
+<div class="r-section-wrapper r-centered">
+  {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
+  {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
+
+  <h2>Tooltips</h2>
+  <div class="tooltip-example">
+    Tooltip Example
+    <span class="tooltip-container js-tooltip-container">
+      <span class="tooltip-toggle js-tooltip-toggle">?</span>
+      {{ tooltip('Verified Casper Owner', 'js-tooltip') }}
+    </span>
+  </div>
+
+</div>
+{% endblock%}
+
+{% block module_loader %}
+  System.import('modules/tooltips/TooltipsPage.js').then( function(mod){
+    mod.TooltipsPage.init();
+  } );
+{% endblock %}

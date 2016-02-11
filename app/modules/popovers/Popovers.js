@@ -7,7 +7,7 @@ import pepjs from 'pepjs';
 
 export const Popovers = {
 
-  collapsedClass: `is-hidden`,
+  collapsedClass: `is-invisible`,
 
   /**
    * Queries page for Popovers to be initialized, caching them to variables
@@ -19,7 +19,7 @@ export const Popovers = {
   popover({togglerSelector, popoverSelector}) {
     console.log(`Setting up Popovers`);
     this.togglerEls = document.querySelectorAll(togglerSelector);
-    this.popopverEls = document.querySelectorAll(popoverSelector);
+    this.popoverEls = document.querySelectorAll(popoverSelector);
     this.popoverSelector = popoverSelector;
     this._setupPopovers();
   },
@@ -49,6 +49,7 @@ export const Popovers = {
   */
   _setupExpandingAndCollapsing(popoverEl) {
     if (popoverEl.classList.contains(this.collapsedClass)) {
+      this.collapseOpenPopovers();
       this.expandPopover(popoverEl);
     } else {
       this.collapsePopover(popoverEl);
@@ -61,7 +62,6 @@ export const Popovers = {
    * @returns {void}
   */
   expandPopover(el) {
-    this.collapseOpenPopovers();
     el.setAttribute(`aria-expanded`, true);
     el.classList.remove(this.collapsedClass);
   },
@@ -81,7 +81,7 @@ export const Popovers = {
    * @returns {void}
   */
   collapseOpenPopovers() {
-    [...this.popopverEls].forEach((el) => {
+    [...this.popoverEls].forEach((el) => {
       if (!el.classList.contains(this.collapsedClass)) {
         this.collapsePopover(el);
       }

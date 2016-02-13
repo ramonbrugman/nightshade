@@ -1,5 +1,5 @@
 import { BasePage } from 'assets/js/pages/BasePage.js';
-import { Tooltips } from 'modules/tooltips/Tooltips.js';
+import { Tooltips } from './node-modules/@casper/nightshade-styles/modules/tooltips/Tooltips.js';
 
 export const TooltipsPage = {
 

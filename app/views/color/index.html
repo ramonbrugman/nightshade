@@ -49,7 +49,7 @@
 {% endblock %}
 
 {% block module_loader %}
-  System.import('modules/color/ColorsPage.js').then( function(mod){
+  System.import('views/color/ColorsPage.js').then( function(mod){
     mod.ColorPage.init();
   } );
 {% endblock %}

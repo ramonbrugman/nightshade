@@ -1,43 +1,11 @@
 // CORE site configuration files
 // These files do not generate output and are used across the site
 
-@import 'vendor/bower/accoutrement-a11y/a11y';
-@import 'vendor/bower/accoutrement-color/color';
-@import 'vendor/bower/accoutrement-pseudo/pseudo-elements';
-@import 'vendor/bower/susy/susy';
+@import 'core_imports';
 
-@import './node_modules/@casper/nightshade-styles/utilities/positioning';
-@import './node_modules/@casper/nightshade-styles/utilities/z-index';
-@import './node_modules/@casper/nightshade-styles/utilities/queries_config';
-@import './node_modules/@casper/nightshade-styles/utilities/visual_utilities';
-@import './node_modules/@casper/nightshade-styles/utilities/animations';
-@import './node_modules/@casper/nightshade-styles/utilities/arrows_config';
-
-@import './node_modules/@casper/nightshade-styles/base/z-index_config';
-@import './node_modules/@casper/nightshade-styles/base/breakpoints_config';
-@import './node_modules/@casper/nightshade-styles/base/sizing_config';
-@import './node_modules/@casper/nightshade-styles/base/fonts_config';
-
-@import './node_modules/@casper/nightshade-styles/base/typography/bundle';
-@import './node_modules/@casper/nightshade-styles/base/typography';
-@import './node_modules/@casper/nightshade-styles/base/grids';
-@import './node_modules/@casper/nightshade-styles/utilities/display_helpers';
-
-@import './node_modules/@casper/nightshade-styles/modules/color/config';
-@import './node_modules/@casper/nightshade-styles/modules/buttons';
-@import './node_modules/@casper/nightshade-styles/modules/media/base';
-@import './node_modules/@casper/nightshade-styles/modules/icons/base';
-@import './node_modules/@casper/nightshade-styles/modules/forms/forms';
-@import './node_modules/@casper/nightshade-styles/modules/layout/helpers';
-@import './node_modules/@casper/nightshade-styles/modules/layout/regions';
-@import './node_modules/@casper/nightshade-styles/modules/layout/base';
 
 // Local sass files that are app specific
-@import './app/modules/banners/styles';
-@import './app/modules/review_item/styles';
 @import './app/modules/icons/base';
 @import './app/modules/color/bundle';
-@import './app/modules/popovers/styles';
-@import './app/modules/tooltips/styles';
 
 @import 'styleguide/base';

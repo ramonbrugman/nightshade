@@ -19,7 +19,7 @@ loadJSON(callback) {
 
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
-    xobj.open('GET', './node_modules/@casper/nightshade-styles/modules/color/config.json', true); // Replace 'my_data' with the path to your file
+    xobj.open('GET', '/node_modules/@casper/nightshade-styles/modules/color/config.json', true); // Replace 'my_data' with the path to your file
     xobj.onreadystatechange = function () {
           if (xobj.readyState == 4 && xobj.status == "200") {
             // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
@@ -39,7 +39,7 @@ setupContent() {
     // const page = document.getElementById('swatch-content');
     // page.innerHTML = tpl;
 
-    const swatch_gray_tpl = nunjucks.render('color/color_swatch.html', { data: data.stacks});
+    const swatch_gray_tpl = nunjucks.render('color/_color_swatch.html', { data: data.stacks});
     const swatch_gray = document.getElementById('swatch-stacks');
 
 

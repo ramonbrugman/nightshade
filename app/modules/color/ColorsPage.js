@@ -9,7 +9,7 @@ init() {
   console.log(`color init started`);
 
   this.__proto__.init();
-  this.setupContent();
+  // this.setupContent(); Needs to be rethought for new structure
 
   console.log(`color init completed`);
 

@@ -1,9 +1,22 @@
+@import './node_modules/@casper/nightshade-styles/modules/color/config';
 @import './node_modules/@casper/nightshade-styles/modules/color/color_steps';
 
-$gray-steps: 15, 25, 50, 60, 70, 75, 85, 91, 95;
+$stacks: map-get($colors, 'stacks');
 
-@include color-steps($gray-steps, base-gray);
-@include color-steps((30, 65), primary, #0b153c);
-@include color-steps((25, 50), light-blue, #a7e4ea);
-@include color-steps((45, 85), secondary, #6ee8c4);
-@include color-steps((85, 95), accent, #ec5446);
+
+// Generate classes for colors in map
+@each $name, $color in $colors {
+  @if $name != 'stacks' {
+    .#{$name} {
+      background: color($color);
+    }
+  }
+}
+
+// Generate classes for color stacks
+@each $baseColor, $options in $stacks {
+  $mixColor: map-get($options, 'mixColor');
+  $steps: map-get($options, 'steps');
+
+  @include color-steps($steps, $baseColor, $mixColor);
+}

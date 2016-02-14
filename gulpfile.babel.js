@@ -76,7 +76,7 @@ gulp.task('colors-config', () => {
 
 // Compile Sass
 gulp.task('sass', () => {
-  return gulp.src(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss'])
+  return gulp.src(['./app/assets/scss/**/*.scss'])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
@@ -103,9 +103,9 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
 
 // Compile templates to html
 gulp.task('compile', () => {
-  nunjucksRender.nunjucks.configure(['./app/views', './node_modules/@casper', './app/modules'], {watch: false});
+  nunjucksRender.nunjucks.configure(['./app/views/', './node_modules/@casper/'], {watch: false});
 
-    return gulp.src('./app/views/**/[^_]*.html')
+    return gulp.src(['./app/views/**/[^_]*.html'])
       .pipe(plumber())
       .pipe(nunjucksRender())
       .pipe(gulp.dest('./dist'));
@@ -114,7 +114,7 @@ gulp.task('compile', () => {
 
 // Precompile templates to js for rendering in the browser
 gulp.task('precompile', () => {
-  return gulp.src(['./app/templates/**/*.html', './app/modules/**/*.html', './node_modules/@casper/nightshade-styles/**/*.html'])
+  return gulp.src(['./app/**/_*.html', './node_modules/@casper/nightshade-styles/**/*.html'])
     .pipe(plumber())
     .pipe(nunjucks())
     .pipe(concat('templates.js'))
@@ -153,10 +153,6 @@ gulp.task('browser-sync', () => {
   gulp.watch(['./app/views/**/*.html', './app/modules/**/*.html', './app/templates/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
   gulp.watch(['./node_modules/@casper/nightshade-styles/**/*.json' ], ['colors-config']);
-
-
-
-
 });
 
 

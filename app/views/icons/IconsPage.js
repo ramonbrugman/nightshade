@@ -1,5 +1,5 @@
 import { BasePage } from 'assets/js/pages/BasePage';
-import { icons_list } from 'modules/icons/icons_list.js';
+import { icons_list } from 'views/icons/icons_list.js';
 
 
 export const IconsPage = {
@@ -17,7 +17,8 @@ init() {
 
 
 setupContent() {
-  const tpl = nunjucks.render('icons/icons_list.html', { data: icons_list });
+
+  const tpl = nunjucks.render('icons/_icons_list.html', { data: icons_list });
   const page = document.getElementById('icons-content');
 
   page.innerHTML = tpl;

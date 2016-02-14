@@ -1,5 +1,5 @@
 import { BasePage } from 'assets/js/pages/BasePage.js';
-import { Popovers } from 'modules/popovers/Popovers.js';
+import { Popovers } from 'nightshade-styles/modules/popovers/Popovers.js';
 
 export const PopoversPage = {
 

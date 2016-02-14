@@ -17,8 +17,8 @@ init() {
     document.documentElement.classList.add(`no-touch`);
   }
 
-  // Configure nunjucks
-  nunjucks.configure([`app/modules/`, `node_modules/@casper/`], { autoescape: true, watch: false });
+//  Configure nunjucks
+const env = nunjucks.configure([`app/views/`, `node_modules/@casper/`], { autoescape: true, watch: false });
 
 },
 

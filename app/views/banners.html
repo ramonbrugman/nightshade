@@ -1,12 +1,11 @@
-{% extends "./base.html" %}
+{% extends "./pattern.html" %}
 
-{% from 'buttons/buttons.html' import button %}
 {% from 'nightshade-styles/modules/icons/macros_patterns.html' import svg %}
 
-{% block title %}Banners | Nightshade{% endblock %}
+{% set pattern_name = 'Banners' %}
+{% set wrapper_classes = 'r-centered' %}
 
 {% block head_styles %}
-<link href="/dist/assets/css/fonts.css" media="screen" rel="stylesheet">
 <style>
   [data-banner] {
     margin-bottom: 2em;
@@ -14,22 +13,16 @@
 </style>
 {% endblock %}
 
-{% block body_content %}
-<div class="r-section-wrapper r-centered">
-  {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
-  {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
-
-  <h2>Banners</h2>
-  <div data-banner>
-    <p data-banner-inner>Free shipping and returns on all orders</p>
-  </div>
-  <div data-banner="background">
-    <p data-banner-inner>Banner with white background</p>
-  </div>
-  <div data-banner>
-    <p data-banner-inner><a class="link-arrow" href="/faq">Your question may also be answered fon our FAQ page
-{{ svg('arrow') }}</a></p>
-  </div>
-
+{% block pattern_content %}
+<h2>Banners</h2>
+<div data-banner>
+  <p data-banner-inner>Free shipping and returns on all orders</p>
 </div>
-{% endblock%}
+<div data-banner="background">
+  <p data-banner-inner>Banner with white background</p>
+</div>
+<div data-banner>
+  <p data-banner-inner><a class="link-arrow" href="/faq">Your question may also be answered fon our FAQ page
+{{ svg('arrow') }}</a></p>
+</div>
+{% endblock %}

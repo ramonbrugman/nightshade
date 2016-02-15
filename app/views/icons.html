@@ -1,26 +1,15 @@
-{% extends './base.html' %}
+{% extends './pattern.html' %}
 
-{% from 'buttons/buttons.html' import button %}
+{% set pattern_name = 'Icons' %}
+{% set wrapper_classes = 'r-inner r-centered' %}
 
-{% block title %}Icons | Nightshade{% endblock %}
-
-{% block head_styles %}
+{% block pattern_content %}
+<h2>Icons</h2>
+<section id="icons-content"></section>
 {% endblock %}
-
-
-{% block body_content %}
-<div class="r-section-wrapper r-inner">
-  {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
-
-  <h2>Icons</h2>
-  <section id="icons-content"></section>
-</div>
-{% endblock%}
 
 {% block module_loader %}
   System.import('modules/icons/IconsPage.js').then( function(mod){
     mod.IconsPage.init();
   } );
 {% endblock %}
-
-

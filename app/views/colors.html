@@ -1,59 +1,52 @@
-{% extends "./base.html" %}
+{% extends "./pattern.html" %}
 
-{% from '../modules/buttons/buttons.html' import button %}
 {% from '../modules/color/macros.html' import color_swatch %}
 
-{% block title %}Colors | Nightshade{% endblock %}
+{% set pattern_name = 'Colors' %}
+{% set wrapper_classes = 'r-inner r-centered' %}
 
-{% block body_content %}
-<div class="r-section-wrapper r-inner r-centered">
-  {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
-  {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
-
-  <h2>Colors</h2>
-
-  <div class="color-swatches">
-    <ul class="swatch-list grid">
-      <li>
-        {{ color_swatch('base-gray') }}
-        {{ color_swatch('base-gray--light1') }}
-        {{ color_swatch('base-gray--light2') }}
-        {{ color_swatch('base-gray--light3') }}
-        {{ color_swatch('base-gray--light4') }}
-      </li>
-      <li>
-        {{ color_swatch('base-gray--light5') }}
-        {{ color_swatch('base-gray--light6') }}
-        {{ color_swatch('base-gray--light7') }}
-        {{ color_swatch('base-gray--light8') }}
-        {{ color_swatch('base-gray--light9') }}
-      </li>
-      <li>
-        {{ color_swatch('primary') }}
-        {{ color_swatch('primary--dark1') }}
-        {{ color_swatch('primary--dark2') }}
-      </li>
-      <li>
-        {{ color_swatch('secondary') }}
-        {{ color_swatch('secondary--light1') }}
-        {{ color_swatch('secondary--light2') }}
-      </li>
-      <li>
-        {{ color_swatch('light-blue') }}
-        {{ color_swatch('light-blue--light1') }}
-        {{ color_swatch('light-blue--light2') }}
-      </li>
-      <li>
-        {{ color_swatch('accent') }}
-        {{ color_swatch('accent--light1') }}
-        {{ color_swatch('accent--light2') }}
-      </li>
-    </ul>
-    <div id="swatch-stacks"></div>
-  </div>
-
+{% block pattern_content %}
+<h2>Colors</h2>
+<div class="color-swatches">
+  <ul class="swatch-list grid">
+    <li>
+      {{ color_swatch('base-gray') }}
+      {{ color_swatch('base-gray--light1') }}
+      {{ color_swatch('base-gray--light2') }}
+      {{ color_swatch('base-gray--light3') }}
+      {{ color_swatch('base-gray--light4') }}
+    </li>
+    <li>
+      {{ color_swatch('base-gray--light5') }}
+      {{ color_swatch('base-gray--light6') }}
+      {{ color_swatch('base-gray--light7') }}
+      {{ color_swatch('base-gray--light8') }}
+      {{ color_swatch('base-gray--light9') }}
+    </li>
+    <li>
+      {{ color_swatch('primary') }}
+      {{ color_swatch('primary--dark1') }}
+      {{ color_swatch('primary--dark2') }}
+    </li>
+    <li>
+      {{ color_swatch('secondary') }}
+      {{ color_swatch('secondary--light1') }}
+      {{ color_swatch('secondary--light2') }}
+    </li>
+    <li>
+      {{ color_swatch('light-blue') }}
+      {{ color_swatch('light-blue--light1') }}
+      {{ color_swatch('light-blue--light2') }}
+    </li>
+    <li>
+      {{ color_swatch('accent') }}
+      {{ color_swatch('accent--light1') }}
+      {{ color_swatch('accent--light2') }}
+    </li>
+  </ul>
+  <div id="swatch-stacks"></div>
 </div>
-{% endblock%}
+{% endblock %}
 
 {% block module_loader %}
   System.import('modules/color/ColorsPage.js').then( function(mod){

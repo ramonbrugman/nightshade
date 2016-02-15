@@ -1,9 +1,9 @@
-{% extends "./base.html" %}
+{% extends "./pattern.html" %}
 
-{% from '../modules/buttons/buttons.html' import button %}
 {% from '../modules/tooltips/tooltips.html' import tooltip %}
 
-{% block title %}Tooltips | Nightshade{% endblock %}
+{% set pattern_name = 'Tooltips' %}
+{% set wrapper_classes = 'r-centered' %}
 
 {% block head_styles %}
 <style>
@@ -26,22 +26,16 @@
 </style>
 {% endblock %}
 
-{% block body_content %}
-<div class="r-section-wrapper r-centered">
-  {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
-  {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
-
-  <h2>Tooltips</h2>
-  <div class="tooltip-example">
-    Tooltip Example
-    <span class="tooltip-container js-tooltip-container">
-      <span class="tooltip-toggle js-tooltip-toggle">?</span>
-      {{ tooltip('Verified Casper Owner', 'js-tooltip') }}
-    </span>
-  </div>
-
+{% block pattern_content %}
+<h2>Tooltips</h2>
+<div class="tooltip-example">
+  Tooltip Example
+  <span class="tooltip-container js-tooltip-container">
+    <span class="tooltip-toggle js-tooltip-toggle">?</span>
+    {{ tooltip('Verified Casper Owner', 'js-tooltip') }}
+  </span>
 </div>
-{% endblock%}
+{% endblock %}
 
 {% block module_loader %}
   System.import('modules/tooltips/TooltipsPage.js').then( function(mod){

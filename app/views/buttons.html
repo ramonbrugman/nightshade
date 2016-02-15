@@ -1,8 +1,7 @@
-{% extends "./base.html" %}
+{% extends "./pattern.html" %}
 
-{% from '../modules/buttons/buttons.html' import button %}
-
-{% block title %}Buttons | Nightshade{% endblock %}
+{% set pattern_name = 'Buttons' %}
+{% set wrapper_classes = 'r-inner' %}
 
 {% block head_styles %}
 <style>
@@ -18,68 +17,59 @@
 </style>
 {% endblock %}
 
-{% block body_content %}
-<div class="r-section-wrapper r-inner">
-  {{ button('< Back', 'simple', 'small', 'link', href='/', class='btn-back') }}
-  {{ button('Background', 'simple', 'small', class='toggle-background', id='toggle-background') }}
-
-  <h2>Buttons</h2>
-  <div class="button-row">
-    {{ button('Primary') }}
-  </div>
-  <div class="button-row">
-    {{ button('Secondary', 'secondary') }}
-  </div>
-  <div class="button-row">
-    {{ button('Accent', 'accent') }}
-  </div>
-  <div class="button-row">
-    {{ button('Ghost', 'ghost') }}
-  </div>
-  <div class="button-row">
-    {{ button('Simple', 'simple') }}
-  </div>
-  <div class="button-row">
-    {{ button('Play', 'play', id='btn-play') }}
-  </div>
-
-  <h3>Small Buttons</h3>
-  <div class="button-row">
-    {{ button('Primary (small)', size='small') }}
-  </div>
-  <div class="button-row">
-    {{ button('Secondary (small)', 'secondary', 'small', 'submit') }}
-  </div>
-  <div class="button-row">
-    {{ button('Accent (small)', 'accent', 'small') }}
-  </div>
-
-  <h3>Full Width Buttons</h3>
-  <div class="button-row">
-    {{ button('Primary (full)', size='full') }}
-  </div>
-  <div class="button-row">
-    {{ button('Secondary (full)', 'secondary', 'full') }}
-  </div>
-  <div class="button-row">
-    {{ button('Accent (full/small)', 'accent', 'full small') }}
-  </div>
-
-  <h3>Buttons with Icons</h3>
-  <div class="button-row">
-    {{ button('Live Chat', icon='speechbubble') }}
-  </div>
-  <div class="button-row">
-    {{ button('Call Us', 'secondary', icon='oncall-active') }}
-  </div>
-
-  <h3>Button Links</h3>
-  <div class="button-row">
-    {{ button('Back to Index', type='link', href='/', class='js-btn-back') }}
-  </div>
-  <div class="button-row">
-    {{ button('Casper.com', 'secondary', type='link', href='https://www.casper.com') }}
-  </div>
-
+{% block pattern_content %}
+<h2>Buttons</h2>
+<div class="button-row">
+  {{ button('Primary') }}
 </div>
-{% endblock%}
+<div class="button-row">
+  {{ button('Secondary', 'secondary') }}
+</div>
+<div class="button-row">
+  {{ button('Accent', 'accent') }}
+</div>
+<div class="button-row">
+  {{ button('Ghost', 'ghost') }}
+</div>
+<div class="button-row">
+  {{ button('Play', 'play', id='btn-play') }}
+</div>
+
+<h3>Small Buttons</h3>
+<div class="button-row">
+  {{ button('Primary (small)', size='small') }}
+</div>
+<div class="button-row">
+  {{ button('Secondary (small)', 'secondary', 'small', 'submit') }}
+</div>
+<div class="button-row">
+  {{ button('Accent (small)', 'accent', 'small') }}
+</div>
+
+<h3>Full Width Buttons</h3>
+<div class="button-row">
+  {{ button('Primary (full)', size='full') }}
+</div>
+<div class="button-row">
+  {{ button('Secondary (full)', 'secondary', 'full') }}
+</div>
+<div class="button-row">
+  {{ button('Accent (full/small)', 'accent', 'full small') }}
+</div>
+
+<h3>Buttons with Icons</h3>
+<div class="button-row">
+  {{ button('Live Chat', icon='speechbubble') }}
+</div>
+<div class="button-row">
+  {{ button('Call Us', 'secondary', icon='oncall-active') }}
+</div>
+
+<h3>Button Links</h3>
+<div class="button-row">
+  {{ button('Back to Index', type='link', href='/', class='js-btn-back') }}
+</div>
+<div class="button-row">
+  {{ button('Casper.com', 'secondary', type='link', href='https://www.casper.com') }}
+</div>
+{% endblock %}

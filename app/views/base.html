@@ -31,11 +31,7 @@
         mod.BasePage.init();
       } );
     {% endblock %}
-  </script>
-  <script>
-    document.getElementById('toggle-background').addEventListener('click', function() {
-      document.documentElement.classList.toggle('background-gray');
-    });
+    {% block inline_js %}{% endblock %}
   </script>
 
 </html>

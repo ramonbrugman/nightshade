@@ -1,0 +1,20 @@
+{% extends "./base.html" %}
+
+{% from '../modules/buttons/buttons.html' import button %}
+
+{% block title %}{{ pattern_name }} | Nightshade{% endblock %}
+
+{% block body_content %}
+<div class="r-section-wrapper {{ wrapper_classes }}">
+  {% include "./_nav-buttons.html" %}
+
+  {% block pattern_content %}{% endblock %}
+
+</div>
+{% endblock %}
+
+{% block inline_js %}
+  document.getElementById('toggle-background').addEventListener('click', function() {
+    document.documentElement.classList.toggle('background-gray');
+  });
+{% endblock %}

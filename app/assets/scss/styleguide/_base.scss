@@ -1,4 +1,9 @@
 // Styles that need to be moved to files
+@font-face {
+  font-family: 'Calibre Light';
+  src: url('../fonts/calibre-light.otf') format('opentype');
+}
+
 .container {
   padding-top: size(large) !important;
 }

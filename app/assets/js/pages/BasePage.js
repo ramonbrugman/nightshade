@@ -5,11 +5,18 @@
 */
 
 import feature from 'viljamis/feature.js';
+import attachFastClick from 'fastclick';
 
 export const BasePage = {
 
 init() {
   console.log(` base page activated `);
+
+  if (`touchAction` in document.body.style) {
+    document.body.classList.add(`no-touch-delay`);
+  } else {
+    attachFastClick(document.body);
+  }
 
   if (feature.touch) {
     document.documentElement.classList.add(`touch`);

@@ -1,0 +1,15 @@
+{% extends './pattern.html' %}
+
+{% set pattern_name = 'Icons' %}
+{% set wrapper_classes = 'r-inner r-centered' %}
+
+{% block pattern_content %}
+<h2>Icons</h2>
+<section id="icons-content"></section>
+{% endblock %}
+
+{% block module_loader %}
+  System.import('views/icons/IconsPage.js').then( function(mod) {
+    mod.IconsPage.init();
+  } );
+{% endblock %}

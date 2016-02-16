@@ -1,11 +1,11 @@
-import gulp from'gulp';
+import gulp from 'gulp';
 import browsersync from 'browser-sync';
-import fs from'fs';
-import sass from'gulp-sass';
-import autoprefixer from'gulp-autoprefixer';
-import nunjucks from'gulp-nunjucks';
-import nunjucksRender from'gulp-nunjucks-render';
-// import mocha from'gulp-mocha';
+import fs from 'fs';
+import sass from 'gulp-sass';
+import autoprefixer from 'gulp-autoprefixer';
+import nunjucks from 'gulp-nunjucks';
+import nunjucksRender from 'gulp-nunjucks-render';
+// import mocha from 'gulp-mocha';
 import critical from 'critical';
 import sourcemaps from 'gulp-sourcemaps';
 import concat from 'gulp-concat';
@@ -26,7 +26,7 @@ const file_paths =  {
     'local_sass': './app/assets/scss/',
     'module_sass': './app/modules/',
     'views': './app/views/',
-    'nighthsade': './node_modules/@casper/nightshade-styles/modules/'
+    'nightshade': './node_modules/@casper/nightshade-styles/modules/'
 };
 
 // @@@ Maybe pull these out into utilities
@@ -66,17 +66,17 @@ gulp.task('icons-config', () => {
 
 // Generate colors config
 gulp.task('colors-config', () => {
-  fs.createReadStream(file_paths.nighthsade + 'color/config.json')
+  fs.createReadStream(file_paths.nightshade + 'color/config.json')
     .pipe(jsonSass({
       prefix: '$colors:',
     }))
-    .pipe(fs.createWriteStream(file_paths.nighthsade + 'color/_config.scss'));
+    .pipe(fs.createWriteStream(file_paths.nightshade + 'color/_config.scss'));
 });
 
 
 // Compile Sass
 gulp.task('sass', () => {
-  return gulp.src(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss'])
+  return gulp.src(['./app/assets/scss/**/*.scss'])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
@@ -103,9 +103,9 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
 
 // Compile templates to html
 gulp.task('compile', () => {
-  nunjucksRender.nunjucks.configure(['./app/views', './node_modules/@casper', './app/modules'], {watch: false});
+  nunjucksRender.nunjucks.configure(['./app/views/', './node_modules/@casper/'], {watch: false});
 
-    return gulp.src('./app/views/**/[^_]*.html')
+    return gulp.src(['./app/views/**/[^_]*.html'])
       .pipe(plumber())
       .pipe(nunjucksRender())
       .pipe(gulp.dest('./dist'));
@@ -114,7 +114,7 @@ gulp.task('compile', () => {
 
 // Precompile templates to js for rendering in the browser
 gulp.task('precompile', () => {
-  return gulp.src(['./app/templates/**/*.html', './app/modules/**/*.html', './node_modules/@casper/nightshade-styles/**/*.html'])
+  return gulp.src(['./app/**/_*.html', './node_modules/@casper/nightshade-styles/**/*.html'])
     .pipe(plumber())
     .pipe(nunjucks())
     .pipe(concat('templates.js'))
@@ -153,10 +153,6 @@ gulp.task('browser-sync', () => {
   gulp.watch(['./app/views/**/*.html', './app/modules/**/*.html', './app/templates/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
   gulp.watch(['./node_modules/@casper/nightshade-styles/**/*.json' ], ['colors-config']);
-
-
-
-
 });
 
 
@@ -178,4 +174,3 @@ gulp.task('default', ['precompile', 'compile', 'fonts', 'sass', 'sassdoc', 'brow
 
 // Build task
 gulp.task('build', ['critical']);
-

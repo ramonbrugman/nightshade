@@ -1,7 +1,0 @@
-{% from 'color/macros.html' import color_swatch %}
-
-<ul class="swatch-list grid">
-  {% for key, value in data %}
-    {{ color_swatch(key, hex=value) }}
-  {% endfor %}
-</ul>

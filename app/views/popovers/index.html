@@ -1,0 +1,65 @@
+{% extends "./pattern.html" %}
+
+{% from 'nightshade-styles/modules/popovers/macros.html' import popover %}
+
+{% set pattern_name = 'Popovers' %}
+{% set wrapper_classes = 'r-centered' %}
+
+{% block head_styles %}
+<style>
+  .popover-example {
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    margin: 3em 0;
+  }
+  .popover-toggle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #666;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+</style>
+{% endblock %}
+
+{% block pattern_content %}
+<h2>Popovers</h2>
+<div class="popover-example">
+  Top
+  <span class="popover-container js-popover-container">
+    <span class="popover-toggle js-popover-toggle">?</span>
+    {{ popover('top', 'Density refers to the amount of material per cubic foot. High-density materials are more durable.', 'js-popover') }}
+  </span>
+</div>
+<div class="popover-example">
+  Right
+  <span class="popover-container js-popover-container">
+    <span class="popover-toggle js-popover-toggle">?</span>
+    {{ popover('right', 'Density refers to the amount of material per cubic foot. High-density materials are more durable.', 'js-popover') }}
+  </span>
+</div>
+<div class="popover-example">
+  Bottom
+  <span class="popover-container js-popover-container">
+    <span class="popover-toggle js-popover-toggle">?</span>
+    {{ popover('bottom', 'Density refers to the amount of material per cubic foot. High-density materials are more durable.', 'js-popover') }}
+  </span>
+</div>
+<div class="popover-example">
+  Left
+  <span class="popover-container js-popover-container">
+    <span class="popover-toggle js-popover-toggle">?</span>
+    {{ popover('left', 'Density refers to the amount of material per cubic foot. High-density materials are more durable.', 'js-popover') }}
+  </span>
+</div>
+{% endblock %}
+
+{% block module_loader %}
+  System.import('views/popovers/PopoversPage.js').then( function(mod) {
+    mod.PopoversPage.init();
+  } );
+{% endblock %}

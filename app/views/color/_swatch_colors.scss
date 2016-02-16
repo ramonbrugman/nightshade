@@ -3,7 +3,6 @@
 
 $stacks: map-get($colors, 'stacks');
 
-
 // Generate classes for colors in map
 @each $name, $color in $colors {
   @if $name != 'stacks' {

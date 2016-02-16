@@ -1,11 +1,11 @@
-import gulp from'gulp';
+import gulp from 'gulp';
 import browsersync from 'browser-sync';
-import fs from'fs';
-import sass from'gulp-sass';
-import autoprefixer from'gulp-autoprefixer';
-import nunjucks from'gulp-nunjucks';
-import nunjucksRender from'gulp-nunjucks-render';
-// import mocha from'gulp-mocha';
+import fs from 'fs';
+import sass from 'gulp-sass';
+import autoprefixer from 'gulp-autoprefixer';
+import nunjucks from 'gulp-nunjucks';
+import nunjucksRender from 'gulp-nunjucks-render';
+// import mocha from 'gulp-mocha';
 import critical from 'critical';
 import sourcemaps from 'gulp-sourcemaps';
 import concat from 'gulp-concat';
@@ -26,7 +26,7 @@ const file_paths =  {
     'local_sass': './app/assets/scss/',
     'module_sass': './app/modules/',
     'views': './app/views/',
-    'nighthsade': './node_modules/@casper/nightshade-styles/modules/'
+    'nightshade': './node_modules/@casper/nightshade-styles/modules/'
 };
 
 // @@@ Maybe pull these out into utilities
@@ -66,11 +66,11 @@ gulp.task('icons-config', () => {
 
 // Generate colors config
 gulp.task('colors-config', () => {
-  fs.createReadStream(file_paths.nighthsade + 'color/config.json')
+  fs.createReadStream(file_paths.nightshade + 'color/config.json')
     .pipe(jsonSass({
       prefix: '$colors:',
     }))
-    .pipe(fs.createWriteStream(file_paths.nighthsade + 'color/_config.scss'));
+    .pipe(fs.createWriteStream(file_paths.nightshade + 'color/_config.scss'));
 });
 
 
@@ -174,4 +174,3 @@ gulp.task('default', ['precompile', 'compile', 'fonts', 'sass', 'sassdoc', 'brow
 
 // Build task
 gulp.task('build', ['critical']);
-

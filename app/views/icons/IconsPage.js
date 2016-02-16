@@ -18,7 +18,7 @@ init() {
 
 setupContent() {
 
-  const tpl = nunjucks.render('icons/_icons_list.html', { data: icons_list });
+  const tpl = nunjucks.render('views/icons/_icons_list.html', { data: icons_list });
   const page = document.getElementById('icons-content');
 
   page.innerHTML = tpl;

@@ -46,6 +46,7 @@
   "jspm": {
     "configFile": "systemjs_config.js",
     "dependencies": {
+      "fastclick": "npm:fastclick@^1.0.6",
       "fs": "github:jspm/nodelibs-fs@^0.1.2",
       "path": "github:jspm/nodelibs-path@^0.1.0",
       "pepjs": "npm:pepjs@^0.4.1",

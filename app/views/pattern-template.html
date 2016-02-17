@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% from 'nightshade-styles/modules/buttons/macros.html' import button %}
+
+{% block title %}Pattern Title | Nightshade{% endblock %}
+
+{% block head_styles %}
+<style>
+  .r-section-wrapper {
+    width: 100%;
+  }
+  .pattern-header,
+  .pattern-example,
+  .pattern-usage {
+    margin-bottom: 3em;
+  }
+  .pattern-description {
+    font-size: 18px;
+  }
+  .pattern-example [data-button] {
+    vertical-align: middle;
+    margin-left: 0.75em;
+  }
+  .pattern-example-display {
+    margin-bottom: 2em;
+    padding: 2em;
+  }
+  .pattern-notes {
+    list-style: disc;
+    margin-left: 1em;
+  }
+  .pattern-usage [data-button] {
+    margin-right: 0.75em;
+  }
+  .pattern-usage-code {
+    display: block;
+    margin: 1em 0 2em;
+    padding: 2em;
+  }
+  .pattern-usage-code pre {
+    margin: 0;
+  }
+</style>
+{% endblock %}
+
+{% block body_content %}
+<article class="r-section-wrapper r-inner pattern">
+  {% include "layout/_nav-buttons.html" %}
+
+  <section class="pattern-variant">
+    <header class="pattern-header">
+      <h1>Pattern Title</h1>
+      <p class="pattern-description">Description of pattern and what its function is, including any other relevant information.</p>
+    </header>
+
+    <div class="pattern-example">
+      <h2>Example {{ button('View on GitHub', 'ghost', 'small', type='link', href='#') }}</h2>
+      <div class="pattern-example-display r-centered base-gray--light8">
+        {{ button('Primary') }}
+      </div>
+      <h3>Rules</h3>
+      <ul class="pattern-notes">
+        <li>Pattern must be used in this specific manner</li>
+        <li>Another rule specifying pattern usage restrictions, limitations, or conventions</li>
+        <li>Pattern must be used in this specific manner</li>
+      </ul>
+    </div>
+
+    <div class="pattern-usage">
+      <h2>Usage in Code</h2>
+      {{ button('Macro', 'ghost', 'small') }}
+      {{ button('HTML', 'ghost', 'small') }}
+      <code class="pattern-usage-code base-gray--light8 r-centered">
+        <pre>{% raw %}{{ button('Primary') }}{% endraw %}</pre>
+      </code>
+      <h3>Tech Notes</h3>
+      <ul class="pattern-notes">
+        <li>Pattern must be used in this specific manner</li>
+        <li>Another rule specifying pattern usage restrictions, limitations, or conventions</li>
+      </ul>
+    </div>
+  </section>
+
+</article>
+{% endblock %}
+
+{% block inline_js %}
+  document.getElementById('toggle-background').addEventListener('click', function() {
+    document.documentElement.classList.toggle('background-gray');
+  });
+{% endblock %}

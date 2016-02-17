@@ -1,0 +1,41 @@
+// Pattern template
+.pattern {
+  width: 100%;
+}
+
+.pattern-header,
+.pattern-example,
+.pattern-usage {
+  margin-bottom: size(larger);
+}
+
+.pattern-description {
+  font-size: 18px;
+}
+
+.pattern-example-display {
+  margin-bottom: size(large);
+  padding: size(large);
+}
+
+.pattern-notes {
+  list-style: disc;
+  margin-left: size(small);
+}
+
+.pattern-usage {
+
+  [data-button] {
+    margin-right: 0.75em;
+  }
+}
+
+.pattern-usage-code {
+  display: block;
+  margin: 1em 0 2em;
+  padding: 2em;
+}
+
+.pattern-usage-code pre {
+  margin: 0;
+}

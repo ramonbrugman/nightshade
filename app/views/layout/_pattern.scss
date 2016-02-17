@@ -21,21 +21,32 @@
 .pattern-notes {
   list-style: disc;
   margin-left: size(small);
+
+  li {
+    margin: size(tiny) 0;
+  }
 }
 
 .pattern-usage {
 
   [data-button] {
-    margin-right: 0.75em;
+    margin-right: size(smaller)
   }
 }
 
 .pattern-usage-code {
-  display: block;
-  margin: 1em 0 2em;
-  padding: 2em;
+  margin: size(small) 0 size(large);
+  padding: size(large);
 }
 
-.pattern-usage-code pre {
-  margin: 0;
+.pattern-usage-import {
+  margin: size(small) 0 size(large);
+  padding: size(small);
+}
+
+pre {
+  .pattern-usage-code &,
+  .pattern-usage-import & {
+    margin: 0;
+  }
 }

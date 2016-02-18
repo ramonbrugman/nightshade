@@ -1,0 +1,495 @@
+{% from 'nightshade-styles/modules/buttons/macros.html' import button %}
+
+{% macro sheets_header() %}
+<header class="-hoisted header--hoisted product-diagram-header r-centered r-inner">
+  <h2 class="h1 -dark header-title">SOFT, STRONG &amp; BREATHABLE</h2>
+  <div class="header-copy body--serif">We spent months researching and designing a perfectly balanced fabric that will stay soft and comfortable wash after wash.</div>
+
+  {{ button('SEE THE DESIGN STORY', 'play', href="/sheets/design") }}
+</header>
+{% endmacro %}
+
+{% set sheetsDiagramConte = {
+
+  "sheets-weave": {
+    title: "BREATHABLE WEAVE",
+    description: "Our percale weave is more breathable and longer lasting than other popular weaves"
+  },
+  "sheets-thread-count": {
+    title: "IDEAL THREAD COUNT",
+    description: "We discovered the perfect thread count (threads per square inch) to balance softness, strength, and breathability"
+  },
+  "sheets-cotton": {
+    title: "EXTRA-LONG STAPLE SUPIMA® COTTON",
+    description: "Grown in Central Valley California, our cotton is four times stronger than the industry average, so the threads don’t pill or pull"
+  }
+%}
+
+{% macro diagram() %}
+<div aria-label="Casper Sheets (Diagram)" class="product-diagram-widget product-diagram-widget--sheets r-section-wrapper" role="img">
+
+  <div class="product-diagram-items product-diagram-items--sheets">
+    {% for id, data in socialLinksList %}
+      {{ diagram_item(id, data)) }}
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro diagram_item(id, data) %}
+<article class="product-diagram-item product-diagram-item--{{ id }}">
+  <div class="product-diagram-item-wrapper">
+
+    {# {% if image %}
+      <div aria-label="Casper Sheets (Weave Detail)" class="product-diagram-item-image-bubble product-diagram-item-image-marker product-diagram-item-image-marker--{{ id }}" role="img" style="background-image: url(https://casper.imgix.net/product-diagrams/casper-weave-detail.png?format=auto )"></div>
+    {% else %}
+      <div class="product-diagram-item-image-dot product-diagram-item-image-  marker product-diagram-item-image-marker--sheets-thread-count"></div>
+    {% endif %}
+ #}
+    <h3 class="product-diagram-item-header mx-auto -dark">{{ data.title }}</h3>
+    <p class="body--sans-small product-diagram-item-copy mx-auto">
+      {{ data.description }}
+    </p>
+  </div>
+</article>
+{% endmacro %}
+
+{% macro specs() %}
+<div aria-expanded="true" class="product-specs-info-container js-tech-specs-info-container is-expanded">
+  <div class="tech-specs-info-section">
+    <h3 class="product-specs-section-header">
+    COUNTRY OF ORIGIN
+    </h3>
+    <div class="tech-specs-section-copy">
+      Designed in the USA. Spun, woven, and sewn in India. Made with Supima® cotton from California and components from China and India.
+    </div>
+  </div>
+  <div class="tech-specs-info-section">
+    <h3 class="product-specs-section-header">
+    CONSTRUCTION &amp; MATERIALS
+    </h3>
+    <div class="tech-specs-section-copy">
+      <ul class="tech-specs-materials">
+        <li>
+          100% extra-long staple Supima® cotton
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="tech-specs-info-section">
+    <h3 class="product-specs-section-header--dimensions product-specs-section-header">
+    Measurements &amp; Dimensions
+    </h3>
+    <div class="tech-specs-section-copy tech-specs-dimensions-table-section">
+      <table class="tech-specs-table">
+        <tbody><tr class="tech-specs-table-row">
+          <th class="tech-specs-table-corner"></th>
+          <th class="tech-specs-table-header">
+            Flat Sheet <br>(W x L)
+          </th>
+          <th class="tech-specs-table-header">
+            Fitted Sheet <br>(W x L x D)
+          </th>
+          <th class="tech-specs-table-header">
+            Duvet Cover <br>(W x L)
+          </th>
+        </tr>
+        <tr class="tech-specs-table-row">
+          <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+            Twin
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            66” X 96”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            39” X 75” X 14”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            68” X 86”
+          </td>
+        </tr>
+        <tr class="tech-specs-table-row">
+          <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+            Twin XL
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            66” X 96”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            39” X 80” X 14”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            68” X 86”
+          </td>
+        </tr>
+        <tr class="tech-specs-table-row">
+          <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+            Full
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            81” X 96”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            54” X 75” X 14”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            88” X 92”
+          </td>
+        </tr>
+        <tr class="tech-specs-table-row">
+          <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+            Queen
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            94” X 108”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            60” X 80” X 14”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            88” X 92”
+          </td>
+        </tr>
+        <tr class="tech-specs-table-row">
+          <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+            King
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            112” X 108”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            76” X 80” X 14”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            106” X 92”
+          </td>
+        </tr>
+        <tr class="tech-specs-table-row">
+          <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+            Cal King
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            112” X 108”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            72” X 84” X 14”
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            106” X 92”
+          </td>
+        </tr>
+      </tbody></table>
+      <table class="tech-specs-table">
+        <tbody><tr class="tech-specs-table-row">
+          <th class="tech-specs-table-corner"></th>
+          <th class="tech-specs-table-header">
+            Pillowcase <br>(W x L)
+          </th>
+        </tr>
+        <tr class="tech-specs-table-row">
+          <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+            Standard
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            21” X 30”
+          </td>
+        </tr>
+        <tr class="tech-specs-table-row">
+          <td class="tech-specs-table-cell-size tech-specs-dimensions-title">
+            King
+          </td>
+          <td class="tech-specs-dimensions-size tech-specs-table-cell">
+            21” X 40”
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div aria-hidden="true" class="tech-specs-dimensions-list-section" role="presentation">
+      <h3 class="tech-specs-product-header">
+      Flat Sheet <br>(W x L)
+      </h3>
+      <div class="tech-specs-section-copy tech-specs-columns">
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Twin
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            66” X 96”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Twin XL
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            66” X 96”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Full
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            81” X 96”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Queen
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            94” X 108”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              King
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            112” X 108”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Cal King
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            112” X 108”
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div aria-hidden="true" class="tech-specs-dimensions-list-section" role="presentation">
+      <h3 class="tech-specs-product-header">
+      Fitted Sheet <br>(W x L x D)
+      </h3>
+      <div class="tech-specs-section-copy tech-specs-columns">
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Twin
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            39” X 75” X 14”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Twin XL
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            39” X 80” X 14”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Full
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            54” X 75” X 14”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Queen
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            60” X 80” X 14”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              King
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            76” X 80” X 14”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Cal King
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            72” X 84” X 14”
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div aria-hidden="true" class="tech-specs-dimensions-list-section" role="presentation">
+      <h3 class="tech-specs-product-header">
+      Duvet Cover <br>(W x L)
+      </h3>
+      <div class="tech-specs-section-copy tech-specs-columns">
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Twin
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            68” X 86”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Twin XL
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            68” X 86”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Full
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            88” X 92”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Queen
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            88” X 92”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              King
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            106” X 92”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Cal King
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            106” X 92”
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div aria-hidden="true" class="tech-specs-dimensions-list-section" role="presentation">
+      <h3 class="tech-specs-product-header">
+      Pillowcase <br>(W x L)
+      </h3>
+      <div class="tech-specs-section-copy tech-specs-columns">
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              Standard
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            21” X 30”
+          </li>
+        </ul>
+        <ul class="tech-specs-list-item tech-specs-measurements">
+          <li>
+            <span class="tech-specs-dimensions-title">
+              King
+            </span>
+          </li>
+          <li class="tech-specs-dimensions-size">
+            21” X 40”
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="tech-specs-info-section">
+    <h3 class="product-specs-section-header">
+    SHIPPING INFO
+    </h3>
+    <div class="tech-specs-section-copy">
+      In the US, we ship via UPS Ground. In Canada, we ship via UPS Air. Please allow one extra day for customs.
+    </div>
+  </div>
+  <div class="tech-specs-info-section">
+    <h3 class="product-specs-section-header">
+    SHIPPING COSTS
+    </h3>
+    <div class="tech-specs-section-copy">
+      Free shipping and free returns in the US and Canada.
+    </div>
+  </div>
+  <div class="tech-specs-info-section">
+    <h3 class="product-specs-section-header">
+    CERTIFICATION
+    </h3>
+    <div class="tech-specs-section-copy">
+      <p>
+        Certified Supima® Cotton
+      </p>
+    </div>
+  </div>
+  <div class="tech-specs-info-section">
+    <h3 class="product-specs-section-header">
+    WARRANTY
+    </h3>
+    <div class="tech-specs-section-copy">
+      1-year limited warranty.
+      <a class="link tech-specs-link" href="/warranty#sheets" target="_blank">Read More</a>
+    </div>
+  </div>
+</div>
+{% endmacro%}
+
+
+{% macro infographic() %}
+<ul class="js-sheets-infographic-gallery product-infographic-options sheets-infographic-options">
+  {{ infographic_item() }}
+  {{ infographic_item() }}
+  {{ infographic_item() }}
+  {{ infographic_item() }}
+</ul>
+{% endmacro%}
+
+{% macro infographic_item() %}
+<li class="product-infographic-option sheets-infographic-option sheets-infographic-option--fitted-sheet">
+  <figure class="product-infographic-drawing sheets-infographic-drawing sheets-infographic-drawing--flat-sheet">
+    <img alt="Casper Flat Sheet" src="https://casper.imgix.net/sheets-infographic/casper-flat-sheet.png?auto=format">
+  </figure>
+  <h4 class="product-infographic-option-title sheets-infographic-option-title">FITTED SHEET</h4>
+  <p class="body--sans-small product-infographic-option-copy sheets-infographic-option-copy">
+  With labels indicating the shorter ends, the fitted sheet is both easy to fold and place on the bed. It stays put with grippy elastic.
+  </p>
+</li>
+{% endmacro%}
+

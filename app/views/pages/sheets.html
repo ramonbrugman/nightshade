@@ -1,0 +1,76 @@
+{% extends "layout/site.html" %}
+
+{% import 'nightshade-styles/modules/banners/banners.macros.html' as banner  %}
+{% import 'nightshade-styles/modules/layout/blocks.macros.html' as block  %}
+{% from 'nightshade-styles/modules/buttons/macros.html' import button %}
+{% import 'nightshade-styles/modules/layout/prop.macros.html' as prop  %}
+{% import 'nightshade-styles/modules/gallery/gallery.macros.html' as media  %}
+{% import 'nightshade-styles/modules/reviews/reviews.macros.html' as review  %}
+{% import 'pages/pages.macros.html' as page  %}
+{% import 'nightshade-styles/modules/purchase/purchase.macros.html' as purchase_module %}
+
+
+{% block page_content %}
+<div class="product-purchase-wrapper">
+  <div class="r-section product-purchase product-purchase--sheets">
+    {{ media.old_gallery() }}
+    {{ purchase_module.sheets() }}
+  </div>
+</div>
+
+{{ banner.banner() }}
+{{ media.flickity_gallery() }}
+
+
+{{ page.sheets_header() }}
+{{ page.diagram() }}
+
+<div class="product-specs-details r-inner r-section-wrapper">
+  <article class="product-specs r-centered js-tech-specs">
+    {{ button('See sheet details', 'ghost', class="product-specs-toggle js-tech-specs-toggle btn-toggler mx-auto") }}
+    {{ page.specs() }}
+  </article>
+</div>
+
+
+<article class="product-props">
+  {{ prop.value() }}
+  {{ prop.value() }}
+</article>
+
+<div class="-backdrop product-infographic r-section-wrapper sheets-infographic">
+  <div class="product-infographic-container r-centered r-inner sheets-infographic-container">
+    {{ page.infographic() }}
+  </div>
+  {{ banner.banner(content="
+Set works with any mattress up to 12” deep") }}
+</div>
+
+
+<section class="r-section-wrapper r-centered product-page-review r-inner">
+  {{ review.single() }}
+</section>
+
+
+<aside class="product-footer">
+  {# {{ banner.cta() }} #}
+  <div class="grid-two-column-container r-inner">
+    <div class="grid-two-column-left r-section-wrapper">
+      {{ block.newsletter_signup() }}
+    </div>
+
+    <div class="grid-two-column-right r-section-wrapper">
+      {{ block.shipping_returns() }}
+    </div>
+  </div>
+
+
+</aside>
+
+{% endblock %}
+
+{% block module_loader_plus %}
+System.import('nightshade-styles/modules/products/SheetsPage.js').then(function () {
+  SheetsPage.init();
+});
+{% endblock %}

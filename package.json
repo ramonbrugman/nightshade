@@ -15,7 +15,6 @@
   },
   "homepage": "https://github.com/CasperSleep/Ando",
   "devDependencies": {
-    "@casper/nightshade-icons": "github:caspersleep/nightshade-icons#v1.0.0",
     "@casper/nightshade-styles": "github:caspersleep/nightshade-styles#v2.0.0-dev",
     "browser-sync": "^2.10.0",
     "critical": "^0.7.0",

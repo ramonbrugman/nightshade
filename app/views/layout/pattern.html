@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% from 'nightshade-styles/modules/buttons/macros.html' import button %}
+
+{% block title %}Pattern Name | Nightshade{% endblock %}
+
+{% block head_styles %}
+<link href="/dist/assets/css/highlight.css" media="screen" rel="stylesheet">
+{% endblock %}
+
+{% block body_content %}
+<article class="r-section-wrapper r-inner pattern">
+  {% include "layout/_nav-buttons.html" %}
+
+  <header class="pattern-header">
+    <h1>Pattern Name</h1>
+    <p class="pattern-description">Description of pattern and what its function is, including any other relevant information.</p>
+  </header>
+
+  <section class="pattern-variant">
+    <h2>Pattern Variant</h2>
+    <div class="pattern-example">
+      <div class="pattern-example-display r-centered base-gray--light8">
+        {{ button('Primary') }}
+      </div>
+      <h3>Rules</h3>
+      <ul class="pattern-notes">
+        <li>Pattern must be used in this specific manner</li>
+        <li>Another rule specifying pattern usage restrictions, limitations, or conventions. Pattern must be used in this specific manner. Another rule specifying pattern usage restrictions, limitations, or conventions. Another rule specifying pattern usage restrictions, limitations, or conventions.</li>
+        <li>Pattern must be used in this specific manner</li>
+      </ul>
+    </div>
+
+    <div class="pattern-usage">
+      <h2>Usage</h2>
+      {{ button('Macro', 'ghost', 'small', id="show-macro") }}
+      {{ button('HTML', 'ghost', 'small', id="show-html") }}
+      <pre class="pattern-usage-code base-gray--light8 r-centered" id="code-macro"><code>{{ "{{ button('Primary') }}" }}</code></pre>
+      <pre class="pattern-usage-code base-gray--light8 r-centered is-hidden" id="code-html"><code>{{ '<button type="button" data-button="primary">Primary</button>' }}</code></pre>
+      <h3>Import SCSS</h3>
+      <a href="#">View on GitHub</a>
+      <pre class="pattern-usage-import base-gray--light8"><code>{{ "@import './node_modules/@casper/nightshade-styles/modules/buttons/base';" }}</code></pre>
+      <h3>Import Macro</h3>
+      <a href="#">View on GitHub</a>
+      <pre class="pattern-usage-import base-gray--light8"><code>{{ "{% from 'nightshade-styles/modules/buttons/macros.html' import button %}" }}</code></pre>
+      <h3>Tech Notes</h3>
+      <ul class="pattern-notes">
+        <li>Pattern must be used in this specific manner. Another rule specifying pattern usage restrictions, limitations, or conventions. Pattern must be used in this specific manner. Pattern must be used in this specific manner. Another rule specifying pattern usage restrictions, limitations, or conventions. Pattern must be used in this specific manner. Another rule specifying pattern usage restrictions, limitations, or conventions.</li>
+        <li>Another rule specifying pattern usage restrictions, limitations, or conventions. Pattern must be used in this specific manner. Another rule specifying pattern usage restrictions, limitations, or conventions. Another rule specifying pattern usage restrictions, limitations, or conventions.</li>
+      </ul>
+    </div>
+  </section>
+
+</article>
+{% endblock %}
+
+{% block scripts %}
+{# Find a way to import this into PatternPage.js #}
+<script src="/app/assets/js/vendor/highlight.js"></script>
+{% endblock %}
+
+{% block module_loader %}
+  System.import('views/layout/PatternPage.js').then( function(mod) {
+    mod.PatternPage.init();
+  } );
+{% endblock %}
+
+{% block inline_js %}
+  // Initialize Highlight.js (init within PatternPage.js)
+  hljs.initHighlightingOnLoad();
+
+  {% include "layout/_background_toggle.html" %}
+{% endblock %}

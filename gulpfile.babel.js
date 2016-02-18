@@ -149,8 +149,8 @@ gulp.task('browser-sync', () => {
 
 
   gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ]).on("change", reload);
-  gulp.watch(['./app/assets/scss/**/*.scss', './app/modules/**/*.scss', './node_modules/@casper/nightshade-styles/**/*.scss' ], ['sass']);
-  gulp.watch(['./app/views/**/*.html', './app/modules/**/*.html', './app/templates/**/*.html'], ['html-watch']);
+  gulp.watch(['./app/assets/scss/**/*.scss', './app/views/**/*.scss', './node_modules/@casper/nightshade-styles/**/*.scss' ], ['sass']);
+  gulp.watch(['./app/views/**/*.html', './app/templates/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
   gulp.watch(['./node_modules/@casper/nightshade-styles/**/*.json' ], ['colors-config']);
 });
@@ -158,7 +158,7 @@ gulp.task('browser-sync', () => {
 
 //Sassdoc task
 gulp.task('sassdoc', () => {
-  return gulp.src(['app/**/*.scss', 'app/modules/**/*.scss', './node_modules/nightshade-styles/**/*.scss'])
+  return gulp.src(['app/**/*.scss', 'app/views/**/*.scss', './node_modules/nightshade-styles/**/*.scss'])
   .pipe(sassdoc({
       dest: './dist/sassdoc'
   }));

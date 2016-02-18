@@ -1,0 +1,45 @@
+// Pattern template
+.pattern {
+  width: 100%;
+}
+
+.pattern-header,
+.pattern-example,
+.pattern-usage {
+  margin-bottom: size(larger);
+}
+
+.pattern-description {
+  font-size: 18px;
+}
+
+.pattern-example-display {
+  margin-bottom: size(large);
+  padding: size(large);
+}
+
+.pattern-notes {
+  list-style: disc;
+  margin-left: size(small);
+
+  li {
+    margin: size(tiny) 0;
+  }
+}
+
+.pattern-usage {
+
+  [data-button] {
+    margin-right: size(smaller)
+  }
+}
+
+.pattern-usage-code {
+  margin: size(small) 0 size(large);
+  padding: size(large);
+}
+
+.pattern-usage-import {
+  margin: size(small) 0 size(large);
+  padding: size(small);
+}

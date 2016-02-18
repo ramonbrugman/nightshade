@@ -1,0 +1,10 @@
+// Modular Scale (move to nightshade-core if use becomes standard)
+@import './node_modules/modularscale-sass/stylesheets/modular-scale';
+
+$ms-base: 1em;
+$ms-ratio: $minor-third;
+
+// Example of usage
+body {
+  font-size: ms(0);
+}

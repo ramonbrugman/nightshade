@@ -14,7 +14,5 @@
 {% endblock %}
 
 {% block inline_js %}
-  document.getElementById('toggle-background').addEventListener('click', function() {
-    document.documentElement.classList.toggle('background-gray');
-  });
+  {% include "layout/_background_toggle.html" %}
 {% endblock %}

@@ -55,27 +55,19 @@
 {% endblock %}
 
 {% block scripts %}
+{# Find a way to import this into PatternPage.js #}
 <script src="/app/assets/js/vendor/highlight.js"></script>
 {% endblock %}
 
+{% block module_loader %}
+  System.import('views/layout/PatternPage.js').then( function(mod) {
+    mod.PatternPage.init();
+  } );
+{% endblock %}
+
 {% block inline_js %}
-  // Initialize Highlight.js
+  // Initialize Highlight.js (init within PatternPage.js)
   hljs.initHighlightingOnLoad();
 
-  var codeMacro = document.getElementById('code-macro');
-  var codeHTML = document.getElementById('code-html');
-
-  document.getElementById('show-macro').addEventListener('click', function() {
-    codeMacro.classList.remove('is-hidden');
-    codeHTML.classList.add('is-hidden');
-  });
-
-  document.getElementById('show-html').addEventListener('click', function() {
-    codeHTML.classList.remove('is-hidden');
-    codeMacro.classList.add('is-hidden');
-  });
-
-  document.getElementById('toggle-background').addEventListener('click', function() {
-    document.documentElement.classList.toggle('background-gray');
-  });
+  {% include "layout/_background_toggle.html" %}
 {% endblock %}

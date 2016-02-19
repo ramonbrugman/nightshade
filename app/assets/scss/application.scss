@@ -18,6 +18,7 @@
 
 
 @import './node_modules/@casper/nightshade-styles/modules/banners/cta_banner';
+@import './node_modules/@casper/nightshade-styles/modules/breadcrumbs/base';
 @import './node_modules/@casper/nightshade-styles/modules/layout/header';
 @import './node_modules/@casper/nightshade-styles/modules/layout/menu/bundle';
 @import './node_modules/@casper/nightshade-styles/modules/media/flex-embed';
@@ -28,13 +29,12 @@
 @import './node_modules/@casper/nightshade-styles/modules/gallery/background';
 @import './node_modules/@casper/nightshade-styles/modules/gallery/lifestyle_gallery';
 @import './node_modules/@casper/nightshade-styles/modules/forms/forms';
-@import './node_modules/@casper/nightshade-styles/modules/props';
-@import './node_modules/@casper/nightshade-styles/modules/newsletter/block';
-@import './node_modules/@casper/nightshade-styles/modules/ratings_stars/base';
-@import './node_modules/@casper/nightshade-styles/modules/breadcrumbs/base';
 @import './node_modules/@casper/nightshade-styles/modules/forms/email_signup';
+@import './node_modules/@casper/nightshade-styles/modules/newsletter/block';
+@import './node_modules/@casper/nightshade-styles/modules/props';
+@import './node_modules/@casper/nightshade-styles/modules/ratings_stars/base';
 @import './node_modules/@casper/nightshade-styles/modules/social_links/base';
-
+@import './node_modules/@casper/nightshade-styles/modules/trial_warranty/banner';
 
 @import './node_modules/@casper/nightshade-styles/modules/products/purchase';
 @import './node_modules/@casper/nightshade-styles/modules/products/diagram';

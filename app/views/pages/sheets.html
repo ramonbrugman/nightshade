@@ -8,6 +8,7 @@
 {% import 'nightshade-styles/modules/reviews/reviews.macros.html' as review  %}
 {% import 'pages/pages.macros.html' as page  %}
 {% import 'nightshade-styles/modules/purchase/purchase.macros.html' as purchase_module %}
+{% from 'nightshade-styles/modules/trial_warranty/warranty.macros.html' import trial_returns %}
 
 
 {% block page_content %}
@@ -46,6 +47,7 @@
 Set works with any mattress up to 12” deep") }}
 </div>
 
+{{ trial_returns() }}
 
 <section class="r-section-wrapper r-centered product-page-review r-inner">
   {{ review.single() }}

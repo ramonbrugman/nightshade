@@ -1,8 +1,11 @@
 /**
  * @overview Pattern page module for styleguide patterns
  * @module PatternPage.js
+ *
+ * @todo Update setupCodeTogglers to iterate based on variants
 */
 
+import pepjs from 'pepjs';
 import { BasePage } from 'assets/js/pages/BasePage.js';
 
 export const PatternPage = {
@@ -11,25 +14,35 @@ export const PatternPage = {
 
   init() {
     this.__proto__.init();
-    this.setupCodeToggles();
+    this.setupCodeTogglers();
   },
 
   /**
    * Setup toggles to enable switching between Macro and HTML code blocks
    * @returns {void}
   */
-  setupCodeToggles() {
-    const codeMacro = document.getElementById(`code-macro`);
-    const codeHTML = document.getElementById(`code-html`);
+  setupCodeTogglers() {
+    const macroTogglers = document.querySelectorAll(`.js-show-macro`);
+    const HTMLTogglers = document.querySelectorAll(`.js-show-html`);
 
-    document.getElementById(`show-macro`).addEventListener(`click`, () => {
-      codeMacro.classList.remove(`is-hidden`);
-      codeHTML.classList.add(`is-hidden`);
+    [...macroTogglers].forEach((el) => {
+      el.setAttribute(`touch-action`, `none`);
+      el.addEventListener(`pointerup`, () => {
+        const codeMacro = el.parentNode.querySelector(`.js-code-macro`);
+        const codeHTML = el.parentNode.querySelector(`.js-code-html`);
+        codeMacro.classList.remove(`is-hidden`);
+        codeHTML.classList.add(`is-hidden`);
+      });
     });
 
-    document.getElementById(`show-html`).addEventListener(`click`, () => {
-      codeHTML.classList.remove(`is-hidden`);
-      codeMacro.classList.add(`is-hidden`);
+    [...HTMLTogglers].forEach((el) => {
+      el.setAttribute(`touch-action`, `none`);
+      el.addEventListener(`pointerup`, () => {
+        const codeHTML = el.parentNode.querySelector(`.js-code-html`);
+        const codeMacro = el.parentNode.querySelector(`.js-code-macro`);
+        codeHTML.classList.remove(`is-hidden`);
+        codeMacro.classList.add(`is-hidden`);
+      });
     });
   },
 

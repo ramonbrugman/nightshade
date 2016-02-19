@@ -3,6 +3,14 @@
   width: 100%;
 }
 
+.pattern-variant {
+  &:not(:nth-of-type(1)) {
+    margin-top: size(largest);
+    padding-top: size(largest);
+    border-top: 1px solid color(border);
+  }
+}
+
 .pattern-header,
 .pattern-example,
 .pattern-usage {

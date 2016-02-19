@@ -9,43 +9,50 @@
 </header>
 {% endmacro %}
 
-{% set sheetsDiagramConte = {
-
-  "sheets-weave": {
+{% set sheetsDiagramContent = [
+  {
+    id: "sheets-weave",
     title: "BREATHABLE WEAVE",
-    description: "Our percale weave is more breathable and longer lasting than other popular weaves"
+    description: "Our percale weave is more breathable and longer lasting than other popular weaves",
+    image: "casper-weave-detail.png"
   },
-  "sheets-thread-count": {
+  {
+    id: "sheets-thread-count",
     title: "IDEAL THREAD COUNT",
     description: "We discovered the perfect thread count (threads per square inch) to balance softness, strength, and breathability"
   },
-  "sheets-cotton": {
+  {
+    id: "sheets-cotton",
     title: "EXTRA-LONG STAPLE SUPIMA® COTTON",
-    description: "Grown in Central Valley California, our cotton is four times stronger than the industry average, so the threads don’t pill or pull"
+    description: "Grown in Central Valley California, our cotton is four times stronger than the industry average, so the threads don’t pill or pull",
+    image: "casper-sheets-detail.png"
   }
+  ]
 %}
+
 
 {% macro diagram() %}
 <div aria-label="Casper Sheets (Diagram)" class="product-diagram-widget product-diagram-widget--sheets r-section-wrapper" role="img">
 
   <div class="product-diagram-items product-diagram-items--sheets">
-    {% for id, data in socialLinksList %}
-      {{ diagram_item(id, data)) }}
+    {% for diagram_content in sheetsDiagramContent %}
+      {{ diagram_item(diagram_content) }}
     {% endfor %}
   </div>
 </div>
 {% endmacro %}
 
-{% macro diagram_item(id, data) %}
-<article class="product-diagram-item product-diagram-item--{{ id }}">
+
+{% macro diagram_item(data) %}
+<article class="product-diagram-item product-diagram-item--{{ data.id }}">
   <div class="product-diagram-item-wrapper">
 
-    {# {% if image %}
-      <div aria-label="Casper Sheets (Weave Detail)" class="product-diagram-item-image-bubble product-diagram-item-image-marker product-diagram-item-image-marker--{{ id }}" role="img" style="background-image: url(https://casper.imgix.net/product-diagrams/casper-weave-detail.png?format=auto )"></div>
+    {% if data.image %}
+      <div aria-label="Casper Sheets (Weave Detail)" class="product-diagram-item-image-bubble product-diagram-item-image-marker product-diagram-item-image-marker--{{ id }}" role="img" style="background-image: url(https://casper.imgix.net/product-diagrams/{{ data.image }}?format=auto )"></div>
     {% else %}
-      <div class="product-diagram-item-image-dot product-diagram-item-image-  marker product-diagram-item-image-marker--sheets-thread-count"></div>
+      <div class="product-diagram-item-image-dot product-diagram-item-image-marker product-diagram-item-image-marker--{{ data.id }}"></div>
     {% endif %}
- #}
+
     <h3 class="product-diagram-item-header mx-auto -dark">{{ data.title }}</h3>
     <p class="body--sans-small product-diagram-item-copy mx-auto">
       {{ data.description }}
@@ -53,6 +60,7 @@
   </div>
 </article>
 {% endmacro %}
+
 
 {% macro specs() %}
 <div aria-expanded="true" class="product-specs-info-container js-tech-specs-info-container is-expanded">

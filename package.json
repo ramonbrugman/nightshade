@@ -48,6 +48,7 @@
     "dependencies": {
       "fastclick": "npm:fastclick@^1.0.6",
       "fs": "github:jspm/nodelibs-fs@^0.1.2",
+      "imgix.js": "npm:imgix.js@^2.1.0",
       "path": "github:jspm/nodelibs-path@^0.1.0",
       "pepjs": "npm:pepjs@^0.4.1",
       "rx": "npm:rx@^4.0.7",

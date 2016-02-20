@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% import 'nightshade-styles/modules/layout/regions.macros.html' as region  %}
+
+{% block title %}Nightshade{% endblock %}
+
+{% block body_content %}
+<header id="header" class="r-header" role="banner">
+  <div class="header-wrapper">
+  {{ region.header() }}
+  </div>
+</header>
+
+<main class="wrapper" role="main">
+  {% block page_content %}
+  {% endblock %}
+</main>
+
+<footer class="js-foooter r-footer">
+  {{ region.footer() }}
+</footer>
+{% endblock %}

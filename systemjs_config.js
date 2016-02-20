@@ -20,6 +20,7 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "fastclick": "npm:fastclick@1.0.6",
     "fs": "github:jspm/nodelibs-fs@0.1.2",
+    "imgix.js": "npm:imgix.js@2.1.0",
     "path": "github:jspm/nodelibs-path@0.1.0",
     "pepjs": "npm:pepjs@0.4.1",
     "request": "npm:request@2.67.0",
@@ -455,6 +456,12 @@ System.config({
     },
     "npm:https-browserify@0.0.0": {
       "http": "github:jspm/nodelibs-http@1.7.1"
+    },
+    "npm:imgix.js@2.1.0": {
+      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"

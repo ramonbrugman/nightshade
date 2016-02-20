@@ -11,12 +11,11 @@ import { ImgixSettings } from 'node_modules/@casper/nightshade-styles/modules/me
 
 export const BasePage = {
 
-  __proto__: ImgixSettings,
 
   init() {
     console.log(` base page activated `);
 
-    this.__proto__.init();
+    ImgixSettings.init();
 
     /**
      * Checks for browser support of the `touch-action` CSS property and if so,

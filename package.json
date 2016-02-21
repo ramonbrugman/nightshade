@@ -32,7 +32,9 @@
     "istanbul": "^0.4.1",
     "json-sass": "^1.3.5",
     "jspm": "^0.16.19",
+    "marked": "^0.3.5",
     "modularscale-sass": "^2.1.1",
+    "nunjucks-markdown": "^1.1.0",
     "sassdoc": "^2.1.19",
     "vinyl-source-stream": "^1.1.0"
   },

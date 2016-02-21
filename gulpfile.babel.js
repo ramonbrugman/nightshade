@@ -14,7 +14,8 @@ import sassdoc from 'sassdoc';
 import jsonSass from 'json-sass';
 import source from 'vinyl-source-stream';
 import plumber from 'gulp-plumber';
-
+import markdown from 'nunjucks-markdown';
+import marked from 'marked';
 
 const browserSync = browsersync.create();
 const reload      = browserSync.reload;
@@ -103,7 +104,19 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
 
 // Compile templates to html
 gulp.task('compile', () => {
-  nunjucksRender.nunjucks.configure(['./app/views/', './node_modules/@casper/'], {watch: false});
+  const env = nunjucksRender.nunjucks.configure(['./app/views/', './node_modules/@casper/'], {watch: false});
+
+  markdown.register(env, marked);
+
+  marked.setOptions({
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pendantic: false,
+    sanitize: true,
+    smartLists: true,
+    smartypants: false
+  });
 
     return gulp.src(['./app/views/**/[^_]*.html'])
       .pipe(plumber())

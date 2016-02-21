@@ -1,6 +1,5 @@
 // CORE site configuration files
 // These files do not generate output and are used across the site
-
 @import 'core_imports';
 
 
@@ -12,6 +11,9 @@
 @import 'modular_scale';
 @import 'styleguide/base';
 
+// Files to build warranty page
+// @TODO base type styles should be part of the apps default
+@import './node_modules/@casper/nightshade-styles/modules/pages/legal';
 
 // Files to build product page
 @import './node_modules/@casper/nightshade-styles/utilities/backdrops';

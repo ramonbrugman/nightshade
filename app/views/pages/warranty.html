@@ -1,0 +1,21 @@
+{% extends "layout/site.html" %}
+
+{% import 'nightshade-styles/modules/banners/banners.macros.html' as banner  %}
+{% import 'nightshade-styles/modules/layout/blocks.macros.html' as block  %}
+{% from 'nightshade-styles/modules/buttons/macros.html' import button %}
+{% import 'nightshade-styles/modules/layout/prop.macros.html' as prop  %}
+{% import 'nightshade-styles/modules/gallery/gallery.macros.html' as media  %}
+{% import 'nightshade-styles/modules/reviews/reviews.macros.html' as review  %}
+{% import 'pages/pages.macros.html' as page  %}
+{% import 'nightshade-styles/modules/purchase/purchase.macros.html' as purchase_module %}
+{% from 'nightshade-styles/modules/trial_warranty/warranty.macros.html' import trial_returns %}
+
+
+{% block page_content %}
+
+<article class="legal-section r-inner r-section-wrapper">
+  {% markdown "pages/warranty.md" %}
+</article>
+
+{% endblock %}
+

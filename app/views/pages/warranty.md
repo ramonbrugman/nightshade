@@ -1,10 +1,17 @@
-## CASPER SLEEP 10 YEAR LIMITED MATTRESS WARRANTY
+# 10 YEAR MATTRESS WARRANTY 
+
+## Preamble
 
 Your new Casper mattress is covered by a 10 year limited warranty (the “**Mattress Warranty**”).This limited Mattress Warranty gives you specific legal rights, and you may also have other rights which vary from state to state.
 
 ### A. Products Covered by this Limited Mattress Warranty
 
 This limited Mattress Warranty extends to mattresses manufactured by Casper Sleep, Inc. (“**Casper**”) and purchased directly from Casper or Casper’s authorized retailers (the “**Mattresses**”). Some parts of this limited Mattress Warranty also extend to covers sold with Mattresses (“**Mattress Covers**”). Mattresses are designed to work on a firm, solid-surface, on a bed base that is structurally capable of supporting the weight of the Mattress and user(s). This Mattress Warranty does not cover your Product if you use it in a manner incompatible with that intended design.
+
+#### Lorem ipsum headline 4
+
+##### Casper Mattress is awesome headline 5
+
 
 ### B. Who this Mattress Warranty Extends To
 
@@ -23,6 +30,7 @@ Casper warrants the Mattress in its original packaging sold to you against the d
 + Any manufacturing defect in the zipper assembly of the Mattress Cover.
 
 ###### This limited Mattress Warranty does not cover the following:
+
 
 + A normal increase in softness of the foam pressure-relieving material which does not affect the pressure-relieving qualities of the Mattress.
 + Comfort preference.

@@ -16,12 +16,13 @@
 @import './node_modules/@casper/nightshade-styles/utilities/z-index';
 @import './node_modules/@casper/nightshade-styles/utilities/sizing_config';
 @import './node_modules/@casper/nightshade-styles/modules/layout/breakpoints_config';
+@import './node_modules/@casper/nightshade-styles/modules/typography/links_config';
+@import './node_modules/@casper/nightshade-styles/modules/buttons/base';
 @import './node_modules/@casper/nightshade-styles/modules/typography/bundle';
 @import './node_modules/@casper/nightshade-styles/modules/layout/grids';
 @import './node_modules/@casper/nightshade-styles/modules/layout/display_helpers';
 
 @import './node_modules/@casper/nightshade-styles/modules/banners/base';
-@import './node_modules/@casper/nightshade-styles/modules/buttons/base';
 @import './node_modules/@casper/nightshade-styles/modules/media/base';
 @import './node_modules/@casper/nightshade-styles/modules/icons/base';
 @import './node_modules/@casper/nightshade-styles/modules/forms/forms';

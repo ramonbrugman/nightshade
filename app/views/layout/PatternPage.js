@@ -7,6 +7,7 @@
 
 import pepjs from 'pepjs';
 import { BasePage } from 'assets/js/pages/BasePage.js';
+import hljs from 'assets/js/vendor/highlight.js';
 
 export const PatternPage = {
 
@@ -15,6 +16,7 @@ export const PatternPage = {
   init() {
     this.__proto__.init();
     this.setupCodeTogglers();
+    hljs.initHighlighting();
   },
 
   /**

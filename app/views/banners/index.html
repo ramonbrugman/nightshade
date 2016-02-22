@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% from 'nightshade-styles/modules/buttons/macros.html' import button %}
-{# move to nightshade-core when linking issue is resolved #}
-{% from 'banners/banners.macros.html' import banner %}
+{% from 'nightshade-styles/modules/banners/banners.macros.html' import banner %}
 
 {% block title %}Banners | Nightshade{% endblock %}
 
@@ -99,11 +98,6 @@
 </article>
 {% endblock %}
 
-{% block scripts %}
-{# Find a way to import this into PatternPage.js #}
-<script src="/app/assets/js/vendor/highlight.js"></script>
-{% endblock %}
-
 {% block module_loader %}
   System.import('views/layout/PatternPage.js').then( function(mod) {
     mod.PatternPage.init();
@@ -111,8 +105,5 @@
 {% endblock %}
 
 {% block inline_js %}
-  // Initialize Highlight.js (init within PatternPage.js)
-  hljs.initHighlightingOnLoad();
-
   {% include "layout/_background_toggle.html" %}
 {% endblock %}

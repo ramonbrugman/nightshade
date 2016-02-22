@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% import 'layout/pattern.macros.html' as pattern %}
 {% from 'nightshade-styles/modules/buttons/macros.html' import button %}
 {% from 'nightshade-styles/modules/banners/banners.macros.html' import banner %}
 
@@ -15,7 +16,7 @@
 
   <header class="pattern-header">
     <h1>Banners</h1>
-    <p class="pattern-description">Description of pattern and what its function is, including any other relevant information.</p>
+    <p class="pattern-description">Use Banners to call attention to short messaging or to prompt a user to take an action.</p>
   </header>
 
   <section class="pattern-variant">
@@ -26,7 +27,8 @@
       </div>
       <h3>Rules</h3>
       <ul class="pattern-notes">
-        <li>Pattern must be used in this specific manner</li>
+        <li>Always use Calibre Light font in uppercase</li>
+        <li>Max character count: 60</li>
       </ul>
     </div>
 
@@ -39,15 +41,11 @@
   <p data-banner-inner class="r-centered">Free shipping and returns on all orders</p>
 </div>' }}</code></pre>
       <h3>Import SCSS</h3>
-      <a href="#">View on GitHub</a>
+      {{ pattern.github_link('modules/banners/_base.scss') }}
       <pre class="pattern-usage-import base-gray--light8"><code>{{ "@import './node_modules/@casper/nightshade-core/modules/banners/base';" }}</code></pre>
       <h3>Import Macro</h3>
-      <a href="#">View on GitHub</a>
+      {{ pattern.github_link('modules/banners/banners.macros.html') }}
       <pre class="pattern-usage-import base-gray--light8"><code>{{ "{% from 'nightshade-core/modules/banners/banners.macros.html' import banner %}" }}</code></pre>
-      <h3>Tech Notes</h3>
-      <ul class="pattern-notes">
-        <li>Pattern must be used in this specific manner</li>
-      </ul>
     </div>
   </section>
 

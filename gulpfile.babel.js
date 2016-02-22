@@ -127,7 +127,11 @@ gulp.task('compile', () => {
 
 // Precompile templates to js for rendering in the browser
 gulp.task('precompile', () => {
-  return gulp.src(['./app/**/_*.html', './node_modules/@casper/nightshade-styles/**/*.html'])
+  return gulp.src([
+    './app/**/_*.html',
+    './node_modules/@casper/nightshade-styles/**/*.html',
+    '!./node_modules/@casper/nightshade-styles/node_modules/**'
+    ])
     .pipe(plumber())
     .pipe(nunjucks())
     .pipe(concat('templates.js'))

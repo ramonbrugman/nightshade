@@ -1,28 +1,107 @@
-{% extends "./pattern.html" %}
+{% extends "base.html" %}
 
-{% from 'nightshade-styles/modules/icons/macros.html' import svg %}
+{% import 'layout/pattern.macros.html' as pattern %}
+{% from 'nightshade-styles/modules/buttons/macros.html' import button %}
+{% from 'nightshade-styles/modules/banners/banners.macros.html' import banner %}
 
-{% set pattern_name = 'Banners' %}
-{% set wrapper_classes = 'r-centered' %}
+{% block title %}Banners | Nightshade{% endblock %}
 
 {% block head_styles %}
-<style>
-  [data-banner] {
-    margin-bottom: 2em;
-  }
-</style>
+<link href="/dist/assets/css/highlight.css" media="screen" rel="stylesheet">
 {% endblock %}
 
-{% block pattern_content %}
-<h2>Banners</h2>
-<div data-banner>
-  <p data-banner-inner>Free shipping and returns on all orders</p>
-</div>
-<div data-banner="background">
-  <p data-banner-inner>Banner with white background</p>
-</div>
-<div data-banner>
-  <p data-banner-inner><a class="link-arrow" href="/faq">Your question may also be answered fon our FAQ page
-{{ svg('arrow') }}</a></p>
-</div>
+{% block body_content %}
+<article class="r-section-wrapper r-inner pattern">
+  {% include "layout/_nav_buttons.html" %}
+
+  <header class="pattern-header">
+    <h1>Banners</h1>
+    <p class="pattern-description">Use Banners to call attention to short messaging or to prompt a user to take an action.</p>
+  </header>
+
+  <section class="pattern-variant">
+    <h2>Standard with Text</h2>
+    <div class="pattern-example">
+      <div class="pattern-example-display r-centered base-gray--light8">
+        {{ banner('Free shipping and returns on all orders') }}
+      </div>
+      <h3>Rules</h3>
+      <ul class="pattern-notes">
+        <li>Always use Calibre Light font in uppercase</li>
+        <li>Max character count: 60</li>
+      </ul>
+    </div>
+
+    <div class="pattern-usage">
+      <h2>Usage</h2>
+      {{ button('Macro', 'ghost', 'small', class="js-show-macro") }}
+      {{ button('HTML', 'ghost', 'small', class="js-show-html") }}
+      <pre class="pattern-usage-code base-gray--light8 js-code-macro"><code>{{ "{{ banner('Free shipping and returns on all orders') }}" }}</code></pre>
+      <pre class="pattern-usage-code base-gray--light8 is-hidden js-code-html"><code>{{ '<div data-banner>
+  <p data-banner-inner class="r-centered">Free shipping and returns on all orders</p>
+</div>' }}</code></pre>
+      <h3>Import SCSS</h3>
+      {{ pattern.github_link('modules/banners/_base.scss') }}
+      <pre class="pattern-usage-import base-gray--light8"><code>{{ "@import './node_modules/@casper/nightshade-core/modules/banners/base';" }}</code></pre>
+      <h3>Import Macro</h3>
+      {{ pattern.github_link('modules/banners/banners.macros.html') }}
+      <pre class="pattern-usage-import base-gray--light8"><code>{{ "{% from 'nightshade-core/modules/banners/banners.macros.html' import banner %}" }}</code></pre>
+    </div>
+  </section>
+
+  <section class="pattern-variant">
+    <h2>Standard with White Background</h2>
+    <div class="pattern-example">
+      <div class="pattern-example-display r-centered base-gray--light8">
+        {{ banner('Free shipping and returns on all orders', type='background') }}
+      </div>
+    </div>
+
+    <div class="pattern-usage">
+      <h2>Usage</h2>
+      {{ button('Macro', 'ghost', 'small', class="js-show-macro") }}
+      {{ button('HTML', 'ghost', 'small', class="js-show-html") }}
+      <pre class="pattern-usage-code base-gray--light8 js-code-macro"><code>{{ "{{ banner('Free shipping and returns on all orders', type='background') }}" }}</code></pre>
+      <pre class="pattern-usage-code base-gray--light8 is-hidden js-code-html"><code>{{ '<div data-banner="background">
+  <p data-banner-inner class="r-centered">Free shipping and returns on all orders</p>
+</div>' }}</code></pre>
+    </div>
+  </section>
+
+  <section class="pattern-variant">
+    <h2>Call to Action Link</h2>
+    <div class="pattern-example">
+      <div class="pattern-example-display r-centered base-gray--light8">
+        {{ banner('Your question may also be answered on our FAQ page', href='/faq') }}
+      </div>
+    </div>
+
+    <div class="pattern-usage">
+      <h2>Usage</h2>
+      {{ button('Macro', 'ghost', 'small', class="js-show-macro") }}
+      {{ button('HTML', 'ghost', 'small', class="js-show-html") }}
+      <pre class="pattern-usage-code base-gray--light8 js-code-macro"><code>{{ "{{ banner('Your question may also be answered on our FAQ page', href='/faq') }}" }}</code></pre>
+      <pre class="pattern-usage-code base-gray--light8 is-hidden js-code-html"><code>{{ '<div data-banner>
+  <p data-banner-inner class="r-centered">
+    <a class="link-arrow" href="/faq">Your question may also be answered on our FAQ page
+      <svg class="icon icon-arrow" aria-labelledby="title" role="img">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/node_modules/@casper/nightshade-icons/dist/storefront/sprite.symbol.svg#arrow"></use>
+      </svg>
+    </a>
+  </p>
+</div>' }}</code></pre>
+    </div>
+  </section>
+
+</article>
+{% endblock %}
+
+{% block module_loader %}
+  System.import('views/layout/PatternPage.js').then( function(mod) {
+    mod.PatternPage.init();
+  } );
+{% endblock %}
+
+{% block inline_js %}
+  {% include "layout/_background_toggle.html" %}
 {% endblock %}

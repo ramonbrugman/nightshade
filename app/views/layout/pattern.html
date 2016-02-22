@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% import 'layout/pattern.macros.html' as pattern %}
 {% from 'nightshade-styles/modules/buttons/macros.html' import button %}
 
 {% block title %}Pattern Name | Nightshade{% endblock %}
@@ -33,16 +34,16 @@
 
     <div class="pattern-usage">
       <h2>Usage</h2>
-      {{ button('Macro', 'ghost', 'small', id="show-macro") }}
-      {{ button('HTML', 'ghost', 'small', id="show-html") }}
-      <pre class="pattern-usage-code base-gray--light8 r-centered" id="code-macro"><code>{{ "{{ button('Primary') }}" }}</code></pre>
-      <pre class="pattern-usage-code base-gray--light8 r-centered is-hidden" id="code-html"><code>{{ '<button type="button" data-button="primary">Primary</button>' }}</code></pre>
+      {{ button('Macro', 'ghost', 'small', class="js-show-macro") }}
+      {{ button('HTML', 'ghost', 'small', class="js-show-html") }}
+      <pre class="pattern-usage-code base-gray--light8 js-code-macro"><code>{{ "{{ button('Primary') }}" }}</code></pre>
+      <pre class="pattern-usage-code base-gray--light8 is-hidden js-code-html"><code>{{ '<button type="button" data-button="primary">Primary</button>' }}</code></pre>
       <h3>Import SCSS</h3>
-      <a href="#">View on GitHub</a>
-      <pre class="pattern-usage-import base-gray--light8"><code>{{ "@import './node_modules/@casper/nightshade-styles/modules/buttons/base';" }}</code></pre>
+      {{ pattern.github_link('modules/buttons/_base.scss') }}
+      <pre class="pattern-usage-import base-gray--light8"><code>{{ "@import './node_modules/@casper/nightshade-core/modules/buttons/base';" }}</code></pre>
       <h3>Import Macro</h3>
-      <a href="#">View on GitHub</a>
-      <pre class="pattern-usage-import base-gray--light8"><code>{{ "{% from 'nightshade-styles/modules/buttons/macros.html' import button %}" }}</code></pre>
+      {{ pattern.github_link('modules/buttons/macros.html') }}
+      <pre class="pattern-usage-import base-gray--light8"><code>{{ "{% from 'nightshade-core/modules/buttons/macros.html' import button %}" }}</code></pre>
       <h3>Tech Notes</h3>
       <ul class="pattern-notes">
         <li>Pattern must be used in this specific manner. Another rule specifying pattern usage restrictions, limitations, or conventions. Pattern must be used in this specific manner. Pattern must be used in this specific manner. Another rule specifying pattern usage restrictions, limitations, or conventions. Pattern must be used in this specific manner. Another rule specifying pattern usage restrictions, limitations, or conventions.</li>

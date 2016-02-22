@@ -1,6 +1,6 @@
 {
   "name": "ando",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Front-end architecture for static sites",
   "scripts": {
     "postinstall": "jspm install",

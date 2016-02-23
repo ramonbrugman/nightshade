@@ -1,3 +1,57 @@
+{% from 'nightshade-styles/modules/buttons/macros.html' import button %}
+
 {% macro github_link(path) %}
 <a href="https://github.com/CasperSleep/nightshade-core/tree/v2.0.0-dev/{{ path }}">View on GitHub</a>
+{% endmacro %}
+
+{% macro notes_list(notes) %}
+<ul class="pattern-notes">
+  {% for note in notes %}
+  <li>{{ note }}</li>
+  {% endfor %}
+</ul>
+{% endmacro %}
+
+{% macro import_block(path, code) %}
+{{ github_link(path) }}
+<pre class="pattern-usage-import base-gray--light8"><code>{{ code }}</code></pre>
+{% endmacro %}
+
+{% macro variant(name, example, html, rules=null, tech_notes=null, stylesheet_import=null, macro_import=null) %}
+<section class="pattern-variant">
+  <h2>{{ name }}</h2>
+  <div class="pattern-example">
+    <div class="pattern-example-display r-centered base-gray--light8">
+      {{ example }}
+    </div>
+
+    {% if rules %}
+    <h3>Rules</h3>
+    {{ notes_list(rules) }}
+    {% endif %}
+  </div>
+
+  <div class="pattern-usage">
+    <h2>Usage</h2>
+    {{ button('Macro', 'ghost', 'small', class="js-show-macro") }}
+    {{ button('HTML', 'ghost', 'small', class="js-show-html") }}
+    <pre class="pattern-usage-code base-gray--light8 js-code-macro"><code>{{ example }}</code></pre>
+    <pre class="pattern-usage-code base-gray--light8 is-hidden js-code-html"><code>{{ html }}</code></pre>
+
+    {% if tech_notes %}
+    <h3>Tech Notes</h3>
+    {{ notes_list(tech_notes) }}
+    {% endif %}
+
+    {% if stylesheet_import %}
+    <h3>Import Stylesheet</h3>
+    {{ import_block(stylesheet_import.path, stylesheet_import.code) }}
+    {% endif %}
+
+    {% if macro_import %}
+    <h3>Import Macro</h3>
+    {{ import_block(macro_import.path, macro_import.code) }}
+    {% endif %}
+  </div>
+</section>
 {% endmacro %}

@@ -1,5 +1,7 @@
 // CORE site configuration files
 // These files do not generate output and are used across the site
+@import 'modular_scale';
+
 @import 'core_imports';
 
 
@@ -8,7 +10,6 @@
 @import './app/views/color/bundle';
 @import './app/views/layout/pattern';
 
-@import 'modular_scale';
 @import 'styleguide/base';
 
 // Files to build warranty page

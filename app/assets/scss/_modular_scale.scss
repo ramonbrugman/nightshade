@@ -1,10 +1,11 @@
-// Modular Scale (move to nightshade-core if use becomes standard)
+/*
+ * Module Scale
+ * Initializes modular scale sass extension
+ *
+ * @todo wmove to nightshade-core if use becomes standard)
+ */
+
 @import './node_modules/modularscale-sass/stylesheets/modular-scale';
 
 $ms-base: 1rem;
 $ms-ratio: $minor-third;
-
-// Example of usage
-body {
-  font-size: ms(0);
-}

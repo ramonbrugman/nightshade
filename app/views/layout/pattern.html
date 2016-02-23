@@ -18,6 +18,12 @@
     <p class="pattern-description">{{ data.description }}</p>
   </header>
 
+  <nav class="pattern-nav">
+    {% for variant in data.variants %}
+    <a class="pattern-nav-item" href="#">{{ variant.name }}</a>
+    {% endfor %}
+  </nav>
+
   {% for variant in data.variants %}
     {{ pattern.variant(variant.name, variant.example, variant.html, variant.rules, variant.tech_notes, variant.stylesheet_import, variant.macro_import) }}
   {% endfor %}

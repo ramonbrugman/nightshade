@@ -1,6 +1,18 @@
 // Pattern template
 .pattern {
   width: 100%;
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Calibre Light";
+    font-weight: 400;
+    text-transform: none;
+  }
+
+  h1 {
+    font-size: ms(5);
+  }
 }
 
 .pattern-variant {
@@ -19,7 +31,22 @@
 }
 
 .pattern-description {
-  font-size: 18px;
+  font-size: ms(1);
+}
+
+.pattern-nav {
+  text-transform: uppercase;
+  border-bottom: 1px solid color(border);
+  margin-bottom: size(large);
+  padding-bottom: size(smaller);
+}
+
+.pattern-nav-item {
+  color: color(text);
+
+  &:not(:first-child) {
+    margin-left: size(large);
+  }
 }
 
 .pattern-example-display {

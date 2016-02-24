@@ -1,75 +1,89 @@
-{% extends "./pattern.html" %}
+{% extends "layout/pattern.html" %}
 
-{% set pattern_name = 'Buttons' %}
-{% set wrapper_classes = 'r-inner' %}
-
-{% block head_styles %}
-<style>
-  h3 {
-    margin-top: 2em;
+{% set data = {
+  name: "Buttons",
+  description: "A Button clearly communicates what action will occur when the user touches it.",
+  variants: [
+    {
+      name: "Primary",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Primary Button') }}",
+      html: '<button type="button" data-button="primary">Primary Button</button>',
+      rules: [
+        {
+          do: {
+            example: '<button type="button" data-button="primary">Primary Button</button>',
+            description: "Always use Verlag Black in “typestyle name”. This applies for all buttons."
+          },
+          dont: {
+            example: '<button type="button" data-button="primary" style="font-family: Calibre Light">Primary Button</button>',
+            description: "Never use Chronicle or Calibre. This applies for all buttons."
+          }
+        },
+        {
+          do: {
+            example: '<button type="button" data-button="primary">Primary Button</button>',
+            description: "Character count is XX or below. This applies for all buttons."
+          },
+          dont: {
+            example: '<button type="button" data-button="primary">Primary Button Copy<br> Runs Into Two Lines</button>',
+            description: "Copy should not run into two lines."
+          }
+        }
+      ],
+      tech_notes: ['Tech notes on implementation'],
+      stylesheet_import: {
+        path: "modules/buttons/_base.scss",
+        code: "@import './node_modules/@casper/nightshade-core/modules/buttons/base';"
+      },
+      macro_import: {
+        path: "modules/buttons/macros.html",
+        code: "{% from 'nightshade-core/modules/buttons/macros.html' import button %}"
+      }
+    },
+    {
+      name: "Secondary",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Secondary Button', style='secondary') }}",
+      html: '<button type="button" data-button="secondary">Secondary Button</button>'
+    },
+    {
+      name: "Accent",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Accent Button', style='accent') }}",
+      html: '<button type="button" data-button="accent">Accent Button</button>'
+    },
+    {
+      name: "Ghost",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Ghost Button', style='ghost') }}",
+      html: '<button type="button" data-button="ghost">Ghost Button</button>'
+    },
+    {
+      name: "Icons",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Live Chat', icon='speechbubble') }}",
+      html: '<button type="button" data-button="primary">
+  <span data-icon="speechbubble" data-size="default">
+    <svg class="icon" aria-labelledby="title" role="img">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/node_modules/@casper/nightshade-icons/dist/storefront/sprite.symbol.svg#speechbubble"></use>
+    </svg>
+  </span>
+  Live Chat
+</button>'
+    },
+    {
+      name: "Play",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Play Button', style='play') }}",
+      html: '<button type="button" data-button="play">Play Button</button>'
+    },
+    {
+      name: "Modifiers",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "",
+      html: ''
+    }
+  ]
   }
-  .button-row {
-    margin: 1em 0;
-  }
-  [data-button="play"] {
-    margin-top: 0;
-  }
-</style>
-{% endblock %}
-
-{% block pattern_content %}
-<h2>Buttons</h2>
-<div class="button-row">
-  {{ button('Primary') }}
-</div>
-<div class="button-row">
-  {{ button('Secondary', 'secondary') }}
-</div>
-<div class="button-row">
-  {{ button('Accent', 'accent') }}
-</div>
-<div class="button-row">
-  {{ button('Ghost', 'ghost') }}
-</div>
-<div class="button-row">
-  {{ button('Play', 'play', id='btn-play') }}
-</div>
-
-<h3>Small Buttons</h3>
-<div class="button-row">
-  {{ button('Primary (small)', size='small') }}
-</div>
-<div class="button-row">
-  {{ button('Secondary (small)', 'secondary', 'small', 'submit') }}
-</div>
-<div class="button-row">
-  {{ button('Accent (small)', 'accent', 'small') }}
-</div>
-
-<h3>Full Width Buttons</h3>
-<div class="button-row">
-  {{ button('Primary (full)', size='full') }}
-</div>
-<div class="button-row">
-  {{ button('Secondary (full)', 'secondary', 'full') }}
-</div>
-<div class="button-row">
-  {{ button('Accent (full/small)', 'accent', 'full small') }}
-</div>
-
-<h3>Buttons with Icons</h3>
-<div class="button-row">
-  {{ button('Live Chat', icon='speechbubble') }}
-</div>
-<div class="button-row">
-  {{ button('Call Us', 'secondary', icon='oncall-active') }}
-</div>
-
-<h3>Button Links</h3>
-<div class="button-row">
-  {{ button('Back to Index', type='link', href='/', class='js-btn-back') }}
-</div>
-<div class="button-row">
-  {{ button('Casper.com', 'secondary', type='link', href='https://www.casper.com') }}
-</div>
-{% endblock %}
+%}

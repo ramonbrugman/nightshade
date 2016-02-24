@@ -10,19 +10,41 @@
 }
 
 .container {
-  padding-top: size(large) !important;
+  padding-top: 4rem !important;
 }
 
-.btn-back {
+.nightshade-nav {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: size(small) size(normal);
+
+  @include respond-at-and-above($break-mobile) {
+    padding: size(small) size(large);
+  }
+
+  h1 {
+    float: left;
+    font-family: "Calibre Light";
+    font-weight: 400;
+    font-size: ms(2);
+    text-transform: none;
+    letter-spacing: size(smaller-tracking);
+    margin-bottom: 0;
+
+    a {
+      color: color(text);
+    }
+  }
 }
 
 .toggle-background {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+  float: right;
+
+  @include respond-below($break-small) {
+    display: none;
+  }
 }
 
 .background-gray {

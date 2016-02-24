@@ -1,29 +1,127 @@
 // Pattern template
 .pattern {
   width: 100%;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Calibre Light";
+    font-weight: 400;
+    text-transform: none;
+    line-height: 1.2;
+    letter-spacing: size(smaller-tracking);
+  }
+
+  h1 {
+    font-size: ms(5);
+    margin-bottom: size(tiny);
+  }
+
+  h2 {
+    font-size: ms(3);
+    margin-bottom: size(tiny);
+  }
+
+  h3,
+  h4 {
+    font-size: ms(0);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: size(normal-tracking);
+    margin-bottom: size(smallest);
+  }
 }
 
 .pattern-variant {
-  &:not(:nth-of-type(1)) {
-    margin-top: size(largest);
-    padding-top: size(largest);
-    border-top: 1px solid color(border);
-  }
+  margin-bottom: 5rem;
 }
 
 .pattern-header,
 .pattern-example,
-.pattern-usage {
+.pattern-usage,
+.pattern-notes {
   margin-bottom: size(larger);
 }
 
 .pattern-description {
-  font-size: 18px;
+  font-size: ms(1);
+}
+
+.pattern-variant-description {
+  margin-bottom: size(normal);
+}
+
+.pattern-nav {
+  text-transform: uppercase;
+  border-bottom: 1px solid color(dark-border);
+  margin-bottom: size(large);
+  padding-bottom: size(smaller);
+  font-weight: 600;
+  letter-spacing: size(normal-tracking);
+}
+
+.pattern-nav-item {
+  color: color(text);
+
+  &:hover {
+    color: color(secondary);
+  }
+
+  @include respond-below($break-medium) {
+    display: block;
+    padding: size(tiny) 0;
+
+    .touch & {
+      padding: size(smallest) 0;
+    }
+  }
+
+  @include respond-at-and-above($break-medium) {
+    &:not(:first-child) {
+      margin-left: size(large);
+    }
+  }
 }
 
 .pattern-example-display {
   margin-bottom: size(large);
   padding: size(large);
+}
+
+.pattern-rules {
+  margin: size(larger) 0;
+  border-top: 1px solid color(border);
+  border-bottom: 1px solid color(border);
+
+  .pattern-example-display {
+    margin-bottom: size(small);
+  }
+}
+
+.pattern-rules-row {
+  margin: size(larger) 0;
+}
+.pattern-rules-rule {
+  margin-top: size(medium);
+
+  @include respond-at-and-above($break-medium) {
+    width: 50%;
+    float: left;
+    margin-top: 0;
+  }
+}
+
+.pattern-rules-rule--do {
+  @include respond-at-and-above($break-medium) {
+    padding-right: size(smaller);
+  }
+}
+
+.pattern-rules-rule--dont {
+  @include respond-at-and-above($break-medium) {
+    padding-left: size(smaller);
+  }
 }
 
 .pattern-notes {
@@ -35,11 +133,24 @@
   }
 }
 
-.pattern-usage {
+.pattern-usage-header {
+  position: relative;
+  line-height: 1rem;
+}
 
-  [data-button] {
-    margin-right: size(smaller)
-  }
+.pattern-usage-header-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.pattern-usage-header-toggle {
+  margin-left: size(small);
+}
+
+.pattern-usage-code,
+.pattern-usage-import {
+  border: 2px solid color(border);
 }
 
 .pattern-usage-code {

@@ -23,7 +23,7 @@
   </nav>
 
   {% for variant in data.variants %}
-    {{ pattern.variant(variant.name, variant.example, variant.html, variant.rules, variant.tech_notes, variant.stylesheet_import, variant.macro_import) }}
+    {{ pattern.variant(variant.name, variant.description, variant.macro, variant.html, variant.rules, variant.tech_notes, variant.stylesheet_import, variant.macro_import) }}
   {% endfor %}
 
 </article>

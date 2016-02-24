@@ -4,6 +4,29 @@
 <a href="https://github.com/CasperSleep/nightshade-core/tree/v2.0.0-dev/{{ path }}">View on GitHub</a>
 {% endmacro %}
 
+{% macro rules_list(rules) %}
+<div class="pattern-rules">
+  {% for rule in rules %}
+  <div class="pattern-rules-row clearfix">
+    <div class="pattern-rules-rule pattern-rules-rule--do">
+      <div class="pattern-example-display r-centered base-gray--light8">
+        {{ rule.do.example|safe }}
+      </div>
+      <h4>Do</h4>
+      <p>{{ rule.do.description }}</p>
+    </div>
+    <div class="pattern-rules-rule pattern-rules-rule--dont">
+      <div class="pattern-example-display r-centered base-gray--light8">
+        {{ rule.dont.example|safe }}
+      </div>
+      <h4>Don't</h4>
+      <p>{{ rule.dont.description }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
 {% macro notes_list(notes) %}
 <ul class="pattern-notes">
   {% for note in notes %}
@@ -12,45 +35,52 @@
 </ul>
 {% endmacro %}
 
-{% macro import_block(path, code) %}
-{{ github_link(path) }}
-<pre class="pattern-usage-import base-gray--light8"><code>{{ code }}</code></pre>
+{% macro import_block(type, path, code) %}
+<header class="pattern-usage-header">
+  <h3>Import {{ type }}</h3>
+  <div class="pattern-usage-header-actions">
+    {{ github_link(path) }}
+  </div>
+</header>
+<pre class="pattern-usage-import"><code>{{ code }}</code></pre>
 {% endmacro %}
 
-{% macro variant(name, example, html, rules=null, tech_notes=null, stylesheet_import=null, macro_import=null) %}
+{% macro variant(name, description, macro, html, rules=null, tech_notes=null, stylesheet_import=null, macro_import=null) %}
 <section class="pattern-variant" id="{{ name|lower|replace(' ', '-') }}">
   <h2>{{ name }}</h2>
+  <p class="pattern-variant-description">{{ description }}</p>
   <div class="pattern-example">
     <div class="pattern-example-display r-centered base-gray--light8">
-      {{ example }}
+      {{ html|safe }}
     </div>
 
     {% if rules %}
-    <h3>Rules</h3>
-    {{ notes_list(rules) }}
+    {{ rules_list(rules) }}
     {% endif %}
   </div>
 
   <div class="pattern-usage">
-    <h2>Usage</h2>
-    {{ button('Macro', 'ghost', 'small', class="js-show-macro") }}
-    {{ button('HTML', 'ghost', 'small', class="js-show-html") }}
-    <pre class="pattern-usage-code base-gray--light8 js-code-macro"><code>{{ example }}</code></pre>
-    <pre class="pattern-usage-code base-gray--light8 is-hidden js-code-html"><code>{{ html }}</code></pre>
+    <header class="pattern-usage-header">
+      <h3>Code Example</h3>
+      <div class="pattern-usage-header-actions">
+        <button class="pattern-usage-header-toggle js-show-macro">Macro</button>
+        <button class="pattern-usage-header-toggle js-show-html">HTML</button>
+      </div>
+    </header>
+    <pre class="pattern-usage-code js-code-macro"><code>{{ macro }}</code></pre>
+    <pre class="pattern-usage-code is-hidden js-code-html"><code>{{ html }}</code></pre>
 
     {% if tech_notes %}
-    <h3>Tech Notes</h3>
+    <h3>Usability Parameters</h3>
     {{ notes_list(tech_notes) }}
     {% endif %}
 
     {% if stylesheet_import %}
-    <h3>Import Stylesheet</h3>
-    {{ import_block(stylesheet_import.path, stylesheet_import.code) }}
+    {{ import_block('Stylesheet', stylesheet_import.path, stylesheet_import.code) }}
     {% endif %}
 
     {% if macro_import %}
-    <h3>Import Macro</h3>
-    {{ import_block(macro_import.path, macro_import.code) }}
+    {{ import_block('Macro', macro_import.path, macro_import.code) }}
     {% endif %}
   </div>
 </section>

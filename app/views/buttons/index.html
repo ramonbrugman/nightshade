@@ -6,9 +6,31 @@
   variants: [
     {
       name: "Primary",
-      example: "{{ button('Primary Button') }}",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Primary Button') }}",
       html: '<button type="button" data-button="primary">Primary Button</button>',
-      rules: ['Rules on usage and limitations'],
+      rules: [
+        {
+          do: {
+            example: '<button type="button" data-button="primary">Primary Button</button>',
+            description: "Always use Verlag Black in “typestyle name”. This applies for all buttons."
+          },
+          dont: {
+            example: '<button type="button" data-button="primary" style="font-family: Calibre Light">Primary Button</button>',
+            description: "Never use Chronicle or Calibre. This applies for all buttons."
+          }
+        },
+        {
+          do: {
+            example: '<button type="button" data-button="primary">Primary Button</button>',
+            description: "Character count is XX or below. This applies for all buttons."
+          },
+          dont: {
+            example: '<button type="button" data-button="primary">Primary Button Copy<br> Runs Into Two Lines</button>',
+            description: "Copy should not run into two lines."
+          }
+        }
+      ],
       tech_notes: ['Tech notes on implementation'],
       stylesheet_import: {
         path: "modules/buttons/_base.scss",
@@ -21,22 +43,26 @@
     },
     {
       name: "Secondary",
-      example: "{{ button('Secondary Button', style='secondary') }}",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Secondary Button', style='secondary') }}",
       html: '<button type="button" data-button="secondary">Secondary Button</button>'
     },
     {
       name: "Accent",
-      example: "{{ button('Accent Button', style='accent') }}",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Accent Button', style='accent') }}",
       html: '<button type="button" data-button="accent">Accent Button</button>'
     },
     {
       name: "Ghost",
-      example: "{{ button('Ghost Button', style='ghost') }}",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Ghost Button', style='ghost') }}",
       html: '<button type="button" data-button="ghost">Ghost Button</button>'
     },
     {
-      name: "Icon with Type",
-      example: "{{ button('Live Chat', icon='speechbubble') }}",
+      name: "Icons",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Live Chat', icon='speechbubble') }}",
       html: '<button type="button" data-button="primary">
   <span data-icon="speechbubble" data-size="default">
     <svg class="icon" aria-labelledby="title" role="img">
@@ -47,13 +73,15 @@
 </button>'
     },
     {
-      name: "Loading",
-      example: "{{ button('Loading Button', class='is-loading') }}",
-      html: '<button type="button" data-button="primary" class="is-loading">Loading Button</button>'
+      name: "Play",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "{{ button('Play Button', style='play') }}",
+      html: '<button type="button" data-button="play">Play Button</button>'
     },
     {
       name: "Modifiers",
-      example: "",
+      description: "Short description of type of button, what hex color to use and when to use.",
+      macro: "",
       html: ''
     }
   ]

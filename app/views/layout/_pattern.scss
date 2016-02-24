@@ -8,10 +8,23 @@
     font-family: "Calibre Light";
     font-weight: 400;
     text-transform: none;
+    line-height: 1.2;
+    margin-bottom: ms(0);
+    letter-spacing: size(smaller-tracking);
   }
 
   h1 {
     font-size: ms(5);
+  }
+
+  h2 {
+    font-size: ms(3);
+  }
+
+  h3 {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: size(normal-tracking);
   }
 }
 
@@ -36,9 +49,11 @@
 
 .pattern-nav {
   text-transform: uppercase;
-  border-bottom: 1px solid color(border);
+  border-bottom: 1px solid color(dark-border);
   margin-bottom: size(large);
   padding-bottom: size(smaller);
+  font-weight: 600;
+  letter-spacing: size(normal-tracking);
 }
 
 .pattern-nav-item {
@@ -46,6 +61,10 @@
 
   &:not(:first-child) {
     margin-left: size(large);
+  }
+
+  &:hover {
+    color: color(secondary);
   }
 }
 

@@ -18,7 +18,7 @@
 {% endmacro %}
 
 {% macro variant(name, example, html, rules=null, tech_notes=null, stylesheet_import=null, macro_import=null) %}
-<section class="pattern-variant">
+<section class="pattern-variant" id="{{ name|lower|replace(' ', '-') }}">
   <h2>{{ name }}</h2>
   <div class="pattern-example">
     <div class="pattern-example-display r-centered base-gray--light8">

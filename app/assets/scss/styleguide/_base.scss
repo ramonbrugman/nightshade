@@ -10,19 +10,48 @@
 }
 
 .container {
-  padding-top: size(large) !important;
+  padding-top: 4rem !important;
+
+  @include respond-at-and-above($break-mobile) {
+    padding-top: 5rem !important;
+  }
 }
 
-.btn-back {
+.nightshade-nav {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: size(small) size(normal);
+
+  @include respond-at-and-above($break-mobile) {
+    padding: size(normal) size(large);
+  }
+
+  h1 {
+    float: left;
+    font-family: "Calibre Light";
+    font-weight: 400;
+    text-transform: none;
+    font-size: ms(2);
+    margin-bottom: 0;
+
+    @include respond-at-and-above($break-mobile) {
+      font-size: ms(3);
+    }
+
+    a {
+      color: color(text);
+    }
+  }
 }
 
 .toggle-background {
-  position: fixed;
-  top: 20px;
-  right: 20px;
+  float: right;
+
+  @include respond-below($break-small) {
+    display: none;
+  }
 }
 
 .background-gray {

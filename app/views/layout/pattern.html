@@ -11,8 +11,6 @@
 
 {% block body_content %}
 <article class="r-section-wrapper r-inner pattern">
-  {% include "layout/_nav_buttons.html" %}
-
   <header class="pattern-header">
     <h1>{{ data.name }}</h1>
     <p class="pattern-description">{{ data.description }}</p>
@@ -20,7 +18,7 @@
 
   <nav class="pattern-nav">
     {% for variant in data.variants %}
-    <a class="pattern-nav-item" href="#">{{ variant.name }}</a>
+    <a class="pattern-nav-item" href="#{{ variant.name|lower|replace(' ', '-') }}">{{ variant.name }}</a>
     {% endfor %}
   </nav>
 

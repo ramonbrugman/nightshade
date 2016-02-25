@@ -31,14 +31,23 @@
           }
         }
       ],
-      tech_notes: ['Tech notes on implementation'],
+      tech_notes: [
+        "<code>text</code> (required) - Text content of button, or call to action",
+        "<code>style</code> - Button variant style, defaults to <em>primary</em>",
+        "<code>size</code> - Button size modifier",
+        "<code>type</code> - Defaults to <em>button</em>, but can also be type <em>link</em> in which case an <code>href</code> must be specified",
+        "<code>href</code> - Path for <em>link</em> type buttons",
+        "<code>icon</code> - Icon name for buttons with icons",
+        "<code>class</code> - Custom CSS or JavaScript class selector",
+        "<code>id</code> - Custom JavaScript ID selector"
+      ],
       stylesheet_import: {
         path: "modules/buttons/_base.scss",
         code: "@import './node_modules/@casper/nightshade-core/modules/buttons/base';"
       },
       macro_import: {
-        path: "modules/buttons/macros.html",
-        code: "{% from 'nightshade-core/modules/buttons/macros.html' import button %}"
+        path: "modules/buttons/buttons.macros.html",
+        code: "{% from 'nightshade-core/modules/buttons/buttons.macros.html' import button %}"
       }
     },
     {
@@ -80,9 +89,20 @@
     },
     {
       name: "Modifiers",
-      description: "Short description of type of button, what hex color to use and when to use.",
-      macro: "",
-      html: ''
+      modifiers: [
+        {
+          name: 'Full Width',
+          description: "Short description of type of button, what hex color to use and when to use.",
+          macro: "{{ button('Primary Button (Full Width)', size='full') }}",
+          html: '<button type="button" data-button="primary" data-size="full">Primary Button (Full Width)</button>'
+        },
+        {
+          name: 'Small Size',
+          description: "Short description of type of button, what hex color to use and when to use.",
+          macro: "{{ button('Primary Button (Small)', size='small') }}",
+          html: '<button type="button" data-button="primary" data-size="small">Primary Button (Small)</button>'
+        }
+      ]
     }
   ]
   }

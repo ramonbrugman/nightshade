@@ -23,7 +23,11 @@
     margin-bottom: size(tiny);
   }
 
-  h3,
+  h3 {
+    font-size: ms(2);
+    margin: size(normal) 0 size(tiny);
+  }
+
   h4 {
     font-size: ms(0);
     font-weight: 600;

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% import 'layout/pattern.macros.html' as pattern %}
-{% from 'nightshade-styles/modules/buttons/macros.html' import button %}
+{% from 'nightshade-styles/modules/buttons/buttons.macros.html' import button %}
 
 {% block title %}{{ data.name }} | Nightshade{% endblock %}
 
@@ -23,7 +23,7 @@
   </nav>
 
   {% for variant in data.variants %}
-    {{ pattern.variant(variant.name, variant.description, variant.macro, variant.html, variant.rules, variant.tech_notes, variant.stylesheet_import, variant.macro_import) }}
+    {{ pattern.variant(variant) }}
   {% endfor %}
 
 </article>

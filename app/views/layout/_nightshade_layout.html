@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% from 'nightshade-styles/modules/buttons/buttons.macros.html' import button %}
+
+{% block title %}{{ page_title }} | Nightshade{% endblock %}
+
+{% block base_styles %}
+<link href="/dist/assets/css/application.css" media="screen" rel="stylesheet">
+{% endblock %}
+
+{% block body_content %}
+  <nav class="nightshade-nav base-gray--light8">
+    <h1><a href="/">Nightshade Design System</a></h1>
+    {% block nav_right %}{% endblock %}
+  </nav>
+
+  {% block page_content %}{% endblock %}
+{% endblock %}

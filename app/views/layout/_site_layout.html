@@ -2,7 +2,11 @@
 
 {% import 'nightshade-styles/modules/layout/regions.macros.html' as region  %}
 
-{% block title %}Nightshade{% endblock %}
+{% block title %}Casper{% endblock %}
+
+{% block base_styles %}
+<link href="/dist/assets/css/site.css" media="screen" rel="stylesheet">
+{% endblock %}
 
 {% block body_content %}
 <header id="header" class="r-header" role="banner">

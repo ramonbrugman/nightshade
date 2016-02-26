@@ -1,3 +1,14 @@
+// Styles that need to be moved to global/core
+@font-face {
+  font-family: 'Calibre Light';
+  src: url('../fonts/calibre-light.otf') format('opentype');
+}
+
+// Disable 300ms delay on touch devices (move to nightshade-styles?)
+.no-touch-delay {
+  touch-action: manipulation;
+}
+
 // TODO Distinguish between output and modules
 
 @import './node_modules/accoutrement-color/sass/color';

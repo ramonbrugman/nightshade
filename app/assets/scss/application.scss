@@ -1,9 +1,7 @@
 // CORE site configuration files
 // These files do not generate output and are used across the site
 @import 'modular_scale';
-
 @import 'core_imports';
-
 
 // Local sass files that are app specific
 @import './app/views/icons/base';
@@ -11,44 +9,3 @@
 @import './app/views/layout/pattern';
 
 @import 'styleguide/base';
-
-// Files to build warranty page
-// @TODO base type styles should be part of the apps default
-@import './node_modules/@casper/nightshade-styles/modules/pages/legal';
-
-// Files to build product page
-@import './node_modules/@casper/nightshade-styles/utilities/backdrops';
-
-
-@import './node_modules/@casper/nightshade-styles/modules/banners/cta_banner';
-@import './node_modules/@casper/nightshade-styles/modules/breadcrumbs/base';
-@import './node_modules/@casper/nightshade-styles/modules/layout/header';
-@import './node_modules/@casper/nightshade-styles/modules/layout/menu/bundle';
-@import './node_modules/@casper/nightshade-styles/modules/media/flex-embed';
-@import './node_modules/@casper/nightshade-styles/modules/layout/footer';
-@import './node_modules/@casper/nightshade-styles/modules/minicart/bundle';
-@import './node_modules/@casper/nightshade-styles/modules/gallery/gallery';
-@import './node_modules/@casper/nightshade-styles/modules/gallery/background';
-@import './node_modules/@casper/nightshade-styles/modules/gallery/lifestyle_gallery';
-@import './node_modules/@casper/nightshade-styles/modules/forms/email_signup';
-@import './node_modules/@casper/nightshade-styles/modules/newsletter/block';
-@import './node_modules/@casper/nightshade-styles/modules/props';
-@import './node_modules/@casper/nightshade-styles/modules/ratings_stars/base';
-@import './node_modules/@casper/nightshade-styles/modules/social_links/base';
-@import './node_modules/@casper/nightshade-styles/modules/trial_warranty/banner';
-
-@import './node_modules/@casper/nightshade-styles/modules/products/purchase';
-@import './node_modules/@casper/nightshade-styles/modules/products/diagram';
-@import './node_modules/@casper/nightshade-styles/modules/products/specs';
-@import './node_modules/@casper/nightshade-styles/modules/products/add_to_cart';
-@import './node_modules/@casper/nightshade-styles/modules/products/product_gallery';
-@import './node_modules/@casper/nightshade-styles/modules/products/review';
-@import './node_modules/@casper/nightshade-styles/modules/products/infographic';
-
-@import './node_modules/@casper/nightshade-styles/modules/products/sheets/infographic';
-@import './node_modules/@casper/nightshade-styles/modules/products/sheets/a_la_carte';
-@import './node_modules/@casper/nightshade-styles/modules/products/sheets/diagram';
-@import './node_modules/@casper/nightshade-styles/modules/products/hoisted';
-@import './node_modules/@casper/nightshade-styles/modules/forms/custom_select';
-
-

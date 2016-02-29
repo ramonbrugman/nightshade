@@ -1,6 +1,7 @@
 // Pattern template
 .pattern {
   width: 100%;
+  padding: ms(10) ms(4) ms(4);
 
   h1,
   h2,
@@ -15,17 +16,17 @@
 
   h1 {
     font-size: ms(5);
-    margin-bottom: size(tiny);
+    margin-bottom: ms(2);
   }
 
   h2 {
     font-size: ms(3);
-    margin-bottom: size(tiny);
+    margin-bottom: ms(0);
   }
 
   h3 {
     font-size: ms(2);
-    margin: size(normal) 0 size(tiny);
+    margin: ms(3) 0 ms(0);
   }
 
   h4 {
@@ -33,7 +34,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: size(normal-tracking);
-    margin-bottom: size(smallest);
+    margin-bottom: ms(0);
   }
 }
 
@@ -41,11 +42,14 @@
   margin-bottom: 5rem;
 }
 
-.pattern-header,
+.pattern-header {
+  margin-bottom: ms(9);
+}
+
 .pattern-example,
 .pattern-usage,
 .pattern-notes {
-  margin-bottom: size(larger);
+  margin-bottom: ms(6);
 }
 
 .pattern-description {
@@ -53,14 +57,14 @@
 }
 
 .pattern-variant-description {
-  margin-bottom: size(normal);
+  margin-bottom: ms(3);
 }
 
 .pattern-nav {
   text-transform: uppercase;
   border-bottom: 1px solid color(dark-border);
-  margin-bottom: size(large);
-  padding-bottom: size(smaller);
+  margin-bottom: ms(5);
+  padding-bottom: ms(0);
   font-weight: 600;
   letter-spacing: size(normal-tracking);
 }
@@ -89,22 +93,26 @@
 }
 
 .pattern-example-display {
-  margin-bottom: size(large);
+  margin-bottom: ms(4);
   padding: size(large);
 }
 
 .pattern-rules {
-  margin: size(larger) 0;
+  margin: ms(6) 0;
+  padding: ms(6) 0;
   border-top: 1px solid color(border);
   border-bottom: 1px solid color(border);
 
   .pattern-example-display {
-    margin-bottom: size(small);
+    margin-bottom: ms(1);
   }
 }
 
 .pattern-rules-row {
-  margin: size(larger) 0;
+
+  &:not(:last-child) {
+    margin-bottom: ms(4);
+  }
 }
 .pattern-rules-rule {
   margin-top: size(medium);
@@ -163,6 +171,6 @@
 }
 
 .pattern-usage-import {
-  margin: size(small) 0 size(large);
+  margin: 0 0 ms(6);
   padding: size(small);
 }

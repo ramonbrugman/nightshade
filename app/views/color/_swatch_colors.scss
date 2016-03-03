@@ -1,21 +1,9 @@
-@import './node_modules/@casper/nightshade-core/src/color/config';
-@import './node_modules/@casper/nightshade-core/src/color/helpers';
+@import './node_modules/@casper/nightshade-core/src/color/index';
 
 $stacks: map-get($colors, 'stacks');
+$stacksColors: generate-stacks-map($stacks);
+$colorsWithoutStacks: map-remove($colors, 'stacks');
+$colors: map-merge($stacksColors, $colorsWithoutStacks);
 
-// Generate classes for colors in map
-@each $name, $color in $colors {
-  @if $name != 'stacks' {
-    .#{$name} {
-      background: color($color);
-    }
-  }
-}
-
-// Generate classes for color stacks
-@each $baseColor, $options in $stacks {
-  $mixColor: map-get($options, 'mixColor');
-  $steps: map-get($options, 'steps');
-
-  @include color-steps($steps, $baseColor, $mixColor);
-}
+// Generate classes for all colors
+@include color-classes($colors);

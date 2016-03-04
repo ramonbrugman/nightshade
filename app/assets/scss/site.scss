@@ -3,40 +3,39 @@
 
 // Files to build warranty page
 // @TODO base type styles should be part of the apps default
-@import './node_modules/@casper/nightshade-styles/modules/pages/legal';
+@import './app/views/pages/scss/legal';
 
 // Files to build product page
 @import './node_modules/@casper/nightshade-styles/utilities/backdrops';
 
 @import './node_modules/@casper/nightshade-styles/modules/banners/cta_banner';
 @import './node_modules/@casper/nightshade-styles/modules/breadcrumbs/base';
-@import './node_modules/@casper/nightshade-styles/modules/layout/header';
-@import './node_modules/@casper/nightshade-styles/modules/layout/menu/bundle';
 @import './node_modules/@casper/nightshade-styles/modules/media/flex-embed';
-@import './node_modules/@casper/nightshade-styles/modules/layout/footer';
-@import './node_modules/@casper/nightshade-styles/modules/minicart/bundle';
 @import './node_modules/@casper/nightshade-styles/modules/gallery/gallery';
 @import './node_modules/@casper/nightshade-styles/modules/gallery/background';
-@import './node_modules/@casper/nightshade-styles/modules/gallery/lifestyle_gallery';
 @import './node_modules/@casper/nightshade-styles/modules/forms/email_signup';
+@import './node_modules/@casper/nightshade-styles/modules/forms/custom_select';
 @import './node_modules/@casper/nightshade-styles/modules/newsletter/block';
 @import './node_modules/@casper/nightshade-styles/modules/props';
 @import './node_modules/@casper/nightshade-styles/modules/ratings_stars/base';
-@import './node_modules/@casper/nightshade-styles/modules/social_links/base';
 @import './node_modules/@casper/nightshade-styles/modules/trial_warranty/banner';
 
-@import './node_modules/@casper/nightshade-styles/modules/products/purchase';
-@import './node_modules/@casper/nightshade-styles/modules/products/diagram';
-@import './node_modules/@casper/nightshade-styles/modules/products/specs';
-@import './node_modules/@casper/nightshade-styles/modules/products/add_to_cart';
-@import './node_modules/@casper/nightshade-styles/modules/products/product_gallery';
-@import './node_modules/@casper/nightshade-styles/modules/products/review';
-@import './node_modules/@casper/nightshade-styles/modules/products/infographic';
-@import './node_modules/@casper/nightshade-styles/modules/products/footer';
-
-@import './node_modules/@casper/nightshade-styles/modules/products/sheets/infographic';
-@import './node_modules/@casper/nightshade-styles/modules/products/sheets/a_la_carte';
-@import './node_modules/@casper/nightshade-styles/modules/products/sheets/diagram';
-@import './node_modules/@casper/nightshade-styles/modules/products/sheets/gallery';
-@import './node_modules/@casper/nightshade-styles/modules/products/hoisted';
-@import './node_modules/@casper/nightshade-styles/modules/forms/custom_select';
+@import './app/views/pages/scss/header';
+@import './app/views/pages/scss/footer';
+@import './app/views/pages/scss/menu/bundle';
+@import './app/views/pages/scss/minicart/bundle';
+@import './app/views/pages/scss/lifestyle_gallery';
+@import './app/views/pages/scss/social_links';
+@import './app/views/pages/scss/products/purchase';
+@import './app/views/pages/scss/products/diagram';
+@import './app/views/pages/scss/products/specs';
+@import './app/views/pages/scss/products/add_to_cart';
+@import './app/views/pages/scss/products/product_gallery';
+@import './app/views/pages/scss/products/review';
+@import './app/views/pages/scss/products/infographic';
+@import './app/views/pages/scss/products/footer';
+@import './app/views/pages/scss/products/hoisted';
+@import './app/views/pages/scss/products/sheets/infographic';
+@import './app/views/pages/scss/products/sheets/a_la_carte';
+@import './app/views/pages/scss/products/sheets/diagram';
+@import './app/views/pages/scss/products/sheets/gallery';

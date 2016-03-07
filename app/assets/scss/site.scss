@@ -6,19 +6,20 @@
 @import './app/views/pages/scss/legal';
 
 // Files to build product page
-@import './node_modules/@casper/nightshade-styles/utilities/backdrops';
+@import './node_modules/@casper/nightshade-styles/src/utilities/backdrops';
 
-@import './node_modules/@casper/nightshade-styles/modules/banners/cta_banner';
-@import './node_modules/@casper/nightshade-styles/modules/breadcrumbs/base';
-@import './node_modules/@casper/nightshade-styles/modules/media/flex-embed';
-@import './node_modules/@casper/nightshade-styles/modules/gallery/gallery';
-@import './node_modules/@casper/nightshade-styles/modules/gallery/background';
-@import './node_modules/@casper/nightshade-styles/modules/forms/email_signup';
-@import './node_modules/@casper/nightshade-styles/modules/forms/custom_select';
-@import './node_modules/@casper/nightshade-styles/modules/newsletter/block';
-@import './node_modules/@casper/nightshade-styles/modules/props';
-@import './node_modules/@casper/nightshade-styles/modules/ratings_stars/base';
-@import './node_modules/@casper/nightshade-styles/modules/trial_warranty/banner';
+@import './node_modules/@casper/nightshade-styles/src/banners/cta_banner';
+@import './node_modules/@casper/nightshade-styles/src/breadcrumbs/index';
+@import './node_modules/@casper/nightshade-styles/src/media/helpers';
+@import './node_modules/@casper/nightshade-styles/src/media/flex_embed';
+@import './node_modules/@casper/nightshade-styles/src/gallery/base';
+@import './node_modules/@casper/nightshade-styles/src/gallery/background';
+@import './node_modules/@casper/nightshade-styles/src/forms/email_signup';
+@import './node_modules/@casper/nightshade-styles/src/forms/custom_select';
+@import './node_modules/@casper/nightshade-styles/src/newsletter/block';
+@import './node_modules/@casper/nightshade-styles/src/layout/props';
+@import './node_modules/@casper/nightshade-styles/src/ratings_stars/index';
+@import './node_modules/@casper/nightshade-styles/src/trial_warranty/banner';
 
 @import './app/views/pages/scss/header';
 @import './app/views/pages/scss/footer';

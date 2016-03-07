@@ -27,7 +27,7 @@ const file_paths =  {
     'local_sass': './app/assets/scss/',
     'module_sass': './app/modules/',
     'views': './app/views/',
-    'nightshade': './node_modules/@casper/nightshade-styles/modules/'
+    'nightshade': './node_modules/@casper/nightshade-styles/src/'
 };
 
 // @@@ Maybe pull these out into utilities

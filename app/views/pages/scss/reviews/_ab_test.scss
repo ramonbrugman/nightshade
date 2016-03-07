@@ -1,0 +1,176 @@
+// Styles for CTA reviews page test.
+
+.ab-test--shown {
+
+  .reviews-shop {
+    display: block;
+    margin: size(normal) auto 0;
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .reviews-add-review {
+    display: none;
+  }
+
+  .reviews-filter-tab {
+    width: 100%;
+    padding: size(large);
+    border-right: none;
+
+    [data-icon="arrow"] {
+      top: 40%;
+      left: calc(100% - 80px);
+
+      @include respond-at-and-above($break-medium) {
+        left: inherit;
+      }
+    }
+
+    @include respond-at-and-above($break-medium) {
+      width: 50%;
+      padding: size(medium) size(small) size(small) 0;
+    }
+  }
+
+  .reviews-filter-title {
+    position: relative;
+    float: left;
+    width: 30%;
+    padding-left: 2px;
+    top: 10px;
+
+    @include respond-at-and-above($break-medium) {
+      padding-left: 0;
+      top: 1px;
+      width: auto;
+    }
+  }
+
+  .reviews-filter-form {
+    float: left;
+    width: 70%;
+
+    @include respond-at-and-above($break-medium) {
+      width: auto;
+    }
+  }
+
+  .reviews-filter-choice {
+    position: relative;
+    margin-left: -4px;
+    padding: 14px 0 15px;
+    top: -6px;
+    height: auto;
+    min-width: 112px;
+    border-radius: size(small-corners);
+    border: 1px solid color(dark-border);
+    text-align: left;
+
+    &:hover {
+      border: 1px solid color(medium-border);
+
+      .reviews-filter-list {
+        border: 1px solid color(medium-border);
+        border-top: 0;
+      }
+    }
+  }
+
+  .reviews-filter-ratings-label {
+
+    @include respond-at-and-above($break-medium) {
+      position: relative;
+      padding-left: size(small);
+      top: 2px;
+    }
+  }
+
+  .reviews-filter-list {
+    margin-top: 5px;
+  }
+
+  .reviews-add-tab {
+    display: block;
+    margin-top: 0;
+    padding: size(large) size(large) size(smaller);
+    width: 100%;
+
+    @include respond-at-and-above($break-medium) {
+      float: right;
+      padding: size(small) 0;
+      width: 250px;
+    }
+  }
+}
+
+// Sticky nav header styles.
+.reviews.is-sticky .ab-test--shown {
+
+  .reviews-shop {
+    position: relative;
+    margin: 0;
+    top: -5px;
+    left: 39px;
+
+    .btn {
+      width: 266px;
+    }
+
+    @include respond-at-and-above($break-large) {
+      float: right;
+      left: 0;
+    }
+  }
+
+  .reviews-header-lead-image {
+    margin-right: size(smallest);
+
+    @include respond-at-and-above($break-large) {
+      margin-right: size(large);
+    }
+  }
+
+  .reviews-filter-choice {
+    top: 3px;
+    padding: 7px 0;
+
+    @include respond-at-and-above($break-large) {
+      top: -6px;
+      padding: 14px 0 15px;
+    }
+  }
+
+  .reviews-filter-tab {
+    display: none;
+
+    @include respond-at-and-above($break-xl) {
+      display: block;
+      position: absolute;
+      padding-right: 0;
+      top: -92px;
+      left: calc(80% - 242px);
+      width: 20%;
+    }
+  }
+
+  .reviews-filter-ratings-label,
+  .reviews-filter-title {
+    top: 0;
+  }
+
+  .reviews-add-tab {
+    display: none;
+  }
+}
+
+// Elements to hide if default view.
+.ab-test--hidden {
+
+  .reviews-add-tab,
+  .reviews-shop {
+    display: none;
+  }
+}

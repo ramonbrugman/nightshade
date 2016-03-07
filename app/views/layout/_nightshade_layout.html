@@ -9,8 +9,26 @@
 {% endblock %}
 
 {% block body_content %}
-  <nav class="nightshade-nav base-gray--light8">
+  <header class="nightshade-header base-gray--light8" role="banner">
+
     <h1><a href="/">Nightshade Design System</a></h1>
+    {% block nav_right %}{% endblock %}
+  </header>
+  <nav class="nav--main is-invisible" role="navigation" aria-expanded="false">
+    <h3 class="section-heading">Components</h3>
+    <nav class="nav--study">
+      <a class="nav-link" href="color">Color</a>
+      <a class="nav-link" href="buttons">Buttons</a>
+      <a class="nav-link" href="icons">Icons</a>
+      <a class="nav-link" href="banners">Banners</a>
+      <a class="nav-link" href="popovers">Popovers</a>
+      <a class="nav-link" href="tooltips">Tooltips</a>
+    </nav>
+    <h3 class="section-heading">Pages</h3>
+    <nav class="nav--study">
+      <a class="nav-link" href="pages/sheets.html">Product: Sheets</a>
+      <a class="nav-link" href="pages/warranty.html">Warranty</a>
+    </nav>
   </nav>
 
   {% block page_content %}{% endblock %}

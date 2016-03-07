@@ -1,6 +1,6 @@
 {% extends "layout/_pattern.html" %}
 
-{% from 'nightshade-styles/modules/banners/banners.macros.html' import banner %}
+{% from 'nightshade-styles/src/banners/banners.macros.html' import banner %}
 
 {% set data = {
   name: "Banners",
@@ -25,12 +25,12 @@
         '<code>id</code> - Custom JavaScript ID selector'
       ],
       stylesheet_import: {
-        path: "modules/banners/_base.scss",
-        code: "@import './node_modules/@casper/nightshade-core/modules/banners/base';"
+        path: "src/banners/_base.scss",
+        code: "@import './node_modules/@casper/nightshade-core/src/banners/base';"
       },
       macro_import: {
-        path: "modules/banners/banners.macros.html",
-        code: "{% from 'nightshade-core/modules/banners/banners.macros.html' import banner %}"
+        path: "src/banners/banners.macros.html",
+        code: "{% from 'nightshade-core/src/banners/banners.macros.html' import banner %}"
       }
     },
     {

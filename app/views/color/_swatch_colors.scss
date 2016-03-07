@@ -1,5 +1,5 @@
-@import './node_modules/@casper/nightshade-styles/modules/color/config';
-@import './node_modules/@casper/nightshade-styles/modules/color/color_steps';
+@import './node_modules/@casper/nightshade-styles/src/color/config';
+@import './node_modules/@casper/nightshade-styles/src/color/helpers';
 
 $stacks: map-get($colors, 'stacks');
 

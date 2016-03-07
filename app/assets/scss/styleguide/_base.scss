@@ -2,16 +2,20 @@
   padding-top: 4rem !important;
 }
 
+p {
+  margin-bottom: 1.4em;
+}
+
 .nightshade-header {
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
-  padding: size(small) size(normal);
+  padding: size(small) size(normal) size(small) 4.5rem;
 
   @include respond-at-and-above($break-mobile) {
-    padding: size(small) size(large);
+    padding-right: size(large);
   }
 
   h1 {
@@ -26,6 +30,55 @@
     a {
       color: color(text);
     }
+  }
+}
+
+// Mobile menu icon
+.menu-trigger {
+  @include square(30px);
+
+  cursor: pointer;
+  top: 18px;
+  left: 20px;
+  position: absolute;
+  display: block;
+
+  .is-open & {
+    padding: 0 2px;
+  }
+}
+
+.menu-trigger-icon {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: color(#505050); // Use new $gray
+
+  @include before() {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: color(#505050); // Use new $gray
+    transform: translateY(-8px);
+  }
+
+  @include after() {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: color(#505050); // Use new $gray
+    transform: translateY(8px);
+  }
+}
+
+.toggle-background {
+  float: right;
+
+  @include respond-below($break-small) {
+    display: none;
   }
 }
 
@@ -93,4 +146,9 @@
     fill: color(text);
     transition: transform 0.15s ease-out;
   }
+}
+
+.home-blurb {
+  max-width: 40em;
+  font-size: ms(1);
 }

@@ -1,4 +1,178 @@
+{% import 'nightshade-core/src/reviews/reviews.macros.html' as review %}
 {% from 'nightshade-core/src/buttons/buttons.macros.html' import button %}
+{% from 'nightshade-core/src/popovers/macros.html' import popover %}
+
+
+{% macro reviews_filters() %}
+<nav class="reviews-filters js-reviews-filters clearfix">
+<div class="reviews-wrapper ab-test--shown" id="ab-test-cta-reviews-filters">
+
+<div class="reviews-add-review reviews-add-tab">
+  {{ button('WRITE A REVIEW', style='ghost', href='/mattresses/reviews/new') }}
+</div>
+
+<div class="reviews-filter-tab js-reviews-filter-tab">
+<div class="reviews-filter-title reviews-filter">
+Filter
+</div>
+<form class="reviews-filter-form js-review-filter" action="/mattresses/reviews" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><div class="reviews-filter-choice reviews-filter body--sans" name="filter" value="rating">
+<span class="reviews-filter-ratings-label">
+All
+</span>
+<span data-icon="arrow" data-size="tiny"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow"></use></svg></span>
+<ul class="reviews-filter-list js-review-filter-list is-invisible">
+<li class="reviews-filter-rating js-reviews-filter-rating" data-rating="">
+All
+</li>
+<li class="reviews-filter-rating js-reviews-filter-rating" data-rating="5">
+5 Stars
+</li>
+<li class="reviews-filter-rating js-reviews-filter-rating" data-rating="4">
+4 Stars
+</li>
+<li class="reviews-filter-rating js-reviews-filter-rating" data-rating="3">
+3 Stars
+</li>
+<li class="reviews-filter-rating js-reviews-filter-rating" data-rating="2">
+2 Stars
+</li>
+<li class="reviews-filter-rating js-reviews-filter-rating" data-rating="1">
+1 Stars
+</li>
+</ul>
+</div>
+<input type="hidden" name="rating" id="rating" value="" class="js-ratings-input">
+<input type="hidden" name="order" id="order" value="desc">
+</form>
+</div>
+</div>
+</nav>
+{% endmacro %}
+
+{% macro reviews_header() %}
+<header class="reviews-header -backdrop clearfix ab-test--shown" id="ab-test-cta-reviews-header">
+  <div class="reviews-wrapper reviews-wrapper--header">
+    <div class="reviews-header-lead">
+
+      <div class="reviews-header-lead-image">
+        <img alt="Casper Mattress" src="https://casper.imgix.net/product/casper-mattress.png?auto=format">
+      </div>
+
+      <div class="reviews-rating-wrapper">
+        <h1 class="h2 reviews-title -no-trailer">
+          <span itemprop="name">
+          Casper Mattress
+          </span>
+          Reviews
+        </h1>
+
+      <div class="reviews-rating" itemtype="http://schema.org/AggregateRating" itemprop="aggregateRating" itemscope="">
+        <meta content="4.5" itemprop="ratingValue">
+        <meta content="5" itemprop="bestRating">
+
+        {{ review.star_rating('blue') }}
+        {{ review.stat_rating() }}
+
+        <span class="popover-container js-popover-container">
+          <span class="popover-toggle js-popover-toggle">Learn More &gt;</span>
+          {{ popover('left', 'These reviews are submitted by real Casper users. We believe that helpful information — good or bad — should be available to everyone, so we never change reviews. If you see a checkmark next to a reviewer’s name, that means we’ve confirmed that they are verified Casper purchasers..', 'js-popover') }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+    <div class="reviews-stats">
+      <div class="reviews-stats-table-section">
+        {{ progress_bar_table() }}
+      </div>
+    </div>
+
+    <div class="reviews-thumbnail">
+      <div class="reviews-image">
+        <img alt="Casper Mattress" src="https://casper.imgix.net/product/casper-mattress.png?auto=format">
+      </div>
+
+      <div class="reviews-shop">
+        {{ button('SHOP THE Mattress', style='ghost') }}
+      </div>
+    </div>
+  </div>
+</header>
+
+{% endmacro %}
+
+{% macro progress_bar_table() %}
+<table class="reviews-stats-table">
+  <tbody>
+    <tr class="reviews-stats-table-row">
+      <td class="reviews-stats-table-rating">
+        <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="5" href="#">5 Star
+        </a></td>
+        <td class="reviews-stats-table-rating-visual">
+          <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="5" href="#"><div class="reviews-stats-table-rating-bar-background" data-rating="5">
+            <div class="reviews-stats-table-rating-bar" data-rating="5" style="width: 76.31062517521727%;"></div>
+          </div>
+        </a></td>
+        <td class="reviews-stats-table-rating-percent">
+          <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="5" href="#">76%
+          </a></td>
+    </tr>
+    <tr class="reviews-stats-table-row">
+      <td class="reviews-stats-table-rating">
+        <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="4" href="#">4 Star
+        </a></td>
+        <td class="reviews-stats-table-rating-visual">
+          <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="4" href="#"><div class="reviews-stats-table-rating-bar-background" data-rating="4">
+            <div class="reviews-stats-table-rating-bar" data-rating="4" style="width: 11.073731426969442%;"></div>
+          </div>
+        </a></td>
+        <td class="reviews-stats-table-rating-percent">
+          <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="4" href="#">11%
+          </a></td>
+        </tr>
+    <tr class="reviews-stats-table-row">
+      <td class="reviews-stats-table-rating">
+        <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="3" href="#">3 Star
+        </a></td>
+        <td class="reviews-stats-table-rating-visual">
+          <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="3" href="#"><div class="reviews-stats-table-rating-bar-background" data-rating="3">
+            <div class="reviews-stats-table-rating-bar" data-rating="3" style="width: 6.167647883375386%;"></div>
+          </div>
+        </a></td>
+        <td class="reviews-stats-table-rating-percent">
+          <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="3" href="#">6%
+          </a></td>
+        </tr>
+  <tr class="reviews-stats-table-row">
+    <td class="reviews-stats-table-rating">
+      <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="2" href="#">2 Star
+      </a></td>
+      <td class="reviews-stats-table-rating-visual">
+        <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="2" href="#"><div class="reviews-stats-table-rating-bar-background" data-rating="2">
+          <div class="reviews-stats-table-rating-bar" data-rating="2" style="width: 3.84076254555649%;"></div>
+        </div>
+      </a></td>
+      <td class="reviews-stats-table-rating-percent">
+        <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="2" href="#">4%
+        </a></td>
+    </tr>
+    <tr class="reviews-stats-table-row">
+      <td class="reviews-stats-table-rating">
+        <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="1" href="#">1 Star
+        </a></td>
+        <td class="reviews-stats-table-rating-visual">
+          <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="1" href="#"><div class="reviews-stats-table-rating-bar-background" data-rating="1">
+            <div class="reviews-stats-table-rating-bar" data-rating="1" style="width: 2.607232968881413%;"></div>
+          </div>
+        </a></td>
+        <td class="reviews-stats-table-rating-percent">
+          <a class="reviews-stats-table-link js-reviews-stats-table-link" data-rating="1" href="#">3%
+          </a></td>
+    </tr>
+  </tbody>
+</table>
+{% endmacro %}
+>>>>>>> Stashed changes
 
 {% macro sheets_header() %}
 <header class="-hoisted header--hoisted product-diagram-header r-centered r-inner">
@@ -30,7 +204,6 @@
   ]
 %}
 
-
 {% macro diagram() %}
 <div aria-label="Casper Sheets (Diagram)" class="product-diagram-widget product-diagram-widget--sheets r-section-wrapper" role="img">
 
@@ -41,7 +214,6 @@
   </div>
 </div>
 {% endmacro %}
-
 
 {% macro diagram_item(data) %}
 <article class="product-diagram-item product-diagram-item--{{ data.id }}">
@@ -60,7 +232,6 @@
   </div>
 </article>
 {% endmacro %}
-
 
 {% macro specs() %}
 <div aria-expanded="true" class="product-specs-info-container js-tech-specs-info-container is-expanded">
@@ -502,7 +673,6 @@
   ]
 %}
 
-
 {% macro infographic() %}
 <ul class="js-sheets-infographic-gallery product-infographic-options sheets-infographic-options">
   {% for infographic_content in sheetsInfographicContent %}
@@ -510,7 +680,6 @@
   {% endfor %}
 </ul>
 {% endmacro%}
-
 
 {% macro infographic_item(data) %}
 <li class="product-infographic-option sheets-infographic-option sheets-infographic-option--fitted-sheet">
@@ -521,4 +690,3 @@
   <p class="body--sans-small product-infographic-option-copy sheets-infographic-option-copy">{{ data.description }}</p>
 </li>
 {% endmacro%}
-

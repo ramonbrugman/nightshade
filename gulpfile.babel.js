@@ -27,7 +27,7 @@ const file_paths =  {
     'local_sass': './app/assets/scss/',
     'module_sass': './app/modules/',
     'views': './app/views/',
-    'nightshade': './node_modules/@casper/nightshade-styles/src/'
+    'nightshade': './node_modules/@casper/nightshade-core/src/'
 };
 
 // @@@ Maybe pull these out into utilities
@@ -129,8 +129,8 @@ gulp.task('compile', () => {
 gulp.task('precompile', () => {
   return gulp.src([
     './app/**/_*.html',
-    './node_modules/@casper/nightshade-styles/**/*.html',
-    '!./node_modules/@casper/nightshade-styles/node_modules/**'
+    './node_modules/@casper/nightshade-core/**/*.html',
+    '!./node_modules/@casper/nightshade-core/node_modules/**'
     ])
     .pipe(plumber())
     .pipe(nunjucks())
@@ -166,16 +166,16 @@ gulp.task('browser-sync', () => {
 
 
   gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ]).on("change", reload);
-  gulp.watch(['./app/assets/scss/**/*.scss', './app/views/**/*.scss', './node_modules/@casper/nightshade-styles/**/*.scss' ], ['sass']);
+  gulp.watch(['./app/assets/scss/**/*.scss', './app/views/**/*.scss', './node_modules/@casper/nightshade-core/**/*.scss' ], ['sass']);
   gulp.watch(['./app/views/**/*.html', './app/templates/**/*.html'], ['html-watch']);
     // gulp.watch(['test/**'], ['test']);
-  gulp.watch(['./node_modules/@casper/nightshade-styles/**/*.json' ], ['colors-config']);
+  gulp.watch(['./node_modules/@casper/nightshade-core/**/*.json' ], ['colors-config']);
 });
 
 
 //Sassdoc task
 gulp.task('sassdoc', () => {
-  return gulp.src(['app/**/*.scss', 'app/views/**/*.scss', './node_modules/nightshade-styles/**/*.scss'])
+  return gulp.src(['app/**/*.scss', 'app/views/**/*.scss', './node_modules/nightshade-core/**/*.scss'])
   .pipe(sassdoc({
       dest: './dist/sassdoc'
   }));

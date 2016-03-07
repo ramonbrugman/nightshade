@@ -6,20 +6,20 @@
 @import './app/views/pages/scss/legal';
 
 // Files to build product page
-@import './node_modules/@casper/nightshade-styles/src/utilities/backdrops';
+@import './node_modules/@casper/nightshade-core/src/utilities/backdrops';
 
-@import './node_modules/@casper/nightshade-styles/src/banners/cta_banner';
-@import './node_modules/@casper/nightshade-styles/src/breadcrumbs/index';
-@import './node_modules/@casper/nightshade-styles/src/media/helpers';
-@import './node_modules/@casper/nightshade-styles/src/media/flex_embed';
-@import './node_modules/@casper/nightshade-styles/src/gallery/base';
-@import './node_modules/@casper/nightshade-styles/src/gallery/background';
-@import './node_modules/@casper/nightshade-styles/src/forms/email_signup';
-@import './node_modules/@casper/nightshade-styles/src/forms/custom_select';
-@import './node_modules/@casper/nightshade-styles/src/newsletter/block';
-@import './node_modules/@casper/nightshade-styles/src/layout/props';
-@import './node_modules/@casper/nightshade-styles/src/ratings_stars/index';
-@import './node_modules/@casper/nightshade-styles/src/trial_warranty/banner';
+@import './node_modules/@casper/nightshade-core/src/banners/cta_banner';
+@import './node_modules/@casper/nightshade-core/src/breadcrumbs/index';
+@import './node_modules/@casper/nightshade-core/src/media/helpers';
+@import './node_modules/@casper/nightshade-core/src/media/flex_embed';
+@import './node_modules/@casper/nightshade-core/src/gallery/base';
+@import './node_modules/@casper/nightshade-core/src/gallery/background';
+@import './node_modules/@casper/nightshade-core/src/forms/email_signup';
+@import './node_modules/@casper/nightshade-core/src/forms/custom_select';
+@import './node_modules/@casper/nightshade-core/src/newsletter/block';
+@import './node_modules/@casper/nightshade-core/src/layout/props';
+@import './node_modules/@casper/nightshade-core/src/ratings_stars/index';
+@import './node_modules/@casper/nightshade-core/src/trial_warranty/banner';
 
 @import './app/views/pages/scss/header';
 @import './app/views/pages/scss/footer';

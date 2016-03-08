@@ -128,8 +128,7 @@ gulp.task('compile', () => {
 gulp.task('precompile', () => {
   return gulp.src([
     './app/**/_*.html',
-    './node_modules/@casper/nightshade-core/**/*.html',
-    '!./node_modules/@casper/nightshade-core/node_modules/**'
+    './node_modules/@casper/nightshade-core/src/**/*.html'
     ])
     .pipe(plumber())
     .pipe(nunjucks())

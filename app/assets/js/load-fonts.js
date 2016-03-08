@@ -1,18 +1,16 @@
-// Set up custom fonts with Web Font Loader
+/**
+ * @overview WebFont loader. Uses typography.com storefront-static package
+*/
 
 WebFont.load({
   custom: {
     families: [
       'Verlag A',
       'Verlag B',
-      'Verlag Black A',
-      'Verlag Black B',
       'Chronicle Deck A',
-      'Chronicle Deck B',
-      'Chronicle SSm A',
-      'Chronicle SSm B'
+      'Chronicle Deck B'
     ],
-    urls: ['//cloud.typography.com/6021872/737368/css/fonts.css']
+    urls: ['//cloud.typography.com/6021872/6049352/css/fonts.css']
   },
   active: function() {
     sessionStorage.fonts = true;

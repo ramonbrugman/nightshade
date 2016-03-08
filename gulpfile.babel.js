@@ -144,15 +144,13 @@ gulp.task('fonts', () => {
 });
 
 
-// Watch templates
-gulp.task('html-watch', ['precompile', 'compile']).on("change", reload);
-
 // Static server
 // @TODO fix sha error and set https: true,
 gulp.task('browser-sync', () => {
   browserSync.init({
       logPrefix: 'Ando',
       browser: false,
+      reloadDelay: 100,
       server: {
         baseDir: ['./app', './dist', './', './node_modules/@casper']
       },

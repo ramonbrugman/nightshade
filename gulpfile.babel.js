@@ -160,12 +160,28 @@ gulp.task('browser-sync', () => {
       }
     });
 
+  gulp.watch([
+    'app/assets/js/**/*.js',
+    'app/views/**/*.js',
+    'app/dist/**/*.js',
+    './node_modules/@casper/nightshade-core/src/**/*.js'
+     ]).on("change", browserSync.reload);
 
-  gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ]).on("change", reload);
-  gulp.watch(['./app/assets/scss/**/*.scss', './app/views/**/*.scss', './node_modules/@casper/nightshade-core/**/*.scss' ], ['sass']);
-  gulp.watch(['./app/views/**/*.html', './app/templates/**/*.html'], ['html-watch']);
+  gulp.watch([
+    './app/assets/scss/**/*.scss',
+    './app/views/**/*.scss',
+    './node_modules/@casper/nightshade-core/src/**/*.scss'
+    ], ['sass']);
+
+  gulp.watch([
+    './app/views/**/*.html',
+    './node_modules/@casper/nightshade-core/src/**/*.html'
+    ], ['precompile', 'compile']).on("change", browserSync.reload);
     // gulp.watch(['test/**'], ['test']);
-  gulp.watch(['./node_modules/@casper/nightshade-core/**/*.json' ], ['colors-config']);
+
+  gulp.watch([
+    './node_modules/@casper/nightshade-core/src/**/*.json'
+    ], ['colors-config']);
 });
 
 

@@ -1,7 +1,8 @@
 // recent review section -- scoping to overwrite base styles for review stars and review text
 .product-page-review {
-  border-bottom: 1px solid color(border);
-  padding: ms(8) 0;
+  border-bottom: 1px solid color(#e5e5e5); // use $gray
+  padding-top: ms(8);
+  padding-bottom: ms(8);
 
   .rating-stars-stats--fraction {
     margin-right: 6px;
@@ -9,23 +10,30 @@
 }
 
 .product-page-review-time {
-  margin-top: 40px;
+  margin-top: ms(4);
 }
 
 .product-page-review-title {
-  margin: 0 auto 8px;
+  margin: 0 auto ms(-4);
 }
 
 .product-page-review-copy {
   font-size: 16px;
   line-height: 1.6;
-  margin: ms(-2) 0 ms(-6);
+  margin: ms(-3) 0 ms(-6);
   max-height: 75px;
 }
 
 .product-page-review-info {
-  margin-top: 12px;
+  margin-top: ms(-2);
 }
+
+.product-page-review-location {
+  @include respond-below($break-small) {
+  display: block;
+  } 
+}
+
 
 .product-page-review-btn {
   margin: ms(5) 0 0;

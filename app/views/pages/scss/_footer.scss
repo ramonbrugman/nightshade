@@ -92,7 +92,7 @@
 
 .footer-nav-title {
   text-transform: uppercase;
-  margin: 0 0 size(smaller) 0;
+  margin: 0 0 ms(-2) 0;
 }
 
 .footer-nav-title--email {
@@ -283,7 +283,7 @@
 
 @include respond-below($break-mobile) {
   .r-footer-top {
-    padding: 2.5rem size(large) size(normal);
+    padding: ms(5) ms(2) ms(1);
   }
 
   .r-footer-bottom .r-inner {

@@ -36,8 +36,12 @@
     }
   }
 
+ .photo-panel-header {
+    fill: color(primary);
+ }
 
   .photo-panel-title {
+    margin-top: ms(-2);
     @include respond-below(1023px) {
       .line-break {
         display: block;
@@ -46,11 +50,11 @@
   }
 
   .shipping-returns-block {
-    max-width: 24em;
+    max-width: 18em;
   }
 
   .newsletter-block {
-    max-width: 25em;
+    max-width: 18em;
   }
 
   .cta-banner {

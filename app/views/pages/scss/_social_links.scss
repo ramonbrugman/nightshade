@@ -1,5 +1,5 @@
 .social-links {
-  padding: size(smaller) 0;
+  padding: ms(-2) 0;
   line-height: 1;
 }
 
@@ -9,7 +9,7 @@
   transition: opacity 0.2s ease;
 
   &:not(:last-child) {
-    margin-right: size(smaller);
+    margin-right: ms(-1);
   }
 
   &:hover {

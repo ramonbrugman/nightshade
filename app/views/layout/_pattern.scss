@@ -157,8 +157,34 @@
   right: 0;
 }
 
-.pattern-usage-header-toggle {
-  margin-left: size(small);
+.pattern-usage-toggles {
+  display: flex;
+  position: relative;
+  top: -0.25rem;
+  font-size: ms(-1);
+  font-weight: 600;
+}
+
+.pattern-usage-toggle {
+  padding: size(tiny) size(normal);
+  border: 1px solid color(border);
+  letter-spacing: size(small-tracking);
+  transition: 0.15s background ease-out;
+
+  &:first-child {
+    border-right: none;
+    border-top-left-radius: size(small-corners);
+    border-bottom-left-radius: size(small-corners);
+  }
+
+  &:last-child {
+    border-top-right-radius: size(small-corners);
+    border-bottom-right-radius: size(small-corners);
+  }
+
+  &.is-selected {
+    background: color(light-background); // use new $gray--light9
+  }
 }
 
 .pattern-usage-code,

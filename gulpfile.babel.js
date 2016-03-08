@@ -18,7 +18,6 @@ import markdown from 'nunjucks-markdown';
 import marked from 'marked';
 
 const browserSync = browsersync.create();
-const reload      = browserSync.reload;
 
 const file_paths =  {
     'base': './app',

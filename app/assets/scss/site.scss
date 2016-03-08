@@ -5,6 +5,9 @@
 // @TODO base type styles should be part of the apps default
 @import './app/views/pages/scss/legal';
 
+// Files to build reviews page
+@import './app/views/pages/scss/reviews/index';
+
 // Files to build product page
 @import './node_modules/@casper/nightshade-core/src/utilities/backdrops';
 

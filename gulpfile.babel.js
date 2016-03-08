@@ -160,12 +160,13 @@ gulp.task('browser-sync', () => {
       }
     });
 
+
   gulp.watch([
     'app/assets/js/**/*.js',
     'app/views/**/*.js',
     'app/dist/**/*.js',
     './node_modules/@casper/nightshade-core/src/**/*.js'
-     ]).on("change", browserSync.reload);
+     ]).on('change', browserSync.reload);
 
   gulp.watch([
     './app/assets/scss/**/*.scss',
@@ -176,18 +177,23 @@ gulp.task('browser-sync', () => {
   gulp.watch([
     './app/views/**/*.html',
     './node_modules/@casper/nightshade-core/src/**/*.html'
-    ], ['precompile', 'compile']).on("change", browserSync.reload);
+    ], ['precompile', 'compile']).on('change', browserSync.reload);
+
     // gulp.watch(['test/**'], ['test']);
 
   gulp.watch([
     './node_modules/@casper/nightshade-core/src/**/*.json'
     ], ['colors-config']);
+
 });
 
 
 //Sassdoc task
 gulp.task('sassdoc', () => {
-  return gulp.src(['app/**/*.scss', 'app/views/**/*.scss', './node_modules/nightshade-core/**/*.scss'])
+  return gulp.src([
+    'app/**/*.scss',
+    './node_modules/nightshade-core/src/**/*.scss'
+  ])
   .pipe(sassdoc({
       dest: './dist/sassdoc'
   }));

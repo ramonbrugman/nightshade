@@ -18,7 +18,6 @@ import markdown from 'nunjucks-markdown';
 import marked from 'marked';
 
 const browserSync = browsersync.create();
-const reload      = browserSync.reload;
 
 const file_paths =  {
     'base': './app',
@@ -129,8 +128,7 @@ gulp.task('compile', () => {
 gulp.task('precompile', () => {
   return gulp.src([
     './app/**/_*.html',
-    './node_modules/@casper/nightshade-core/**/*.html',
-    '!./node_modules/@casper/nightshade-core/node_modules/**'
+    './node_modules/@casper/nightshade-core/src/**/*.html'
     ])
     .pipe(plumber())
     .pipe(nunjucks())
@@ -146,15 +144,13 @@ gulp.task('fonts', () => {
 });
 
 
-// Watch templates
-gulp.task('html-watch', ['precompile', 'compile']).on("change", reload);
-
 // Static server
 // @TODO fix sha error and set https: true,
 gulp.task('browser-sync', () => {
   browserSync.init({
       logPrefix: 'Ando',
       browser: false,
+      reloadDelay: 100,
       server: {
         baseDir: ['./app', './dist', './', './node_modules/@casper']
       },
@@ -164,12 +160,28 @@ gulp.task('browser-sync', () => {
       }
     });
 
+  gulp.watch([
+    'app/assets/js/**/*.js',
+    'app/views/**/*.js',
+    'app/dist/**/*.js',
+    './node_modules/@casper/nightshade-core/src/**/*.js'
+     ]).on("change", browserSync.reload);
 
-  gulp.watch(['app/assets/js/**/*.js', 'app/dist/**/*.js' ]).on("change", reload);
-  gulp.watch(['./app/assets/scss/**/*.scss', './app/views/**/*.scss', './node_modules/@casper/nightshade-core/**/*.scss' ], ['sass']);
-  gulp.watch(['./app/views/**/*.html', './app/templates/**/*.html'], ['html-watch']);
+  gulp.watch([
+    './app/assets/scss/**/*.scss',
+    './app/views/**/*.scss',
+    './node_modules/@casper/nightshade-core/src/**/*.scss'
+    ], ['sass']);
+
+  gulp.watch([
+    './app/views/**/*.html',
+    './node_modules/@casper/nightshade-core/src/**/*.html'
+    ], ['precompile', 'compile']).on("change", browserSync.reload);
     // gulp.watch(['test/**'], ['test']);
-  gulp.watch(['./node_modules/@casper/nightshade-core/**/*.json' ], ['colors-config']);
+
+  gulp.watch([
+    './node_modules/@casper/nightshade-core/src/**/*.json'
+    ], ['colors-config']);
 });
 
 

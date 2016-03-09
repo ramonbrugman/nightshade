@@ -58,13 +58,12 @@
   }
 
   .form-field--price {
-    flex-shrink: 0;
-    min-width: 40%;
     font-size: ms(4);
+    margin-right: ms(1);
   }
 
   .add-to-cart-button {
     @include padding-sides(size(smallest));
-    flex-shrink: 1; // Fix for IE10
+    flex: 0 1 auto;
   }
 }

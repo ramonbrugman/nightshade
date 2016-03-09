@@ -4,24 +4,31 @@
 <a href="https://github.com/CasperSleep/nightshade-core/tree/v2.0.0-dev/{{ path }}">View on GitHub</a>
 {% endmacro %}
 
-{% macro rules_list(rules) %}
-<div class="pattern-rules">
-  {% for rule in rules %}
-  <div class="pattern-rules-row clearfix">
-    <div class="pattern-rules-rule pattern-rules-rule--do">
-      <div class="pattern-example-display r-centered">
-        {{ rule.do.example|safe }}
-      </div>
-      <h4>Do</h4>
-      <p>{{ rule.do.description }}</p>
+{% macro rules_list(list) %}
+<ul class="pattern-rules-list">
+  <li class="pattern-rules-list-item">
+    <h4>Typography</h4>
+    <p>{{ list.typography }}</p>
+  </li>
+  <li class="pattern-rules-list-item">
+    <h4>Specs &amp; Dimensions</h4>
+    <p>{{ list.specs }}</p>
+  </li>
+  <li class="pattern-rules-list-item">
+    <h4>Color &amp; Accessibility</h4>
+    <p>{{ list.color }}</p>
+  </li>
+</ul>
+{% endmacro %}
+
+{% macro rules_examples(examples) %}
+<div class="pattern-rules-examples">
+  {% for example in examples %}
+  <div class="pattern-rules-example">
+    <div class="pattern-example-display r-centered">
+      {{ example.html|safe }}
     </div>
-    <div class="pattern-rules-rule pattern-rules-rule--dont">
-      <div class="pattern-example-display r-centered">
-        {{ rule.dont.example|safe }}
-      </div>
-      <h4>Don't</h4>
-      <p>{{ rule.dont.description }}</p>
-    </div>
+    <p>{{ example.description }}</p>
   </div>
   {% endfor %}
 </div>
@@ -53,7 +60,15 @@
   </div>
 
   {% if rules %}
-  {{ rules_list(rules) }}
+  <div class="pattern-rules">
+    {% if rules.list %}
+    {{ rules_list(rules.list) }}
+    {% endif %}
+
+    {% if rules.examples %}
+    {{ rules_examples(rules.examples) }}
+    {% endif %}
+  </div>
   {% endif %}
 </div>
 

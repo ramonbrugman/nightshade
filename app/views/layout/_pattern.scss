@@ -99,9 +99,7 @@
 }
 
 .pattern-rules {
-  margin: ms(6) 0;
-  padding: ms(6) 0;
-  border-top: 1px solid color(border);
+  margin-bottom: ms(6);
   border-bottom: 1px solid color(border);
 
   .pattern-example-display {
@@ -109,31 +107,52 @@
   }
 }
 
-.pattern-rules-row {
-
-  &:not(:last-child) {
-    margin-bottom: ms(4);
+.pattern-rules-list {
+  @include respond-at-and-above($break-medium) {
+    display: flex;
   }
 }
-.pattern-rules-rule {
+
+.pattern-rules-list-item {
+  margin-bottom: ms(4);
+
+  &:last-child {
+    margin-bottom: ms(6);
+  }
+
+  @include respond-at-and-above($break-medium) {
+    width: #{(100/3)}%;
+    margin-bottom: ms(6);
+    padding-right: ms(2);
+  }
+}
+
+.pattern-rules-examples {
+  @include respond-at-and-above($break-medium) {
+    display: flex;
+  }
+}
+
+.pattern-rules-example {
   margin-top: size(medium);
+  margin-bottom: ms(4);
+
+  &:last-child {
+    margin-bottom: ms(6);
+  }
 
   @include respond-at-and-above($break-medium) {
     width: 50%;
-    float: left;
     margin-top: 0;
-  }
-}
+    margin-bottom: ms(6);
 
-.pattern-rules-rule--do {
-  @include respond-at-and-above($break-medium) {
-    padding-right: size(smaller);
-  }
-}
+    &:nth-child(odd) {
+      padding-right: size(smaller);
+    }
 
-.pattern-rules-rule--dont {
-  @include respond-at-and-above($break-medium) {
-    padding-left: size(smaller);
+    &:nth-child(even) {
+      padding-left: size(smaller);
+    }
   }
 }
 

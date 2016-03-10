@@ -18,7 +18,7 @@ p {
     padding-right: size(large);
   }
 
-  h1 {
+  .logo {
     float: left;
     font-family: "Calibre Light";
     font-weight: 400;
@@ -35,24 +35,19 @@ p {
 
 // Mobile menu icon
 .menu-trigger {
-  @include square(30px);
-
-  cursor: pointer;
-  top: 18px;
-  left: 20px;
+  @include square(48px);
   position: absolute;
-  display: block;
-
-  .is-open & {
-    padding: 0 2px;
-  }
+  top: 9px;
+  left: 11px;
+  cursor: pointer;
 }
 
 .menu-trigger-icon {
   display: block;
   position: absolute;
-  width: 100%;
+  width: 30px;
   height: 2px;
+  margin: 0 9px;
   top: 50%;
   transform: translateY(-50%);
   background-color: color(#505050); // Use new $gray
@@ -84,49 +79,6 @@ p {
 
 .background-gray {
   background: color(light-background);
-}
-
-.nav--main {
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 100%;
-  padding: ms(1);
-  background: color(#505050); // Use new $gray
-  color: #fff;
-  transition: transform 0.2s ease-out;
-
-  &.is-invisible {
-    transform: translateX(-100%);
-  }
-
-  .section-heading {
-    font-family: "Calibre Light";
-    font-weight: 400;
-    font-size: ms(1);
-    text-transform: none;
-    letter-spacing: size(smaller-tracking);
-    margin-bottom: ms(-3);
-  }
-
-  .nav-link {
-    display: block;
-    color: color(#b9b9b9); // Use new $gray--light4
-
-    &:hover {
-      color: color(secondary);
-    }
-
-    .touch & {
-      padding: ms(-6) 0;
-    }
-  }
-}
-
-.nav--study {
-  margin-bottom: ms(2);
 }
 
 .link-arrow {

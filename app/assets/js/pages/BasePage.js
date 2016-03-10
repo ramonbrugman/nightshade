@@ -14,9 +14,7 @@ export const BasePage = {
 
 
   init() {
-    console.log(` base page activated `);
-
-    this.navDrawer = document.getElementById(`nav-main`);
+    console.log(`base page activated`);
 
     ImgixSettings.init();
 
@@ -40,17 +38,6 @@ export const BasePage = {
     } else {
       document.documentElement.classList.add(`no-touch`);
     }
-
-    document.getElementById(`menu-trigger`).addEventListener(`pointerup`, (e) => {
-      e.stopPropagation();
-      this.navDrawer.classList.toggle(`is-invisible`);
-    });
-
-    document.addEventListener(`pointerup`, (e) => {
-      if (!e.target.classList.contains(`nav--main`, `menu-trigger`)) {
-        this.navDrawer.classList.add(`is-invisible`);
-      }
-    });
 
     //  Configure nunjucks
     const env = nunjucks.configure([`app/views/`, `node_modules/@casper/`], { autoescape: true, watch: false });

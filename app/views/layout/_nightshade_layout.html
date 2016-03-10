@@ -35,3 +35,9 @@
 
   {% block page_content %}{% endblock %}
 {% endblock %}
+
+{% block module_loader %}
+  System.import('views/layout/NightshadeBase.js').then( function(mod) {
+    mod.NightshadeBase.init();
+  } );
+{% endblock %}

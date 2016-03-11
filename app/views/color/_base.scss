@@ -1,3 +1,6 @@
+// Generate color classes for values in $colors map
+@include color-classes($colors);
+
 .color-swatches {
   margin-bottom: 2em;
 }

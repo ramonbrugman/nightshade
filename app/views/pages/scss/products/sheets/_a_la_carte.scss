@@ -183,7 +183,7 @@
     transition: 0.15s border-color ease-out;
 
     input[type="radio"]:checked + & {
-      border-color: color(medium-grey);
+      border-color: color(gray--light2);
     }
   }
 
@@ -197,14 +197,14 @@
     transition: 0.15s background ease-out;
 
     input[type="radio"]:checked + & {
-      background: color(medium-grey);
+      background: color(gray--light2);
     }
   }
 
   &:hover {
 
     &:before {
-      border-color: color(medium-grey);
+      border-color: color(gray--light2);
     }
   }
 }
@@ -341,7 +341,7 @@
       height: 30px;
       font-size: 30px;
       line-height: 30px;
-      color: color(dark-text);
+      color: color(medium-text);
       background: color(light-background);
       border-left: 1px solid color(dark-border);
       border-bottom: 1px solid color(dark-border);
@@ -725,7 +725,7 @@
 
     &[data-color*="chambray"] {
       .exposed-select-radio-target {
-        background-image: linear-gradient(135deg, color(background) 50%, color(medium-grey) 50%, color(medium-grey));
+        background-image: linear-gradient(135deg, color(background) 50%, color(gray--light2) 50%, color(gray--light2));
       }
     }
   }

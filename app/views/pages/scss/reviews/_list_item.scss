@@ -29,14 +29,14 @@
   }
 
   .review-age {
-    color: color(medium-text);
+    color: color(dark-text);
   }
 
   &.is-verified {
     .review-verified-wrapper {
       position: relative;
       display: inline-block;
-      fill: color(dark-grey);
+      fill: color(gray--light3);
 
       &:hover {
         .review-verified-message {
@@ -212,7 +212,7 @@
 
 .review-hours,
 .review-partner {
-  color: color(dark-grey);
+  color: color(medium-text);
 
   @include respond-at-and-above($break-small) {
     display: inline-block;
@@ -233,7 +233,7 @@
   .icon {
     height: size(large);
     width: size(normal);
-    fill: color(dark-grey);
+    fill: color(gray--light3);
     position: relative;
     top: 3px;
   }
@@ -265,7 +265,7 @@
   .review-partner-label {
     padding-bottom: 7px;
     display: inline-block;
-    color: color(medium-text);
+    color: color(dark-text);
   }
 
   .review-hours-number {

@@ -1,7 +1,0 @@
-name: "Buttons"
-description: "A Button clearly communicates what action will occur when the user touches it."
-
-variants:
-  -
-  name: "primary"
-  description: "primary button description"

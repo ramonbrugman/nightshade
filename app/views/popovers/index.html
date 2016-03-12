@@ -1,8 +1,8 @@
-{% extends "./pattern.html" %}
+{% extends "layout/_pattern.html" %}
 
 {% from 'nightshade-core/src/popovers/popovers.macros.html' import popover %}
 
-{% set pattern_name = 'Popovers' %}
+{% set page_title = 'Popovers' %}
 {% set wrapper_classes = 'r-centered' %}
 
 {% block page_styles %}
@@ -27,7 +27,6 @@
 {% endblock %}
 
 {% block pattern_content %}
-<h2>Popovers</h2>
 <div class="popover-example">
   Top
   <span class="popover-container js-popover-container">

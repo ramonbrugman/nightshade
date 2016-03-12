@@ -2,7 +2,7 @@
 
 {% import 'layout/pattern.macros.html' as pattern %}
 
-{% set page_title = data.name %}
+{% set page_title = name if name else page_title %}
 
 {% block page_styles %}
 <link href="/dist/assets/css/highlight.css" media="screen" rel="stylesheet">
@@ -25,8 +25,10 @@
     {{ pattern.variant(variant) }}
   {% endfor %}
 
+  {% block pattern_content %}{% endblock %}
 </article>
 {% endblock %}
+
 
 {% block module_loader %}
   System.import('views/layout/PatternPage.js').then( function(mod) {

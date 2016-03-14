@@ -54,13 +54,29 @@
   border-bottom: 1px solid #7c7c7c;
   margin: 0 ms(1) 0;
   padding: ms(0) 0 ms(0);
-
-  [data-icon] {
-    margin-left: auto;
-  }
-
 }
 
 .nav-links {
   padding: ms(2) ms(1);
+}
+
+.nav-close {
+  @include square(48px);
+  position: absolute;
+  top: 5px;
+  right: 6px;
+
+  .menu-trigger-icon {
+    background-color: transparent;
+
+    &:before {
+      background-color: color(#a8a8a8); // Use new $gray
+      transform: translateY(0) rotate(45deg);
+    }
+
+    &:after {
+      background-color: color(#a8a8a8); // Use new $gray
+      transform: translateY(0) rotate(-45deg);
+    }
+  }
 }

@@ -7,8 +7,9 @@
 export const NavDrawer = {
 
   init() {
-    this.navToggle = document.getElementById(`menu-trigger`);
+    this.navToggle = document.getElementById(`nav-trigger`);
     this.navDrawer = document.getElementById(`nav-main`);
+    this.navClose = document.getElementById(`nav-close`);
     this.setupNav();
   },
 
@@ -27,8 +28,13 @@ export const NavDrawer = {
       }
     });
 
+    this.navClose.setAttribute(`touch-action`, `none`);
+    this.navClose.addEventListener(`pointerup`, () => {
+      this.hideNav()
+    });
+
     document.addEventListener(`click`, (e) => {
-      if (!this.navDrawer.classList.contains(`is-invisible`) && !e.target.closest(`.nav--main`) && !e.target.closest(`.menu-trigger`)) {
+      if (!this.navDrawer.classList.contains(`is-invisible`) && !e.target.closest(`.js-nav`) && !e.target.closest(`.menu-trigger`)) {
         this.hideNav();
       }
     });

@@ -33,11 +33,7 @@ export const NavDrawer = {
       this.hideNav()
     });
 
-    document.addEventListener(`click`, (e) => {
-      if (!this.navDrawer.classList.contains(`is-invisible`) && !e.target.closest(`.js-nav`) && !e.target.closest(`.menu-trigger`)) {
-        this.hideNav();
-      }
-    });
+    this.handleClickOffNav();
   },
 
   /**
@@ -68,6 +64,18 @@ export const NavDrawer = {
     if (!feature.cssTransition) {
       onHideNavEnd();
     }
+  },
+
+  /**
+   * Hides Nav Drawer when user clicks outside of it
+   * @returns {void}
+  */
+  handleClickOffNav() {
+    document.addEventListener(`click`, (e) => {
+      if (!this.navDrawer.classList.contains(`is-invisible`) && !e.target.closest(`#nav-main`) && !e.target.closest(`#nav-trigger`)) {
+        this.hideNav();
+      }
+    });
   },
 
 };

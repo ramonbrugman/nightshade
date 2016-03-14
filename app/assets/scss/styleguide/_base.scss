@@ -36,22 +36,19 @@ p {
 // Mobile menu icon
 .menu-trigger {
   @include square(48px);
-  position: absolute;
-  top: 9px;
-  left: 11px;
   cursor: pointer;
-
-  .is-open & {
-    padding: 0 2px;
-  }
-
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  cursor: pointer;
 }
 
 .menu-trigger-icon {
   display: block;
   position: absolute;
-  width: 100%;
+  width: 20px;
   height: 2px;
+  margin: 0 14px;
   top: 50%;
   transform: translateY(-50%);
   background-color: color(#6a6a6a); // Use new $gray

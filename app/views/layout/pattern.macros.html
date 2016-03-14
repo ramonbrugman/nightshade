@@ -9,14 +9,14 @@
   {% for rule in rules %}
   <div class="pattern-rules-row clearfix">
     <div class="pattern-rules-rule pattern-rules-rule--do">
-      <div class="pattern-example-display r-centered gray--light8">
+      <div class="pattern-example-display r-centered">
         {{ rule.do.example|safe }}
       </div>
       <h4>Do</h4>
       <p>{{ rule.do.description }}</p>
     </div>
     <div class="pattern-rules-rule pattern-rules-rule--dont">
-      <div class="pattern-example-display r-centered gray--light8">
+      <div class="pattern-example-display r-centered">
         {{ rule.dont.example|safe }}
       </div>
       <h4>Don't</h4>

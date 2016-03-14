@@ -13,6 +13,7 @@ p {
   left: 0;
   width: 100%;
   padding: ms(0) ms(1) ms(0) ms(7);
+  background: color(gray--light8);
 
   @include respond-at-and-above($break-mobile) {
     padding-right: size(large);

@@ -12,7 +12,7 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  padding: size(small) size(normal) size(small) 4.5rem;
+  padding: ms(0) ms(1) ms(0) ms(7);
 
   @include respond-at-and-above($break-mobile) {
     padding-right: size(large);

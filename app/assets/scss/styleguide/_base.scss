@@ -36,11 +36,9 @@ p {
 // Mobile menu icon
 .menu-trigger {
   @include square(48px);
-  cursor: pointer;
   position: absolute;
   top: 5px;
   left: 6px;
-  cursor: pointer;
 }
 
 .menu-trigger-icon {

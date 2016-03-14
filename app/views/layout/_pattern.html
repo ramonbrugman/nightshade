@@ -8,10 +8,6 @@
 <link href="/dist/assets/css/highlight.css" media="screen" rel="stylesheet">
 {% endblock %}
 
-{% block nav_right %}
-{{ button('Background', 'ghost', 'small', class='toggle-background', id='toggle-background') }}
-{% endblock %}
-
 {% block page_content %}
 <article class="r-section-wrapper r-inner pattern">
   <header class="pattern-header">
@@ -39,6 +35,4 @@
 {% endblock %}
 
 {% block inline_js %}
-  {# Move to PatternPage.js if keeping this toggle #}
-  {% include "layout/_background_toggle.html" %}
 {% endblock %}

@@ -2,10 +2,6 @@
 
 {% set page_title = pattern_name %}
 
-{% block nav_right %}
-{{ button('Background', 'ghost', 'small', class='toggle-background', id='toggle-background') }}
-{% endblock %}
-
 {% block page_content %}
 <div class="r-section-wrapper {{ wrapper_classes }}">
 
@@ -15,5 +11,4 @@
 {% endblock %}
 
 {% block inline_js %}
-  {% include "layout/_background_toggle.html" %}
 {% endblock %}

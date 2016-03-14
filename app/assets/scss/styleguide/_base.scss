@@ -2,23 +2,27 @@
   padding-top: 4rem !important;
 }
 
-.nightshade-nav {
+p {
+  margin-bottom: 1.4em;
+}
+
+.nightshade-header {
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
-  padding: size(small) size(normal);
+  padding: ms(0) ms(1) ms(0) ms(7);
 
   @include respond-at-and-above($break-mobile) {
-    padding: size(small) size(large);
+    padding-right: size(large);
   }
 
-  h1 {
+  .logo {
     float: left;
     font-family: "Calibre Light";
     font-weight: 400;
-    font-size: ms(2);
+    font-size: ms(1);
     text-transform: none;
     letter-spacing: size(smaller-tracking);
     margin-bottom: 0;
@@ -29,16 +33,39 @@
   }
 }
 
-.background-gray {
-  background: color(light-background);
+// Mobile menu icon
+.menu-trigger {
+  @include square(48px);
+  position: absolute;
+  top: 5px;
+  left: 6px;
 }
 
-.nav--study {
-  margin-bottom: 2em;
-}
+.menu-trigger-icon {
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  margin: 0 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: color(#6a6a6a); // Use new $gray
 
-.section-heading {
-  margin-bottom: 1em;
+  @include before() {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: color(#6a6a6a); // Use new $gray
+    transform: translateY(-6px);
+  }
+
+  @include after() {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: color(#6a6a6a); // Use new $gray
+    transform: translateY(6px);
+  }
 }
 
 .link-arrow {
@@ -58,4 +85,9 @@
     fill: color(text);
     transition: transform 0.15s ease-out;
   }
+}
+
+.home-blurb {
+  max-width: 40em;
+  font-size: ms(1);
 }

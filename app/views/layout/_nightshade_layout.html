@@ -9,9 +9,50 @@
 {% endblock %}
 
 {% block body_content %}
-  <nav class="nightshade-nav base-gray--light8">
-    <h1><a href="/">Nightshade Design System</a></h1>
+  <header class="nightshade-header base-gray--light8" role="banner">
+    <button class="menu-trigger" id="nav-trigger">
+      <span class="menu-trigger-icon"></span>
+    </button>
+    <h1 class="logo"><a href="/">Nightshade Design System</a></h1>
+  </header>
+
+  <nav class="nav--main is-invisible" id="nav-main" role="navigation" aria-expanded="false">
+
+    <header class="nav-header">
+      {# Make `nav-header-title` an H3 when Verlag styles are removed #}
+      <span class="nav-header-title">Nightshade <span class="is-hidden">Table of Contents</span></span>
+      <button class="nav-close" id="nav-close">
+        <span class="menu-trigger-icon"></span>
+      </button>
+    </header>
+
+    <ul class="nav-links">
+      <li class="nav-section">
+        <span class="nav-section-heading">Visual Style</span>
+        <ul>
+          <li><a class="nav-link" href="#">Typography</a></li>
+          <li><a class="nav-link" href="/color">Color</a></li>
+          <li><a class="nav-link" href="/icons">Icons</a></li>
+          <li><a class="nav-link" href="/icons">Logo</a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <span class="nav-section-heading">Components</span>
+        <ul>
+          <li><a class="nav-link" href="/banners">Banners</a></li>
+          <li><a class="nav-link" href="/buttons">Buttons</a></li>
+          <li><a class="nav-link" href="/popovers">Popovers</a></li>
+          <li><a class="nav-link" href="/tooltips">Tooltips</a></li>
+        </ul>
+      </li>
+    </ul>
   </nav>
 
   {% block page_content %}{% endblock %}
+{% endblock %}
+
+{% block module_loader %}
+  System.import('views/layout/NightshadeBase.js').then( function(mod) {
+    mod.NightshadeBase.init();
+  } );
 {% endblock %}

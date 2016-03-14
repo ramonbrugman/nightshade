@@ -5,13 +5,12 @@
  * @todo Update setupCodeTogglers to iterate based on variants
 */
 
-import pepjs from 'pepjs';
-import { BasePage } from 'assets/js/pages/BasePage.js';
+import { NightshadeBase } from 'views/layout/NightshadeBase.js';
 import hljs from 'assets/js/vendor/highlight.js';
 
 export const PatternPage = {
 
-  __proto__: BasePage,
+  __proto__: NightshadeBase,
 
   init() {
     this.__proto__.init();

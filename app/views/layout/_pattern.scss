@@ -1,7 +1,8 @@
 // Pattern template
 .pattern {
   width: 100%;
-  padding: ms(7) ms(2) ms(2);
+  padding: ms(7) ms(4) ms(4);
+
 
   @include respond-at-and-above($break-mobile) {
     padding: ms(10) ms(4) ms(4);

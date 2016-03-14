@@ -68,18 +68,6 @@ p {
   }
 }
 
-.toggle-background {
-  float: right;
-
-  @include respond-below($break-small) {
-    display: none;
-  }
-}
-
-.background-gray {
-  background: color(light-background);
-}
-
 .link-arrow {
 
   &:hover {

@@ -2,7 +2,6 @@
 
 {% from 'nightshade-core/src/buttons/buttons.macros.html' import button %}
 
-
 {% block title %}{{ page_title }} | Nightshade Design System{% endblock %}
 
 {% block base_styles %}
@@ -15,7 +14,6 @@
       <span class="menu-trigger-icon"></span>
     </button>
     <h1 class="logo"><a href="/">Nightshade Design System</a></h1>
-    {% block nav_right %}{% endblock %}
   </header>
 
   <nav class="nav--main is-invisible" id="nav-main" role="navigation" aria-expanded="false">
@@ -29,20 +27,19 @@
 
     <div class="nav-links">
       <h3 class="section-heading">Visual Style</h3>
-        <nav class="nav--study">
-          <a class="nav-link" href="#">Typography</a>
-          <a class="nav-link" href="/color">Color</a>
-          <a class="nav-link" href="/icons">Icons</a>
-          <a class="nav-link" href="/icons">Logo</a>
-        </nav>
-
+      <ul class="nav-section">
+        <li><a class="nav-link" href="#">Typography</a></li>
+        <li><a class="nav-link" href="/color">Color</a></li>
+        <li><a class="nav-link" href="/icons">Icons</a></li>
+        <li><a class="nav-link" href="/icons">Logo</a></li>
+      </ul>
       <h3 class="section-heading">Components</h3>
-      <nav class="nav--study">
-        <a class="nav-link" href="/banners">Banners</a>
-        <a class="nav-link" href="/buttons">Buttons</a>
-        <a class="nav-link" href="/popovers">Popovers</a>
-        <a class="nav-link" href="/tooltips">Tooltips</a>
-      </nav>
+      <ul class="nav-section">
+        <li><a class="nav-link" href="/banners">Banners</a></li>
+        <li><a class="nav-link" href="/buttons">Buttons</a></li>
+        <li><a class="nav-link" href="/popovers">Popovers</a></li>
+        <li><a class="nav-link" href="/tooltips">Tooltips</a></li>
+      </ul>
     </div>
   </nav>
 

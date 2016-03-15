@@ -42,8 +42,7 @@
   height: 55px;
   max-width: 300px;
   background: color(background);
-  color: color(darkest-text);
-  fill: color(darkest-text);
+  fill: color(gray);
   border: 1px solid color(dark-border);
   border-radius: size(small-corners);
   cursor: pointer;
@@ -51,14 +50,13 @@
   transition: 0.15s background-color;
 
   &:hover {
-    background-color: color(med-dark-background);
+    background-color: color(medium-background);
   }
 }
 
 .product-specs-title {
   @extend %h4;
   margin-right: size(small);
-  color: color(darkest-text);
 }
 
 .product-specs-info-container {
@@ -149,8 +147,8 @@
     color: color(text);
 
     &:hover {
-      color: color(dark-text);
-      border-bottom: 1px solid color(dark-text);
+      color: color(medium-text);
+      border-bottom: 1px solid color(gray--light3);
     }
   }
 }

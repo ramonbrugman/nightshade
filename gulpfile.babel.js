@@ -66,11 +66,11 @@ gulp.task('icons-config', () => {
 
 // Generate colors config
 gulp.task('colors-config', () => {
-  fs.createReadStream(file_paths.nightshade + 'color/config.json')
+  fs.createReadStream(file_paths.nightshade + 'color/lib/config.json')
     .pipe(jsonSass({
       prefix: '$colors:',
     }))
-    .pipe(fs.createWriteStream(file_paths.nightshade + 'color/_config.scss'));
+    .pipe(fs.createWriteStream(file_paths.nightshade + 'color/lib/_config.scss'));
 });
 
 

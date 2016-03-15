@@ -99,7 +99,7 @@
   transition: color 0.15s;
 
   @include respond-at-and-above($break-main-nav) {
-    color: color(darker-grey);
+    color: color(medium-text);
   }
 
 

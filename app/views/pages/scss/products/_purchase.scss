@@ -2,7 +2,7 @@
   background-color: color(background);
 
    @include respond-at-and-above(1024px) {
-    background-color: color(product-gallery-background);
+    background-color: color(light-background);
   }
 
 }
@@ -17,7 +17,7 @@
 
   //check mark styling
   [data-icon="checkmark"] {
-    fill: color(medium-text);
+    fill: color(gray--light2);
     vertical-align: top;
     position: relative;
     top: 3px;

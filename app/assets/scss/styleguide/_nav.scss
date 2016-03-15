@@ -5,8 +5,8 @@
   left: 0;
   width: 230px;
   height: 100%;
-  background: color(#505050); // Use new $gray
-  color: #fff;
+  background: color(gray);
+  color: color(background);
   transition: transform 0.2s ease-out;
 
   &.is-invisible,
@@ -17,7 +17,7 @@
   .nav-link {
     display: block;
     padding: ms(-7) 0;
-    color: color(#cbcbcb); // Use new $gray--
+    color: color(gray--light5);
 
     &:hover {
       color: color(secondary);
@@ -38,7 +38,7 @@
   letter-spacing: size(smaller-tracking);
   padding-bottom: ms(-1);
   align-items: center;
-  border-bottom: 1px solid #7c7c7c;
+  border-bottom: 1px solid color(gray--light2);
   margin: 0 ms(1) 0;
   padding: ms(0) 0 ms(0);
 }
@@ -71,12 +71,12 @@
     background-color: transparent;
 
     &:before {
-      background-color: color(#a8a8a8); // Use new $gray
+      background-color: color(gray--light3);
       transform: translateY(0) rotate(45deg);
     }
 
     &:after {
-      background-color: color(#a8a8a8); // Use new $gray
+      background-color: color(gray--light3);
       transform: translateY(0) rotate(-45deg);
     }
   }

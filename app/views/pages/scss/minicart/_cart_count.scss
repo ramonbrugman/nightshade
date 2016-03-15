@@ -22,7 +22,7 @@
 
     &:hover,
     &.cart-open {
-      color: mix(#000, color(accent), 10%);
+      color: mix(color(#000), color(accent), 10%);
     }
   }
 

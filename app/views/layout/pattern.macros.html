@@ -9,14 +9,14 @@
   {% for rule in rules %}
   <div class="pattern-rules-row clearfix">
     <div class="pattern-rules-rule pattern-rules-rule--do">
-      <div class="pattern-example-display r-centered base-gray--light8">
+      <div class="pattern-example-display r-centered">
         {{ rule.do.example|safe }}
       </div>
       <h4>Do</h4>
       <p>{{ rule.do.description }}</p>
     </div>
     <div class="pattern-rules-rule pattern-rules-rule--dont">
-      <div class="pattern-example-display r-centered base-gray--light8">
+      <div class="pattern-example-display r-centered">
         {{ rule.dont.example|safe }}
       </div>
       <h4>Don't</h4>
@@ -48,7 +48,7 @@
 {% macro variant_item(description, macro, html, rules=null, tech_notes=null, stylesheet_import=null, macro_import=null) %}
 <p class="pattern-variant-description">{{ description }}</p>
 <div class="pattern-example">
-  <div class="pattern-example-display r-centered base-gray--light8">
+  <div class="pattern-example-display r-centered">
     {{ html|safe }}
   </div>
 

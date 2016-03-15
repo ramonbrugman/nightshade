@@ -1,3 +1,9 @@
+/**
+ * @file Color
+ * @module Color
+ * @overview Styles for Color pattern page
+ */
+
 // Generate color classes for values in $colors map
 @include color-classes($colors);
 

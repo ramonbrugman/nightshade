@@ -2,7 +2,7 @@
 
 {% import 'layout/pattern.macros.html' as pattern %}
 
-{% set page_title = name if name else page_title %}
+{% set page_title = data.name if data.name else page_title %}
 
 {% block page_styles %}
 <link href="/dist/assets/css/highlight.css" media="screen" rel="stylesheet">
@@ -11,7 +11,7 @@
 {% block page_content %}
 <article class="r-section-wrapper r-inner pattern">
   <header class="pattern-header">
-    <h1>{{ data.name }}</h1>
+    <h1>{{ page_title }}</h1>
     <p class="pattern-description">{{ data.description }}</p>
   </header>
 

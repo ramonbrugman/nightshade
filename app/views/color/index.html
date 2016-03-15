@@ -1,12 +1,11 @@
-{% extends "./pattern.html" %}
+{% extends "layout/_pattern.html" %}
 
 {% from 'nightshade-core/src/color/color.macros.html' import color_swatch %}
 
-{% set pattern_name = 'Color' %}
+{% set page_title = 'Color' %}
 {% set wrapper_classes = 'r-inner r-centered' %}
 
 {% block pattern_content %}
-<h2>Color</h2>
 <div class="color-swatches">
   <ul class="swatch-list grid">
     <li>

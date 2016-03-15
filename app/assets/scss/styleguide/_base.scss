@@ -34,41 +34,6 @@ p {
   }
 }
 
-// Mobile menu icon
-.menu-trigger {
-  @include square(48px);
-  position: absolute;
-  top: 5px;
-  left: 6px;
-}
-
-.menu-trigger-icon {
-  display: block;
-  position: absolute;
-  width: 20px;
-  height: 2px;
-  margin: 0 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: color(gray--light1);
-
-  @include before() {
-    width: 100%;
-    height: 100%;
-    left: 0;
-    background: color(gray--light1);
-    transform: translateY(-6px);
-  }
-
-  @include after() {
-    width: 100%;
-    height: 100%;
-    left: 0;
-    background: color(gray--light1);
-    transform: translateY(6px);
-  }
-}
-
 .link-arrow {
 
   &:hover {

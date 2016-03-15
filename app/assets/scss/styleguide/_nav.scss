@@ -44,11 +44,11 @@
 }
 
 .nav-links {
-  padding: ms(2) ms(1);
+  padding: ms(3) ms(1);
 }
 
 .nav-section {
-  margin-bottom: ms(2);
+  margin-bottom: ms(3);
 }
 
 .nav-section-heading {
@@ -64,20 +64,57 @@
 .nav-close {
   @include square(48px);
   position: absolute;
-  top: 5px;
+  top: 6px;
   right: 6px;
 
   .menu-trigger-icon {
     background-color: transparent;
 
-    &:before {
+    &:before,
+    &:after {
+      @include square(90%);
       background-color: color(gray--light3);
+    }
+
+    &:before {
       transform: translateY(0) rotate(45deg);
     }
 
     &:after {
-      background-color: color(gray--light3);
       transform: translateY(0) rotate(-45deg);
     }
+  }
+}
+
+// Mobile menu icon
+.menu-trigger {
+  @include square(48px);
+  position: absolute;
+  top: 5px;
+  left: 6px;
+}
+
+.menu-trigger-icon {
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  margin: 0 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: color(#6a6a6a); // Use new $gray
+
+  @include before() {
+    @include square(100%);
+    left: 0;
+    background: color(#6a6a6a); // Use new $gray
+    transform: translateY(-6px);
+  }
+
+  @include after() {
+    @include square(100%);
+    left: 0;
+    background: color(#6a6a6a); // Use new $gray
+    transform: translateY(6px);
   }
 }

@@ -19,9 +19,7 @@ init() {
   console.log(`icons init completed`);
 },
 
-
 setupContent() {
-
   const tpl = nunjucks.render('views/icons/_icons_list.html', { data: icons_list });
   const page = document.getElementById('icons-content');
 

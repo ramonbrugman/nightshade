@@ -262,7 +262,7 @@
   text-align: left;
 
   @include respond-at-and-above($break-large) {
-    background: color(product-gallery-background);
+    background: color(light-background);
   }
 
   &.sheets-select--fade-out {

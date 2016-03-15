@@ -137,7 +137,7 @@
   }
 
   [data-icon] {
-    fill: color(#6576a0); // Find a new color for this from our stacks
+    fill: mix(color(primary), color(background), 62);
   }
 
   [data-icon="envelope"] {

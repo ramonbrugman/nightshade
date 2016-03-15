@@ -1,9 +1,15 @@
-import { BasePage } from 'assets/js/pages/BasePage';
+/**
+ * @overview Renders colors page swatches
+ * @module ColorPage.js
+ * @todo Move loadJSON to util/helpers
+*/
+
+import { PatternPage } from 'views/layout/PatternPage.js';
 import fs from'fs';
 
 export const ColorPage = {
 
-  __proto__: BasePage,
+  __proto__: PatternPage,
 
 init() {
   console.log(`color init started`);

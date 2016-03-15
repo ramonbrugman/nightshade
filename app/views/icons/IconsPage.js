@@ -1,10 +1,14 @@
-import { BasePage } from 'assets/js/pages/BasePage';
-import { icons_list } from 'views/icons/icons_list.js';
+/**
+ * @overview Renders icons
+ * @module IconsPage.js
+*/
 
+import { PatternPage } from 'views/layout/PatternPage.js';
+import { icons_list } from 'views/icons/icons_list.js';
 
 export const IconsPage = {
 
-  __proto__: BasePage,
+  __proto__: PatternPage,
 
 init() {
   console.log(`icons init started`);

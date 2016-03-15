@@ -1,8 +1,8 @@
-{% extends "./pattern.html" %}
+{% extends "layout/_pattern.html" %}
 
 {% from 'nightshade-core/src/tooltips/tooltips.macros.html' import tooltip %}
 
-{% set pattern_name = 'Tooltips' %}
+{% set page_title = 'Tooltips' %}
 {% set wrapper_classes = 'r-centered' %}
 
 {% block page_styles %}
@@ -27,7 +27,6 @@
 {% endblock %}
 
 {% block pattern_content %}
-<h2>Tooltips</h2>
 <div class="tooltip-example">
   Tooltip Example
   <span class="tooltip-container js-tooltip-container">

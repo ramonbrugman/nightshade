@@ -3,8 +3,11 @@
   width: 100%;
   padding: ms(7) ms(4) ms(4);
 
+  @include respond-at-and-above($break-medium) {
+    padding: ms(8) ms(4) ms(4);
+  }
 
-  @include respond-at-and-above($break-mobile) {
+   @include respond-at-and-above($break-large) {
     padding: ms(10) ms(4) ms(4);
   }
 
@@ -32,7 +35,7 @@
 
   h3 {
     font-size: ms(2);
-    margin: ms(3) 0 ms(0);
+    margin: ms(3) 0 ms(-6);
   }
 
   h4 {
@@ -45,7 +48,7 @@
 }
 
 .pattern-variant {
-  margin-bottom: 5rem;
+  margin-bottom: ms(10);
 }
 
 .pattern-header {
@@ -139,7 +142,7 @@
   @include respond-at-and-above($break-medium) {
     width: percentage(1 / 3);
     margin-bottom: ms(6);
-    padding-right: ms(6);
+    padding-right: ms(5);
   }
 }
 
@@ -228,8 +231,8 @@
 
 .pattern-usage-code {
   border: 2px solid color(border);
-  margin: ms(-2) 0 ms(4);
+  margin: ms(-2) 0 ms(5);
   padding: ms(0);
-  font-size: 0.933rem; // unique value. @todo save to var
+  font-size: 0.9rem; // unique value. @todo save to var
 }
 

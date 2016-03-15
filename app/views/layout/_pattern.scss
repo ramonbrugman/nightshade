@@ -38,7 +38,8 @@
     margin: ms(3) 0 ms(-6);
   }
 
-  h4 {
+  h4,
+  .heading-smallest {
     font-size: ms(0);
     font-weight: 600;
     text-transform: uppercase;
@@ -233,4 +234,3 @@
   padding: ms(0);
   font-size: 0.9rem; // unique value. @todo save to var
 }
-

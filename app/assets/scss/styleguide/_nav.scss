@@ -8,6 +8,7 @@
   background: color(gray);
   color: color(background);
   transition: transform 0.2s ease-out;
+  overflow-y: auto;
 
   &.is-invisible,
   &.is-retracted {

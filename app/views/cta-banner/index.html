@@ -1,0 +1,33 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/banners/banners.macros.html' import cta_banner %}
+
+{% set page_title = 'CTA Banner' %}
+
+{% block pattern_content %}
+
+  {{ cta_banner(
+    'Upgrade Your Mattress',
+    'See The Casper',
+    '/mattresses',
+    background_path='banner/one-perfect-mattress.jpg'
+  ) }}
+
+  {{ cta_banner(
+    'Upgrade Your Mattress',
+    'See The Casper',
+    '/mattresses',
+    video_path='mattress-cta.mp4',
+    video_fallback_path='bg-mattress.gif'
+  ) }}
+
+  {{ cta_banner(
+    'Upgrade Your Mattress',
+    'See The Casper',
+    '/mattresses',
+    button_style='secondary',
+    background_path='home/sandwich/casper-hero-lifestyle.jpg',
+    large_background=true
+  ) }}
+
+{% endblock %}

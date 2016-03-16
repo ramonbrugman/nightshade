@@ -34,7 +34,7 @@
   display: flex;
   font-family: "Calibre Light";
   font-weight: 400;
-  font-size: 1.3rem;  // using custom size 
+  font-size: 1.3rem;  // using custom size
   text-transform: none;
   letter-spacing: size(smaller-tracking);
   padding-bottom: ms(-1);
@@ -103,19 +103,19 @@
   margin: 0 14px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: color(#6a6a6a); // Use new $gray
+  background-color: color(gray--light1);
 
   @include before() {
     @include square(100%);
     left: 0;
-    background: color(#6a6a6a); // Use new $gray
+    background-color: color(gray--light1);
     transform: translateY(-6px);
   }
 
   @include after() {
     @include square(100%);
     left: 0;
-    background: color(#6a6a6a); // Use new $gray
+    background-color: color(gray--light1);
     transform: translateY(6px);
   }
 }

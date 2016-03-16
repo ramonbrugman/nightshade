@@ -1,0 +1,11 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/beacon/beacon.macros.html' import beacon %}
+
+{% set page_title = 'Beacon' %}
+
+{% block pattern_content %}
+
+  {{ beacon('waypoint') }}
+
+{% endblock %}

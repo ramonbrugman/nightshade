@@ -1,0 +1,33 @@
+.heading--primary-light,
+.heading--secondary-light,
+.heading--tertiary-light,
+.heading--smallcaps-light {
+  @extend %calibre-light; // replace with font mixin TODO
+  text-transform: none;
+  line-height: 1.2;
+  letter-spacing: size(smaller-tracking);
+  margin-bottom: ms(-6);
+}
+
+.heading--primary-light {
+  font-size: ms(5);
+}
+
+.heading--secondary-light {
+  font-size: ms(3);
+}
+
+.heading--tertiary-light {
+  font-size: ms(2);
+}
+
+.heading--smallcaps-light {
+  font-size: ms(0);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: size(medium-tracking);
+}
+
+p {
+  margin-bottom: 1.4em;
+}

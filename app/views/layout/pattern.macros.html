@@ -4,24 +4,31 @@
 <a href="https://github.com/CasperSleep/nightshade-core/tree/v2.0.0-dev/{{ path }}">View on GitHub</a>
 {% endmacro %}
 
-{% macro rules_list(rules) %}
-<div class="pattern-rules">
-  {% for rule in rules %}
-  <div class="pattern-rules-row clearfix">
-    <div class="pattern-rules-rule pattern-rules-rule--do">
-      <div class="pattern-example-display r-centered">
-        {{ rule.do.example|safe }}
-      </div>
-      <h4>Do</h4>
-      <p>{{ rule.do.description }}</p>
+{% macro rules_list(list) %}
+<ul class="pattern-rules-list">
+  <li class="pattern-rules-list-item">
+    <h4 class="heading--smallcaps-light">Typography</h4>
+    <p>{{ list.typography }}</p>
+  </li>
+  <li class="pattern-rules-list-item">
+    <h4 class="heading--smallcaps-light">Specs &amp; Dimensions</h4>
+    <p>{{ list.specs }}</p>
+  </li>
+  <li class="pattern-rules-list-item">
+    <h4 class="heading--smallcaps-light">Color &amp; Accessibility</h4>
+    <p>{{ list.color }}</p>
+  </li>
+</ul>
+{% endmacro %}
+
+{% macro rules_examples(examples) %}
+<div class="pattern-rules-examples">
+  {% for example in examples %}
+  <div class="pattern-rules-example">
+    <div class="pattern-example-display r-centered">
+      {{ example.html|safe }}
     </div>
-    <div class="pattern-rules-rule pattern-rules-rule--dont">
-      <div class="pattern-example-display r-centered">
-        {{ rule.dont.example|safe }}
-      </div>
-      <h4>Don't</h4>
-      <p>{{ rule.dont.description }}</p>
-    </div>
+    <p><strong class="heading--smallcaps-light">DON'T</strong> {{ example.description }}</p>
   </div>
   {% endfor %}
 </div>
@@ -37,12 +44,12 @@
 
 {% macro import_block(type, path, code) %}
 <header class="pattern-usage-header">
-  <h4>Import {{ type }}</h4>
+  <h4 class="heading--smallcaps-light">Import {{ type }}</h4>
   <div class="pattern-usage-header-actions">
     {{ github_link(path) }}
   </div>
 </header>
-<pre class="pattern-usage-import"><code>{{ code }}</code></pre>
+<pre class="pattern-usage-code"><code>{{ code }}</code></pre>
 {% endmacro %}
 
 {% macro variant_item(description, macro, html, rules=null, tech_notes=null, stylesheet_import=null, macro_import=null) %}
@@ -53,23 +60,33 @@
   </div>
 
   {% if rules %}
-  {{ rules_list(rules) }}
+  <div class="pattern-rules">
+    {% if rules.list %}
+    {{ rules_list(rules.list) }}
+    {% endif %}
+
+    {% if rules.examples %}
+    {{ rules_examples(rules.examples) }}
+    {% endif %}
+  </div>
   {% endif %}
 </div>
 
 <div class="pattern-usage">
   <header class="pattern-usage-header">
-    <h4>Code Example</h4>
+    <h4 class="heading--smallcaps-light">Code Example</h4>
     <div class="pattern-usage-header-actions">
-      <button class="pattern-usage-header-toggle js-show-macro">Macro</button>
-      <button class="pattern-usage-header-toggle js-show-html">HTML</button>
+      <div class="pattern-usage-toggles">
+        <button class="pattern-usage-toggle is-selected js-show-macro">Macro</button>
+        <button class="pattern-usage-toggle js-show-html">HTML</button>
+      </div>
     </div>
   </header>
   <pre class="pattern-usage-code js-code-macro"><code>{{ macro }}</code></pre>
   <pre class="pattern-usage-code is-hidden js-code-html"><code>{{ html }}</code></pre>
 
   {% if tech_notes %}
-  <h4>Usability Parameters</h4>
+  <h4 class="heading--smallcaps-light">Usability Parameters</h4>
   {{ notes_list(tech_notes) }}
   {% endif %}
 
@@ -85,11 +102,11 @@
 
 {% macro variant(variant) %}
 <section class="pattern-variant" id="{{ variant.name|lower|replace(' ', '-') }}">
-  <h2>{{ variant.name }}</h2>
+  <h2 class="heading--secondary-light">{{ variant.name }}</h2>
 
   {% if variant.modifiers %}
     {% for modifier in variant.modifiers %}
-    <h3>{{ modifier.name }}</h3>
+    <h3 class="heading--tertiary-light">{{ modifier.name }}</h3>
     {{ variant_item(modifier.description, modifier.macro, modifier.html, modifier.rules, modifier.tech_notes, modifier.stylesheet_import, modifier.macro_import) }}
     {% endfor %}
   {% else %}

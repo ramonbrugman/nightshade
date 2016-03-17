@@ -2,10 +2,6 @@
   padding-top: 4rem !important;
 }
 
-p {
-  margin-bottom: 1.4em;
-}
-
 .nightshade-header {
   position: fixed;
   z-index: 1;
@@ -21,11 +17,7 @@ p {
 
   .logo {
     float: left;
-    font-family: "Calibre Light";
-    font-weight: 400;
     font-size: 1.3rem; // custom val move to variable TODO
-    text-transform: none;
-    letter-spacing: size(smaller-tracking);
     margin-bottom: 0;
 
     a {

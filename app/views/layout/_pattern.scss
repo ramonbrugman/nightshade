@@ -1,49 +1,31 @@
 // Pattern template
 .pattern {
   width: 100%;
-  padding: ms(10) ms(4) ms(4);
+  padding: ms(7) ms(4) ms(4);
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: "Calibre Light";
-    font-weight: 400;
-    text-transform: none;
-    line-height: 1.2;
-    letter-spacing: size(smaller-tracking);
+  @include respond-at-and-above($break-medium) {
+    padding: ms(8) ms(4) ms(4);
   }
 
-  h1 {
-    font-size: ms(5);
-    margin-bottom: ms(1);
+   @include respond-at-and-above($break-large) {
+    padding: ms(10) ms(4) ms(4);
   }
 
-  h2 {
-    font-size: ms(3);
-    margin-bottom: ms(-5);
-  }
-
-  h3 {
-    font-size: ms(2);
-    margin: ms(3) 0 ms(0);
-  }
-
-  h4 {
-    font-size: ms(0);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: size(normal-tracking);
-    margin-bottom: ms(-6);
+  .heading--tertiary-light {
+    margin-top: ms(3)
   }
 }
 
 .pattern-variant {
-  margin-bottom: 5rem;
+  margin-bottom: ms(10);
 }
 
 .pattern-header {
-  margin-bottom: ms(9);
+  margin-bottom: ms(5);
+
+  @include respond-at-and-above($break-mobile) {
+    margin-bottom: ms(8);
+  }
 }
 
 .pattern-example,
@@ -63,25 +45,31 @@
 .pattern-nav {
   text-transform: uppercase;
   border-bottom: 1px solid color(dark-border);
-  margin-bottom: ms(5);
-  padding-bottom: ms(0);
+  margin-bottom: ms(6);
+  padding-bottom: ms(-2);
   font-weight: 600;
-  letter-spacing: size(normal-tracking);
+  letter-spacing: size(medium-tracking);
+  font-size: ms(0);
+
+  @include respond-at-and-above($break-mobile) {
+    margin-bottom: ms(5);
+    font-size: ms(-1);
+  }
 }
 
 .pattern-nav-item {
   color: color(text);
 
   &:hover {
-    color: color(secondary);
+    color: color(primary);
   }
 
   @include respond-below($break-medium) {
     display: block;
-    padding: size(tiny) 0;
+    padding: ms(-7) 0;
 
     .touch & {
-      padding: size(smallest) 0;
+      padding: ms(-2) 0;
     }
   }
 
@@ -93,47 +81,61 @@
 }
 
 .pattern-example-display {
-  margin-bottom: ms(4);
+  margin-bottom: ms(0);
   padding: size(large);
   background: color(medium-background);
 }
 
 .pattern-rules {
-  margin: ms(6) 0;
-  padding: ms(6) 0;
-  border-top: 1px solid color(border);
+  margin-bottom: ms(6);
   border-bottom: 1px solid color(border);
 
   .pattern-example-display {
-    margin-bottom: ms(1);
+    margin-bottom: ms(-1);
   }
 }
 
-.pattern-rules-row {
-
-  &:not(:last-child) {
-    margin-bottom: ms(4);
+.pattern-rules-list,
+.pattern-rules-examples {
+  @include respond-at-and-above($break-medium) {
+    display: flex;
   }
 }
-.pattern-rules-rule {
+
+.pattern-rules-list-item {
+  margin-bottom: ms(4);
+
+  &:last-child {
+    margin-bottom: ms(6);
+  }
+
+  @include respond-at-and-above($break-medium) {
+    width: percentage(1 / 3);
+    margin-bottom: ms(6);
+    padding-right: ms(5);
+  }
+}
+
+.pattern-rules-example {
   margin-top: size(medium);
+  margin-bottom: ms(4);
+
+  &:last-child {
+    margin-bottom: ms(6);
+  }
 
   @include respond-at-and-above($break-medium) {
     width: 50%;
-    float: left;
     margin-top: 0;
-  }
-}
+    margin-bottom: ms(6);
 
-.pattern-rules-rule--do {
-  @include respond-at-and-above($break-medium) {
-    padding-right: size(smaller);
-  }
-}
+    &:nth-child(odd) {
+      padding-right: size(smaller);
+    }
 
-.pattern-rules-rule--dont {
-  @include respond-at-and-above($break-medium) {
-    padding-left: size(smaller);
+    &:nth-child(even) {
+      padding-left: size(smaller);
+    }
   }
 }
 
@@ -142,36 +144,56 @@
   margin-left: size(small);
 
   li {
-    margin: size(tiny) 0;
+    margin: ms(-7) 0;
   }
 }
 
 .pattern-usage-header {
-  position: relative;
+  display: flex;
   line-height: 1rem;
+
+  .heading--smallcaps-light {
+    margin-bottom: 0;
+    align-self: flex-end;
+  }
+
 }
 
 .pattern-usage-header-actions {
-  position: absolute;
-  top: 0;
-  right: 0;
+  margin-left: auto;
 }
 
-.pattern-usage-header-toggle {
-  margin-left: size(small);
+.pattern-usage-toggles {
+  display: flex;
+  font-size: ms(-1);
+  font-weight: 600;
 }
 
-.pattern-usage-code,
-.pattern-usage-import {
-  border: 2px solid color(border);
+.pattern-usage-toggle {
+  padding: ms(-5) ms(2);
+  border: 1px solid color(border);
+  letter-spacing: size(small-tracking);
+  transition: 0.15s background ease-out;
+
+  &:first-child {
+    border-right: none;
+    border-top-left-radius: size(small-corners);
+    border-bottom-left-radius: size(small-corners);
+  }
+
+  &:last-child {
+    border-top-right-radius: size(small-corners);
+    border-bottom-right-radius: size(small-corners);
+  }
+
+  &.is-selected {
+    background: color(light-background);
+  }
 }
 
 .pattern-usage-code {
-  margin: size(small) 0 size(large);
-  padding: size(large);
-}
-
-.pattern-usage-import {
-  margin: 0 0 ms(6);
-  padding: size(small);
+  border: 2px solid color(border);
+  margin: ms(-2) 0 ms(5);
+  padding: ms(0);
+  font-size: 0.9rem; // unique value. @todo save to var
 }

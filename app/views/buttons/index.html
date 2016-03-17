@@ -9,28 +9,23 @@
       description: "Short description of type of button, what hex color to use and when to use.",
       macro: "{{ button('Primary Button') }}",
       html: '<button type="button" data-button="primary">Primary Button</button>',
-      rules: [
-        {
-          do: {
-            example: '<button type="button" data-button="primary">Primary Button</button>',
-            description: "Always use Verlag Black in “typestyle name”. This applies for all buttons."
-          },
-          dont: {
-            example: '<button type="button" data-button="primary" style="font-family: Calibre Light">Primary Button</button>',
-            description: "Never use Chronicle or Calibre. This applies for all buttons."
-          }
+      rules: {
+        list: {
+          typography: "Button copy is set in H4. Keep character count under XX.",
+          specs: "Height is XXpx with XXpx on each side of copy. Height decreases to XXpx for mobile.",
+          color: "Button color is Primary-Blue. Copy is set in white and background color is white or gray no darker than GrayX."
         },
-        {
-          do: {
-            example: '<button type="button" data-button="primary">Primary Button</button>',
-            description: "Character count is XX or below. This applies for all buttons."
+        examples: [
+          {
+            html: '<button type="button" data-button="primary" class="body--serif">Primary Button</button>',
+            description: "Never use Chronicle or Calibre. Copy should not run into two lines."
           },
-          dont: {
-            example: '<button type="button" data-button="primary">Primary Button Copy<br> Runs Into Two Lines</button>',
-            description: "Copy should not run into two lines."
+          {
+            html: '<button type="button" data-button="primary" class="gray">Primary Button</button>',
+            description: "Any other text color or background color will not be fully color accessible."
           }
-        }
-      ],
+        ]
+      },
       tech_notes: [
         '<code>text</code> (required) - Text content of button, or call to action',
         '<code>style</code> - Button variant style, defaults to <em>primary</em>',

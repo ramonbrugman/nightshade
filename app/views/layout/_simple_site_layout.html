@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Casper{% endblock %}
+
+{% block base_styles %}
+<link href="/dist/assets/css/simple.css" media="screen" rel="stylesheet">
+{% endblock %}
+
+{% block body_content %}
+<main class="wrapper" role="main">
+  {% block page_content %}
+  {% endblock %}
+</main>
+
+<footer class="r-footer">
+
+</footer>
+{% endblock %}

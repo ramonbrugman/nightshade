@@ -1,0 +1,64 @@
+@import 'modular_scale';
+@import 'core_imports';
+
+// Files to build simple site page
+@import './node_modules/@casper/nightshade-core/src/banners/cta_banner';
+@import './node_modules/@casper/nightshade-core/src/layout/props';
+@import './node_modules/@casper/nightshade-core/src/ratings_stars/index';
+
+@import './app/views/pages/scss/footer';
+
+.container {
+  padding-top: 0 !important; // Update when we revise/remove regions
+}
+
+.credibility-landing {
+
+  .landing-header {
+    position: relative;
+  }
+
+  .hero--featured {
+    background-position: center bottom;
+  }
+
+  .hero-heading {
+    max-width: 25em;
+    color: color(primary);
+  }
+
+  .landing-nav {
+    background: color(light-background);
+    border-bottom: 1px solid color(border);
+    line-height: 1.2;
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: center;
+    padding: ms(1) 0;
+    text-align: center;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    width: 25%;
+    border-right: 1px solid color(medium-border);
+
+    &:first-child {
+      border-left: 1px solid color(medium-border);
+    }
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0 ms(3);
+    color: color(gray);
+  }
+
+  .nav-link-text {
+    display: inline-block;
+    max-width: 8em;
+  }
+}

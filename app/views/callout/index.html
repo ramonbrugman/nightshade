@@ -1,0 +1,33 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/callout/callout.macros.html' import callout %}
+{% from 'nightshade-core/src/icons/icons.macros.html' import svg %}
+
+{% set page_title = 'Callout' %}
+
+{% block pattern_content %}
+
+  {% call callout('…SO NO WONDER IT WON MORE AWARDS THAN ANY OTHER MATTRESS ON THE MARKET') %}
+    <div class="layout layout--3x1 r-inner">
+      <div class="layout-item">
+        <figure class="layout-item-image">
+          {{ svg('delivery') }}
+        </figure>
+        <h4 class="layout-item-description">ORDER ONLINE, IT SHIPS IN A BOX</h4>
+      </div>
+      <div class="layout-item">
+        <figure class="layout-item-image">
+          {{ svg('bike') }}
+        </figure>
+        <h4 class="layout-item-description">FREE SHIPPING, FREE RETURNS></h4>
+      </div>
+      <div class="layout-item">
+        <figure class="layout-item-image">
+          {{ svg('trial-seal-hundrednight') }}
+        </figure>
+        <h4 class="layout-item-description">100 NIGHT TRIAL, EAST RETURN PICKUP</h4>
+      </div>
+    </div>
+  {% endcall %}
+
+{% endblock %}

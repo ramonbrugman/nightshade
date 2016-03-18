@@ -1,0 +1,18 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/content_panel/panel.macros.html' import content_panel %}
+
+{% set page_title = 'Content Panel' %}
+
+{% block pattern_content %}
+
+  {% call content_panel(
+    'It’s Obsessively Engineered for Outrageous Comfort...',
+    'product/mattress/casper-lifestyle-3.jpg?rect=700,0,1450,1450',
+    image_description='Casper Mattress and Nightstand',
+    image_position='right'
+  ) %}
+    <p>Developed in-house by a team of engineers, the Casper combines memory and latex foams to create a sleep surface that’s both soft and supportive</p>
+  {% endcall %}
+
+{% endblock %}

@@ -1,9 +1,28 @@
 .home-blurb {
-  max-width: 40em;
+  max-width: 33em;
   font-size: ms(1);
+
+	@include respond-at-and-above($break-medium) {
+   		max-width: 31em;
+   		padding-left: ms(7);
+   	}
+
+	@include respond-at-and-above($break-large) {
+   		max-width: 39em;
+   		padding-left: ms(11);
+   	}
+
+	@include respond-at-and-above(1440px) {
+   		max-width: 40em;
+   		padding-left: ms(12);
+   	}
 
   p {
   	text-align: left;
   }
 
+}
+
+.home-blurb-intro {
+	font-size: ms(3);
 }

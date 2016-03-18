@@ -2,16 +2,7 @@
 .pattern {
   position: relative;
   width: 100%;
-  padding: ms(7) ms(4) ms(4);
-
-  @include respond-at-and-above($break-medium) {
-    padding: ms(8) ms(4) ms(4);
-  }
-
-   @include respond-at-and-above($break-large) {
-    padding: ms(10) ms(4) ms(4);
-  }
-
+  
   .heading--tertiary-light {
     margin-top: ms(3)
   }

@@ -1,0 +1,22 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/hero/hero.macros.html' import hero %}
+
+{% set page_title = 'Hero' %}
+
+{% block pattern_content %}
+
+  {{ hero(
+    'A Life Well Slept',
+    'The Perfect Mattress, Sheets, and Pillow for Everyone',
+    'banner/help-topbanner.jpg'
+  ) }}
+
+  {{ hero(
+    'A Life Well Slept',
+    'The Perfect Mattress, Sheets, and Pillow for Everyone',
+    'home/sandwich/casper-hero-lifestyle.jpg',
+    featured=true
+  ) }}
+
+{% endblock %}

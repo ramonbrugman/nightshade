@@ -42,10 +42,10 @@
     <p>Developed in-house by a team of engineers, the Casper combines memory and latex foams to create a sleep surface that’s both soft and supportive. It’s got just the right sink, just the right bounce, and it keeps you cool all night. It truly is one perfect mattress.</p>
   {% endcall %}
 
-  {% call callout('…SO NO WONDER IT WON MORE AWARDS THAN ANY OTHER MATTRESS ON THE MARKET') %}
-    {% call block_group() %}
+  {% call callout('…SO NO WONDER IT WON MORE AWARDS THAN ANY OTHER MATTRESS ON THE MARKET', class='callout--awards') %}
+    {% call block_group(stacked=true) %}
+      {{ block_item('BEST INVENTION AWARD <span class="source">TIME 2015</span>', 'award-time25', class='block-item--time') }}
       {{ block_item('INNOVATION BY DESIGN AWARD <span class="source">FAST COMPANY 2015</span>', 'award-fastcompany') }}
-      {{ block_item('BEST INVENTION AWARD <span class="source">TIME 2015</span>', 'award-time25') }}
       {{ block_item('BIG INNOVATION AWARD <span class="source">BI GROUP 2015</span>', 'award-biginnovation') }}
     {% endcall %}
   {% endcall %}

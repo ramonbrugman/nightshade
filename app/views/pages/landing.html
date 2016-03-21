@@ -2,6 +2,7 @@
 
 {% from 'nightshade-core/src/banners/banners.macros.html' import cta_banner %}
 {% from 'nightshade-core/src/callout/callout.macros.html' import callout %}
+{% from 'nightshade-core/src/blocks/blocks.macros.html' import block_item, block_group %}
 {% from 'nightshade-core/src/content_panel/panel.macros.html' import content_panel %}
 {% from 'nightshade-core/src/hero/hero.macros.html' import hero %}
 {% from 'nightshade-core/src/press_quote/quote.macros.html' import press_quote %}
@@ -42,26 +43,11 @@
   {% endcall %}
 
   {% call callout('…SO NO WONDER IT WON MORE AWARDS THAN ANY OTHER MATTRESS ON THE MARKET') %}
-    <div class="layout layout--3x1 r-inner">
-      <div class="layout-item">
-        <figure class="layout-item-image">
-          {{ svg('award-fastcompany') }}
-        </figure>
-        <h4 class="layout-item-description">INNOVATION BY DESIGN AWARD<br> FAST COMPANY 2015</h4>
-      </div>
-      <div class="layout-item">
-        <figure class="layout-item-image">
-          {{ svg('award-time25') }}
-        </figure>
-        <h4 class="layout-item-description">BEST INVENTION AWARD<br> TIME 2015</h4>
-      </div>
-      <div class="layout-item">
-        <figure class="layout-item-image">
-          {{ svg('award-biginnovation') }}
-        </figure>
-        <h4 class="layout-item-description">BIG INNOVATION AWARD<br> BI GROUP 2015</h4>
-      </div>
-    </div>
+    {% call block_group() %}
+      {{ block_item('INNOVATION BY DESIGN AWARD <span class="source">FAST COMPANY 2015</span>', 'award-fastcompany') }}
+      {{ block_item('BEST INVENTION AWARD <span class="source">TIME 2015</span>', 'award-time25') }}
+      {{ block_item('BIG INNOVATION AWARD <span class="source">BI GROUP 2015</span>', 'award-biginnovation') }}
+    {% endcall %}
   {% endcall %}
 
   {% call content_panel(
@@ -86,26 +72,11 @@
   {{ press_quote('Changing the way people shop for mattresses', 'press-nyt') }}
 
   {% call callout('PLUS, WE MADE IT SO EASY TO BUY YOU CAN DO IT WITH YOUR EYES CLOSED') %}
-    <div class="layout layout--3x1 r-inner">
-      <div class="layout-item">
-        <figure class="layout-item-image">
-          {{ svg('delivery') }}
-        </figure>
-        <h4 class="layout-item-description">ORDER ONLINE, IT SHIPS IN A BOX</h4>
-      </div>
-      <div class="layout-item">
-        <figure class="layout-item-image">
-          {{ svg('bike') }}
-        </figure>
-        <h4 class="layout-item-description">FREE SHIPPING, FREE RETURNS</h4>
-      </div>
-      <div class="layout-item">
-        <figure class="layout-item-image">
-          {{ svg('hundred-night-trial') }}
-        </figure>
-        <h4 class="layout-item-description">100 NIGHT TRIAL, EAST RETURN PICKUP</h4>
-      </div>
-    </div>
+    {% call block_group() %}
+      {{ block_item('ORDER ONLINE, IT SHIPS IN A BOX', 'delivery') }}
+      {{ block_item('FREE SHIPPING, FREE RETURNS', 'bike') }}
+      {{ block_item('100 NIGHT TRIAL, EAST RETURN PICKUP', 'hundred-night-trial') }}
+    {% endcall %}
   {% endcall %}
 
   {{ cta_banner(

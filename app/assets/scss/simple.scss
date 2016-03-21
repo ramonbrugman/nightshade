@@ -74,6 +74,13 @@
     display: inline-block;
     max-width: 8em;
   }
+
+  .block-item-description {
+
+    .source {
+      display: block;
+    }
+  }
 }
 
 .content-panel-image img {

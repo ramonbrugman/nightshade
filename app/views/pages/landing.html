@@ -7,6 +7,7 @@
 {% from 'nightshade-core/src/press_quote/quote.macros.html' import press_quote %}
 {% from 'nightshade-core/src/beacon/beacon.macros.html' import beacon %}
 {% from 'nightshade-core/src/icons/icons.macros.html' import svg %}
+{% from 'nightshade-core/src/reviews/reviews.macros.html' import star_rating %}
 
 {% block page_content %}
 <article class="credibility-landing">
@@ -31,10 +32,11 @@
   </nav>
 
   {% call content_panel(
-    'It’s Obsessively Engineered for Outrageous Comfort...',
-    'product/mattress/casper-lifestyle-3.jpg?rect=700,0,1450,1450',
-    image_description='Casper Mattress and Nightstand',
-    image_position='right'
+    'IT’S OBESESSIVELY ENGINEERED FOR OUTRAGEOUS COMFORT…',
+    'landing/mattress-testing.jpg',
+    image_description='Casper Mattress Being Tested',
+    image_position='right',
+    class='content-panel--engineering'
   ) %}
     <p>Developed in-house by a team of engineers, the Casper combines memory and latex foams to create a sleep surface that’s both soft and supportive. It’s got just the right sink, just the right bounce, and it keeps you cool all night. It truly is one perfect mattress.</p>
   {% endcall %}
@@ -43,45 +45,47 @@
     <div class="layout layout--3x1 r-inner">
       <div class="layout-item">
         <figure class="layout-item-image">
-          {{ svg('delivery') }}
+          {{ svg('award-fastcompany') }}
         </figure>
-        <h4 class="layout-item-description">ORDER ONLINE, IT SHIPS IN A BOX</h4>
+        <h4 class="layout-item-description">INNOVATION BY DESIGN AWARD<br> FAST COMPANY 2015</h4>
       </div>
       <div class="layout-item">
         <figure class="layout-item-image">
-          {{ svg('bike') }}
+          {{ svg('award-time25') }}
         </figure>
-        <h4 class="layout-item-description">FREE SHIPPING, FREE RETURNS></h4>
+        <h4 class="layout-item-description">BEST INVENTION AWARD<br> TIME 2015</h4>
       </div>
       <div class="layout-item">
         <figure class="layout-item-image">
-          {{ svg('trial-seal-hundrednight') }}
+          {{ svg('award-biginnovation') }}
         </figure>
-        <h4 class="layout-item-description">100 NIGHT TRIAL, EAST RETURN PICKUP</h4>
+        <h4 class="layout-item-description">BIG INNOVATION AWARD<br> BI GROUP 2015</h4>
       </div>
     </div>
   {% endcall %}
 
   {% call content_panel(
-    'It’s Obsessively Engineered for Outrageous Comfort...',
-    'product/mattress/casper-lifestyle-3.jpg?rect=700,0,1450,1450',
-    image_description='Casper Mattress and Nightstand'
+    'OUR RADICAL BUSINESS MODEL PASSES THE SAVINGS TO YOU',
+    'landing/mattress-cost.jpg',
+    image_description='Casper Mattress Cost Graph'
   ) %}
-    <p>Developed in-house by a team of engineers, the Casper combines memory and latex foams to create a sleep surface that’s both soft and supportive</p>
+    <p>We design, develop, and manufacture the Casper in the USA. Without the inefficiencies of showroom real estate and salespeople, we sell our mattress for ⅓ of what it costs in the traditional model.</p>
   {% endcall %}
 
   {% call content_panel(
-    'It’s Obsessively Engineered for Outrageous Comfort...',
-    'product/mattress/casper-lifestyle-3.jpg?rect=700,0,1450,1450',
-    image_description='Casper Mattress and Nightstand',
-    image_position='right'
+    'AND EVERYONE AGREES—WE’RE THE BEST IN BED',
+    'landing/casper-awards.jpg',
+    image_description='Casper Mattress Box With Awards Trophy',
+    image_position='right',
+    class='content-panel--reviews'
   ) %}
-    <p>Developed in-house by a team of engineers, the Casper combines memory and latex foams to create a sleep surface that’s both soft and supportive</p>
+    {{ star_rating('blue') }}
+    <p>An average of 4.5/5 according to more than 3,000 reviews</p>
   {% endcall %}
 
   {{ press_quote('Changing the way people shop for mattresses', 'press-nyt') }}
 
-  {% call callout('…SO NO WONDER IT WON MORE AWARDS THAN ANY OTHER MATTRESS ON THE MARKET') %}
+  {% call callout('PLUS, WE MADE IT SO EASY TO BUY YOU CAN DO IT WITH YOUR EYES CLOSED') %}
     <div class="layout layout--3x1 r-inner">
       <div class="layout-item">
         <figure class="layout-item-image">
@@ -93,11 +97,11 @@
         <figure class="layout-item-image">
           {{ svg('bike') }}
         </figure>
-        <h4 class="layout-item-description">FREE SHIPPING, FREE RETURNS></h4>
+        <h4 class="layout-item-description">FREE SHIPPING, FREE RETURNS</h4>
       </div>
       <div class="layout-item">
         <figure class="layout-item-image">
-          {{ svg('trial-seal-hundrednight') }}
+          {{ svg('hundred-night-trial') }}
         </figure>
         <h4 class="layout-item-description">100 NIGHT TRIAL, EAST RETURN PICKUP</h4>
       </div>
@@ -105,11 +109,10 @@
   {% endcall %}
 
   {{ cta_banner(
-    'Upgrade Your Mattress',
-    'See The Casper',
+    'TRY CASPER FOR 100 NIGHTS',
+    'UPGRADE YOUR MATTRESS TODAY',
     '/mattresses',
-    button_style='secondary',
-    background_path='home/sandwich/casper-hero-lifestyle.jpg',
+    background_path='landing/casper-bed-couple.jpg',
     large_background=true
   ) }}
 

@@ -23,8 +23,21 @@
   }
 
   .hero-heading {
-    max-width: 25em;
+    max-width: 13em;
     color: color(primary);
+
+    @include respond-at-and-above($break-small) {
+      max-width: 16em;
+      font-size: ms(4);
+    }
+
+    @include respond-at-and-above($break-large) {
+      max-width: 24em;
+    }
+
+    @include respond-at-and-above($break-xl) {
+      font-size: ms(5);
+    }
   }
 
   .landing-nav {
@@ -60,5 +73,18 @@
   .nav-link-text {
     display: inline-block;
     max-width: 8em;
+  }
+}
+
+.content-panel-image img {
+
+  @include respond-between($break-mobile, $break-medium) {
+    .content-panel--engineering & {
+      margin-top: -7vw;
+    }
+
+    .content-panel--reviews & {
+      margin-top: 0;
+    }
   }
 }

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% from 'nightshade-core/src/footer/footer.macros.html' import footer %}
+
 {% block title %}Casper{% endblock %}
 
 {% block base_styles %}
@@ -12,7 +14,8 @@
   {% endblock %}
 </main>
 
-<footer class="r-footer">
+{% call footer(simple=true) %}
+  {% block footer_content %}{% endblock %}
+{% endcall %}
 
-</footer>
 {% endblock %}

@@ -7,7 +7,7 @@
 {% from 'nightshade-core/src/hero/hero.macros.html' import hero %}
 {% from 'nightshade-core/src/press_quote/quote.macros.html' import press_quote %}
 {% from 'nightshade-core/src/beacon/beacon.macros.html' import beacon %}
-{% from 'nightshade-core/src/icons/icons.macros.html' import svg %}
+{% from 'nightshade-core/src/icons/icons.macros.html' import svg, icon %}
 {% from 'nightshade-core/src/reviews/reviews.macros.html' import star_rating %}
 
 {% block page_content %}
@@ -88,4 +88,12 @@
   ) }}
 
 </article>
+{% endblock %}
+
+{% block footer_content %}
+  <div class="landing-footer">
+    {{ icon('ear', size='large') }}
+    <h2>QUESTIONS? WE'RE ON CALL</h2>
+    <h3>+1 888-498-0003</h3>
+  </div>
 {% endblock %}

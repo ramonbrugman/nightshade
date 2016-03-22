@@ -6,8 +6,6 @@
 @import './node_modules/@casper/nightshade-core/src/layout/props';
 @import './node_modules/@casper/nightshade-core/src/ratings_stars/index';
 
-@import './app/views/pages/scss/footer';
-
 .container {
   padding-top: 0 !important; // Update when we revise/remove regions
 }
@@ -118,5 +116,21 @@
 
   .block-item-description {
     max-width: none;
+  }
+}
+
+.landing-footer {
+  padding: ms(3) 0;
+  text-align: center;
+
+  [data-icon] {
+    margin-bottom: ms(5);
+    fill: color(background);
+  }
+
+  h2,
+  h3 {
+    font-size: ms(2);
+    margin-bottom: ms(-3);
   }
 }

@@ -66,16 +66,16 @@
     class='content-panel--reviews'
   ) %}
     {{ star_rating('blue') }}
-    <p>An average of 4.5/5 according to more than 3,000 reviews</p>
+    <p class="description">An average of 4.5/5 according to more than 3,000 reviews</p>
   {% endcall %}
 
   {{ press_quote('Changing the way people shop for mattresses', 'press-nyt') }}
 
   {% call callout('PLUS, WE MADE IT SO EASY TO BUY YOU CAN DO IT WITH YOUR EYES CLOSED', class='callout--convenience background--starry') %}
-    {% call block_group() %}
-      {{ block_item('ORDER ONLINE, IT SHIPS IN A BOX', 'delivery') }}
-      {{ block_item('FREE SHIPPING, FREE RETURNS', 'bike') }}
-      {{ block_item('100 NIGHT TRIAL, EAST RETURN PICKUP', 'hundred-night-trial') }}
+    {% call block_group(stacked=true) %}
+      {{ block_item('ORDER ONLINE, <span class="break">IT SHIPS IN A BOX</span>', 'delivery') }}
+      {{ block_item('FREE SHIPPING, <span class="break">FREE RETURNS</span>', 'bike', class='block-item--shipping') }}
+      {{ block_item('100 NIGHT TRIAL, <span class="break">EAST RETURN PICKUP</span>', 'hundred-night-trial', class='block-item--trial') }}
     {% endcall %}
   {% endcall %}
 
@@ -84,7 +84,8 @@
     'UPGRADE YOUR MATTRESS TODAY',
     '/mattresses',
     background_path='landing/casper-bed-couple.jpg',
-    large_background=true
+    large_background=true,
+    class='cta-banner--hundred-night'
   ) }}
 
 </article>

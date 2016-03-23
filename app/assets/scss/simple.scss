@@ -84,6 +84,10 @@
     &:hover {
       color: color(dark-text);
     }
+
+    &.is-selected {
+      font-weight: 600;
+    }
   }
 
   .nav-link-text {
@@ -93,7 +97,8 @@
 
   .block-item-description {
 
-    .source {
+    .source,
+    .break {
       display: block;
     }
   }
@@ -112,17 +117,44 @@
   }
 }
 
-.callout--awards {
-  padding: ms(10) ms(2);
+.content-panel--reviews {
 
-  .callout-heading {
-    margin-bottom: ms(8);
+  .content-panel-heading {
+    max-width: 16em;
   }
 
-  .block-item--time .block-item-image {
+  .rating-stars {
+    display: inline-block;
+    margin-bottom: ms(-4);
+    font-size: ms(3);
 
-    @include respond-below($break-medium - 1) {
-      margin-bottom: ms(-1);
+    @include respond-at-and-above($break-small) {
+      font-size: ms(4);
+    }
+  }
+
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 16em;
+  }
+}
+
+.callout--awards,
+.callout--convenience {
+
+  @include respond-at-and-above($break-small) {
+    padding: ms(10) ms(2) ms(11);
+  }
+}
+
+.callout--awards {
+
+  .callout-heading {
+    margin-bottom: ms(6);
+
+    @include respond-at-and-above($break-small) {
+      margin-bottom: ms(8);
     }
   }
 
@@ -132,6 +164,13 @@
     fill: color(gray);
   }
 
+  .block-item--time .block-item-image {
+
+    @include respond-below($break-medium - 1) {
+      margin-bottom: ms(-1);
+    }
+  }
+
   .block-item-description {
     max-width: none;
   }
@@ -139,9 +178,53 @@
 
 .callout--convenience {
 
+  .callout-heading {
+    margin-bottom: ms(6);
+  }
+
   .icon {
     fill: color($trial-blue);
   }
+
+  .block-item:not(:last-child) {
+
+    @include respond-below($break-medium - 1) {
+      margin-bottom: ms(3);
+    }
+  }
+
+  .block-item-image {
+    margin-bottom: ms(-4);
+  }
+
+  .block-item--trial .block-item-image {
+    width: 90px;
+    height: 110px;
+    margin-top: 10px;
+
+    @include respond-at-and-above($break-large) {
+      width: 120px;
+      height: 140px;
+    }
+  }
+
+  .block-item--shipping .block-item-image {
+
+    @include respond-below($break-medium - 1) {
+      margin-bottom: 0;
+    }
+  }
+
+  .block-item-description {
+
+    @include respond-at-and-above($break-small) {
+      font-size: ms(0);
+    }
+  }
+}
+
+.cta-banner--hundred-night {
+  padding-top: 140px;
 }
 
 .landing-footer {

@@ -23,7 +23,7 @@ export const LandingPage = {
       handler: () => {
         document.querySelector(`.landing-nav`).classList.toggle(`is-sticky`);
       },
-      offset: 90,
+      offset: 76,
     });
   },
 

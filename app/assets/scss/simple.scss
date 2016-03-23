@@ -6,6 +6,9 @@
 @import './node_modules/@casper/nightshade-core/src/layout/props';
 @import './node_modules/@casper/nightshade-core/src/ratings_stars/index';
 
+// TODO: move $trial-blue to backgrounds, or global map?
+@import './node_modules/@casper/nightshade-core/src/trial_warranty/config';
+
 .container {
   padding-top: 0 !important; // Update when we revise/remove regions
 }
@@ -42,6 +45,17 @@
     background: color(light-background);
     border-bottom: 1px solid color(border);
     line-height: 1.2;
+
+    @include respond-below($break-medium) {
+      display: none;
+    }
+
+    &.is-sticky {
+      position: fixed;
+      z-index: 10;
+      width: 100%;
+      top: 0;
+    }
   }
 
   .nav-inner {
@@ -65,7 +79,11 @@
   .nav-link {
     width: 100%;
     padding: 0 ms(3);
-    color: color(gray);
+    color: color(text);
+
+    &:hover {
+      color: color(dark-text);
+    }
   }
 
   .nav-link-text {
@@ -116,6 +134,13 @@
 
   .block-item-description {
     max-width: none;
+  }
+}
+
+.callout--convenience {
+
+  .icon {
+    fill: color($trial-blue);
   }
 }
 

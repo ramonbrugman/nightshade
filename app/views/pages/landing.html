@@ -71,7 +71,7 @@
 
   {{ press_quote('Changing the way people shop for mattresses', 'press-nyt') }}
 
-  {% call callout('PLUS, WE MADE IT SO EASY TO BUY YOU CAN DO IT WITH YOUR EYES CLOSED') %}
+  {% call callout('PLUS, WE MADE IT SO EASY TO BUY YOU CAN DO IT WITH YOUR EYES CLOSED', class='callout--convenience background--starry') %}
     {% call block_group() %}
       {{ block_item('ORDER ONLINE, IT SHIPS IN A BOX', 'delivery') }}
       {{ block_item('FREE SHIPPING, FREE RETURNS', 'bike') }}
@@ -96,4 +96,10 @@
     <h2>QUESTIONS? WE'RE ON CALL</h2>
     <h3>+1 888-498-0003</h3>
   </div>
+{% endblock %}
+
+{% block module_loader %}
+  System.import('views/pages/LandingPage.js').then( function(mod) {
+    mod.LandingPage.init();
+  } );
 {% endblock %}

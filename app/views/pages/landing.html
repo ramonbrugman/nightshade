@@ -25,10 +25,10 @@
 
   <nav class="landing-nav" id="landing-nav">
     <ul class="nav-inner r-inner">
-      <li class="nav-item"><a class="nav-link" href="#"><span class="nav-link-text">OBSESSIVELY ENGINEERED</span></a></li>
-      <li class="nav-item"><a class="nav-link" href="#"><span class="nav-link-text">INTELLIGENTLY PRICED</span></a></li>
-      <li class="nav-item"><a class="nav-link" href="#"><span class="nav-link-text">BEST REVIEWED</span></a></li>
-      <li class="nav-item"><a class="nav-link" href="#"><span class="nav-link-text">EASY TO BUY</span></a></li>
+      <li class="nav-item"><a class="nav-link" id="nav-engineering" href="#engineering"><span class="nav-link-text">OBSESSIVELY ENGINEERED</span></a></li>
+      <li class="nav-item"><a class="nav-link" id="nav-cost" href="#cost"><span class="nav-link-text">INTELLIGENTLY PRICED</span></a></li>
+      <li class="nav-item"><a class="nav-link" id="nav-reviews" href="#reviews"><span class="nav-link-text">BEST REVIEWED</span></a></li>
+      <li class="nav-item"><a class="nav-link" id="nav-convenience" href="#convenience"><span class="nav-link-text">EASY TO BUY</span></a></li>
     </ul>
   </nav>
 
@@ -37,7 +37,8 @@
     image_path='landing/mattress-testing.jpg',
     image_description='Casper Mattress Being Tested',
     image_position='right',
-    class='content-panel--engineering'
+    class='content-panel--engineering',
+    id='engineering'
   ) %}
     <p>Developed in-house by a team of engineers, the Casper combines memory and latex foams to create a sleep surface that’s both soft and supportive. It’s got just the right sink, just the right bounce, and it keeps you cool all night. It truly is one perfect mattress.</p>
   {% endcall %}
@@ -53,7 +54,8 @@
   {% call content_panel(
     'OUR RADICAL BUSINESS MODEL PASSES THE SAVINGS TO YOU',
     image_path='landing/mattress-cost.jpg',
-    image_description='Casper Mattress Cost Graph'
+    image_description='Casper Mattress Cost Graph',
+    id='cost'
   ) %}
     <p>We design, develop, and manufacture the Casper in the USA. Without the inefficiencies of showroom real estate and salespeople, we sell our mattress for ⅓ of what it costs in the traditional model.</p>
   {% endcall %}
@@ -63,7 +65,8 @@
     image_path='landing/casper-awards.jpg',
     image_description='Casper Mattress Box With Awards Trophy',
     image_position='right',
-    class='content-panel--reviews'
+    class='content-panel--reviews',
+    id='reviews'
   ) %}
     {{ star_rating('blue') }}
     <p class="description">An average of 4.5/5 according to more than 3,000 reviews</p>
@@ -71,7 +74,11 @@
 
   {{ press_quote('Changing the way people shop for mattresses', logo='press-nyt') }}
 
-  {% call callout('PLUS, WE MADE IT SO EASY TO BUY YOU CAN DO IT WITH YOUR EYES CLOSED', class='callout--convenience background--starry') %}
+  {% call callout(
+    'PLUS, WE MADE IT SO EASY TO BUY YOU CAN DO IT WITH YOUR EYES CLOSED',
+    class='callout--convenience background--starry',
+    id='convenience'
+  ) %}
     {% call block_group(stacked=true) %}
       {{ block_item('ORDER ONLINE, <span class="break">IT SHIPS IN A BOX</span>', icon='delivery') }}
       {{ block_item('FREE SHIPPING, <span class="break">FREE RETURNS</span>', icon='bike', class='block-item--shipping') }}

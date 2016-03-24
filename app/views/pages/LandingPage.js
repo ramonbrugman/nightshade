@@ -17,13 +17,60 @@ export const LandingPage = {
     this.setWaypoints();
   },
 
+  /**
+   * Sets up the page waypoints and sticky nav behavior, highlighting each nav
+   * link when its corresponding waypoint is reached
+   * @returns {void}
+  */
   setWaypoints() {
+    const nav = document.getElementById(`landing-nav`);
+    const elAfterNav = nav.nextElementSibling;
+    const navEngineering = document.getElementById(`nav-engineering`);
+    const navCost = document.getElementById(`nav-cost`);
+    const navReviews = document.getElementById(`nav-reviews`);
+    const navConvenience = document.getElementById(`nav-convenience`);
+    const navHeight = nav.offsetHeight;
+
     new Waypoint({
-      element: document.querySelector(`.content-panel--engineering`),
-      handler: () => {
-        document.getElementById(`landing-nav`).classList.toggle(`is-sticky`);
+      element: document.getElementById(`engineering`),
+      handler: (direction) => {
+        nav.classList.toggle(`is-sticky`);
+        navEngineering.classList.toggle(`is-selected`);
+
+        if (direction === `down`) {
+          elAfterNav.style.marginTop = `${navHeight}px`;
+        } else {
+          elAfterNav.removeAttribute(`style`);
+        }
       },
-      offset: 76,
+      offset: navHeight,
+    });
+
+    new Waypoint({
+      element: document.getElementById(`cost`),
+      handler: (direction) => {
+        navCost.classList.toggle(`is-selected`);
+        navEngineering.classList.toggle(`is-selected`);
+      },
+      offset: navHeight,
+    });
+
+    new Waypoint({
+      element: document.getElementById(`reviews`),
+      handler: (direction) => {
+        navReviews.classList.toggle(`is-selected`);
+        navCost.classList.toggle(`is-selected`);
+      },
+      offset: navHeight,
+    });
+
+    new Waypoint({
+      element: document.getElementById(`convenience`),
+      handler: (direction) => {
+        navConvenience.classList.toggle(`is-selected`);
+        navReviews.classList.toggle(`is-selected`);
+      },
+      offset: navHeight,
     });
   },
 

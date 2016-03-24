@@ -1,0 +1,17 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/gallery/gallery.macros.html' import gallery %}
+
+{% set page_title = 'Gallery' %}
+
+{% block pattern_content %}
+
+  {{ gallery() }}
+
+{% endblock %}
+
+{% block inline_js %}
+  System.import('nightshade-core/src/gallery/Gallery.js').then( function(mod) {
+    mod.Gallery.init();
+  } );
+{% endblock %}

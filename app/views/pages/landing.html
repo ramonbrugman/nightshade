@@ -34,7 +34,7 @@
 
   {% call content_panel(
     'IT’S OBESESSIVELY ENGINEERED FOR OUTRAGEOUS COMFORT…',
-    'landing/mattress-testing.jpg',
+    image_path='landing/mattress-testing.jpg',
     image_description='Casper Mattress Being Tested',
     image_position='right',
     class='content-panel--engineering'
@@ -44,15 +44,15 @@
 
   {% call callout('…SO NO WONDER IT WON MORE AWARDS THAN ANY OTHER MATTRESS ON THE MARKET', class='callout--awards') %}
     {% call block_group(stacked=true) %}
-      {{ block_item('BEST INVENTION AWARD <span class="source">TIME 2015</span>', 'award-time25', class='block-item--time') }}
-      {{ block_item('INNOVATION BY DESIGN AWARD <span class="source">FAST COMPANY 2015</span>', 'award-fastcompany') }}
-      {{ block_item('BIG INNOVATION AWARD <span class="source">BI GROUP 2015</span>', 'award-biginnovation') }}
+      {{ block_item('BEST INVENTION AWARD <span class="source">TIME 2015</span>', icon='award-time25', class='block-item--time') }}
+      {{ block_item('INNOVATION BY DESIGN AWARD <span class="source">FAST COMPANY 2015</span>', icon='award-fastcompany') }}
+      {{ block_item('BIG INNOVATION AWARD <span class="source">BI GROUP 2015</span>', icon='award-biginnovation') }}
     {% endcall %}
   {% endcall %}
 
   {% call content_panel(
     'OUR RADICAL BUSINESS MODEL PASSES THE SAVINGS TO YOU',
-    'landing/mattress-cost.jpg',
+    image_path='landing/mattress-cost.jpg',
     image_description='Casper Mattress Cost Graph'
   ) %}
     <p>We design, develop, and manufacture the Casper in the USA. Without the inefficiencies of showroom real estate and salespeople, we sell our mattress for ⅓ of what it costs in the traditional model.</p>
@@ -60,7 +60,7 @@
 
   {% call content_panel(
     'AND EVERYONE AGREES—WE’RE THE BEST IN BED',
-    'landing/casper-awards.jpg',
+    image_path='landing/casper-awards.jpg',
     image_description='Casper Mattress Box With Awards Trophy',
     image_position='right',
     class='content-panel--reviews'
@@ -69,20 +69,20 @@
     <p class="description">An average of 4.5/5 according to more than 3,000 reviews</p>
   {% endcall %}
 
-  {{ press_quote('Changing the way people shop for mattresses', 'press-nyt') }}
+  {{ press_quote('Changing the way people shop for mattresses', logo='press-nyt') }}
 
   {% call callout('PLUS, WE MADE IT SO EASY TO BUY YOU CAN DO IT WITH YOUR EYES CLOSED', class='callout--convenience background--starry') %}
     {% call block_group(stacked=true) %}
-      {{ block_item('ORDER ONLINE, <span class="break">IT SHIPS IN A BOX</span>', 'delivery') }}
-      {{ block_item('FREE SHIPPING, <span class="break">FREE RETURNS</span>', 'bike', class='block-item--shipping') }}
-      {{ block_item('100 NIGHT TRIAL, <span class="break">EAST RETURN PICKUP</span>', 'hundred-night-trial', class='block-item--trial') }}
+      {{ block_item('ORDER ONLINE, <span class="break">IT SHIPS IN A BOX</span>', icon='delivery') }}
+      {{ block_item('FREE SHIPPING, <span class="break">FREE RETURNS</span>', icon='bike', class='block-item--shipping') }}
+      {{ block_item('100 NIGHT TRIAL, <span class="break">EAST RETURN PICKUP</span>', icon='hundred-night-trial', class='block-item--trial') }}
     {% endcall %}
   {% endcall %}
 
   {{ cta_banner(
     'TRY CASPER FOR 100 NIGHTS',
-    'UPGRADE YOUR MATTRESS TODAY',
-    '/mattresses',
+    cta='UPGRADE YOUR MATTRESS TODAY',
+    href='/mattresses',
     background_path='landing/casper-bed-couple.jpg',
     large_background=true,
     class='cta-banner--hundred-night'

@@ -164,10 +164,13 @@
     fill: color(gray);
   }
 
-  .block-item--time .block-item-image {
+  .block-item--time {
 
-    @include respond-below($break-medium - 1) {
-      margin-bottom: ms(-1);
+    .block-item-image {
+
+      @include respond-below($break-medium - 1) {
+        margin-bottom: ms(-1);
+      }
     }
   }
 
@@ -197,21 +200,27 @@
     margin-bottom: ms(-4);
   }
 
-  .block-item--trial .block-item-image {
-    width: 90px;
-    height: 110px;
-    margin-top: 10px;
+  .block-item--trial {
 
-    @include respond-at-and-above($break-large) {
-      width: 120px;
-      height: 140px;
+    .block-item-image {
+      width: 90px;
+      height: 110px;
+      margin-top: 10px;
+
+      @include respond-at-and-above($break-large) {
+        width: 120px;
+        height: 140px;
+      }
     }
   }
 
-  .block-item--shipping .block-item-image {
+  .block-item--shipping {
 
-    @include respond-below($break-medium - 1) {
-      margin-bottom: 0;
+    .block-item-image {
+
+      @include respond-below($break-medium - 1) {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -224,7 +233,7 @@
 }
 
 .cta-banner--hundred-night {
-  padding-top: 140px;
+  padding-top: ms(12);
 }
 
 .landing-footer {

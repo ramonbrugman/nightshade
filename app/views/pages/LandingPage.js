@@ -21,7 +21,7 @@ export const LandingPage = {
     new Waypoint({
       element: document.querySelector(`.content-panel--engineering`),
       handler: () => {
-        document.querySelector(`.landing-nav`).classList.toggle(`is-sticky`);
+        document.getElementById(`landing-nav`).classList.toggle(`is-sticky`);
       },
       offset: 76,
     });

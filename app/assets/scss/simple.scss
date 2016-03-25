@@ -232,15 +232,41 @@
   }
 }
 
+.gallery--quotes {
+
+  .press-quote {
+    padding-bottom: ms(9);
+  }
+}
+
 .cta-banner--hundred-night {
-  padding-top: ms(11);
+
+  @include respond-at-and-above($break-small) {
+    padding-top: ms(11);
+  }
 
   .cta-heading {
-    margin-bottom: ms(4);
+    max-width: 10em;
+
+    @include respond-at-and-above($break-mobile) {
+      max-width: none;
+      margin-bottom: ms(4);
+    }
+  }
+
+  [data-button] {
+
+    @include respond-below($break-mobile) {
+      max-width: 16em;
+      line-height: 1.4;
+    }
   }
 }
 
 .landing-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: ms(3) 0;
   text-align: center;
 
@@ -253,5 +279,12 @@
   h3 {
     font-size: ms(2);
     margin-bottom: ms(-3);
+  }
+
+  h2 {
+
+    @include respond-below($break-mobile) {
+      max-width: 12em;
+    }
   }
 }

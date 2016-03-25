@@ -19,6 +19,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
     "fastclick": "npm:fastclick@1.0.6",
+    "flickity": "npm:flickity@1.2.1",
     "fs": "github:jspm/nodelibs-fs@0.1.2",
     "imgix.js": "npm:imgix.js@2.1.0",
     "path": "github:jspm/nodelibs-path@0.1.0",
@@ -340,6 +341,10 @@ System.config({
       "randombytes": "npm:randombytes@2.0.1",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
+    "npm:doc-ready@1.0.3": {
+      "eventie": "npm:eventie@1.0.6",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:ecc-jsbn@0.1.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
@@ -360,6 +365,25 @@ System.config({
     "npm:extsprintf@1.0.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:fizzy-ui-utils@1.0.1": {
+      "desandro-matches-selector": "npm:desandro-matches-selector@1.0.3",
+      "doc-ready": "npm:doc-ready@1.0.3"
+    },
+    "npm:flickity@1.2.1": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "desandro-classie": "npm:desandro-classie@1.0.1",
+      "desandro-get-style-property": "npm:desandro-get-style-property@1.0.4",
+      "desandro-matches-selector": "npm:desandro-matches-selector@1.0.3",
+      "doc-ready": "npm:doc-ready@1.0.3",
+      "eventie": "npm:eventie@1.0.6",
+      "fizzy-ui-utils": "npm:fizzy-ui-utils@1.0.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "get-size": "npm:get-size@1.2.2",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "tap-listener": "npm:tap-listener@1.1.2",
+      "unidragger": "npm:unidragger@1.1.5",
+      "wolfy87-eventemitter": "npm:wolfy87-eventemitter@4.2.11"
     },
     "npm:follow-redirects@0.0.7": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -395,6 +419,9 @@ System.config({
     },
     "npm:generate-object-property@1.2.0": {
       "is-property": "npm:is-property@1.0.2"
+    },
+    "npm:get-size@1.2.2": {
+      "desandro-get-style-property": "npm:desandro-get-style-property@1.0.4"
     },
     "npm:graceful-readlink@1.0.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2"
@@ -691,6 +718,9 @@ System.config({
     "npm:supports-color@2.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:tap-listener@1.1.2": {
+      "unipointer": "npm:unipointer@1.1.0"
+    },
     "npm:then-request@2.1.1": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -724,6 +754,14 @@ System.config({
       "tls": "github:jspm/nodelibs-tls@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
+    "npm:unidragger@1.1.5": {
+      "eventie": "npm:eventie@1.0.6",
+      "unipointer": "npm:unipointer@1.1.0"
+    },
+    "npm:unipointer@1.1.0": {
+      "eventie": "npm:eventie@1.0.6",
+      "wolfy87-eventemitter": "npm:wolfy87-eventemitter@4.2.11"
+    },
     "npm:url@0.10.3": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "punycode": "npm:punycode@1.3.2",
@@ -750,6 +788,9 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
+    "npm:wolfy87-eventemitter@4.2.11": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2"
     }
   }
 });

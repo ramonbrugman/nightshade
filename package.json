@@ -49,6 +49,7 @@
     "configFile": "systemjs_config.js",
     "dependencies": {
       "fastclick": "npm:fastclick@^1.0.6",
+      "flickity": "npm:flickity@^1.2.1",
       "fs": "github:jspm/nodelibs-fs@^0.1.2",
       "imgix.js": "npm:imgix.js@^2.1.0",
       "path": "github:jspm/nodelibs-path@^0.1.0",

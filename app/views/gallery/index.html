@@ -1,12 +1,23 @@
 {% extends "layout/_pattern.html" %}
 
 {% from 'nightshade-core/src/gallery/gallery.macros.html' import gallery %}
+{% from 'nightshade-core/src/press_quote/quote.macros.html' import press_quote %}
 
 {% set page_title = 'Gallery' %}
 
 {% block pattern_content %}
 
-  {{ gallery() }}
+  {% call gallery(autoplay=true) %}
+    {{ press_quote('Gallery with autoplay and all controls', logo='press-nyt', class='gallery-slide') }}
+    {{ press_quote('Second Quote', logo='press-nyt', class='gallery-slide') }}
+    {{ press_quote('Third Quote', logo='press-nyt', class='gallery-slide') }}
+  {% endcall %}
+
+  {% call gallery(autoplay=false, dots=false) %}
+    {{ press_quote('Gallery without autoplay, and no dots', logo='press-nyt', class='gallery-slide') }}
+    {{ press_quote('Second Quote', logo='press-nyt', class='gallery-slide') }}
+    {{ press_quote('Third Quote', logo='press-nyt', class='gallery-slide') }}
+  {% endcall %}
 
 {% endblock %}
 

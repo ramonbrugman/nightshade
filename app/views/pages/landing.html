@@ -9,6 +9,14 @@
 {% from 'nightshade-core/src/beacon/beacon.macros.html' import beacon %}
 {% from 'nightshade-core/src/icons/icons.macros.html' import svg, icon %}
 {% from 'nightshade-core/src/reviews/reviews.macros.html' import star_rating %}
+{% from 'nightshade-core/src/gallery/gallery.macros.html' import gallery %}
+
+{% set page_title = 'Credibility Landing' %}
+{% set page_description = 'Description' %}
+
+{% block meta_tags %}
+<meta name="robots" content="noindex">
+{% endblock %}
 
 {% block page_content %}
 <article class="credibility-landing">

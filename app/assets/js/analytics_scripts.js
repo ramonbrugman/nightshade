@@ -4,6 +4,13 @@
  * @overview Loads tracking service snippets: Optimizely, Segment, and Convertro
  */
 
+ /** 
+ * Optimizely snippet. Loaded synchronously. Not deferred. 
+ * @todo: Implement env check, load conditionally, uncomment
+ */
+// Production Snippet <script src="//cdn.optimizely.com/js/1509982184.js"></script>
+// Staging Snippet <script src="//cdn.optimizely.com/js/3687732782.js"></script>
+
 /** 
  * Segment.io snippet. Loaded asynchronously. Not deferred. 
  * @todo: Implement env check. Swap to key "470f745508" for production.

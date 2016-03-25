@@ -1,0 +1,17 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/footer/footer.macros.html' import footer %}
+
+{% set page_title = 'Footer' %}
+
+{% block pattern_content %}
+
+  {% call footer() %}
+    <div class="r-centered">Regular Footer Content</div>
+  {% endcall %}
+
+  {% call footer(simple=true) %}
+    <div class="r-centered">Simple Footer Content</div>
+  {% endcall %}
+
+{% endblock %}

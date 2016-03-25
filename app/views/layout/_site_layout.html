@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% import 'nightshade-core/src/layout/regions.macros.html' as region  %}
+{% from 'nightshade-core/src/footer/footer.macros.html' import footer %}
 
 {% block title %}Casper{% endblock %}
 
@@ -20,7 +21,8 @@
   {% endblock %}
 </main>
 
-<footer class="js-foooter r-footer">
-  {{ region.footer() }}
-</footer>
+{% call footer() %}
+  {{ region.footer_content() }}
+{% endcall %}
+
 {% endblock %}

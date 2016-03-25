@@ -5,6 +5,7 @@
 
 import { BasePage } from 'assets/js/pages/BasePage.js';
 import { StarryBackground } from 'nightshade-core/src/backgrounds/StarryBackground.js';
+import { Gallery } from 'nightshade-core/src/gallery/Gallery.js';
 import waypoints from 'waypoints/lib/noframework.waypoints.min.js';
 
 export const LandingPage = {
@@ -14,6 +15,7 @@ export const LandingPage = {
   init() {
     this.__proto__.init();
     StarryBackground.init();
+    Gallery.init();
     this.setWaypoints();
   },
 

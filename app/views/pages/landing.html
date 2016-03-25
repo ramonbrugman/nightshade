@@ -80,7 +80,23 @@
     <p class="description">An average of 4.5/5 according to more than 3,000 reviews</p>
   {% endcall %}
 
-  {{ press_quote('Changing the way people shop for mattresses', logo='press-nyt') }}
+  {% call gallery(autoplay=5000, arrows=false, class='gallery--quotes') %}
+    {{ press_quote(
+      'Changing the way people shop for mattresses',
+      logo='press-nyt',
+      class='gallery-slide'
+    ) }}
+    {{ press_quote(
+      'Customer expectations of mattress quality and delivery standards have been refreshed',
+      logo='fastcompany-small',
+      class='gallery-slide'
+    ) }}
+    {{ press_quote(
+      'Supremely comfortable',
+      logo='wired-small',
+      class='gallery-slide'
+    ) }}
+  {% endcall %}
 
   {% call callout(
     'PLUS, WE MADE IT SO EASY TO BUY YOU CAN DO IT WITH YOUR EYES CLOSED',

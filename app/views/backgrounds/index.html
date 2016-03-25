@@ -1,0 +1,38 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/banners/banners.macros.html' import cta_banner %}
+
+{% set page_title = 'Backgrounds' %}
+
+{% block pattern_content %}
+
+  {{ cta_banner(
+    'Upgrade Your Mattress',
+    'See The Casper',
+    '/mattresses',
+    class='background--light'
+  ) }}
+
+  {{ cta_banner(
+    'Upgrade Your Mattress',
+    'See The Casper',
+    '/mattresses',
+    button_style='secondary',
+    class='background--primary'
+  ) }}
+
+  {{ cta_banner(
+    'Upgrade Your Mattress',
+    'See The Casper',
+    '/mattresses',
+    button_style='secondary',
+    class='background--starry'
+  ) }}
+
+{% endblock %}
+
+{% block inline_js %}
+  System.import('nightshade-core/src/backgrounds/StarryBackground.js').then( function(mod) {
+    mod.StarryBackground.init();
+  } );
+{% endblock %}

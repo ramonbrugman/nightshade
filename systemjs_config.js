@@ -28,6 +28,7 @@ System.config({
     "rx-dom": "npm:rx-dom@7.0.3",
     "then-request": "npm:then-request@2.1.1",
     "viljamis/feature.js": "github:viljamis/feature.js@1.0.1",
+    "waypoints": "npm:waypoints@4.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -744,6 +745,11 @@ System.config({
     },
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"
+    },
+    "npm:waypoints@4.0.0": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     }
   }
 });

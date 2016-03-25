@@ -1,0 +1,257 @@
+@import 'modular_scale';
+@import 'core_imports';
+
+// Files to build simple site page
+@import './node_modules/@casper/nightshade-core/src/banners/cta_banner';
+@import './node_modules/@casper/nightshade-core/src/layout/props';
+@import './node_modules/@casper/nightshade-core/src/ratings_stars/index';
+
+// TODO: move $trial-blue to backgrounds, or global map?
+@import './node_modules/@casper/nightshade-core/src/trial_warranty/config';
+
+.container {
+  padding-top: 0 !important; // Update when we revise/remove regions
+}
+
+.credibility-landing {
+
+  .landing-header {
+    position: relative;
+  }
+
+  .hero--featured {
+    background-position: center bottom;
+  }
+
+  .hero-heading {
+    max-width: 13em;
+    color: color(primary);
+
+    @include respond-at-and-above($break-small) {
+      max-width: 16em;
+      font-size: ms(4);
+    }
+
+    @include respond-at-and-above($break-large) {
+      max-width: 24em;
+    }
+
+    @include respond-at-and-above($break-xl) {
+      font-size: ms(5);
+    }
+  }
+
+  .landing-nav {
+    background: color(background);
+    line-height: 1.2;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+
+    @include respond-below($break-medium) {
+      display: none;
+    }
+
+    &.is-sticky {
+      position: fixed;
+      z-index: 10;
+      width: 100%;
+      top: 0;
+    }
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: center;
+    padding: ms(0) 0;
+    text-align: center;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    width: 25%;
+    border-right: 1px solid color(medium-border);
+
+    &:first-child {
+      border-left: 1px solid color(medium-border);
+    }
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0 ms(3);
+    color: color(text);
+
+    &:hover {
+      color: color(dark-text);
+    }
+
+    &.is-selected {
+      font-weight: 600;
+    }
+  }
+
+  .nav-link-text {
+    display: inline-block;
+    max-width: 8em;
+  }
+
+  .block-item-description {
+
+    .source,
+    .break {
+      display: block;
+    }
+  }
+}
+
+.content-panel-image img {
+
+  @include respond-between($break-mobile, $break-medium) {
+    .content-panel--engineering & {
+      margin-top: -7vw;
+    }
+
+    .content-panel--reviews & {
+      margin-top: 0;
+    }
+  }
+}
+
+.content-panel--reviews {
+
+  .content-panel-heading {
+    max-width: 16em;
+  }
+
+  .rating-stars {
+    display: inline-block;
+    margin-bottom: ms(-4);
+    font-size: ms(3);
+
+    @include respond-at-and-above($break-small) {
+      font-size: ms(4);
+    }
+  }
+
+  .description {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 16em;
+  }
+}
+
+.callout--awards,
+.callout--convenience {
+
+  @include respond-at-and-above($break-small) {
+    padding: ms(10) ms(2) ms(11);
+  }
+}
+
+.callout--awards {
+
+  .callout-heading {
+    margin-bottom: ms(6);
+
+    @include respond-at-and-above($break-small) {
+      margin-bottom: ms(8);
+    }
+  }
+
+  .block-item-image {
+    width: 100px;
+    height: 80px;
+    fill: color(gray);
+  }
+
+  .block-item--time {
+
+    .block-item-image {
+
+      @include respond-below($break-medium - 1) {
+        margin-bottom: ms(-1);
+      }
+    }
+  }
+
+  .block-item-description {
+    max-width: none;
+  }
+}
+
+.callout--convenience {
+
+  .callout-heading {
+    margin-bottom: ms(6);
+  }
+
+  .icon {
+    fill: color($trial-blue);
+  }
+
+  .block-item:not(:last-child) {
+
+    @include respond-below($break-medium - 1) {
+      margin-bottom: ms(3);
+    }
+  }
+
+  .block-item-image {
+    margin-bottom: ms(-4);
+  }
+
+  .block-item--trial {
+
+    .block-item-image {
+      width: 90px;
+      height: 110px;
+      margin-top: 10px;
+
+      @include respond-at-and-above($break-large) {
+        width: 120px;
+        height: 140px;
+      }
+    }
+  }
+
+  .block-item--shipping {
+
+    .block-item-image {
+
+      @include respond-below($break-medium - 1) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .block-item-description {
+
+    @include respond-at-and-above($break-small) {
+      font-size: ms(0);
+    }
+  }
+}
+
+.cta-banner--hundred-night {
+  padding-top: ms(11);
+
+  .cta-heading {
+    margin-bottom: ms(4);
+  }
+}
+
+.landing-footer {
+  padding: ms(3) 0;
+  text-align: center;
+
+  [data-icon] {
+    margin-bottom: ms(5);
+    fill: color(background);
+  }
+
+  h2,
+  h3 {
+    font-size: ms(2);
+    margin-bottom: ms(-3);
+  }
+}

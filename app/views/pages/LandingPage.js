@@ -7,6 +7,7 @@ import { BasePage } from 'assets/js/pages/BasePage.js';
 import { StarryBackground } from 'nightshade-core/src/backgrounds/StarryBackground.js';
 import { Gallery } from 'nightshade-core/src/gallery/Gallery.js';
 import waypoints from 'waypoints/lib/noframework.waypoints.min.js';
+import imgix from 'imgix.js';
 
 export const LandingPage = {
 
@@ -17,6 +18,7 @@ export const LandingPage = {
     StarryBackground.init();
     Gallery.init();
     this.setWaypoints();
+    this.setupResponsiveImages();
   },
 
   /**
@@ -73,6 +75,34 @@ export const LandingPage = {
         navReviews.classList.toggle(`is-selected`);
       },
       offset: navHeight,
+    });
+  },
+
+  setupResponsiveImages() {
+    imgix.onready(function() {
+      imgix.fluid({
+        fluidClass: `imgix-fluid--cost`,
+        updateOnResize: true,
+        updateOnResizeDown: true,
+        updateOnPinchZoom: true,
+        pixelStep: 10,
+        autoInsertCSSBestPractices: true,
+        onChangeParamOverride: () => {
+          let fluidParams = {
+            rect: `unset`,
+            auto: `format`,
+          };
+
+          if (window.matchMedia(`(max-width: 600px)`).matches) {
+            fluidParams = {
+              rect: `900,650,3800,3800`,
+              auto: `format`,
+            };
+          }
+
+          return fluidParams;
+        },
+      });
     });
   },
 

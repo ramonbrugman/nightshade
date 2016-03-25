@@ -1,7 +1,14 @@
-import Cookies from 'js-cookie';
+/**
+ * @module AnalyticsModule.js
+ * This module runs code to check for landings from email campaigns and to
+ * initialize scroll and window-size tracking.
+ *
+ * If you add functionality, please note it here!
+ */
+
+import Cookies from 'js-cookie'; 
 
 export const AnalyticsModule = {
-  /* global _etmc, _wq */
 
   init() {
     this.Cookie = Cookies;
@@ -9,6 +16,10 @@ export const AnalyticsModule = {
     this.initDebouncedTracking();
   },
 
+  /**
+   * Looks for url parameters that indicate a Casper marketing email,
+   * and, if they're present, stores them in a cookie.
+   */
   trackMarketingCloudLanding() {
     const landingParams = this.getUrlParams();
 
@@ -28,6 +39,10 @@ export const AnalyticsModule = {
     }
   },
 
+  /**
+   * Wrapper method that triggers initial window size and scroll depth calls as
+   * well as initializing debounced tracking of both events.
+   */
   initDebouncedTracking() {
     // Scrolling
     this.scrollTrack(true);
@@ -45,6 +60,10 @@ export const AnalyticsModule = {
     }
   },
 
+  /**
+   * Sends tracking scroll event to segment via analytics.js object.
+   * @param {bool} initialFlag - true => "Initial Call", false => "Subsequent Call"
+   */
   scrollTrack(initialFlag) {
     const scrollTop = window.pageYOffset;
     const pageHeight = document.documentElement.offsetHeight;
@@ -63,6 +82,10 @@ export const AnalyticsModule = {
     }
   },
 
+  /**
+   * Sends resize tracking event to segment via analytics.js object.
+   * @param {bool} initialFlag - true => "Initial Call", false => "Subsequent Call"
+   */
   resizeTrack(initialFlag) {
     analytics.track((initialFlag ? `Initial Window Size` : `Resize`), {
       windowHeight: document.documentElement.clientHeight,
@@ -73,6 +96,12 @@ export const AnalyticsModule = {
     });
   },
 
+  /**
+   * Helper method to effectively debounce callback.
+   * @param {event} event - Event to listen for and debounce
+   * @param {function} cb - Callback to call on event.  
+   * @param {int} delay - Number of ms to wait without even before calling cb.
+   */
   delayedEventHandler(event, cb, delay){
     let delayTimer;
 
@@ -86,6 +115,11 @@ export const AnalyticsModule = {
     });
   },
 
+  /**
+   * Helper method to get url params.
+   * @return {object} Object mapping url param keys to values. 
+   * @todo move to utils module?
+   */
   getUrlParams() {
     const query = window.location.search.substring(1);
     const rawVars = query.split(`&`);

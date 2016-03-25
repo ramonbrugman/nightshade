@@ -7,7 +7,6 @@ export const AnalyticsModule = {
     this.Cookie = Cookies;
     this.trackMarketingCloudLanding();
     this.initDebouncedTracking();
-    this.checkForOptimizelyRedirectExperiment();
   },
 
   trackMarketingCloudLanding() {
@@ -85,31 +84,6 @@ export const AnalyticsModule = {
         cb(false);
       }, delay);
     });
-  },
-
-  checkForOptimizelyRedirectExperiment() {
-    if (window.optimizely) {
-      const data = window.optimizely.data;
-
-      if (data && data.state) {
-        const redirectObj = data.state.redirectExperiment;
-
-        if (redirectObj) {
-          const variationId = redirectObj.variationId;
-          const experimentId = redirectObj.experimentId;
-          const variationName = data.state.variationNamesMap[experimentId];
-          const experimentName = data.experiments[experimentId].name;
-
-          analytics.track(`Experiment Viewed`, {
-            variationName,
-            variationId,
-            experimentId,
-            experimentName,
-            nonInteraction: 1,
-          });
-        }
-      }
-    }
   },
 
   getUrlParams() {

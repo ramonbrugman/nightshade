@@ -21,6 +21,27 @@
 
   .hero--featured {
     background-position: center bottom;
+    min-height: 26rem;
+
+    @include respond-at-and-above($break-small) {
+      min-height: 30rem;
+    }
+
+    @include respond-at-and-above($break-medium) {
+      min-height: 36rem;
+    }
+
+    @include respond-at-and-above(1150px) {
+      min-height: 39rem;
+    }
+
+    @include respond-at-and-above($break-xl) {
+      min-height: 46rem;
+    }
+
+    @include respond-at-and-above($break-gigantic) {
+      min-height: 50rem;
+    }
   }
 
   .hero-heading {
@@ -68,6 +89,7 @@
   .nav-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 25%;
     border-right: 1px solid color(medium-border);
 

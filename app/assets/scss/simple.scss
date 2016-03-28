@@ -17,11 +17,14 @@
 
   .landing-header {
     position: relative;
+    background-color: color(#d6f1fc);
   }
 
   .hero--featured {
-    background-position: center bottom;
+    max-width: 1800px;
     min-height: 26rem;
+    margin: 0 auto;
+    background-position: center bottom;
 
     @include respond-at-and-above($break-small) {
       min-height: 30rem;

@@ -9,7 +9,6 @@ import feature from 'viljamis/feature.js';
 import attachFastClick from 'fastclick';
 import pepjs from 'pepjs';
 import { ImgixSettings } from 'node_modules/@casper/nightshade-core/src/media/ImgixSettings';
-import { AnalyticsModule } from '/app/assets/js/components/AnalyticsModule.js'
 
 export const BasePage = {
 
@@ -18,7 +17,6 @@ export const BasePage = {
     console.log(`base page activated`);
 
     ImgixSettings.init();
-    AnalyticsModule.init();
 
     /**
      * Checks for browser support of the `touch-action` CSS property and if so,

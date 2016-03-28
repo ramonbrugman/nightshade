@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layout/_base_layout.html" %}
 
 {% from 'nightshade-core/src/footer/footer.macros.html' import footer %}
 
@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block body_content %}
-<main class="wrapper" role="main">
+<main role="main">
   {% block page_content %}
   {% endblock %}
 </main>

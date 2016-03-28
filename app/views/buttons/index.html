@@ -2,27 +2,28 @@
 
 {% set data = {
   name: "Buttons",
-  description: "A Button clearly communicates what action will occur when the user touches it.",
+  description: "A button indicates what action will take place once selected by user. Button variants are broken up by color and size.
+",
   variants: [
     {
       name: "Primary",
-      description: "Short description of type of button, what hex color to use and when to use.",
+      description: "A rectangular button with rounded corners set in primary blue color. Primary buttons are most commonly used throughout our site to emphasize call to actions.",
       macro: "{{ button('Primary Button') }}",
       html: '<button type="button" data-button="primary">Primary Button</button>',
       rules: {
         list: {
-          typography: "Button copy is set in H4. Keep character count under XX.",
-          specs: "Height is XXpx with XXpx on each side of copy. Height decreases to XXpx for mobile.",
-          color: "Button color is Primary-Blue. Copy is set in white and background color is white or gray no darker than GrayX."
+          typography: "Text is set in H4 style with white text. Try to keep character count under 16.",
+          specs: "Button height is 48px for all devices. Padding to left and right of text is 40px for desktop and 24px for mobile.",
+          color: "Button fill is Primary-Blue. Background color is white or gray no darker than Gray7."
         },
         examples: [
           {
             html: '<button type="button" data-button="primary" class="body--serif">Primary Button</button>',
-            description: "Never use Chronicle or Calibre. Copy should not run into two lines."
+            description: "Never use Chronicle or Calibre. Copy should not run into two lines. This applies for all buttons."
           },
           {
             html: '<button type="button" data-button="primary" class="gray">Primary Button</button>',
-            description: "Any other text color or background color will not be fully color accessible."
+            description: "Other text or background color will not be fully color accessible. This applies for all buttons."
           }
         ]
       },

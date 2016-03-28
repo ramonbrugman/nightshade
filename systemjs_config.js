@@ -21,6 +21,7 @@ System.config({
     "fastclick": "npm:fastclick@1.0.6",
     "fs": "github:jspm/nodelibs-fs@0.1.2",
     "imgix.js": "npm:imgix.js@2.1.0",
+    "js-cookie": "npm:js-cookie@2.1.0",
     "path": "github:jspm/nodelibs-path@0.1.0",
     "pepjs": "npm:pepjs@0.4.1",
     "request": "npm:request@2.67.0",
@@ -484,6 +485,10 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "jsbn": "npm:jsbn@0.1.0"
+    },
+    "npm:js-cookie@2.1.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "url": "github:jspm/nodelibs-url@0.1.0"
     },
     "npm:jsonpointer@2.0.0": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"

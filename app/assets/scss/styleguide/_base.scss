@@ -1,5 +1,8 @@
 .container {
   padding-top: 4rem !important;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .nightshade-header {
@@ -26,8 +29,18 @@
   }
 }
 
-.link-arrow {
+.nightshade-content {
+  flex: 1;
+}
 
+.nightshade-footer {
+  font-size: ms(-1);
+  background: color(light-background);
+  padding: ms(0) ms(1) 0;
+}
+
+
+.link-arrow {
   &:hover {
     .icon-arrow {
       transform: translateX(3px);

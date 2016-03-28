@@ -57,7 +57,13 @@
     </ul>
   </nav>
 
-  {% block page_content %}{% endblock %}
+  <div class="nightshade-content">
+    {% block page_content %}{% endblock %}
+  </div>
+
+  <footer class="nightshade-footer" role="contentinfo">
+    <p>Copyright &copy; <a href="https://casper.com" target="_blank">Casper</a>. All rights reserved. Version 0.24</p>
+  </footer>
 {% endblock %}
 
 {% block module_loader %}

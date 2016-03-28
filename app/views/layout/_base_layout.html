@@ -5,6 +5,7 @@
   <title>{% block title %}{% endblock %}</title>
   <meta name="description" content="{{ page_description }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if meta_noindex %}<meta name="robots" content="noindex">{% endif %}
   {% block meta_tags %}{% endblock %}
 
   <script src="/app/assets/js/vendor/nunjucks-slim.min.js"></script>

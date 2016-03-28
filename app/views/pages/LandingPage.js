@@ -1,6 +1,7 @@
 /**
  * @overview Sets up the Credibility Landing page modules
  * @module LandingPage.js
+ * @todo Refactor waypoints and nav link binding to be less page-specific
 */
 
 import { BasePage } from 'assets/js/pages/BasePage.js';
@@ -131,7 +132,7 @@ export const LandingPage = {
             auto: `format`,
           };
 
-          if (window.matchMedia(`(max-width: 600px)`).matches) {
+          if (window.matchMedia(`(max-width: 37.5em)`).matches) {
             fluidParams = {
               rect: `900,650,3800,3800`,
               auto: `format`,

@@ -16,11 +16,26 @@ export const LandingPage = {
   __proto__: BasePage,
 
   init() {
+    this.nav = document.getElementById(`landing-nav`);
+    this.navHeight = null;
+    this.scrollOffset = null;
+
     this.__proto__.init();
     StarryBackground.init();
     Gallery.init();
+    this.setNavAndOffsetHeight();
     this.setWaypoints();
+    this.handleResize();
     this.setupResponsiveImages();
+  },
+
+  /**
+   * Sets the nav height and scroll offset on load, and when window is resized
+   * @returns {void}
+  */
+  setNavAndOffsetHeight() {
+    this.navHeight = this.nav.offsetHeight;
+    this.scrollOffset = this.navHeight > 0 ? (this.navHeight - 1) : 0;
   },
 
   /**
@@ -30,28 +45,25 @@ export const LandingPage = {
    * @returns {void}
   */
   setWaypoints() {
-    const nav = document.getElementById(`landing-nav`);
-    const elAfterNav = nav.nextElementSibling;
+    const elAfterNav = this.nav.nextElementSibling;
     const navEngineering = document.getElementById(`nav-engineering`);
     const navCost = document.getElementById(`nav-cost`);
     const navReviews = document.getElementById(`nav-reviews`);
     const navConvenience = document.getElementById(`nav-convenience`);
-    const navHeight = nav.offsetHeight;
-    const scrollOffset = navHeight - 1;
 
     const waypointEngineering = new Waypoint({
       element: document.getElementById(`engineering`),
       handler: (direction) => {
-        nav.classList.toggle(`is-sticky`);
+        this.nav.classList.toggle(`is-sticky`);
         navEngineering.classList.toggle(`is-selected`);
 
         if (direction === `down` && window.matchMedia(`(min-width: 769px)`).matches) {
-          elAfterNav.style.marginTop = `${navHeight}px`;
+          elAfterNav.style.marginTop = `${this.navHeight}px`;
         } else {
           elAfterNav.removeAttribute(`style`);
         }
       },
-      offset: navHeight,
+      offset: this.navHeight,
     });
 
     const waypointCost = new Waypoint({
@@ -60,7 +72,7 @@ export const LandingPage = {
         navCost.classList.toggle(`is-selected`);
         navEngineering.classList.toggle(`is-selected`);
       },
-      offset: navHeight,
+      offset: this.navHeight,
     });
 
     const waypointReviews = new Waypoint({
@@ -69,7 +81,7 @@ export const LandingPage = {
         navReviews.classList.toggle(`is-selected`);
         navCost.classList.toggle(`is-selected`);
       },
-      offset: navHeight,
+      offset: this.navHeight,
     });
 
     const waypointConvenience = new Waypoint({
@@ -78,38 +90,51 @@ export const LandingPage = {
         navConvenience.classList.toggle(`is-selected`);
         navReviews.classList.toggle(`is-selected`);
       },
-      offset: navHeight,
+      offset: this.navHeight,
     });
 
     // Bind smooth scrolling animation when beacon and nav links are clicked
     document.getElementById(`beacon-engineering`).addEventListener(`click`, (e) => {
-      let offset = 0;
       e.preventDefault();
-
-      if (window.matchMedia(`(min-width: 769px)`).matches) {
-        offset = scrollOffset;
-      }
-      ScrollTo.scroll({scrollTarget: waypointEngineering.element, offset: offset});
+      ScrollTo.scroll({scrollTarget: waypointEngineering.element, offset: this.scrollOffset});
     });
 
     navEngineering.addEventListener(`click`, (e) => {
       e.preventDefault();
-      ScrollTo.scroll({scrollTarget: waypointEngineering.element, offset: scrollOffset});
+      ScrollTo.scroll({scrollTarget: waypointEngineering.element, offset: this.scrollOffset});
     });
 
     navCost.addEventListener(`click`, (e) => {
       e.preventDefault();
-      ScrollTo.scroll({scrollTarget: waypointCost.element, offset: scrollOffset});
+      ScrollTo.scroll({scrollTarget: waypointCost.element, offset: this.scrollOffset});
     });
 
     navReviews.addEventListener(`click`, (e) => {
       e.preventDefault();
-      ScrollTo.scroll({scrollTarget: waypointReviews.element, offset: scrollOffset});
+      ScrollTo.scroll({scrollTarget: waypointReviews.element, offset: this.scrollOffset});
     });
 
     navConvenience.addEventListener(`click`, (e) => {
       e.preventDefault();
-      ScrollTo.scroll({scrollTarget: waypointConvenience.element, offset: scrollOffset});
+      ScrollTo.scroll({scrollTarget: waypointConvenience.element, offset: this.scrollOffset});
+    });
+  },
+
+  /**
+   * Refreshes waypoints and sets nav and offset height when window is resized
+   * @returns {void}
+  */
+  handleResize() {
+    let resizeTimer;
+
+    window.addEventListener(`resize`, () => {
+      // mimics debouncing event, with a 250ms delay
+      clearTimeout(resizeTimer);
+
+      resizeTimer = setTimeout(() => {
+        this.setNavAndOffsetHeight();
+        Waypoint.refreshAll();
+      }, 250);
     });
   },
 

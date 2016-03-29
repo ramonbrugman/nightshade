@@ -16,6 +16,12 @@
 {% set meta_noindex = true %}
 {% set meta_social_image = 'landing/most-awarded-social.jpg' %}
 
+{% block page_styles %}
+<!--[if lte IE 9]>
+<link href="/dist/assets/css/simple-ie9.css" media="screen" rel="stylesheet">
+<![endif]-->
+{% endblock %}
+
 {% block page_content %}
 <article class="credibility-landing">
 

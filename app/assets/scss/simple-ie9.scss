@@ -1,0 +1,63 @@
+@import 'modular_scale';
+@import 'core_imports';
+
+@mixin ie-vertical-align {
+  position: relative\9;
+  top: 50% \9;
+  transform: translateY(-50%) \9;
+}
+
+// IE9 styles for Credibility Landing
+.hero-heading,
+.callout-heading,
+.press-quote-copy,
+.content-panel-content-body,
+.block-item-description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.landing-nav {
+  font-size: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: ms(0);
+}
+
+.content-panel {
+  @include clearfix;
+}
+
+.content-panel-image {
+  float: left;
+}
+
+.content-panel-image--right {
+  float: right;
+
+  + .content-panel-content {
+    float: left;
+  }
+}
+
+.content-panel-content {
+  float: right;
+  height: 49vw;
+}
+
+.content-panel-content-body {
+  @include ie-vertical-align;
+}
+
+.block-group {
+  font-size: 0;
+}
+
+.block-item {
+  display: inline-block;
+  width: percentage(1 / 3);
+  font-size: ms(0);
+}

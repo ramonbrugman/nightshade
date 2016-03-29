@@ -67,13 +67,20 @@
     },
     {
       name: "Ghost",
-      description: "Short description of type of button, what hex color to use and when to use.",
+      description: "A rectangular button with rounded corners and no fill. Ghost buttons can be used when too many call to actions are present on page or if intention is to appear less prominent on page.",
       macro: "{{ button('Ghost Button', style='ghost') }}",
-      html: '<button type="button" data-button="ghost">Ghost Button</button>'
+      html: '<button type="button" data-button="ghost">Ghost Button</button>',
+      rules: {
+        list: {
+          typography: "Text is set in H4 style with Gray1 text. Try to keep character count under 16.",
+          specs: "Button height is 48px for all devices. Padding to left and right of text is 40px for desktop and 24px for mobile.",
+          color: "If background color is white or Gray 9, button stroke is Gray5. If background color is Gray8, button stroke is Gray4."
+        }
+      }
     },
     {
       name: "Icons",
-      description: "Short description of type of button, what hex color to use and when to use.",
+      description: "A primary button with an icon. Icon is always outlined with white stroke and positioned to the left of copy. ",
       macro: "{{ button('Live Chat', icon='speechbubble') }}",
       html: '<button type="button" data-button="primary">
   <span data-icon="speechbubble" data-size="default">
@@ -82,13 +89,27 @@
     </svg>
   </span>
   Live Chat
-</button>'
+</button>',
+      rules: {
+        list: {
+          typography: "Text is set in H4 style with white text. Try to keep character count under 12.",
+          specs: "Button height is 65px for all devices. Button becomes full width for mobile.",
+          color: "Button height is 65px for all devices. Button becomes full width for mobile."
+        }
+      }
     },
     {
       name: "Play",
-      description: "Short description of type of button, what hex color to use and when to use.",
+      description: "A ghost button with a play icon positioned to the left of copy. Will usually direct user to new page.",
       macro: "{{ button('Play Button', style='play') }}",
-      html: '<button type="button" data-button="play">Play Button</button>'
+      html: '<button type="button" data-button="play">Play Button</button>',
+      rules: {
+        list: {
+          typography: "Text is set in H4 style with primary text. Try to keep character count under 18.",
+          specs: "Button height is 56px for all devices.",
+          color: "The stoke outline is Gray5 with Gray9 fill. Background color behind button is white or gray no darker than Gray8."
+        }
+      }
     },
     {
       name: "Modifiers",

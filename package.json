@@ -42,8 +42,7 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-register": "^6.3.13",
     "normalize.css": "^3.0.3",
-    "nunjucks": "^2.2.0",
-    "svg4everybody": "^2.0.1"
+    "nunjucks": "^2.2.0"
   },
   "jspm": {
     "configFile": "systemjs_config.js",
@@ -56,6 +55,7 @@
       "pepjs": "npm:pepjs@^0.4.1",
       "rx": "npm:rx@^4.0.7",
       "rx-dom": "npm:rx-dom@^7.0.3",
+      "svg4everybody": "npm:svg4everybody@^2.0.3",
       "then-request": "npm:then-request@^2.1.1",
       "viljamis/feature.js": "github:viljamis/feature.js@^1.0.1",
       "waypoints": "npm:waypoints@^4.0.0"

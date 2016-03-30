@@ -9,6 +9,18 @@
 {% from 'nightshade-core/src/beacon/beacon.macros.html' import beacon %}
 {% from 'nightshade-core/src/icons/icons.macros.html' import svg, icon %}
 {% from 'nightshade-core/src/reviews/reviews.macros.html' import star_rating %}
+{% from 'nightshade-core/src/gallery/gallery.macros.html' import gallery %}
+
+{% set page_title = 'The Most Awarded Mattress Of The Century' %}
+{% set page_description = 'An obsessively engineered mattress at a shockingly fair price. Try sleeping on the top-rated Casper for 100 nights with free delivery and painless returns.' %}
+{% set meta_noindex = true %}
+{% set meta_social_image = 'landing/most-awarded-social.jpg' %}
+
+{% block page_styles %}
+<!--[if lte IE 9]>
+<link href="/dist/assets/css/simple-ie9.css" media="screen" rel="stylesheet">
+<![endif]-->
+{% endblock %}
 
 {% block page_content %}
 <article class="credibility-landing">
@@ -16,11 +28,11 @@
   <div class="landing-header">
     {{ hero(
       'THE CASPER IS NOW THE MOST AWARDED MATTRESS OF THE CENTURY',
-      background_path='product/mattress/casper-mattress-hero.jpg',
+      background_path='product/mattress/casper-mattress-hero.jpg?auto=format&fit=crop&crop=bottom&q=90',
       featured=true
     ) }}
 
-    {{ beacon(href='#engineering') }}
+    {{ beacon(href='#engineering', id='beacon-engineering') }}
   </div>
 
   <nav class="landing-nav" id="landing-nav">
@@ -34,7 +46,7 @@
 
   {% call content_panel(
     'IT’S OBESESSIVELY ENGINEERED FOR OUTRAGEOUS COMFORT…',
-    image_path='landing/mattress-testing.jpg',
+    image_path='landing/mattress-testing.jpg?auto=format&q=80',
     image_description='Casper Mattress Being Tested',
     image_position='right',
     class='content-panel--engineering',
@@ -53,8 +65,9 @@
 
   {% call content_panel(
     'OUR RADICAL BUSINESS MODEL PASSES THE SAVINGS TO YOU',
-    image_path='landing/mattress-cost.jpg',
+    image_path='landing/mattress-cost.jpg?auto=format&q=80',
     image_description='Casper Mattress Cost Graph',
+    imgix_class='imgix-fluid--cost',
     id='cost'
   ) %}
     <p>We design, develop, and manufacture the Casper in the USA. Without the inefficiencies of showroom real estate and salespeople, we sell our mattress for ⅓ of what it costs in the traditional model.</p>
@@ -62,7 +75,7 @@
 
   {% call content_panel(
     'AND EVERYONE AGREES—WE’RE THE BEST IN BED',
-    image_path='landing/casper-awards.jpg',
+    image_path='landing/casper-awards.jpg?auto=format&q=80',
     image_description='Casper Mattress Box With Awards Trophy',
     image_position='right',
     class='content-panel--reviews',
@@ -72,7 +85,23 @@
     <p class="description">An average of 4.5/5 according to more than 3,000 reviews</p>
   {% endcall %}
 
-  {{ press_quote('Changing the way people shop for mattresses', logo='press-nyt') }}
+  {% call gallery(autoplay=5000, arrows=false, class='gallery--quotes') %}
+    {{ press_quote(
+      'Changing the way people shop for mattresses',
+      logo='press-nyt',
+      class='gallery-slide'
+    ) }}
+    {{ press_quote(
+      'Customer expectations of mattress quality and delivery standards have been refreshed',
+      logo='fastcompany-small',
+      class='gallery-slide'
+    ) }}
+    {{ press_quote(
+      'Supremely comfortable',
+      logo='wired-small',
+      class='gallery-slide'
+    ) }}
+  {% endcall %}
 
   {% call callout(
     'PLUS, WE MADE IT SO EASY TO BUY YOU CAN DO IT WITH YOUR EYES CLOSED',
@@ -88,9 +117,9 @@
 
   {{ cta_banner(
     'TRY CASPER FOR 100 NIGHTS',
-    cta='UPGRADE YOUR MATTRESS TODAY',
+    cta='SEE THE MATTRESS',
     href='/mattresses',
-    background_path='landing/casper-bed-couple.jpg',
+    background_path='landing/casper-bed-couple.jpg?auto=format&fit=crop&q=90',
     large_background=true,
     class='cta-banner--hundred-night'
   ) }}
@@ -101,7 +130,7 @@
 {% block footer_content %}
   <div class="landing-footer">
     {{ icon('ear', size='large') }}
-    <h2>QUESTIONS? WE'RE ON CALL</h2>
+    <h2>QUESTIONS? WE’RE ON CALL</h2>
     <h3>+1 888-498-0003</h3>
   </div>
 {% endblock %}

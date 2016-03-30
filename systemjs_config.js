@@ -27,6 +27,7 @@ System.config({
     "request": "npm:request@2.67.0",
     "rx": "npm:rx@4.0.7",
     "rx-dom": "npm:rx-dom@7.0.3",
+    "svg4everybody": "npm:svg4everybody@2.0.3",
     "then-request": "npm:then-request@2.1.1",
     "viljamis/feature.js": "github:viljamis/feature.js@1.0.1",
     "waypoints": "npm:waypoints@4.0.0",

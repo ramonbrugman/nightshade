@@ -17,17 +17,64 @@
 
   .landing-header {
     position: relative;
+    background-color: color(#d6f1fc);
   }
 
   .hero--featured {
+    max-width: 1600px;
+    min-height: 26rem;
+    margin: 0 auto;
     background-position: center bottom;
+
+    @include respond-at-and-above($break-small) {
+      min-height: 30rem;
+      padding-top: ms(9);
+    }
+
+    @include respond-at-and-above($break-medium) {
+      min-height: 36rem;
+    }
+
+    @media (min-width: $break-medium) and (orientation: portrait) {
+      padding-top: 20vh;
+    }
+
+    @include respond-at-and-above($break-large) {
+      padding-top: 13vh;
+    }
+
+    @include respond-at-and-above(1150px) {
+      min-height: 39rem;
+    }
+
+    @include respond-at-and-above($break-xl) {
+      min-height: 46rem;
+      padding-top: 10vh;
+    }
+
+    @include respond-at-and-above($break-gigantic) {
+      max-width: 1800px;
+      min-height: 50rem;
+    }
   }
 
   .hero-heading {
     max-width: 13em;
     color: color(primary);
 
+    @include respond-at-and-above($break-tiny + 1) {
+      font-size: ms(2);
+    }
+
+    @include respond-at-and-above($break-414) {
+      max-width: 16em;
+    }
+
     @include respond-at-and-above($break-small) {
+      max-width: 24em;
+    }
+
+    @include respond-at-and-above($break-medium) {
       max-width: 16em;
       font-size: ms(4);
     }
@@ -36,7 +83,7 @@
       max-width: 24em;
     }
 
-    @include respond-at-and-above($break-xl) {
+    @include respond-at-and-above($break-gigantic) {
       font-size: ms(5);
     }
   }
@@ -68,6 +115,7 @@
   .nav-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 25%;
     border-right: 1px solid color(medium-border);
 
@@ -232,15 +280,42 @@
   }
 }
 
+.gallery--quotes {
+
+  .press-quote {
+    padding-bottom: ms(9);
+  }
+}
+
 .cta-banner--hundred-night {
-  padding-top: ms(11);
+  min-height: 25rem;
+  padding-top: ms(6);
+
+  @include respond-at-and-above($break-small) {
+    padding-top: 11vh;
+  }
+
+  @include respond-at-and-above($break-medium) {
+    padding-top: 14vh;
+  }
 
   .cta-heading {
-    margin-bottom: ms(4);
+    max-width: 10em;
+
+    @include respond-at-and-above($break-mobile) {
+      max-width: none;
+    }
+
+    @include respond-at-and-above($break-large) {
+      margin-bottom: ms(4);
+    }
   }
 }
 
 .landing-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: ms(3) 0;
   text-align: center;
 
@@ -253,5 +328,16 @@
   h3 {
     font-size: ms(2);
     margin-bottom: ms(-3);
+  }
+
+  h2 {
+
+    @include respond-below($break-mobile) {
+      max-width: 12em;
+    }
+  }
+
+  a {
+    color: color(background);
   }
 }

@@ -8,15 +8,25 @@
 import feature from 'viljamis/feature.js';
 import attachFastClick from 'fastclick';
 import pepjs from 'pepjs';
+import svg4everybody from 'svg4everybody';
 import { ImgixSettings } from 'node_modules/@casper/nightshade-core/src/media/ImgixSettings';
 
 export const BasePage = {
 
-
   init() {
     console.log(`base page activated`);
 
+    // Sets up fluid imgix images
     ImgixSettings.init();
+
+    // Create imgix instances that do not auto insert CSS best practices
+    ImgixSettings.init({
+      fluidClass: `imgix-fluid--nocss`,
+      autoInsertCSSBestPractices: false,
+    });
+
+    // Initialize svg4everybody IE polyfill
+    svg4everybody();
 
     /**
      * Checks for browser support of the `touch-action` CSS property and if so,

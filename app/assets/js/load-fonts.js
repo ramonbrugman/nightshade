@@ -2,7 +2,7 @@
  * @overview WebFont loader. Uses typography.com storefront-static package
 */
 
-WebFont.load({
+WebFontConfig = {
   custom: {
     families: [
       'Verlag A',
@@ -12,11 +12,12 @@ WebFont.load({
     ],
     urls: ['//cloud.typography.com/6021872/6049352/css/fonts.css']
   },
+  timeout: 20000,
   active: function() {
-    sessionStorage.fonts = true;
+    sessionStorage.fontsLoaded = true;
   }
-});
+};
 
-if (sessionStorage.fonts) {
-  document.documentElement.classList.add('wf-active');
+if (sessionStorage.fontsLoaded) {
+  document.documentElement.className += ' wf-active';
 }

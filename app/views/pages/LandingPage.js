@@ -157,9 +157,9 @@ export const LandingPage = {
             auto: `format`,
           };
 
-          if (window.matchMedia(`(max-width: 37.5em)`).matches) {
+          if (window.matchMedia(`(max-width: 26.2em)`).matches) {
             fluidParams = {
-              rect: `900,650,3800,3800`,
+              rect: `500,500,4000,4000`,
               auto: `format`,
             };
           }

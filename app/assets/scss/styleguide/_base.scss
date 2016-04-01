@@ -1,13 +1,8 @@
 .container {
-  padding-top: 4rem !important;
+  padding-top: 3.5rem !important;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-}
-
-p {
-  margin-bottom: 1.4em;
-  text-align: left;
 }
 
 .nightshade-header {
@@ -61,10 +56,4 @@ p {
     fill: color(text);
     transition: transform 0.15s ease-out;
   }
-}
-
-.home-blurb {
-  @include margin-auto;
-  max-width: 40em;
-  font-size: ms(1);
 }

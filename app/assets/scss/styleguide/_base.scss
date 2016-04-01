@@ -59,6 +59,7 @@
 }
 
 .home-blurb {
+  @include margin-auto;
   max-width: 40em;
   font-size: ms(1);
 }

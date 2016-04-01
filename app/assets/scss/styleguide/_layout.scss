@@ -1,4 +1,5 @@
 .r-content {
+  width: 100%;
   padding: ms(6) ms(2) ms(4);
 
   @include respond-at-and-above($break-medium) {

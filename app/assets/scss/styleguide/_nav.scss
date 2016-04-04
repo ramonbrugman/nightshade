@@ -32,16 +32,15 @@
 
 .nav-header {
   display: flex;
-  font-family: "Calibre Light";
-  font-weight: 400;
-  font-size: 1.3rem;  // using custom size
-  text-transform: none;
-  letter-spacing: size(smaller-tracking);
-  padding-bottom: ms(-1);
   align-items: center;
-  border-bottom: 1px solid color(gray--light2);
-  margin: 0 ms(1) 0;
   padding: ms(0) 0 ms(0);
+  margin: 0 ms(1) 0;
+  border-bottom: 1px solid color(gray--light2);
+}
+
+.nav-header-title {
+  margin-bottom: 0;
+  font-size: 1.3rem; // custom val move to variable TODO
 }
 
 .nav-links {

@@ -32,7 +32,11 @@
 
 .pattern-variant-description {
   margin-bottom: ms(3);
-  max-width: 51em;
+  max-width: 41em;
+
+  @include respond-at-and-above($break-large) {
+    max-width: 51em;
+  }
 }
 
 .pattern-nav {
@@ -66,7 +70,7 @@
     }
   }
 
-  @include respond-at-and-above($break-medium) {
+  @include respond-at-and-above($break-medium + 1) {
     &:not(:first-child) {
       margin-left: size(large);
     }
@@ -138,6 +142,10 @@
 
   li {
     margin: ms(-7) 0;
+  }
+
+  code {
+    font-size: 0.9rem; // unique value. @todo save to var
   }
 }
 

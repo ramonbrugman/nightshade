@@ -4,11 +4,11 @@
   font-size: ms(1);
 
   @include respond-at-and-above($break-medium) {
-    max-width: 31em;
+    max-width: 28em;
   }
 
   @include respond-at-and-above($break-large) {
-    max-width: 40em;
+    max-width: 33em;
   }
 }
 

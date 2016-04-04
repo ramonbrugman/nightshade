@@ -6,6 +6,7 @@
 */
 
 import { NightshadeBase } from 'views/layout/NightshadeBase.js';
+import { ScrollTo } from 'nightshade-core/src/animation/ScrollTo.js';
 import hljs from 'assets/js/vendor/highlight.js';
 
 export const PatternPage = {
@@ -14,8 +15,28 @@ export const PatternPage = {
 
   init() {
     this.__proto__.init();
+    this.setupSectionScrollTo();
     this.setupCodeTogglers();
     hljs.initHighlighting();
+  },
+
+  /**
+   * Adds event listeners to Pattern nav links, enabling smooth scrolling to
+   * corresponding sections
+   * @returns {void}
+  */
+  setupSectionScrollTo() {
+    const navItems = document.querySelectorAll(`.js-nav-item`);
+
+    [...navItems].forEach((el) => {
+      el.addEventListener(`click`, (e) => {
+        const scrollElId = el.getAttribute(`href`).replace(`#`, ``);
+        const scrollEl = document.getElementById(scrollElId);
+
+        e.preventDefault();
+        ScrollTo.scroll({scrollTarget: scrollEl});
+      });
+    });
   },
 
   /**

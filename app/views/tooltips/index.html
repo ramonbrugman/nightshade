@@ -56,6 +56,15 @@
           code: "import { Tooltips } from 'nightshade-core/src/tooltips/Tooltips.js';"
         }
       }
+    },
+    {
+      name: "Light Fill",
+      description: "Tooltip with light fill, for use on dark backgrounds",
+      macro: "{% call tooltip('Verified Casper Owner', style='light') %}Tooltip Trigger{% endcall %}",
+      html: '<span class="tooltip-container js-tooltip-container">
+  <span class="tooltip-toggle js-tooltip-toggle">Tooltip Trigger</span>
+  <span class="tooltip tooltip--light js-tooltip is-invisible" aria-expanded="false">Verified Casper Owner</span>
+</span>'
     }
   ]
   }

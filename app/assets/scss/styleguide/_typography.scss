@@ -29,5 +29,7 @@
 }
 
 p {
+  // This is to maintain vertical rhythm and ensure paragraph margins are
+  // equivalent to one line-height at any font-size
   margin-bottom: 1.4em;
 }

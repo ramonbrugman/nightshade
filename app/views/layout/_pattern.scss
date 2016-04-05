@@ -2,7 +2,7 @@
 .pattern {
   position: relative;
   width: 100%;
-  
+
   .heading--tertiary-light {
     margin-top: ms(3)
   }
@@ -110,6 +110,14 @@
     width: percentage(1 / 3);
     margin-bottom: ms(6);
     padding-right: ms(5);
+  }
+
+  .heading--smallcaps-light {
+
+    @include respond-between($break-medium, $break-large) {
+      font-size: ms(-1);
+      margin-bottom: ms(-4);
+    }
   }
 }
 

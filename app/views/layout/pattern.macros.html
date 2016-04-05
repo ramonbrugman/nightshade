@@ -52,7 +52,7 @@
 <pre class="pattern-usage-code"><code>{{ code }}</code></pre>
 {% endmacro %}
 
-{% macro variant_item(description, macro, html, rules=null, tech_notes=null, stylesheet_import=null, macro_import=null) %}
+{% macro variant_item(description, macro, html, rules=null, tech_notes=null, imports=null) %}
 <p class="pattern-variant-description">{{ description }}</p>
 <div class="pattern-example">
   <div class="pattern-example-display r-centered">
@@ -90,12 +90,16 @@
   {{ notes_list(tech_notes) }}
   {% endif %}
 
-  {% if stylesheet_import %}
-  {{ import_block('Stylesheet', stylesheet_import.path, stylesheet_import.code) }}
+  {% if imports.stylesheet %}
+  {{ import_block('Stylesheet', imports.stylesheet.path, imports.stylesheet.code) }}
   {% endif %}
 
-  {% if macro_import %}
-  {{ import_block('Macro', macro_import.path, macro_import.code) }}
+  {% if imports.macro %}
+  {{ import_block('Macro', imports.macro.path, imports.macro.code) }}
+  {% endif %}
+
+  {% if imports.javascript %}
+  {{ import_block('JavaScript', imports.javascript.path, imports.javascript.code) }}
   {% endif %}
 </div>
 {% endmacro %}
@@ -107,10 +111,10 @@
   {% if variant.modifiers %}
     {% for modifier in variant.modifiers %}
     <h3 class="heading--tertiary-light">{{ modifier.name }}</h3>
-    {{ variant_item(modifier.description, modifier.macro, modifier.html, modifier.rules, modifier.tech_notes, modifier.stylesheet_import, modifier.macro_import) }}
+    {{ variant_item(modifier.description, modifier.macro, modifier.html, modifier.rules, modifier.tech_notes, modifier.imports) }}
     {% endfor %}
   {% else %}
-    {{ variant_item(variant.description, variant.macro, variant.html, variant.rules, variant.tech_notes, variant.stylesheet_import, variant.macro_import) }}
+    {{ variant_item(variant.description, variant.macro, variant.html, variant.rules, variant.tech_notes, variant.imports) }}
   {% endif %}
 </section>
 {% endmacro %}

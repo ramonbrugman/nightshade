@@ -28,7 +28,7 @@
         ]
       },
       tech_notes: [
-        '<code>text</code> (required) - Text content of button, or call to action',
+        '<code>content</code> (required) - Text content of button, or call to action',
         '<code>style</code> - Button variant style, defaults to <em>primary</em>',
         '<code>size</code> - Button size modifier, accepts values <em>full</em> and/or <em>small</em>',
         '<code>type</code> - Defaults to <em>button</em>, but can also be type <em>link</em> in which case an <code>href</code> must be specified',
@@ -37,13 +37,15 @@
         '<code>class</code> - Custom CSS or JavaScript class selector',
         '<code>id</code> - Custom JavaScript ID selector'
       ],
-      stylesheet_import: {
-        path: "src/buttons/_base.scss",
-        code: "@import './node_modules/@casper/nightshade-core/src/buttons/base';"
-      },
-      macro_import: {
-        path: "src/buttons/buttons.macros.html",
-        code: "{% from 'nightshade-core/src/buttons/buttons.macros.html' import button %}"
+      imports: {
+        stylesheet: {
+          path: "src/buttons/_base.scss",
+          code: "@import './node_modules/@casper/nightshade-core/src/buttons/base';"
+        },
+        macro: {
+          path: "src/buttons/buttons.macros.html",
+          code: "{% from 'nightshade-core/src/buttons/buttons.macros.html' import button %}"
+        }
       }
     },
     {

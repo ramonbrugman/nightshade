@@ -27,13 +27,15 @@
         '<code>class</code> - Custom CSS or JavaScript class selector',
         '<code>id</code> - Custom JavaScript ID selector'
       ],
-      stylesheet_import: {
-        path: "src/banners/_base.scss",
-        code: "@import './node_modules/@casper/nightshade-core/src/banners/base';"
-      },
-      macro_import: {
-        path: "src/banners/banners.macros.html",
-        code: "{% from 'nightshade-core/src/banners/banners.macros.html' import banner %}"
+      imports: {
+        stylesheet: {
+          path: "src/banners/_base.scss",
+          code: "@import './node_modules/@casper/nightshade-core/src/banners/base';"
+        },
+        macro: {
+          path: "src/banners/banners.macros.html",
+          code: "{% from 'nightshade-core/src/banners/banners.macros.html' import banner %}"
+        }
       }
     },
     {

@@ -101,10 +101,14 @@
   @include respond-at-and-above($break-medium) {
     padding-bottom: size(large);
     padding-right: 5%;
-    border-bottom: 1px solid color(dark-border); 
+    border-bottom: 1px solid color(dark-border);
   }
 }
 
 .reviews-rating {
   text-align: left;
+
+  .popover {
+    width: 540px;
+  }
 }

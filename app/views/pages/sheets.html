@@ -76,8 +76,8 @@
 
 {% endblock %}
 
-{% block module_loader_plus %}
-System.import('views/pages/SheetsPage.js').then(function () {
-  SheetsPage.init();
-});
+{% block module_loader %}
+System.import('views/pages/SheetsPage.js').then( function (mod) {
+  mod.SheetsPage.init();
+} );
 {% endblock %}

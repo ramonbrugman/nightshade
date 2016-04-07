@@ -1,6 +1,6 @@
 {% extends "layout/_pattern.html" %}
 
-{% from 'nightshade-core/src/gallery/gallery.macros.html' import gallery %}
+{% from 'nightshade-core/src/gallery/gallery.macros.html' import gallery, gallery_image %}
 {% from 'nightshade-core/src/press_quote/quote.macros.html' import press_quote %}
 
 {% set page_title = 'Gallery' %}
@@ -13,10 +13,10 @@
     {{ press_quote('Third Quote', logo='press-nyt', class='gallery-slide') }}
   {% endcall %}
 
-  {% call gallery(autoplay=false, dots=false) %}
-    {{ press_quote('Gallery without autoplay, and no dots', logo='press-nyt', class='gallery-slide') }}
-    {{ press_quote('Second Quote', logo='press-nyt', class='gallery-slide') }}
-    {{ press_quote('Third Quote', logo='press-nyt', class='gallery-slide') }}
+  {% call gallery(image_gallery=true, draggable=true) %}
+    {{ gallery_image('showrooms/nyc/casper-nyc-showroom-bed.jpg?auto=format', image_description='Showroom Bed') }}
+    {{ gallery_image('showrooms/nyc/casper-nyc-showroom-sofa.jpg?auto=format', image_description='Showroom Sofa') }}
+    {{ gallery_image('showrooms/nyc/casper-nyc-showroom-table.jpg?auto=format', image_description='Showroom Table') }}
   {% endcall %}
 
 {% endblock %}

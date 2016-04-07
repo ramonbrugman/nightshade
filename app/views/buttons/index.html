@@ -52,7 +52,14 @@
       name: "Secondary",
       description: "Short description of type of button, what hex color to use and when to use.",
       macro: "{{ button('Secondary Button', style='secondary') }}",
-      html: '<button type="button" data-button="secondary">Secondary Button</button>'
+      html: '<button type="button" data-button="secondary">Secondary Button</button>',
+      rules: {
+        list: {
+          typography: "Text is set in H4 style with white text. Try to keep character count under 16.",
+          specs: "Button height is 48px for all devices. Padding to left and right of text is 40px for desktop and 24px for mobile.",
+          color: "Button fill is Secondary. Background color is white or gray no darker than Gray8."
+        }
+      }
     },
     {
       name: "Accent",

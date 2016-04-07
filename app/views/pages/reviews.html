@@ -39,8 +39,8 @@
 </section>
 {% endblock %}
 
-{% block module_loader_plus %}
-System.import('ReviewsPage.js').then(function () {
-  ReviewsPage.init();
-});
+{% block module_loader %}
+System.import('views/pages/ReviewsPage.js').then( function(mod) {
+  mod.ReviewsPage.init();
+} );
 {% endblock %}

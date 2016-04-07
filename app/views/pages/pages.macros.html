@@ -73,10 +73,10 @@ All
         {{ review.star_rating('blue') }}
         {{ review.stat_rating() }}
 
-        <span class="popover-container js-popover-container">
-          <span class="popover-toggle js-popover-toggle">Learn More &gt;</span>
-          {{ popover('left', 'These reviews are submitted by real Casper users. We believe that helpful information — good or bad — should be available to everyone, so we never change reviews. If you see a checkmark next to a reviewer’s name, that means we’ve confirmed that they are verified Casper purchasers..', 'js-popover') }}
-        </span>
+        {{ popover(
+          'These reviews are submitted by real Casper users. We believe that helpful information — good or bad — should be available to everyone, so we never change reviews. If you see a checkmark next to a reviewer’s name, that means we’ve confirmed that they are verified Casper purchasers..',
+          position='right'
+        ) }}
       </div>
     </div>
   </div>

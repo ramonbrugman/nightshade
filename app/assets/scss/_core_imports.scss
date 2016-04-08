@@ -1,9 +1,3 @@
-// Styles that need to be moved to global/core
-@font-face {
-  font-family: 'Calibre Light';
-  src: url('../fonts/calibre-light.otf') format('opentype');
-}
-
 // Disable 300ms delay on touch devices (move to nightshade-core?)
 .no-touch-delay {
   touch-action: manipulation;

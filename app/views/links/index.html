@@ -1,0 +1,11 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/links/links.macros.html' import link %}
+
+{% set page_title = 'Links' %}
+
+{% block pattern_content %}
+
+  {{ link('See All', href='#') }}
+
+{% endblock %}

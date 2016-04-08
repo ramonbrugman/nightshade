@@ -134,7 +134,7 @@
     }
 
     &.is-selected {
-      font-weight: 600;
+      @extend %calibre-medium;
     }
   }
 

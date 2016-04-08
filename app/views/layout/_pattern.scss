@@ -40,17 +40,12 @@
 }
 
 .pattern-nav {
-  text-transform: uppercase;
   border-bottom: 1px solid color(dark-border);
   margin-bottom: ms(6);
   padding-bottom: ms(-2);
-  font-weight: 600;
-  letter-spacing: size(medium-tracking);
-  font-size: ms(0);
 
   @include respond-at-and-above($break-mobile) {
     margin-bottom: ms(5);
-    font-size: ms(-1);
   }
 }
 
@@ -173,13 +168,14 @@
 }
 
 .pattern-usage-toggles {
+  @extend %calibre-medium;
   display: flex;
   font-size: ms(-1);
-  font-weight: 600;
+  line-height: 1;
 }
 
 .pattern-usage-toggle {
-  padding: ms(-5) ms(2);
+  padding: ms(-5) ms(2) ms(-4);
   border: 1px solid color(border);
   letter-spacing: size(small-tracking);
   transition: 0.15s background ease-out;

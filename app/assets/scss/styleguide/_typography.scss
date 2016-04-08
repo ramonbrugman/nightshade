@@ -22,10 +22,10 @@
 }
 
 .heading--smallcaps-light {
+  @extend %calibre-medium;
   font-size: ms(0);
-  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: size(medium-tracking);
+  letter-spacing: size(normal-tracking);
 }
 
 p {

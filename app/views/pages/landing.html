@@ -26,11 +26,11 @@
 <article class="credibility-landing">
 
   <div class="landing-header">
-    {{ hero(
+    {% call hero(
       'THE CASPER IS NOW THE MOST AWARDED MATTRESS OF THE CENTURY',
       background_path='product/mattress/casper-mattress-hero.jpg?auto=format&fit=crop&crop=bottom&q=90',
       featured=true
-    ) }}
+    ) %}{% endcall %}
 
     {{ beacon(href='#engineering', id='beacon-engineering') }}
   </div>

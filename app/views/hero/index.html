@@ -6,17 +6,21 @@
 
 {% block pattern_content %}
 
-  {{ hero(
+  {% call hero(
     'A Life Well Slept',
-    'The Perfect Mattress, Sheets, and Pillow for Everyone',
-    'banner/help-topbanner.jpg'
-  ) }}
+    content='The Perfect Mattress, Sheets, and Pillow for Everyone',
+    background_path='banner/help-topbanner.jpg'
+  ) %}{% endcall %}
 
-  {{ hero(
+  {% call hero('Hero With Caller Block', class='light-background') %}
+    {{ button('Hero CTA', style='secondary') }}
+  {% endcall %}
+
+  {% call hero(
     'A Life Well Slept',
-    'The Perfect Mattress, Sheets, and Pillow for Everyone',
-    'home/sandwich/casper-hero-lifestyle.jpg',
+    content='The Perfect Mattress, Sheets, and Pillow for Everyone',
+    background_path='home/sandwich/casper-hero-lifestyle.jpg',
     featured=true
-  ) }}
+  ) %}{% endcall %}
 
 {% endblock %}

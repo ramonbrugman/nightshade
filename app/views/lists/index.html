@@ -1,0 +1,59 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/lists/lists.macros.html' import list %}
+
+{% set page_title = 'Lists' %}
+
+{% set example1 = {
+  heading: "List without action link",
+  list: [
+    {
+      content: "Item one",
+      href: "#"
+    },
+    {
+      content: "Item two",
+      href: "#"
+    },
+    {
+      content: "Item three",
+      href: "#"
+    },
+    {
+      content: "Item four",
+      href: "#"
+    }
+  ]
+  }
+%}
+
+{% set example2 = {
+  heading: "List with an action link",
+  list: [
+    {
+      content: "Item one",
+      href: "#"
+    },
+    {
+      content: "Item two",
+      href: "#"
+    },
+    {
+      content: "Item three",
+      href: "#"
+    },
+    {
+      content: "See All",
+      href: "#"
+    }
+  ]
+  }
+%}
+
+{% block pattern_content %}
+
+  {{ list(example1) }}
+
+  {{ list(example2, action_link=true) }}
+
+{% endblock %}

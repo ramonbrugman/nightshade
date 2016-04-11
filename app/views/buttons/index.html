@@ -125,12 +125,12 @@
       modifiers: [
         {
           name: 'Full Width',
-          description: "A rectangular button with rounded corners that is full width of screen. Typically used when CTAs reach mobile view.",
+          description: "A rectangular button with rounded corners that is full width of screen. Most commonly used when CTAs reach mobile view.",
           macro: "{{ button('Primary Button (Full Width)', size='full') }}",
           html: '<button type="button" data-button="primary" data-size="full">Primary Button (Full Width)</button>',
           rules: {
             list: {
-              typography: "Text is set in H5 style. Try to keep character count under 26.",
+              typography: "Text is set in H4 style. Try to keep character count under 26.",
               specs: "Button height is 35px for all devices.",
               color: "Can use same color patterns used for Primary, Accent, and Ghost buttons."
             }
@@ -138,14 +138,14 @@
         },
         {
           name: 'Small Size',
-          description: "Ghost buttons ",
+          description: "Similar to standard buttons except that height is much shorter. Use when space is limited or goal is to appear less prominent. For example, can be used as a back button on mobile.",
           macro: "{{ button('Primary Button (Small)', size='small') }}",
           html: '<button type="button" data-button="primary" data-size="small">Primary Button (Small)</button>',
           rules: {
             list: {
-              typography: "Text is set in H5 style with Gray1 text.",
+              typography: "Text is set in H5 style.",
               specs: "Button height is 35px for all devices.",
-              color: "If background color is white or Gray 9, button stroke is Gray5. If background color is Gray8, button stroke is Gray4."
+              color: "Can use same color patterns used for Primary, Accent, and Ghost buttons."
             }
           }
         }

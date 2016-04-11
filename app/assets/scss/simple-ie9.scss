@@ -1,13 +1,5 @@
-// Core imports
-@import 'modular_scale';
-@import './node_modules/accoutrement-color/sass/color';
-@import './node_modules/@casper/nightshade-core/src/color/index';
-@import './node_modules/@casper/nightshade-core/src/layout/positioning_helpers';
-@import './node_modules/@casper/nightshade-core/src/utilities/queries_helpers';
-@import './node_modules/@casper/nightshade-core/src/utilities/visual_utility_helpers';
-@import './node_modules/@casper/nightshade-core/src/utilities/sizing_config';
-@import './node_modules/@casper/nightshade-core/src/layout/breakpoints_config';
-@import './node_modules/@casper/nightshade-core/src/layout/display_helpers';
+// Core config and helpers
+@import 'core_imports';
 
 // Module specific IE9 styles
 @import './node_modules/@casper/nightshade-core/src/blocks/ie_styles';

@@ -64,7 +64,14 @@
       html: '<span class="tooltip-container js-tooltip-container">
   <span class="tooltip-toggle js-tooltip-toggle">Tooltip Trigger</span>
   <span class="tooltip tooltip--light js-tooltip is-invisible" aria-expanded="false">Verified Casper Owner</span>
-</span>'
+</span>',
+      rules: {
+        list: {
+          typography: "Copy is set in Calibre in body-sans-meta with white text. Try to keep character count under 50.",
+          specs: "Top/Bottom padding is 9.259px (ms-3). Left/Right padding is 13.333px (ms-1). Tooltips with one line of copy is 35.5px tall. Tooltips with two lines of copy is 52.5px tall. Try to keep width no more than 190px.",
+          color: "If background color is White or lighter than gray—-light2, tooltip fill is Base Gray. If background color is darker than gray--light3, tooltip fill is gray—light5 with text in gray-—light1."
+        }
+      }
     }
   ]
   }

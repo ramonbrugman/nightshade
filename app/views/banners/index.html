@@ -10,8 +10,8 @@
       name: "Standard with Text",
       description: "Short description of type of banner and when to use.",
       macro: "{{ banner('Free shipping and returns on all orders') }}",
-      html: '<div data-banner>
-  <p data-banner-inner class="r-centered">Free shipping and returns on all orders</p>
+      html: '<div class="banner">
+  <p class="banner-content r-centered">Free shipping and returns on all orders</p>
 </div>',
       rules: {
         list: {
@@ -22,7 +22,7 @@
       },
       tech_notes: [
         '<code>content</code> (required) - Text content of banner, or call to action',
-        '<code>type</code> - Banner variant name',
+        '<code>background</code> - Setting to give Banner a white background fill',
         '<code>href</code> - Path for call to action link banners',
         '<code>class</code> - Custom CSS or JavaScript class selector',
         '<code>id</code> - Custom JavaScript ID selector'
@@ -41,18 +41,18 @@
     {
       name: "Standard with White Background",
       description: "Short description of type of banner and when to use.",
-      macro: "{{ banner('Free shipping and returns on all orders', type='background') }}",
-      html: '<div data-banner="background">
-  <p data-banner-inner class="r-centered">Free shipping and returns on all orders</p>
+      macro: "{{ banner('Free shipping and returns on all orders', background=true) }}",
+      html: '<div class="banner banner--background">
+  <p class="banner-content r-centered">Free shipping and returns on all orders</p>
 </div>'
     },
     {
       name: "Call to Action Link",
       description: "Short description of type of banner and when to use.",
-      macro: "{{ banner('Your question may also be answered on our FAQ page', href='/faq') }}",
-      html: '<div data-banner>
-  <p data-banner-inner class="r-centered">
-    <a class="link-arrow" href="/faq">Your question may also be answered on our FAQ page
+      macro: "{{ banner('Your question may also be answered on our FAQ page', href='#') }}",
+      html: '<div class="banner">
+  <p class="banner-content r-centered">
+    <a class="link-arrow" href="#">Your question may also be answered on our FAQ page
       <svg class="icon icon-arrow" aria-labelledby="title" role="img">
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/node_modules/@casper/nightshade-icons/dist/storefront/sprite.symbol.svg#arrow"></use>
       </svg>

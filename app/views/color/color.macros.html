@@ -1,8 +1,31 @@
-{% macro color_swatch(name, hex=null, cmyk=null) %}
-<div class="color-swatches-item">
-  <div class="color-swatches-swatch {{ name }}"></div>
-  <code class="color-swatches-name">{{ name }}</code>
-  <code class="color-swatches-hex">{{ hex }}</code>
-  <code class="color-swatches-cmyk">{{ cmyk }}</code>
-</div>
+{#
+  * @overview Macros for Colors page and swatches.
+  * @module Color
+#}
+
+{#
+  * Renders a single item tile for a given color.
+  * @param {string} name - Name of color from global colors map
+  * @param {string} [hex] - Hexadecimal code for color
+  * @param {string} [pms] - Pantone value for print colors
+#}
+{% macro color_item(name, hex, pms=null) %}
+<li class="color-group-item">
+  <div class="color-swatch {{ name }}"></div>
+  <div class="color-name">{{ name }}</div>
+  <div class="color-hex">{{ hex }}</div>
+  <div class="color-pms">{{ pms }}</div>
+</li>
+{% endmacro %}
+
+{#
+  * Renders a group of related color shades.
+  * @param {object} group - Data object for color group
+#}
+{% macro color_group(group) %}
+<ul class="color-group color-group--{{ group.name }}">
+  {% for color in group.colors %}
+   {{ color_item(color.name, color.hex, color.pms) }}
+  {% endfor %}
+</ul>
 {% endmacro %}

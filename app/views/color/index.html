@@ -1,49 +1,133 @@
 {% extends "layout/_pattern_layout.html" %}
 
-{% from 'color/color.macros.html' import color_swatch %}
+{% from 'color/color.macros.html' import color_group %}
 
 {% set page_title = 'Color' %}
 
+{% set colors = [
+  {
+    name: "gray",
+    colors: [
+      {
+        name: "gray",
+        hex: "#505050"
+      },
+      {
+        name: "gray--light1",
+        hex: "#505050"
+      },
+      {
+        name: "gray--light2",
+        hex: "#505050"
+      },
+      {
+        name: "gray--light3",
+        hex: "#505050"
+      },
+      {
+        name: "gray--light4",
+        hex: "#505050"
+      },
+      {
+        name: "gray--light5",
+        hex: "#505050"
+      },
+      {
+        name: "gray--light6",
+        hex: "#505050"
+      },
+      {
+        name: "gray--light7",
+        hex: "#505050"
+      },
+      {
+        name: "gray--light8",
+        hex: "#505050"
+      },
+      {
+        name: "gray--light9",
+        hex: "#505050"
+      }
+    ]
+  },
+  {
+    name: "primary",
+    colors: [
+      {
+        name: "primary",
+        hex: "#505050"
+      },
+      {
+        name: "primary--dark1",
+        hex: "#505050"
+      },
+      {
+        name: "primary--dark2",
+        hex: "#505050"
+      }
+    ]
+  },
+  {
+    name: "secondary",
+    colors: [
+      {
+        name: "secondary",
+        hex: "#505050"
+      },
+      {
+        name: "secondary--light1",
+        hex: "#505050"
+      },
+      {
+        name: "secondary--light2",
+        hex: "#505050"
+      }
+    ]
+  },
+  {
+    name: "accent",
+    colors: [
+      {
+        name: "accent",
+        hex: "#505050"
+      },
+      {
+        name: "accent--light1",
+        hex: "#505050"
+      },
+      {
+        name: "accent--light2",
+        hex: "#505050"
+      }
+    ]
+  },
+  {
+    name: "light-blue",
+    colors: [
+      {
+        name: "light-blue",
+        hex: "#505050"
+      },
+      {
+        name: "light-blue--light1",
+        hex: "#505050"
+      },
+      {
+        name: "light-blue--light2",
+        hex: "#505050"
+      }
+    ]
+  }
+  ]
+%}
+
 {% block pattern_content %}
-<div class="color-swatches">
-  <ul class="swatch-list grid">
-    <li>
-      {{ color_swatch('gray') }}
-      {{ color_swatch('gray--light1') }}
-      {{ color_swatch('gray--light2') }}
-      {{ color_swatch('gray--light3') }}
-      {{ color_swatch('gray--light4') }}
-    </li>
-    <li>
-      {{ color_swatch('gray--light5') }}
-      {{ color_swatch('gray--light6') }}
-      {{ color_swatch('gray--light7') }}
-      {{ color_swatch('gray--light8') }}
-      {{ color_swatch('gray--light9') }}
-    </li>
-    <li>
-      {{ color_swatch('primary') }}
-      {{ color_swatch('primary--dark1') }}
-      {{ color_swatch('primary--dark2') }}
-    </li>
-    <li>
-      {{ color_swatch('secondary') }}
-      {{ color_swatch('secondary--light1') }}
-      {{ color_swatch('secondary--light2') }}
-    </li>
-    <li>
-      {{ color_swatch('light-blue') }}
-      {{ color_swatch('light-blue--light1') }}
-      {{ color_swatch('light-blue--light2') }}
-    </li>
-    <li>
-      {{ color_swatch('accent') }}
-      {{ color_swatch('accent--light1') }}
-      {{ color_swatch('accent--light2') }}
-    </li>
-  </ul>
-  <div id="swatch-stacks"></div>
-</div>
+
+  {% for color in colors %}
+    {{ color_group(color) }}
+  {% endfor %}
+
+<div id="swatch-stacks"></div>
 {% endblock %}
 
 {% block module_loader %}

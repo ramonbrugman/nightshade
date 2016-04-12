@@ -7,26 +7,48 @@
 // Generate color classes for values in $colors map
 @include color-classes($colors);
 
-.color-swatches {
-  margin-bottom: 2em;
+.color-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: ms(3);
+  font-size: ms(0);
+  letter-spacing: size(small-tracking);
+
+  @include respond-between($break-small, $break-medium - 1) {
+    justify-content: flex-start;
+  }
 }
 
-.color-swatches-item {
-  display: inline-block;
-  vertical-align: top;
-  margin: 0 0.85rem 0.85rem;
-  text-align: left;
-  font-size: 0.85em;
+.color-group-item {
+  width: 100%;
+  margin-bottom: ms(3);
+  text-transform: uppercase;
+
+  @include respond-between($break-small, $break-medium - 1) {
+    width: 130px;
+    margin-right: ms(1);
+  }
+
+  @include respond-at-and-above($break-medium) {
+    width: 31.75%;
+
+    .color-group--gray & {
+      width: 18%;
+    }
+  }
 }
 
-.color-swatches-swatch {
-  width: 140px;
-  height: 140px;
-  margin-bottom: 0.5rem;
-}
+.color-swatch {
+  height: 130px;
+  margin-bottom: ms(0);
 
-.color-swatches-name,
-.color-swatches-hex,
-.color-swatches-cmyk {
-  display: block;
+  @include respond-at-and-above($break-medium) {
+    height: 0;
+    padding-bottom: 50%;
+
+    .color-group--gray & {
+      padding-bottom: 100%;
+    }
+  }
 }

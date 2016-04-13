@@ -1,13 +1,7 @@
 /**
  * @file Core Imports
  * @overview Core site configuration files and helpers that don't generate output
- * @todo Remove Calibre declaration once added to nightshade-core
  */
-
-@font-face {
-  font-family: 'Calibre Light';
-  src: url('../fonts/calibre-light.otf') format('opentype');
-}
 
 @import 'modular_scale';
 @import './node_modules/accoutrement-color/sass/color';

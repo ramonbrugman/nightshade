@@ -1,9 +1,20 @@
-@import 'modular_scale';
+// Core imports and base app styles
 @import 'core_imports';
+@import 'base_styles';
 
 // Files to build simple site page
-@import './node_modules/@casper/nightshade-core/src/banners/cta_banner';
-@import './node_modules/@casper/nightshade-core/src/layout/props';
+@import './node_modules/@casper/nightshade-core/src/buttons/index';
+@import './node_modules/@casper/nightshade-core/src/banners/index';
+@import './node_modules/@casper/nightshade-core/src/icons/index';
+@import './node_modules/@casper/nightshade-core/src/press_quote/index';
+@import './node_modules/@casper/nightshade-core/src/hero/index';
+@import './node_modules/@casper/nightshade-core/src/content_panel/index';
+@import './node_modules/@casper/nightshade-core/src/beacon/index';
+@import './node_modules/@casper/nightshade-core/src/callout/index';
+@import './node_modules/@casper/nightshade-core/src/blocks/index';
+@import './node_modules/@casper/nightshade-core/src/footer/index';
+@import './node_modules/@casper/nightshade-core/src/backgrounds/index';
+@import './node_modules/@casper/nightshade-core/src/gallery/index';
 @import './node_modules/@casper/nightshade-core/src/ratings_stars/index';
 
 // TODO: move $trial-blue to backgrounds, or global map?

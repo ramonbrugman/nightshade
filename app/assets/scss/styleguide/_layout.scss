@@ -1,3 +1,9 @@
+/**
+ * @file Layout
+ * @module Styleguide
+ * @overview Layout helper classes
+ */
+
 .r-content {
   width: 100%;
   padding: ms(6) ms(2) ms(4);
@@ -9,5 +15,4 @@
    @include respond-at-and-above($break-large) {
     padding: ms(10) ms(4) ms(4);
   }
-
 }

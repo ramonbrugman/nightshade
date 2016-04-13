@@ -1,14 +1,34 @@
-// CORE site configuration files
-// These files do not generate output and are used across the site
-@import 'modular_scale';
+/**
+ * @file Application
+ * @overview Imports files required to build Nightshade
+ */
+
+// Core imports and base app styles
 @import 'core_imports';
+@import "base_styles";
+
+// Import shared modules used in app
+@import './node_modules/@casper/nightshade-core/src/buttons/index';
+@import './node_modules/@casper/nightshade-core/src/banners/index';
+@import './node_modules/@casper/nightshade-core/src/icons/index';
+@import './node_modules/@casper/nightshade-core/src/forms/base';
+@import './node_modules/@casper/nightshade-core/src/popovers/index';
+@import './node_modules/@casper/nightshade-core/src/tooltips/index';
+@import './node_modules/@casper/nightshade-core/src/press_quote/index';
+@import './node_modules/@casper/nightshade-core/src/hero/index';
+@import './node_modules/@casper/nightshade-core/src/content_panel/index';
+@import './node_modules/@casper/nightshade-core/src/beacon/index';
+@import './node_modules/@casper/nightshade-core/src/callout/index';
+@import './node_modules/@casper/nightshade-core/src/blocks/index';
+@import './node_modules/@casper/nightshade-core/src/footer/index';
+@import './node_modules/@casper/nightshade-core/src/backgrounds/index';
+@import './node_modules/@casper/nightshade-core/src/gallery/index';
 
 // Local sass files that are app specific
-@import './app/views/icons/base';
-@import './app/views/color/index';
-@import './app/views/layout/pattern';
-
 @import 'styleguide/index';
 @import 'styleguide/home';
 @import 'styleguide/layout';
 
+@import './app/views/icons/base';
+@import './app/views/color/index';
+@import './app/views/layout/pattern';

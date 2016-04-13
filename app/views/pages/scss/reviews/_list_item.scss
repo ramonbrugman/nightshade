@@ -38,49 +38,6 @@
       display: inline-block;
       fill: color(gray--light3);
 
-      &:hover {
-        .review-verified-message {
-          display: block;
-        }
-      }
-
-      .review-verified-message {
-        display: none;
-        width: 160px;
-        height: 30px;
-        border-radius: size(small-corners);
-        background: black;
-        color: color(background);
-        position: absolute;
-        bottom: 100%;
-        margin-bottom: 12px;
-        padding: 0 10px;
-        left: 50%;
-        margin-left: -25px;
-        font-size: 13px;
-        font-weight: bold;
-        text-align: center;
-        pointer-events: none;
-        line-height: 32px;
-
-        &.is-revealed {
-          display: block;
-        }
-
-        &:after {
-          top: 100%;
-          border: solid transparent;
-          content: " ";
-          height: 0;
-          width: 0;
-          position: absolute;
-          pointer-events: none;
-          border-color: transparent;
-          border-top-color: black;
-          border-width: 10px;
-        }
-      }
-
       [data-icon="checkmark"] {
         vertical-align: top;
         top: 2px;
@@ -94,14 +51,6 @@
     .review-name {
       .review-verified-wrapper {
         margin-left: 1px;
-
-        .review-verified-message {
-          margin-left: -77px;
-
-          &:after {
-            left: 42%;
-          }
-        }
       }
     }
   }

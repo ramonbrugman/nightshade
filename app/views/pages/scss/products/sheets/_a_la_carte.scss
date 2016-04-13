@@ -168,7 +168,7 @@
 }
 
 .duvet-label-title {
-  font-weight: 600;
+  @extend %calibre-medium;
   position: relative;
   cursor: pointer;
 
@@ -234,8 +234,8 @@
 }
 
 .btn-sheets-customize {
+  @extend %calibre-medium;
   font-size: 14px;
-  font-weight: 600;
   color: color(text);
 
   &:hover {

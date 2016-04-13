@@ -8,7 +8,9 @@ WebFontConfig = {
       'Verlag A',
       'Verlag B',
       'Chronicle Deck A',
-      'Chronicle Deck B'
+      'Chronicle Deck B',
+      'Calibre Light',
+      'Calibre Medium'
     ],
     urls: ['//cloud.typography.com/6021872/6049352/css/fonts.css']
   },

@@ -23,6 +23,11 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/dom4/1.4.8/dom4.js" async defer></script>
   <link href="/node_modules/normalize.css/normalize.css" media="screen" rel="stylesheet">
   <link rel="preconnect" href="//cloud.typography.com/" crossorigin>
+
+  {% if favicon_path %}
+  <link rel="icon" type="image/x-icon" href="{{ favicon_path }}">
+  {% endif %}
+
   {% block base_styles %}{% endblock %}
   {% block page_styles %}{% endblock %}
 

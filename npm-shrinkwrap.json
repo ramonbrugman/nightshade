@@ -1,6 +1,6 @@
 {
   "name": "ando",
-  "version": "0.27.0",
+  "version": "0.28.0",
   "dependencies": {
     "@casper/nightshade-icons": {
       "version": "2.4.0",

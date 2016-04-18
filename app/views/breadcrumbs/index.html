@@ -1,0 +1,32 @@
+{% extends "layout/_pattern.html" %}
+
+{% from 'nightshade-core/src/breadcrumbs/breadcrumbs.macros.html' import breadcrumbs %}
+
+{% set page_title = 'Breadcrumbs' %}
+
+{% set mattress_data = [
+  {
+    content: "Mattress",
+    href: "#"
+  },
+  {
+    content: "Full Mattress",
+    href: "#"
+  }
+  ]
+%}
+
+
+
+{% block pattern_content %}
+
+  {# Default Breadcrumbs #}
+  {{ breadcrumbs(mattress_data) }}
+
+  <br>
+
+  {# Different color Breadcrumbs #}
+  {{ breadcrumbs(mattress_data, color='dark') }}
+
+
+{% endblock %}

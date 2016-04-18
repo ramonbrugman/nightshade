@@ -1,9 +1,0 @@
-/**
- * @file Modular Scale
- * @overview Initializes the Modular Scale Sass extension
- */
-
-@import './node_modules/modularscale-sass/stylesheets/modular-scale';
-
-$ms-base: 1rem;
-$ms-ratio: $minor-third;

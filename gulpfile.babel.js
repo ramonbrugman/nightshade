@@ -137,13 +137,6 @@ gulp.task('precompile', () => {
 });
 
 
-// Move fonts to dist
-gulp.task('fonts', () => {
-  return gulp.src(['./app/assets/fonts/*'])
-    .pipe(gulp.dest('./dist/assets/fonts'));
-});
-
-
 // Static server
 // @TODO fix sha error and set https: true,
 gulp.task('browser-sync', () => {
@@ -204,7 +197,7 @@ gulp.task('sassdoc', () => {
 
 
 // Start task (default gulp)
-gulp.task('default', ['precompile', 'compile', 'fonts', 'sass', 'sassdoc', 'browser-sync']);
+gulp.task('default', ['precompile', 'compile', 'sass', 'sassdoc', 'browser-sync']);
 
 
 // Build task

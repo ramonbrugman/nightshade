@@ -1,5 +1,5 @@
 // Core config and helpers
-@import 'core_imports';
+@import './node_modules/@casper/nightshade-core/src/core_imports';
 
 // Module specific IE9 styles
 @import './node_modules/@casper/nightshade-core/src/blocks/ie_styles';

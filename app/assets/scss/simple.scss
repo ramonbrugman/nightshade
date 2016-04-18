@@ -1,6 +1,6 @@
 // Core imports and base app styles
-@import 'core_imports';
-@import 'base_styles';
+@import './node_modules/@casper/nightshade-core/src/core_imports';
+@import './node_modules/@casper/nightshade-core/src/base_styles';
 
 // Files to build simple site page
 @import './node_modules/@casper/nightshade-core/src/buttons/index';

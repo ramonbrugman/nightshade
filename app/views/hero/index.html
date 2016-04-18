@@ -8,14 +8,18 @@
 
   {{ hero(
     'A Life Well Slept',
-    'The Perfect Mattress, Sheets, and Pillow for Everyone',
-    'banner/help-topbanner.jpg'
+    content='The Perfect Mattress, Sheets, and Pillow for Everyone',
+    image_path='banner/help-topbanner.jpg'
   ) }}
 
   {{ hero(
     'A Life Well Slept',
-    'The Perfect Mattress, Sheets, and Pillow for Everyone',
-    'home/sandwich/casper-hero-lifestyle.jpg',
+    content='The Perfect Mattress, Sheets, and Pillow for Everyone',
+    images={
+      largest: 'home/sandwich/casper-hero-lifestyle.jpg',
+      large: 'home/sandwich/casper-hero-lifestyle.jpg',
+      small: 'home/sandwich/casper-hero-lifestyle.jpg',
+      mobile: 'home/sandwich/casper-hero-lifestyle.jpg' },
     featured=true
   ) }}
 

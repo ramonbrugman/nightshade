@@ -31,10 +31,8 @@
     background-color: color(#d6f1fc);
   }
 
-  .hero--featured {
-    max-width: 1600px;
+  .hero-content {
     min-height: 26rem;
-    margin: 0 auto;
     background-position: center bottom;
 
     @include respond-at-and-above($break-small) {
@@ -61,11 +59,6 @@
     @include respond-at-and-above($break-xl) {
       min-height: 46rem;
       padding-top: 10vh;
-    }
-
-    @include respond-at-and-above($break-gigantic) {
-      max-width: 1800px;
-      min-height: 50rem;
     }
   }
 

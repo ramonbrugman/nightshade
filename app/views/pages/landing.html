@@ -28,7 +28,11 @@
   <div class="landing-header">
     {{ hero(
       'THE CASPER IS NOW THE MOST AWARDED MATTRESS OF THE CENTURY',
-      background_path='product/mattress/casper-mattress-hero.jpg?auto=format&fit=crop&crop=bottom&q=90',
+      images={
+        largest: 'product/mattress/casper-mattress-hero.jpg',
+        large: 'product/mattress/casper-mattress-hero.jpg',
+        small: 'product/mattress/casper-mattress-hero.jpg',
+        mobile: 'product/mattress/casper-mattress-hero.jpg' },
       featured=true
     ) }}
 

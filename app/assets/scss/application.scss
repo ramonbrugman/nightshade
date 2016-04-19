@@ -12,6 +12,7 @@
 @import './node_modules/@casper/nightshade-core/src/banners/index';
 @import './node_modules/@casper/nightshade-core/src/icons/index';
 @import './node_modules/@casper/nightshade-core/src/forms/base';
+@import './node_modules/@casper/nightshade-core/src/forms/input_group';
 @import './node_modules/@casper/nightshade-core/src/popovers/index';
 @import './node_modules/@casper/nightshade-core/src/tooltips/index';
 @import './node_modules/@casper/nightshade-core/src/press_quote/index';
@@ -23,6 +24,8 @@
 @import './node_modules/@casper/nightshade-core/src/footer/index';
 @import './node_modules/@casper/nightshade-core/src/backgrounds/index';
 @import './node_modules/@casper/nightshade-core/src/gallery/index';
+@import './node_modules/@casper/nightshade-core/src/lists/index';
+@import './node_modules/@casper/nightshade-core/src/links/index';
 
 // Local sass files that are app specific
 @import 'styleguide/index';

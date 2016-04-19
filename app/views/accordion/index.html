@@ -1,0 +1,62 @@
+{% extends "layout/_pattern_layout.html" %}
+
+{% from 'nightshade-core/src/lists/lists.macros.html' import list %}
+{% from 'nightshade-core/src/accordion/accordion.macros.html' import accordion %}
+
+{% set page_title = 'Accordion' %}
+
+{% set example = {
+
+  sections: [
+    {
+      toggle_content: "Toggle One",
+      list: [
+        {
+          content: "Item one",
+          href: "#"
+        },
+        {
+          content: "Item two",
+          href: "#"
+        },
+        {
+          content: "Item three",
+          href: "#"
+        }
+      ]
+    },
+    {
+      toggle_content: "Toggle Two",
+      list: [
+        {
+          content: "Item one",
+          href: "#"
+        },
+        {
+          content: "Item two",
+          href: "#"
+        },
+        {
+          content: "Item three",
+          href: "#"
+        }
+      ]
+    }
+    ]
+  }
+%}
+
+
+
+{% block pattern_content %}
+
+  {{ accordion(example, id="accordion", accordion_title="An accordion of links") }}
+
+{% endblock %}
+
+
+{% block inline_js %}
+  System.import('nightshade-core/src/accordion/Accordion.js').then( function(mod) {
+    mod.Accordion.init('#accordion');
+  } );
+{% endblock %}

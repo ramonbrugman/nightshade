@@ -60,7 +60,7 @@ gulp.task('icons-config', () => {
         icons.push(file.slice(0, -4));
       }
 
-      createFile(`./app/modules/icons/icons_list.js`, `export const icons_list = ` + JSON.stringify(icons));
+      createFile(`./app/views/icons/icons_list.js`, `export const icons_list = ` + JSON.stringify(icons));
     });
 });
 

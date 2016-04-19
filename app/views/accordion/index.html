@@ -50,13 +50,13 @@
 
 {% block pattern_content %}
 
-  {{ accordion(example, id="js-accordion-one", accordion_title="An accordion of links") }}
+  {{ accordion(example, id="accordion", accordion_title="An accordion of links") }}
 
 {% endblock %}
 
 
 {% block inline_js %}
   System.import('nightshade-core/src/accordion/Accordion.js').then( function(mod) {
-    mod.Accordion.init('#js-accordion-one');
+    mod.Accordion.init('#accordion');
   } );
 {% endblock %}

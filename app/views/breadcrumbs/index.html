@@ -1,4 +1,4 @@
-{% extends "layout/_pattern.html" %}
+{% extends "layout/_pattern_layout.html" %}
 
 {% from 'nightshade-core/src/breadcrumbs/breadcrumbs.macros.html' import breadcrumbs %}
 
@@ -19,7 +19,6 @@
 
 
 {% block pattern_content %}
-
   {# Default Breadcrumbs #}
   {{ breadcrumbs(mattress_data) }}
 

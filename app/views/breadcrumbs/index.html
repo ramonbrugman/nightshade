@@ -19,13 +19,12 @@
 
 
 {% block pattern_content %}
-  {# Default Breadcrumbs #}
+  {# Regular Breadcrumbs #}
   {{ breadcrumbs(mattress_data) }}
 
   <br>
 
-  {# Different color Breadcrumbs #}
-  {{ breadcrumbs(mattress_data, color='dark') }}
-
+  {# Breadcrumbs with a logo #}
+  {{ breadcrumbs(mattress_data, logo='true') }}
 
 {% endblock %}

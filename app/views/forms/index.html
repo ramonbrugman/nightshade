@@ -1,26 +1,25 @@
 {% extends "layout/_pattern_layout.html" %}
 
-{% from 'nightshade-core/src/forms/forms.macros.html' import input_button %}
+{% from 'nightshade-core/src/forms/forms.macros.html' import input_group, search_input %}
 
 {% set page_title = 'Forms' %}
 
 {% block pattern_content %}
 
   <h3>Input group with a text button</h3>
-  {{ input_button(
-    'button_one',
-    input_placeholder='Placeholder Text',
-    button_content='Submit'
+  {{ input_group(
+    'basic-input-group',
+    placeholder='Placeholder Text',
+    button_content='Submit',
+    button_style='secondary'
   ) }}
 
   <br>
 
-  <h3>Input with an icon button</h3>
-  {{ input_button(
-    'button_two',
-    input_placeholder='Placeholder Text',
-    button_style='ghost',
-    button_icon='arrow'
+  <h3>Search input group</h3>
+  {{ search_input(
+    'search-input',
+    placeholder='Search Placeholder Text'
   ) }}
 
 {% endblock %}

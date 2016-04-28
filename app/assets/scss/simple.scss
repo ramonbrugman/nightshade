@@ -17,9 +17,6 @@
 @import './node_modules/@casper/nightshade-core/src/gallery/index';
 @import './node_modules/@casper/nightshade-core/src/ratings_stars/index';
 
-// TODO: move $trial-blue to backgrounds, or global map?
-@import './node_modules/@casper/nightshade-core/src/trial_warranty/config';
-
 .container {
   padding-top: 0 !important; // Update when we revise/remove regions
 }
@@ -245,7 +242,7 @@
   }
 
   .icon {
-    fill: color($trial-blue);
+    fill: color(trial-blue);
   }
 
   .block-item:not(:last-child) {

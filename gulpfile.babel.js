@@ -7,9 +7,25 @@ import jsonSass from 'json-sass';
 import source from 'vinyl-source-stream';
 import markdown from 'nunjucks-markdown';
 import marked from 'marked';
+import dotenv from 'dotenv';
+import yargs from 'yargs';
+
+import { config } from './app_config.js';
 
 const browserSync = browsersync.create();
-const $ = require('gulp-load-plugins')();
+const $ = require('gulp-load-plugins')({
+  rename: {
+    'gulp-if': 'if'
+  }
+});
+const env = dotenv.config();
+
+
+/* Flags for gulp cli */
+const argv = yargs.argv;
+let production = argv.production;
+let staging = argv.staging;
+
 
 const file_paths =  {
     'base': './app',

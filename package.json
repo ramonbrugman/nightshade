@@ -18,10 +18,13 @@
     "@casper/nightshade-core": "github:caspersleep/nightshade-core#v2.0.0-dev",
     "browser-sync": "^2.11.1",
     "critical": "^0.7.0",
+    "dotenv": "^2.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-awspublish": "^3.0.2",
     "gulp-concat": "^2.6.0",
     "gulp-data": "^1.2.1",
+    "gulp-if": "^2.0.0",
     "gulp-load-plugins": "^1.2.2",
     "gulp-notify": "^2.2.0",
     "gulp-nunjucks": "^2.0.0",
@@ -37,7 +40,8 @@
     "modularscale-sass": "^2.1.1",
     "nunjucks-markdown": "^1.1.0",
     "sassdoc": "^2.1.19",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "yargs": "^4.6.0"
   },
   "dependencies": {
     "babel-preset-es2015": "^6.3.13",

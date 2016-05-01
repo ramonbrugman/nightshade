@@ -54,6 +54,16 @@ const createFile = (name, data) => {
 // });
 
 
+/**
+ * Create .env file
+ * @todo Make part of npm setup
+ */
+gulp.task('setup', () => {
+  fs.createReadStream('.sample-env')
+    .pipe(fs.createWriteStream('.env'));
+});
+
+
 // Generates a file of all the icons
 gulp.task('icons-config', () => {
 

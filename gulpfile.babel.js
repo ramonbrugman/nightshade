@@ -1,23 +1,15 @@
 import gulp from 'gulp';
 import browsersync from 'browser-sync';
 import fs from 'fs';
-import sass from 'gulp-sass';
-import autoprefixer from 'gulp-autoprefixer';
-import nunjucks from 'gulp-nunjucks';
-import nunjucksRender from 'gulp-nunjucks-render';
-// import mocha from 'gulp-mocha';
 import critical from 'critical';
-import sourcemaps from 'gulp-sourcemaps';
-import concat from 'gulp-concat';
-import rename from 'gulp-rename';
 import sassdoc from 'sassdoc';
 import jsonSass from 'json-sass';
 import source from 'vinyl-source-stream';
-import plumber from 'gulp-plumber';
 import markdown from 'nunjucks-markdown';
 import marked from 'marked';
 
 const browserSync = browsersync.create();
+const $ = require('gulp-load-plugins')();
 
 const file_paths =  {
     'base': './app',
@@ -40,7 +32,7 @@ const createFile = (name, data) => {
 // Run tests
 // gulp.task('test', () => {
 //   return gulp.src('./test/dropdown.js', {read: false})
-//     .pipe(mocha({
+//     .pipe($.mocha({
 //       reporter: 'nyan'
 //   }));
 // });
@@ -77,10 +69,10 @@ gulp.task('colors-config', () => {
 // Compile Sass
 gulp.task('sass', () => {
   return gulp.src(['./app/assets/scss/**/*.scss'])
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(sourcemaps.write('./maps'))
+    .pipe($.sourcemaps.init())
+    .pipe($.sass().on('error', $.sass.logError))
+    .pipe($.autoprefixer())
+    .pipe($.sourcemaps.write('./maps'))
     .pipe(gulp.dest(file_paths.css))
     .pipe(browserSync.stream());
 });
@@ -103,7 +95,7 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
 
 // Compile templates to html
 gulp.task('compile', () => {
-  const env = nunjucksRender.nunjucks.configure(['./app/views/', './node_modules/@casper/'], {watch: false});
+  const env = $.nunjucksRender.nunjucks.configure(['./app/views/', './node_modules/@casper/'], {watch: false});
 
   markdown.register(env, marked);
 
@@ -118,8 +110,8 @@ gulp.task('compile', () => {
   });
 
     return gulp.src(['./app/views/**/[^_]*.html'])
-      .pipe(plumber())
-      .pipe(nunjucksRender())
+      .pipe($.plumber())
+      .pipe($.nunjucksRender())
       .pipe(gulp.dest('./dist'));
 });
 
@@ -130,9 +122,9 @@ gulp.task('precompile', () => {
     './app/**/_*.html',
     './node_modules/@casper/nightshade-core/src/**/*.html'
     ])
-    .pipe(plumber())
-    .pipe(nunjucks())
-    .pipe(concat('templates.js'))
+    .pipe($.plumber())
+    .pipe($.nunjucks())
+    .pipe($.concat('templates.js'))
     .pipe(gulp.dest('./dist/assets/js'));
 });
 

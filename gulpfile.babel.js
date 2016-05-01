@@ -7,9 +7,25 @@ import jsonSass from 'json-sass';
 import source from 'vinyl-source-stream';
 import markdown from 'nunjucks-markdown';
 import marked from 'marked';
+import dotenv from 'dotenv';
+import yargs from 'yargs';
+
+import { config } from './app_config.js';
 
 const browserSync = browsersync.create();
-const $ = require('gulp-load-plugins')();
+const $ = require('gulp-load-plugins')({
+  rename: {
+    'gulp-if': 'if'
+  }
+});
+const env = dotenv.config();
+
+
+/* Flags for gulp cli */
+const argv = yargs.argv;
+let production = argv.production;
+let staging = argv.staging;
+
 
 const file_paths =  {
     'base': './app',
@@ -36,6 +52,16 @@ const createFile = (name, data) => {
 //       reporter: 'nyan'
 //   }));
 // });
+
+
+/**
+ * Create .env file
+ * @todo Make part of npm setup
+ */
+gulp.task('setup', () => {
+  fs.createReadStream('.sample-env')
+    .pipe(fs.createWriteStream('.env'));
+});
 
 
 // Generates a file of all the icons
@@ -184,8 +210,57 @@ gulp.task('sassdoc', () => {
   }));
 });
 
+
 // clean tasks
 // @@@ TODO: tasks to remove generated files (Dist)
+
+
+/**
+ * Task to publish dist directory to AWS.
+ * To prepare an build run `gulp build:prod`
+ */
+gulp.task('publish', () => {
+
+  /*
+    Cloudflare/front set their own max-age headers so we don't have to set a
+    far future expiry.
+   */
+  const day = 86400;
+  const future = {'Cache-Control': 'max-age=600, must-revalidate, public' };
+  const farFuture = {'Cache-Control': `max-age=${day * 365}, must-revalidate, public'`};
+  const noCache = {'Cache-Control': 'no-cache'};
+
+  const gzipTypes = '**/*.{html,css,js,svg,ico,json,txt}';
+  const cacheBustedTypes = '**/*.{css,js}';
+  const cachedTypes = '**/*.{gif,jpeg,jpg,png,svg,webp,ico,woff,woff2}';
+  const noCacheTypes = '**/*.{html,json,xml,txt}';
+  const otherTypes = [
+    '**/*',
+    `!${cacheBustedTypes}`,
+    `!${cachedTypes}`,
+    `!${noCacheTypes}`
+  ];
+
+  // Creates a new publisher using S3 options
+  // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
+  const publisher = $.awspublish.create({
+    params: {
+      region: production ? config.production.s3.region : config.staging.s3.region,
+      Bucket: production ? config.production.s3.bucket : config.staging.s3.bucket
+    },
+      "accessKeyId": env.S3_ACCESSID,
+      "secretAccessKey": env.S3_KEY
+  });
+
+  return gulp.src(`${file_paths.dest}/**/*`)
+    .pipe($.plumber())
+    .pipe($.if(gzipTypes, $.awspublish.gzip()))
+    .pipe($.if(cacheBustedTypes, publisher.publish(future)))
+    .pipe($.if(cachedTypes, publisher.publish(future)))
+    .pipe($.if(noCacheTypes, publisher.publish(future)))
+    .pipe($.if(otherTypes, publisher.publish()))
+    .pipe($.awspublish.reporter());
+});
 
 
 // Start task (default gulp)

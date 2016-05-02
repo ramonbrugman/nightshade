@@ -8,8 +8,8 @@
 import feature from 'viljamis/feature.js';
 import attachFastClick from 'fastclick';
 import pepjs from 'pepjs';
-import svg4everybody from 'svg4everybody';
 import { ImgixSettings } from 'node_modules/@casper/nightshade-core/src/media/ImgixSettings';
+import { SpriteFetcher } from 'assets/js/SpriteFetcher.js';
 
 export const BasePage = {
 
@@ -25,8 +25,7 @@ export const BasePage = {
       autoInsertCSSBestPractices: false,
     });
 
-    // Initialize svg4everybody IE polyfill
-    svg4everybody();
+    SpriteFetcher.init('/node_modules/@casper/nightshade-icons/dist/storefront/sprite.symbol.svg');
 
     /**
      * Checks for browser support of the `touch-action` CSS property and if so,

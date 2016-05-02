@@ -18,6 +18,7 @@
     "@casper/nightshade-core": "github:caspersleep/nightshade-core#v2.0.1",
     "browser-sync": "^2.11.1",
     "critical": "^0.7.0",
+    "del": "^2.2.0",
     "dotenv": "^2.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",

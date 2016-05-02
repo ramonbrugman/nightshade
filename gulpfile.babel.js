@@ -144,15 +144,13 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
  * Optimize source SVG, PNG, GIF images. Moves all images to tmp.
  */
 gulp.task('optimize:images', ['move:images'], () => {
-  return gulp.src([
-    `./app/assets/img/**/*.{svg,png,gif}`
-  ])
+  return gulp.src(config.files.src.imagesOptim)
   .pipe($.imagemin({
     interlaced: true,
     svgoPlugins: [{removeViewBox: false}],
     use: [pngquant({quality: '86'})]
   }))
-  .pipe(gulp.dest('./dist/assets/img'));
+  .pipe(gulp.dest(config.paths.tmp.images));
 });
 
 
@@ -160,8 +158,20 @@ gulp.task('optimize:images', ['move:images'], () => {
  * Moves images that cannot be optimized to tmp directory
  */
 gulp.task('move:images', () => {
-  return gulp.src(`${file_paths.src_assets}/img/**/!(*.svg|*.png|*.gif)`)
-    .pipe(gulp.dest('./dist/assets/img'));
+  return gulp.src(config.files.src.images)
+    .pipe(gulp.dest(config.paths.tmp.images));
+});
+
+
+/**
+ * Fingerprint all files in image directory. Save manifest file.
+ */
+gulp.task('rev:images', () => {
+  return gulp.src(config.files.tmp.images)
+    .pipe($.rev())
+    .pipe(gulp.dest(config.paths.build.images))
+    .pipe($.rev.manifest(config.paths.manifests.images))
+    .pipe(gulp.dest(config.paths.manifests.base));
 });
 
 

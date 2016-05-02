@@ -94,15 +94,33 @@ gulp.task('colors-config', () => {
 });
 
 
-// Compile Sass
+/**
+ * Generates CSS from Sass with sourcemaps and vendor prefixing.
+ */
 gulp.task('sass', () => {
-  return gulp.src(['./app/assets/scss/**/*.scss'])
+  return gulp.src(config.paths.src.styles)
     .pipe($.sourcemaps.init())
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.autoprefixer())
     .pipe($.sourcemaps.write('./maps'))
-    .pipe(gulp.dest(file_paths.css))
+    .pipe(gulp.dest(config.paths.tmp.styles))
     .pipe(browserSync.stream());
+});
+
+
+/**
+ * Minify and rev CSS files to dist directory. Ignores files in maps/.
+ */
+gulp.task('optimize:css', () => {
+  return gulp.src([
+    config.paths.tmp.styles
+  ])
+  .pipe($.plumber())
+  .pipe($.cssnano())
+  .pipe($.rev())
+  .pipe(gulp.dest(config.paths.build.styles))
+  .pipe($.rev.manifest(config.paths.manifests.styles))
+  .pipe(gulp.dest(config.paths.manifests.base));
 });
 
 

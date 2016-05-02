@@ -9,6 +9,7 @@ import markdown from 'nunjucks-markdown';
 import marked from 'marked';
 import dotenv from 'dotenv';
 import yargs from 'yargs';
+import pngquant from 'imagemin-pngquant';
 
 import { config } from './app_config.js';
 
@@ -33,6 +34,7 @@ const file_paths =  {
     'css': './dist/assets/css/',
     'local_sass': './app/assets/scss/',
     'module_sass': './app/modules/',
+    'src_assets': './app/assets',
     'views': './app/views/',
     'nightshade': './node_modules/@casper/nightshade-core/src/'
 };
@@ -116,6 +118,31 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
     width: 320,
     height: 480
   });
+});
+
+
+/**
+ * Optimize source SVG, PNG, GIF images. Moves all images to tmp.
+ */
+gulp.task('optimize:images', ['move:images'], () => {
+  return gulp.src([
+    `./app/assets/img/**/*.{svg,png,gif}`
+  ])
+  .pipe($.imagemin({
+    interlaced: true,
+    svgoPlugins: [{removeViewBox: false}],
+    use: [pngquant({quality: '86'})]
+  }))
+  .pipe(gulp.dest('./dist/assets/img'));
+});
+
+
+/**
+ * Moves images that cannot be optimized to tmp directory
+ */
+gulp.task('move:images', () => {
+  return gulp.src(`${file_paths.src_assets}/img/**/!(*.svg|*.png|*.gif)`)
+    .pipe(gulp.dest('./dist/assets/img'));
 });
 
 

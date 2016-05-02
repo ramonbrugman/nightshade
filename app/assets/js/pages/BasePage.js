@@ -8,7 +8,6 @@
 import feature from 'viljamis/feature.js';
 import attachFastClick from 'fastclick';
 import pepjs from 'pepjs';
-import svg4everybody from 'svg4everybody';
 import { ImgixSettings } from 'node_modules/@casper/nightshade-core/src/media/ImgixSettings';
 
 export const BasePage = {
@@ -24,9 +23,6 @@ export const BasePage = {
       fluidClass: `imgix-fluid--nocss`,
       autoInsertCSSBestPractices: false,
     });
-
-    // Initialize svg4everybody IE polyfill
-    svg4everybody();
 
     /**
      * Checks for browser support of the `touch-action` CSS property and if so,

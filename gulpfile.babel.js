@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import browsersync from 'browser-sync';
 import fs from 'fs';
 import critical from 'critical';
+import del from 'del';
 import sassdoc from 'sassdoc';
 import jsonSass from 'json-sass';
 import source from 'vinyl-source-stream';
@@ -257,8 +258,9 @@ gulp.task('sassdoc', () => {
 
 
 // clean tasks
-// @@@ TODO: tasks to remove generated files (Dist)
-
+gulp.task('clean:images', () => {
+  del(config.paths.tmp.images);
+});
 
 /**
  * Task to publish dist directory to AWS.

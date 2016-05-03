@@ -3,7 +3,8 @@ const dir = {
   src: `./app`,
   build: `./dist`,
   buildAssets: `/static-assets`,
-  manifest: `./manifests`
+  manifest: `./manifests`,
+  nightshade: `./node_modules/@casper/nightshade-core/src`
 }
 
 const paths = {
@@ -44,7 +45,12 @@ export const config = {
     },
     src: {
       imagesOptim: `${dir.src}/${paths.images}/**/*.{svg,png,gif}`,
-      images: `${dir.src}/${paths.images}/**/!(*.svg|*.png|*.gif)`
+      images: `${dir.src}/${paths.images}/**/!(*.svg|*.png|*.gif)`,
+      views: `${dir.src}/views/**/[^_]*.html`,
+      tpls: [
+        `${dir.src}/views/**/_*.html`,
+        `${dir.nightshade}/**/*.html`
+      ],
     },
   },
   "staging": {

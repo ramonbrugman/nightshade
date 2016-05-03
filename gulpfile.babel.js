@@ -175,7 +175,9 @@ gulp.task('rev:images', () => {
 });
 
 
-// Compile templates to html
+/**
+ * Compiles Nunjucks views to HTML.
+ */
 gulp.task('compile', () => {
   const env = $.nunjucksRender.nunjucks.configure(['./app/views/', './node_modules/@casper/'], {watch: false});
 
@@ -191,23 +193,22 @@ gulp.task('compile', () => {
     smartypants: false
   });
 
-    return gulp.src(['./app/views/**/[^_]*.html'])
-      .pipe($.plumber())
-      .pipe($.nunjucksRender())
-      .pipe(gulp.dest('./dist'));
+  return gulp.src(config.files.src.views)
+    .pipe($.plumber())
+    .pipe($.nunjucksRender())
+    .pipe(gulp.dest(config.paths.tmp.views));
 });
 
 
-// Precompile templates to js for rendering in the browser
+/**
+ * Precompiles Nunjucks templates for rendering via JS
+ */
 gulp.task('precompile', () => {
-  return gulp.src([
-    './app/**/_*.html',
-    './node_modules/@casper/nightshade-core/src/**/*.html'
-    ])
+  return gulp.src(config.files.src.tpls)
     .pipe($.plumber())
     .pipe($.nunjucks())
     .pipe($.concat('templates.js'))
-    .pipe(gulp.dest('./dist/assets/js'));
+    .pipe(gulp.dest(config.paths.tmp.scripts));
 });
 
 

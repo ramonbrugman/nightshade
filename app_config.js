@@ -4,7 +4,6 @@
  * @todo Move to nightshade-core
  */
 
-
 /* Convinence object for long directory names  */
 const dir = {
   nightshade: `./node_modules/@casper/nightshade-core/src`

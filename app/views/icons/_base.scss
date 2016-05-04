@@ -20,6 +20,9 @@
   margin-top: 1.5em;
 }
 
+// These svgs are exported with a stroke and need to be colored by the
+// stroke attribute in scss
+// @TODO Standardize icons to use fill
 [data-icon="arrow-circle"],
 [data-icon="search"] {
   stroke: color(black);

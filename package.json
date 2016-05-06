@@ -1,5 +1,5 @@
 {
-  "name": "ando",
+  "name": "Nightshade",
   "version": "0.29.0",
   "description": "Front-end architecture for static sites",
   "scripts": {
@@ -11,9 +11,9 @@
   "author": "Casper Dev Team",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/CasperSleep/Ando/issues"
+    "url": "https://github.com/CasperSleep/nightshade/issues"
   },
-  "homepage": "https://github.com/CasperSleep/Ando",
+  "homepage": "https://github.com/CasperSleep/nightshade",
   "devDependencies": {
     "@casper/nightshade-core": "github:caspersleep/nightshade-core#v2.0.0-dev",
     "browser-sync": "^2.11.1",

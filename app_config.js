@@ -1,69 +1,51 @@
-const dir = {
-  tmp: `./.tmp`,
-  src: `./app`,
-  build: `./dist`,
-  buildAssets: `/static-assets`,
-  manifest: `./manifests`,
-  nightshade: `./node_modules/@casper/nightshade-core/src`
-}
+/**
+ * @file Configuration for application
+ * @module config
+ * @todo Move to nightshade-core
+ */
 
-const paths = {
-  images: `assets/img`,
-  js: `assets/js`
+
+/* Convinence object for long directory names  */
+const dir = {
+  nightshade: `./node_modules/@casper/nightshade-core/src`
 }
 
 export const config = {
   paths: {
+    nightshade: `${dir.nightshade}`,
+    manifest: `./manifests`,
     tmp: {
-      base: `${dir.tmp}`,
-      styles: `${dir.tmp}/assets/css/*.css`,
-      images: `${dir.tmp}/assets/img`,
-      scripts: `${dir.tmp}/assets/js`,
-      views: `${dir.tmp}/views/`,
+      base: `./.tmp`,
+      styles: './.tmp/assets/css',
+      images: `./.tmp/assets/img`,
+      scripts: `./.tmp/assets/js`,
+      views: `./.tmp/views/`,
     },
     src: {
-      base: `${dir.src}`,
-      styles: [`${dir.src}/assets/scss/**/*.scss`],
-    },
-    build: {
-      base: `${dir.build}`,
-      styles: `${dir.build}${dir.buildAssets}/css`,
-      images: `${dir.build}${dir.buildAssets}/img`,
-      scripts: `${dir.build}${dir.buildAssets}/js`,
-      views: `${dir.build}`,
-    },
-    manifests: {
-      base: `${dir.manifest}/`,
-      styles: `rev-manifest-css.json`,
-      images: `rev-manifest-img.json`,
-      scripts: `rev-manifest-js.json`,
-    },
-  },
-  files: {
-    tmp: {
-      images: `${dir.tmp}/${paths.images}/*`
-    },
-    src: {
-      imagesOptim: `${dir.src}/${paths.images}/**/*.{svg,png,gif}`,
-      images: `${dir.src}/${paths.images}/**/!(*.svg|*.png|*.gif)`,
-      views: `${dir.src}/views/**/[^_]*.html`,
+      styles: [`app/assets/scss/**/*.scss`],
+      views: `./app/views/**/[^_]*.html`,
       tpls: [
-        `${dir.src}/views/**/_*.html`,
+        `./app/views/**/_*.html`,
         `${dir.nightshade}/**/*.html`
       ],
+      imagesOptim: `./app/assets/img/**/*.{svg,png,gif}`,
+      images: `./app/assets/img/**/!(*.svg|*.png|*.gif)`,
+    },
+    build: {
+      base: `./dist/**/*`,
+      styles: `./dist/static-assets/css`,
+      images: `./dist/static-assets/img`,
+      scripts: `./dist/static-assets/js`,
     },
   },
-  "staging": {
-    "s3": {
-      "region": "website-us-east-1",
-      "bucket": "staging-nightshade.rocks"
-    }
+  s3: {
+    staging: {
+      region: `website-us-east-1`,
+      bucket: `staging-nightshade.rocks`,
+    },
+    production: {
+      region: `website-us-east-1`,
+      bucket: `nightshade.rocks`,
+    },
   },
-  "production": {
-    "s3": {
-      "region": "website-us-east-1",
-      "bucket": "nightshade.rocks"
-    }
-  }
 };
-

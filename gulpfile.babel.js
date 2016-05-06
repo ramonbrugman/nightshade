@@ -1,3 +1,8 @@
+/**
+ * @file Gulp tasks for development and production
+ * @todo Move to shareable module (upgrade to Gulp 4)
+ */
+
 import gulp from 'gulp';
 import browsersync from 'browser-sync';
 import fs from 'fs';
@@ -14,14 +19,13 @@ import pngquant from 'imagemin-pngquant';
 
 import { config } from './app_config.js';
 
+const env = dotenv.config();
 const browserSync = browsersync.create();
 const $ = require('gulp-load-plugins')({
   rename: {
     'gulp-if': 'if'
   }
 });
-const env = dotenv.config();
-
 
 /* Flags for gulp cli */
 const argv = yargs.argv;
@@ -29,18 +33,7 @@ let production = argv.production;
 let staging = argv.staging;
 
 
-const file_paths =  {
-    'base': './app',
-    'dest': './dist',
-    'css': './dist/assets/css/',
-    'local_sass': './app/assets/scss/',
-    'module_sass': './app/modules/',
-    'src_assets': './app/assets',
-    'views': './app/views/',
-    'nightshade': './node_modules/@casper/nightshade-core/src/'
-};
-
-// @@@ Maybe pull these out into utilities
+// @@@ Depreciate
 const createFile = (name, data) => {
   fs.writeFile(`${name}`, data , (err) => {
     if (err) return console.log(err);
@@ -67,31 +60,40 @@ gulp.task('setup', () => {
 });
 
 
-// Generates a file of all the icons
+/**
+ * Generates a file of all the icons
+ * @todo Move to nightshade-core or make this a more performant function that
+ * runs when page is requested.
+ * @todo remove dependency on createFile
+ */
 gulp.task('icons-config', () => {
 
   const dir = './node_modules/@casper/nightshade-icons/lib/storefront';
   const icons = [];
 
   return fs.readdir(dir, (err, files) => {
-      if (err) throw err;
+    if (err) throw err;
 
-      // Bit naughty but since all of these are .svg, we'll gamble
-      for (let file of files) {
-        icons.push(file.slice(0, -4));
-      }
+    // Bit naughty but since all of these are .svg, we'll gamble
+    for (let file of files) {
+      icons.push(file.slice(0, -4));
+    }
 
-      createFile(`./app/views/icons/icons_list.js`, `export const icons_list = ` + JSON.stringify(icons));
-    });
+    createFile(`./app/views/icons/icons_list.js`, `export const icons_list = ` + JSON.stringify(icons));
+  });
 });
 
-// Generate colors config
+
+/**
+ * Generates Sass color map from JSON file
+ * @todo Move to nightshade-core
+ */
 gulp.task('colors-config', () => {
-  fs.createReadStream(file_paths.nightshade + 'color/lib/config.json')
+  fs.createReadStream(`${config.paths.nightshade}/color/lib/config.json`)
     .pipe(jsonSass({
       prefix: '$colors:',
     }))
-    .pipe(fs.createWriteStream(file_paths.nightshade + 'color/lib/_config.scss'));
+    .pipe(fs.createWriteStream(`${config.paths.nightshade}/'color/lib/_config.scss`));
 });
 
 
@@ -120,12 +122,13 @@ gulp.task('optimize:css', () => {
   .pipe($.cssnano())
   .pipe($.rev())
   .pipe(gulp.dest(config.paths.build.styles))
-  .pipe($.rev.manifest(config.paths.manifests.styles))
-  .pipe(gulp.dest(config.paths.manifests.base));
+  .pipe($.rev.manifest(`rev-manifest-css.json`))
+  .pipe(gulp.dest(config.paths.manifests));
 });
 
 
 // Critical css
+// @todo Cleanup paths in subsequent PR
 gulp.task('critical', ['sass', 'compile'], (cb) =>  {
   critical.generate({
     inline: true,
@@ -144,7 +147,7 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
  * Optimize source SVG, PNG, GIF images. Moves all images to tmp.
  */
 gulp.task('optimize:images', ['move:images'], () => {
-  return gulp.src(config.files.src.imagesOptim)
+  return gulp.src(config.paths.src.imagesOptim)
   .pipe($.imagemin({
     interlaced: true,
     svgoPlugins: [{removeViewBox: false}],
@@ -158,7 +161,7 @@ gulp.task('optimize:images', ['move:images'], () => {
  * Moves images that cannot be optimized to tmp directory
  */
 gulp.task('move:images', () => {
-  return gulp.src(config.files.src.images)
+  return gulp.src(config.paths.src.images)
     .pipe(gulp.dest(config.paths.tmp.images));
 });
 
@@ -167,11 +170,11 @@ gulp.task('move:images', () => {
  * Fingerprint all files in image directory. Save manifest file.
  */
 gulp.task('rev:images', () => {
-  return gulp.src(config.files.tmp.images)
+  return gulp.src(config.paths.tmp.images)
     .pipe($.rev())
     .pipe(gulp.dest(config.paths.build.images))
-    .pipe($.rev.manifest(config.paths.manifests.images))
-    .pipe(gulp.dest(config.paths.manifests.base));
+    .pipe($.rev.manifest(`rev-manifest-img.json`))
+    .pipe(gulp.dest(config.paths.manifests));
 });
 
 
@@ -193,7 +196,7 @@ gulp.task('compile', () => {
     smartypants: false
   });
 
-  return gulp.src(config.files.src.views)
+  return gulp.src(config.paths.src.views)
     .pipe($.plumber())
     .pipe($.nunjucksRender())
     .pipe(gulp.dest(config.paths.tmp.views));
@@ -204,7 +207,7 @@ gulp.task('compile', () => {
  * Precompiles Nunjucks templates for rendering via JS
  */
 gulp.task('precompile', () => {
-  return gulp.src(config.files.src.tpls)
+  return gulp.src(config.paths.src.tpls)
     .pipe($.plumber())
     .pipe($.nunjucks())
     .pipe($.concat('templates.js'))
@@ -212,51 +215,51 @@ gulp.task('precompile', () => {
 });
 
 
-// Static server
-// @TODO fix sha error and set https: true,
-gulp.task('browser-sync', () => {
+/**
+ * Serve site for development
+ * @todo Cleanup watch task paths?
+ */
+gulp.task('serve', () => {
   browserSync.init({
-      logPrefix: 'Ando',
-      browser: false,
-      reloadDelay: 100,
-      server: {
-        baseDir: ['./app', './dist', './', './node_modules/@casper']
-      },
-      middleware: function (req, res, next) {
-          res.setHeader('Access-Control-Allow-Origin', '*');
-          next();
-      }
-    });
-
+    logPrefix: 'Nightshade',
+    browser: false,
+    reloadDelay: 100,
+    server: {
+      baseDir: ['./app', './dist', './', './node_modules/@casper']
+    },
+    middleware: function (req, res, next) {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      next();
+    }
+  });
 
   gulp.watch([
     'app/assets/js/**/*.js',
     'app/views/**/*.js',
     'app/dist/**/*.js',
     './node_modules/@casper/nightshade-core/src/**/*.js'
-     ]).on('change', browserSync.reload);
+  ]).on('change', browserSync.reload);
 
   gulp.watch([
     './app/assets/scss/**/*.scss',
     './app/views/**/*.scss',
     './node_modules/@casper/nightshade-core/src/**/*.scss'
-    ], ['sass']);
+  ], ['sass']);
 
   gulp.watch([
     './app/views/**/*.html',
     './node_modules/@casper/nightshade-core/src/**/*.html'
-    ], ['precompile', 'compile']).on('change', browserSync.reload);
-
-    // gulp.watch(['test/**'], ['test']);
+  ], ['precompile', 'compile']).on('change', browserSync.reload);
 
   gulp.watch([
     './node_modules/@casper/nightshade-core/src/**/*.json'
-    ], ['colors-config']);
-
+  ], ['colors-config']);
 });
 
 
-//Sassdoc task
+/**
+ * Generate Sass documentation for Nightshade
+ */
 gulp.task('sassdoc', () => {
   return gulp.src([
     'app/**/*.scss',
@@ -268,10 +271,13 @@ gulp.task('sassdoc', () => {
 });
 
 
-// clean tasks
+/**
+ * Clean tasks to remove files from tmp and dist directory
+ */
 gulp.task('clean:images', () => {
   del(config.paths.tmp.images);
 });
+
 
 /**
  * Task to publish dist directory to AWS.
@@ -303,14 +309,14 @@ gulp.task('publish', () => {
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
   const publisher = $.awspublish.create({
     params: {
-      region: production ? config.production.s3.region : config.staging.s3.region,
-      Bucket: production ? config.production.s3.bucket : config.staging.s3.bucket
+      region: production ? config.s3.production.region : config.s3.staging.region,
+      Bucket: production ? config.s3.production.bucket : config.s3.staging.bucket
     },
       "accessKeyId": env.S3_ACCESSID,
       "secretAccessKey": env.S3_KEY
   });
 
-  return gulp.src(`${file_paths.dest}/**/*`)
+  return gulp.src(config.paths.build.base)
     .pipe($.plumber())
     .pipe($.if(gzipTypes, $.awspublish.gzip()))
     .pipe($.if(cacheBustedTypes, publisher.publish(future)))
@@ -321,9 +327,21 @@ gulp.task('publish', () => {
 });
 
 
-// Start task (default gulp)
-gulp.task('default', ['precompile', 'compile', 'sass', 'sassdoc', 'browser-sync']);
+/**
+ * Task to start the application (gulp)
+ */
+gulp.task('default', [
+  'precompile',
+  'compile',
+  'sass',
+  'optimize:images',
+  'sassdoc',
+  'serve'
+]);
 
 
-// Build task
+/**
+ * Build task
+ * @todo Add build:prod
+ */
 gulp.task('build', ['critical']);

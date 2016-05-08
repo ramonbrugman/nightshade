@@ -148,7 +148,11 @@ gulp.task('move:images', () => {
 
 // Compile templates to html
 gulp.task('compile', () => {
-  const env = $.nunjucksRender.nunjucks.configure(['./app/views/', './node_modules/@casper/'], {watch: false});
+  const env = $.nunjucksRender.nunjucks.configure([
+    `${__dirname}/app/views/`,
+    `${__dirname}/node_modules/@casper/`,
+    `${__dirname}/node_modules/@casper/nightshade-core/src/`
+  ], {watch: false});
 
   markdown.register(env, marked);
 

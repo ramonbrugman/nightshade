@@ -277,6 +277,9 @@ gulp.task('clean:images', () => {
   del(config.paths.tmp.images);
 });
 
+gulp.task('clean:dist', () => {
+  del('./dist/');
+});
 
 /**
  * Task to publish dist directory to AWS.

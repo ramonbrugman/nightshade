@@ -234,25 +234,24 @@ gulp.task('serve', () => {
   });
 
   gulp.watch([
-    'app/assets/js/**/*.js',
-    'app/views/**/*.js',
-    'app/dist/**/*.js',
-    './node_modules/@casper/nightshade-core/src/**/*.js'
+    `app/assets/js/**/*.js`,
+    `app/views/**/*.js`,
+    `${config.paths.nightshade}/**/*.js`
   ]).on('change', browserSync.reload);
 
   gulp.watch([
-    './app/assets/scss/**/*.scss',
-    './app/views/**/*.scss',
-    './node_modules/@casper/nightshade-core/src/**/*.scss'
+    `./app/assets/scss/**/*.scss`,
+    `./app/views/**/*.scss`,
+    `${config.paths.nightshade}/**/*.scss`
   ], ['sass']);
 
   gulp.watch([
-    './app/views/**/*.html',
-    './node_modules/@casper/nightshade-core/src/**/*.html'
+    `./app/views/**/*.html`,
+    `${config.paths.nightshade}/**/*.html`
   ], ['precompile', 'compile']).on('change', browserSync.reload);
 
   gulp.watch([
-    './node_modules/@casper/nightshade-core/src/**/*.json'
+    `${config.paths.nightshade}/**/*.json`
   ], ['colors-config']);
 });
 
@@ -262,8 +261,8 @@ gulp.task('serve', () => {
  */
 gulp.task('sassdoc', () => {
   return gulp.src([
-    'app/**/*.scss',
-    './node_modules/nightshade-core/src/**/*.scss'
+    `app/**/*.scss`,
+    `${config.paths.nightshade}/**/*.scss`
   ])
   .pipe(sassdoc({
       dest: './dist/sassdoc'

@@ -28,6 +28,7 @@ System.config({
     "rx": "npm:rx@4.0.7",
     "rx-dom": "npm:rx-dom@7.0.3",
     "then-request": "npm:then-request@2.1.1",
+    "velocity-animate": "npm:velocity-animate@1.2.3",
     "viljamis/feature.js": "github:viljamis/feature.js@1.0.1",
     "waypoints": "npm:waypoints@4.0.0",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -773,6 +774,10 @@ System.config({
     },
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:velocity-animate@1.2.3": {
+      "jquery": "npm:jquery@2.2.3",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:verror@1.3.6": {

@@ -1,0 +1,31 @@
+{% extends "layout/_pattern_layout.html" %}
+
+{% from 'nightshade-core/src/scrollto_nav/nav.macros.html' import scrollto_nav %}
+
+{% set page_title = 'ScrollTo Nav' %}
+
+{% set links = [
+  {
+    href: '#',
+    content: 'LINK ONE'
+  },
+  {
+    href: '#',
+    content: 'LINK TWO'
+  },
+  {
+    href: '#',
+    content: 'LINK THREE'
+  },
+  {
+    href: '#',
+    content: 'LINK FOUR'
+  }
+]
+%}
+
+{% block pattern_content %}
+
+  {{ scrollto_nav(links, class='scrollto-nav--landing', id='landing-nav') }}
+
+{% endblock %}

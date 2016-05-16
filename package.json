@@ -55,6 +55,7 @@
     "configFile": "systemjs_config.js",
     "dependencies": {
       "fastclick": "npm:fastclick@^1.0.6",
+      "feature.js": "npm:feature.js@^1.0.0",
       "flickity": "npm:flickity@^1.2.1",
       "fs": "github:jspm/nodelibs-fs@^0.1.2",
       "imgix.js": "npm:imgix.js@^2.1.0",
@@ -64,7 +65,6 @@
       "rx-dom": "npm:rx-dom@^7.0.3",
       "then-request": "npm:then-request@^2.1.1",
       "velocity-animate": "npm:velocity-animate@^1.2.3",
-      "viljamis/feature.js": "github:viljamis/feature.js@^1.0.1",
       "waypoints": "npm:waypoints@^4.0.0"
     },
     "devDependencies": {

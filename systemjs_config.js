@@ -19,6 +19,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
     "fastclick": "npm:fastclick@1.0.6",
+    "feature.js": "npm:feature.js@1.0.0",
     "flickity": "npm:flickity@1.2.1",
     "fs": "github:jspm/nodelibs-fs@0.1.2",
     "imgix.js": "npm:imgix.js@2.1.0",
@@ -366,6 +367,9 @@ System.config({
     "npm:extsprintf@1.0.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:feature.js@1.0.0": {
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
     "npm:fizzy-ui-utils@1.0.1": {
       "desandro-matches-selector": "npm:desandro-matches-selector@1.0.3",

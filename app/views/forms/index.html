@@ -6,6 +6,58 @@
 
 {% block pattern_content %}
 
+  <h3>Standard text input</h3>
+  <div class="form-field">
+    <label class="form-label" for="">Required Text Input</label>
+    <input type="text" class="form-input required" name="" id="" placeholder="Required Text Input">
+  </div>
+
+  <h3>Phone number input</h3>
+  <div class="form-field">
+    <label class="form-label" for="">Phone Number</label>
+    <input type="tel" class="form-input js-form-input-phone" name="" id="" autocomplete="tel-national" placeholder="Phone Number">
+  </div>
+
+  <h3>Number input</h3>
+  <div class="form-field">
+    <label class="form-label" for="">Number</label>
+    <input type="tel" class="form-input" name="" id="" pattern="\d*" x-inputmode="numeric" inputmode="numeric" placeholder="Number">
+  </div>
+
+  <h3>Credit card input</h3>
+  <div class="form-field">
+    <label class="form-label" for="">Credit Card</label>
+    <input type="tel" class="form-input js-form-input-card-number cardNumber" name="" id="" autocomplete="cc-number" maxlength="19" pattern="d+" inputmode="numeric" x-inputmode="numeric" placeholder="Credit Card">
+  </div>
+
+  <h3>Email input</h3>
+  <div class="form-field">
+    <label class="form-label" for="">Email</label>
+    <input type="email" class="form-input" name="" id="" inputmode="email" x-inputmode="email" placeholder="Email">
+  </div>
+
+  <h3>Password input</h3>
+  <div class="form-field">
+    <label class="form-label" for="">Password</label>
+    <input type="password" class="form-input" name="" id="" placeholder="Password">
+  </div>
+
+  <h3>Textarea</h3>
+  <div class="form-field">
+    <label class="form-label" for="">Textarea</label>
+    <textarea class="form-input form-input--textarea" name="" id=""></textarea>
+  </div>
+
+  <h3>Disabled button</h3>
+  <p>
+    <button type="button" data-button="primary" disabled>Disabled Button</button>
+  </p>
+
+  <h3>Loading button</h3>
+  <p>
+    <button type="button" data-button="primary" class="is-loading">Loading Button</button>
+  </p>
+
   <h3>Input group with a text button</h3>
   {{ input_group(
     'basic-input-group',
@@ -22,4 +74,10 @@
     placeholder='Search Placeholder Text'
   ) }}
 
+{% endblock %}
+
+{% block inline_js %}
+  System.import('nightshade-core/src/forms/Inputs.js').then( function(mod) {
+    mod.Inputs.init();
+  } );
 {% endblock %}

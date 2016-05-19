@@ -7,24 +7,30 @@
 {% block pattern_content %}
 
   {{ cta_banner(
+    cta='See The Casper',
+    href='/mattresses',
+    class='light-background'
+  ) }}
+
+  {{ cta_banner(
     'Upgrade Your Mattress',
-    'See The Casper',
-    '/mattresses',
+    cta='See The Casper',
+    href='/mattresses',
     background_path='banner/one-perfect-mattress.jpg'
   ) }}
 
   {{ cta_banner(
     'Upgrade Your Mattress',
-    'See The Casper',
-    '/mattresses',
+    cta='See The Casper',
+    href='/mattresses',
     video_path='mattress-cta.mp4',
     video_fallback_path='bg-mattress.gif'
   ) }}
 
   {{ cta_banner(
     'Upgrade Your Mattress',
-    'See The Casper',
-    '/mattresses',
+    cta='See The Casper',
+    href='/mattresses',
     button_style='secondary',
     background_path='home/sandwich/casper-hero-lifestyle.jpg',
     large_background=true

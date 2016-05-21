@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <title>{% block title %}{% endblock %}</title>
+
+  {# All Preconnect assets #}
+  <link rel="preconnect" href="//cloud.typography.com/" crossorigin>
+
   <meta name="description" content="{{ page_description }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% if meta_noindex %}
@@ -18,14 +22,13 @@
   <script src="/app/assets/js/vendor/nunjucks-slim.min.js"></script>
   <script src="/dist/assets/js/templates.js"></script>
   <script src="/app/assets/js/load-fonts.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" async defer></script>
+  <script src="/dist/assets/js/vendor/webfontloader.js"></script>
   <script src="//cdn.polyfill.io/v2/polyfill.min.js?flags=gated,always&features=default,matchMedia,Element.prototype.classList" async defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/dom4/1.4.8/dom4.js" async defer></script>
   <link href="/node_modules/normalize.css/normalize.css" media="screen" rel="stylesheet">
-  <link rel="preconnect" href="//cloud.typography.com/" crossorigin>
 
   {% if favicon_path %}
-  <link rel="icon" type="image/x-icon" href="{{ favicon_path }}">
+    <link rel="icon" type="image/x-icon" href="{{ favicon_path }}">
   {% endif %}
 
   {% block base_styles %}{% endblock %}

@@ -225,7 +225,7 @@ gulp.task('serve', () => {
     browser: false,
     reloadDelay: 100,
     server: {
-      baseDir: ['./.tmp','./app' ,'./dist', './', './node_modules/@casper']
+      baseDir: ['./.tmp', './.tmp/views', './app' ,'./dist', './', './node_modules/@casper']
     },
     middleware: function (req, res, next) {
       res.setHeader('Access-Control-Allow-Origin', '*');

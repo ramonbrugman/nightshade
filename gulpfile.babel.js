@@ -1,6 +1,6 @@
 /**
  * @file Gulp tasks for development and production
- * @todo Move to shareable module (upgrade to Gulp 4)
+ * @todo Move common tasks/functions to shareable module (upgrade to Gulp 4)
  */
 
 import gulp from 'gulp';
@@ -50,10 +50,11 @@ const createFile = (name, data) => {
  * Create .env file
  * @todo Make part of npm setup
  */
-gulp.task('setup', () => {
-  fs.createReadStream('.sample-env')
-    .pipe(fs.createWriteStream('.env'));
-});
+ gulp.task('setup', () => {
+   return gulp.src('.sample-env')
+    .pipe($.rename('.env'))
+    .pipe(gulp.dest('./'));
+ })
 
 
 /**

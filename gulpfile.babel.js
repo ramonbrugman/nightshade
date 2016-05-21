@@ -21,11 +21,7 @@ import { config } from './app_config.js';
 
 const env = dotenv.config();
 const browserSync = browsersync.create();
-const $ = require('gulp-load-plugins')({
-  rename: {
-    'gulp-if': 'if'
-  }
-});
+const $ = require('gulp-load-plugins')();
 
 /* Flags for gulp cli */
 const argv = yargs.argv;

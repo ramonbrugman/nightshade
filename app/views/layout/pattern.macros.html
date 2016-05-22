@@ -1,22 +1,22 @@
 {% from 'nightshade-core/src/buttons/buttons.macros.html' import button %}
 
 {% macro github_link(path) %}
-<a href="https://github.com/CasperSleep/nightshade-core/tree/v2.0.0-dev/{{ path }}">View on GitHub</a>
+<a href="https://github.com/CasperSleep/nightshade-core/tree/master{{ path }}">View on GitHub</a>
 {% endmacro %}
 
-{% macro rules_list(list) %}
+{% macro rules_list(rules) %}
 <ul class="pattern-rules-list">
   <li class="pattern-rules-list-item">
     <h4 class="heading--smallcaps-light">Typography</h4>
-    <p>{{ list.typography }}</p>
+    <p>{{ rules.typography }}</p>
   </li>
   <li class="pattern-rules-list-item">
     <h4 class="heading--smallcaps-light">Specs &amp; Dimensions</h4>
-    <p>{{ list.specs }}</p>
+    <p>{{ rules.specs }}</p>
   </li>
   <li class="pattern-rules-list-item">
     <h4 class="heading--smallcaps-light">Color &amp; Accessibility</h4>
-    <p>{{ list.color }}</p>
+    <p>{{ rules.color }}</p>
   </li>
 </ul>
 {% endmacro %}
@@ -24,97 +24,98 @@
 {% macro rules_examples(examples) %}
 <div class="pattern-rules-examples">
   {% for example in examples %}
-  <div class="pattern-rules-example">
-    <div class="pattern-example-display r-centered">
-      {{ example.html|safe }}
+    <div class="pattern-rules-example">
+      <div class="pattern-example-display r-centered">
+        {{ example.html|safe }}
+      </div>
+      <p>
+        <strong class="heading--smallcaps-light">DON'T</strong>
+        {{ example.description }}
+      </p>
     </div>
-    <p><strong class="heading--smallcaps-light">DON'T</strong> {{ example.description }}</p>
-  </div>
   {% endfor %}
 </div>
 {% endmacro %}
 
-{% macro notes_list(notes) %}
-<ul class="pattern-notes">
-  {% for note in notes %}
-  <li>{{ note|safe }}</li>
-  {% endfor %}
-</ul>
-{% endmacro %}
-
-{% macro import_block(type, path, code) %}
-<header class="pattern-usage-header">
+{% macro import_block(type, imports) %}
+<section class="pattern-usage-header">
   <h4 class="heading--smallcaps-light">Import {{ type }}</h4>
   <div class="pattern-usage-header-actions">
-    {{ github_link(path) }}
+    {{ github_link(imports.path) }}
   </div>
-</header>
-<pre class="pattern-usage-code"><code>{{ code }}</code></pre>
+</section>
+
+<pre class="pattern-usage-code"><code>{{ imports.code }}</code></pre>
 {% endmacro %}
 
-{% macro variant_item(description, macro, html, rules=null, tech_notes=null, imports=null) %}
-<p class="pattern-variant-description">{{ description }}</p>
-<div class="pattern-example">
-  <div class="pattern-example-display r-centered">
-    {{ html|safe }}
-  </div>
+{% macro variant_item(variant) %}
+<p class="pattern-variant-description">{{ variant.description }}</p>
 
-  {% if rules %}
-  <div class="pattern-rules">
-    {% if rules.list %}
-    {{ rules_list(rules.list) }}
+{% if variant.html or variant.rules %}
+  <div class="pattern-example">
+    {% if variant.html %}
+      <div class="pattern-example-display r-centered">
+        {{ variant.html|safe }}
+      </div>
     {% endif %}
 
-    {% if rules.examples %}
-    {{ rules_examples(rules.examples) }}
+    {% if variant.rules or variant.examples%}
+      <div class="pattern-rules">
+        {{ rules_list(variant.rules) }}
+
+        {% if variant.examples %}
+          {{ rules_examples(variant.examples) }}
+        {% endif %}
+      </div>
     {% endif %}
   </div>
-  {% endif %}
-</div>
+{% endif %}
 
 <div class="pattern-usage">
-  <header class="pattern-usage-header">
-    <h4 class="heading--smallcaps-light">Code Example</h4>
-    <div class="pattern-usage-header-actions">
-      <div class="pattern-usage-toggles">
-        <button class="pattern-usage-toggle is-selected js-show-macro">Macro</button>
-        <button class="pattern-usage-toggle js-show-html">HTML</button>
+
+  {% if macro or html %}
+    <header class="pattern-usage-header">
+      <h4 class="heading--smallcaps-light">Code Example</h4>
+      <div class="pattern-usage-header-actions">
+        <div class="pattern-usage-toggles">
+          <button class="pattern-usage-toggle is-selected js-show-macro">Macro</button>
+          <button class="pattern-usage-toggle js-show-html">HTML</button>
+        </div>
       </div>
-    </div>
-  </header>
-  <pre class="pattern-usage-code js-code-macro"><code>{{ macro }}</code></pre>
-  <pre class="pattern-usage-code is-hidden js-code-html"><code>{{ html }}</code></pre>
-
-  {% if tech_notes %}
-  <h4 class="heading--smallcaps-light">Usability Parameters</h4>
-  {{ notes_list(tech_notes) }}
+    </header>
+    <pre class="pattern-usage-code js-code-macro"><code>{{ macro }}</code></pre>
+    <pre class="pattern-usage-code is-hidden js-code-html"><code>{{ html }}</code></pre>
   {% endif %}
 
-  {% if imports.stylesheet %}
-  {{ import_block('Stylesheet', imports.stylesheet.path, imports.stylesheet.code) }}
+  {% if variant.imports.stylesheet %}
+    {{ import_block('Stylesheet', variant.imports.stylesheet) }}
   {% endif %}
 
-  {% if imports.macro %}
-  {{ import_block('Macro', imports.macro.path, imports.macro.code) }}
+  {% if variant.imports.macro %}
+    {{ import_block('Macro', variant.imports.macro) }}
   {% endif %}
 
-  {% if imports.javascript %}
-  {{ import_block('JavaScript', imports.javascript.path, imports.javascript.code) }}
+  {% if variant.imports.javascript %}
+    {{ import_block('JavaScript', variant.imports.javascript) }}
+  {% endif %}
+
+  {% if variant.tech_notes %}
+    {% markdown variant.tech_notes | string  %}
   {% endif %}
 </div>
 {% endmacro %}
 
 {% macro variant(variant) %}
-<section class="pattern-variant" id="{{ variant.name|lower|replace(' ', '-') }}">
+<article class="pattern-variant" id="{{ variant.name|lower|replace(' ', '-') }}">
   <h2 class="heading--secondary-light">{{ variant.name }}</h2>
 
   {% if variant.modifiers %}
     {% for modifier in variant.modifiers %}
-    <h3 class="heading--tertiary-light">{{ modifier.name }}</h3>
-    {{ variant_item(modifier.description, modifier.macro, modifier.html, modifier.rules, modifier.tech_notes, modifier.imports) }}
+        <h3 class="heading--tertiary-light">{{ modifier.name }}</h3>
+        {{ variant_item(modifier) }}
     {% endfor %}
   {% else %}
-    {{ variant_item(variant.description, variant.macro, variant.html, variant.rules, variant.tech_notes, variant.imports) }}
+    {{ variant_item(variant) }}
   {% endif %}
-</section>
+</article>
 {% endmacro %}

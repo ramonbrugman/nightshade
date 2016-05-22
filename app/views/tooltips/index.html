@@ -1,81 +1,9 @@
+
 {% extends "layout/_pattern_layout.html" %}
 
 {% from 'nightshade-core/src/tooltips/tooltips.macros.html' import tooltip %}
 
-{% set data = {
-  page_title: "Tooltips",
-  page_description: "A tooltip exposes a brief amount of information to the user when an element is on hover or focus. If copy is more than 50 characters, consider using the popover pattern instead.",
-  variants: [
-    {
-      name: "Standard",
-      description: "Standard tooltip description",
-      macro: "{% call tooltip('Verified Casper Owner') %}Tooltip Trigger{% endcall %}",
-      html: '<span class="tooltip-container js-tooltip-container">
-  <span class="tooltip-toggle js-tooltip-toggle">Tooltip Trigger</span>
-  <span class="tooltip js-tooltip is-invisible" aria-expanded="false">Verified Casper Owner</span>
-</span>',
-      rules: {
-        list: {
-          typography: "Copy is set in Calibre in body-sans-meta with white text. Try to keep character count under 50.",
-          specs: "Top/Bottom padding is 9.259px (ms-3). Left/Right padding is 13.333px (ms-1). Tooltips with one line of copy is 35.5px tall. Tooltips with two lines of copy is 52.5px tall. Try to keep width no more than 190px.",
-          color: "If background color is White or lighter than gray—-light2, tooltip fill is Base Gray. "
-        },
-        examples: [
-          {
-            html: '<span class="tooltip-container js-tooltip-container">
-  <span class="tooltip-toggle js-tooltip-toggle">Example 1</span>
-  <span class="tooltip js-tooltip is-invisible" aria-expanded="false" style="font-family:Verlag A, Verlag B">Never use Verlag</span>
-</span>',
-            description: "Never use Verlag."
-          },
-          {
-            html: '<span class="tooltip-container js-tooltip-container">
-  <span class="tooltip-toggle js-tooltip-toggle">Example 2</span>
-  <span class="tooltip js-tooltip is-invisible" aria-expanded="false">Tooltip text content should never exceed three lines. Consider using a popover instead.</span>
-</span>',
-            description: "No more than 3 lines. If copy is more than 2 lines, consider using the popover pattern instead."
-          }
-        ]
-      },
-      tech_notes: [
-        '<code>content</code> (required) - Tooltip text content',
-        '<code>class</code> - Custom CSS or JavaScript class selector',
-        '<code>id</code> - Custom JavaScript ID selector'
-      ],
-      imports: {
-        stylesheet: {
-          path: "src/tooltips/_base.scss",
-          code: "@import './node_modules/@casper/nightshade-core/src/tooltips/base';"
-        },
-        macro: {
-          path: "src/tooltips/tooltips.macros.html",
-          code: "{% from 'nightshade-core/src/tooltips/tooltips.macros.html' import tooltip %}"
-        },
-        javascript: {
-          path: "src/tooltips/Tooltips.js",
-          code: "import { Tooltips } from 'nightshade-core/src/tooltips/Tooltips.js';"
-        }
-      }
-    },
-    {
-      name: "Light Fill",
-      description: "Tooltip with light fill, for use on dark backgrounds",
-      macro: "{% call tooltip('Verified Casper Owner', style='light') %}Tooltip Trigger{% endcall %}",
-      html: '<span class="tooltip-container js-tooltip-container">
-  <span class="tooltip-toggle js-tooltip-toggle">Tooltip Trigger</span>
-  <span class="tooltip tooltip--light js-tooltip is-invisible" aria-expanded="false">Verified Casper Owner</span>
-</span>',
-      rules: {
-        list: {
-          typography: "Copy is set in Calibre in body-sans-meta with white text. Try to keep character count under 50.",
-          specs: "Top/Bottom padding is 9.259px (ms-3). Left/Right padding is 13.333px (ms-1). Tooltips with one line of copy is 35.5px tall. Tooltips with two lines of copy is 52.5px tall. Try to keep width no more than 190px.",
-          color: "If background color is darker than gray--light3, tooltip fill is gray—light5 with text in gray-—light1."
-        }
-      }
-    }
-  ]
-  }
-%}
+{% set data = en.tooltips %}
 
 {% block module_loader %}
   System.import('views/tooltips/TooltipsPage.js').then( function(mod) {

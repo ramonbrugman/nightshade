@@ -2,60 +2,7 @@
 
 {% from 'nightshade-core/src/popovers/popovers.macros.html' import popover %}
 
-{% set data = {
-  page_title: "Popovers",
-  page_description: "A popover exposes a significant amount of information to the user when a trigger element is clicked. A popover can be used to hide secondary level of content if too much copy is already present on page.",
-  variants: [
-    {
-      name: "Standard",
-      description: "Standard popovers are positioned to the top by default",
-      macro: "{{ popover('Density refers to the amount of material per cubic foot. High-density materials are more durable.') }}",
-      html: '<span class="popover-container js-popover-container">
-  <span class="popover-toggle js-popover-toggle">?</span>
-  <span class="popover js-popover is-invisible" data-position="top" aria-expanded="false">Density refers to the amount of material per cubic foot. High-density materials are more durable.</span>
-</span>',
-      rules: {
-        list: {
-          typography: "Copy is styled in body—sans-small in Base Gray.",
-          specs: "If character count is under 120, popover can go up to 300px wide. If character count if over 120, width can go up to 350px.",
-          color: "Popover fill is always white and and has a shadow."
-        }
-      },
-      tech_notes: [
-        '<code>content</code> (required) - Popover text content',
-        '<code>position</code> - Position of popover defaults to <em>top</em>',
-        '<code>class</code> - Custom CSS or JavaScript class selector',
-        '<code>id</code> - Custom JavaScript ID selector'
-      ],
-      imports: {
-        stylesheet: {
-          path: "src/popovers/_base.scss",
-          code: "@import './node_modules/@casper/nightshade-core/src/popovers/base';"
-        },
-        macro: {
-          path: "src/popovers/popovers.macros.html",
-          code: "{% from 'nightshade-core/src/popovers/popovers.macros.html' import popover %}"
-        },
-        javascript: {
-          path: "src/popovers/Popovers.js",
-          code: "import { Popovers } from 'nightshade-core/src/popovers/Popovers.js';"
-        }
-      }
-    },
-    {
-      name: "Positioned",
-      description: "Popover positioned to the right",
-      macro: "{{ popover(
-  'Density refers to the amount of material per cubic foot. High-density materials are more durable.',
-  position='right') }}",
-      html: '<span class="popover-container js-popover-container">
-  <span class="popover-toggle js-popover-toggle">?</span>
-  <span class="popover js-popover is-invisible" data-position="right" aria-expanded="false">Density refers to the amount of material per cubic foot. High-density materials are more durable.</span>
-</span>'
-    }
-  ]
-  }
-%}
+{% set data = en.popovers %}
 
 {% block module_loader %}
   System.import('views/popovers/PopoversPage.js').then( function(mod) {

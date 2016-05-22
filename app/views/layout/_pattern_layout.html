@@ -13,9 +13,9 @@
     <p class="pattern-description">{{ data.page_description }}</p>
   </header>
 
-  <nav class="pattern-nav heading--smallcaps-light">
+  <nav class="pattern-nav heading--smallcaps-light" role="navigation">
     {% for variant in data.variants %}
-    <a class="pattern-nav-item js-nav-item" href="#{{ variant.name|lower|replace(' ', '-') }}">{{ variant.name }}</a>
+      <a class="pattern-nav-item js-nav-item" href="#{{ variant.name|lower|replace(' ', '-') }}">{{ variant.name }}</a>
     {% endfor %}
   </nav>
 

@@ -1,5 +1,11 @@
 SystemJS.config({
-  transpiler: "plugin-babel"
+  transpiler: "plugin-babel",
+  paths: {
+    "assets/*": "app/assets/js/*",
+    "views/*": "app/views/*",
+    "nightshade-core/*": "node_modules/@casper/nightshade-core/src/*"
+  },
+  packages: {}
 });
 
 

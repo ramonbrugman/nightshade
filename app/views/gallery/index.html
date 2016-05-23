@@ -21,7 +21,7 @@
 
 {% endblock %}
 
-{% block inline_js %}
+{% block module_loader %}
   System.import('nightshade-core/src/gallery/Gallery.js').then( function(mod) {
     mod.Gallery.init();
   } );

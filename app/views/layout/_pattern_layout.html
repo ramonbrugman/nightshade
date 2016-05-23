@@ -26,10 +26,3 @@
   {% block pattern_content %}{% endblock %}
 </article>
 {% endblock %}
-
-
-{% block module_loader %}
-  System.import('views/layout/PatternPage.js').then( function(mod) {
-    mod.PatternPage.init();
-  } );
-{% endblock %}

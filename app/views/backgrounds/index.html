@@ -31,7 +31,7 @@
 
 {% endblock %}
 
-{% block inline_js %}
+{% block module_loader %}
   System.import('nightshade-core/src/backgrounds/StarryBackground.js').then( function(mod) {
     mod.StarryBackground.init();
   } );

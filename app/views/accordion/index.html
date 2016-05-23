@@ -55,7 +55,7 @@
 {% endblock %}
 
 
-{% block inline_js %}
+{% block module_loader %}
   System.import('nightshade-core/accordion/Accordion.js').then( function(mod) {
     mod.Accordion.init('#accordion');
   } );

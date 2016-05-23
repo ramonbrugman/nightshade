@@ -51,12 +51,8 @@
     <script src="/jspm.config.js"></script>
     {% block scripts %}{% endblock %}
     <script>
-      {% block module_loader %}
-        System.import('assets/js/pages/BasePage.js').then( function(mod) {
-          mod.BasePage.init();
-        } );
-      {% endblock %}
-      {% block inline_js %}{% endblock %}
+      System.import('assets/App.js');
+      {% block module_loader %}{% endblock %}
     </script>
   </body>
 

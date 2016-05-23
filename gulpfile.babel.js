@@ -19,6 +19,7 @@ import pngquant from 'imagemin-pngquant';
 
 import { config } from './app_config.js';
 
+const env = dotenv.config();
 const browserSync = browsersync.create();
 const $ = require('gulp-load-plugins')({
   rename: {
@@ -26,6 +27,7 @@ const $ = require('gulp-load-plugins')({
     'gulp-merge-json': 'merge'
   }
 });
+
 
 /* Flags for gulp cli */
 const argv = yargs.argv;
@@ -164,6 +166,7 @@ gulp.task('optimize:images', ['move:images'], () => {
 gulp.task('move:images', () => {
   return gulp.src(config.paths.src.images)
     .pipe(gulp.dest(config.paths.tmp.images));
+<<<<<<< 652d5f21ba8003f9a1fbc505aa8fa3bb3a213bee
 });
 
 
@@ -176,10 +179,13 @@ gulp.task('rev:images', () => {
     .pipe(gulp.dest(config.paths.build.images))
     .pipe($.rev.manifest(`rev-manifest-img.json`))
     .pipe(gulp.dest(config.paths.manifests));
+=======
+>>>>>>> [REMOVE COMMIT]
 });
 
 
 /**
+<<<<<<< 652d5f21ba8003f9a1fbc505aa8fa3bb3a213bee
  * Compiles yaml content files into one json files
 */
 gulp.task('data', (cb) => {
@@ -196,6 +202,23 @@ gulp.task('data', (cb) => {
 * Compiles Nunjucks views to HTML.
 */
 gulp.task('compile', (cb) => {
+=======
+ * Fingerprint all files in image directory. Save manifest file.
+ */
+gulp.task('rev:images', () => {
+  return gulp.src(config.paths.tmp.images)
+    .pipe($.rev())
+    .pipe(gulp.dest(config.paths.build.images))
+    .pipe($.rev.manifest(`rev-manifest-img.json`))
+    .pipe(gulp.dest(config.paths.manifests));
+});
+
+
+/**
+ * Compiles Nunjucks views to HTML.
+ */
+gulp.task('compile', () => {
+>>>>>>> [REMOVE COMMIT]
   const env = $.nunjucksRender.nunjucks.configure([
     `${__dirname}/app/views/`,
     `${__dirname}/node_modules/@casper/`,
@@ -216,10 +239,13 @@ gulp.task('compile', (cb) => {
 
   return gulp.src(config.paths.src.views)
     .pipe($.plumber())
+<<<<<<< 652d5f21ba8003f9a1fbc505aa8fa3bb3a213bee
     .pipe($.data(function(file, cb) {
       const data = JSON.parse(fs.readFileSync('./data/content_api.json'));
       return cb(undefined, data);
     }))
+=======
+>>>>>>> [REMOVE COMMIT]
     .pipe($.nunjucksRender())
     .pipe(gulp.dest(config.paths.tmp.views));
 });
@@ -271,6 +297,7 @@ gulp.task('serve', () => {
     `./app/views/**/*.html`,
     `${config.paths.nightshade}/**/*.html`
   ], ['precompile', 'compile']).on('change', browserSync.reload);
+<<<<<<< 652d5f21ba8003f9a1fbc505aa8fa3bb3a213bee
 
   gulp.watch(['./content/**/*.yml'], ['data']);
 
@@ -279,6 +306,10 @@ gulp.task('serve', () => {
   ], ['compile']).on('change', browserSync.reload);
 
   gulp.watch([
+=======
+
+  gulp.watch([
+>>>>>>> [REMOVE COMMIT]
     `${config.paths.nightshade}/**/*.json`
   ], ['colors-config']);
 });
@@ -308,10 +339,13 @@ gulp.task('clean:images', () => {
 gulp.task('clean:dist', () => {
   del('./dist/');
 });
+<<<<<<< 652d5f21ba8003f9a1fbc505aa8fa3bb3a213bee
 
 gulp.task('clean:tmp', () => {
   del(config.paths.tmp.base);
 });
+=======
+>>>>>>> [REMOVE COMMIT]
 
 
 /**
@@ -366,12 +400,20 @@ gulp.task('publish', () => {
  * Task to start the application (gulp)
  */
 gulp.task('default', [
+<<<<<<< 652d5f21ba8003f9a1fbc505aa8fa3bb3a213bee
   'data',
   'sass',
   'sassdoc',
   'optimize:images',
   'precompile',
   'compile',
+=======
+  'precompile',
+  'compile',
+  'sass',
+  'optimize:images',
+  'sassdoc',
+>>>>>>> [REMOVE COMMIT]
   'serve'
 ]);
 

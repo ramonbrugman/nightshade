@@ -5,15 +5,11 @@
  * @todo Modularize the init() method
 */
 
-import { PatternPage } from 'views/layout/PatternPage.js';
 import { Tooltips } from 'nightshade-core/tooltips/Tooltips.js';
 
 export const TooltipsPage = {
 
-  __proto__: PatternPage,
-
   init() {
-    this.__proto__.init();
     Tooltips.tooltip({togglerSelector: `.js-tooltip-toggle`, tooltipSelector: `.js-tooltip`});
   },
 };

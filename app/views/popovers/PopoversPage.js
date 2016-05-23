@@ -5,15 +5,11 @@
  * @todo Modularize the init() method
 */
 
-import { PatternPage } from 'views/layout/PatternPage.js';
 import { Popovers } from 'nightshade-core/popovers/Popovers.js';
 
 export const PopoversPage = {
 
-  __proto__: PatternPage,
-
   init() {
-    this.__proto__.init();
     Popovers.popover({togglerSelector: `.js-popover-toggle`, popoverSelector: `.js-popover`});
   },
 };

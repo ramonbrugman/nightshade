@@ -5,16 +5,12 @@
  * @todo Update setupCodeTogglers to iterate based on variants
 */
 
-import { NightshadeBase } from 'views/layout/NightshadeBase.js';
 import { ScrollTo } from 'nightshade-core/animation/ScrollTo.js';
 import hljs from 'assets/vendor/highlight.js';
 
 export const PatternPage = {
 
-  __proto__: NightshadeBase,
-
   init() {
-    this.__proto__.init();
     this.setupSectionScrollTo();
     this.setupCodeTogglers();
     hljs.initHighlighting();

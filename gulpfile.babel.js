@@ -1,7 +1,13 @@
+/**
+ * @file Gulp tasks for development and production
+ * @todo Move common tasks/functions to shareable module (upgrade to Gulp 4)
+ */
+
 import gulp from 'gulp';
 import browsersync from 'browser-sync';
 import fs from 'fs';
 import critical from 'critical';
+import del from 'del';
 import sassdoc from 'sassdoc';
 import jsonSass from 'json-sass';
 import source from 'vinyl-source-stream';
@@ -13,14 +19,9 @@ import pngquant from 'imagemin-pngquant';
 
 import { config } from './app_config.js';
 
-const browserSync = browsersync.create();
-const $ = require('gulp-load-plugins')({
-  rename: {
-    'gulp-if': 'if'
-  }
-});
 const env = dotenv.config();
-
+const browserSync = browsersync.create();
+const $ = require('gulp-load-plugins')();
 
 /* Flags for gulp cli */
 const argv = yargs.argv;
@@ -28,18 +29,7 @@ let production = argv.production;
 let staging = argv.staging;
 
 
-const file_paths =  {
-    'base': './app',
-    'dest': './dist',
-    'css': './dist/assets/css/',
-    'local_sass': './app/assets/scss/',
-    'module_sass': './app/modules/',
-    'src_assets': './app/assets',
-    'views': './app/views/',
-    'nightshade': './node_modules/@casper/nightshade-core/src/'
-};
-
-// @@@ Maybe pull these out into utilities
+// @@@ Depreciate
 const createFile = (name, data) => {
   fs.writeFile(`${name}`, data , (err) => {
     if (err) return console.log(err);
@@ -60,53 +50,82 @@ const createFile = (name, data) => {
  * Create .env file
  * @todo Make part of npm setup
  */
-gulp.task('setup', () => {
-  fs.createReadStream('.sample-env')
-    .pipe(fs.createWriteStream('.env'));
-});
+ gulp.task('setup', () => {
+   return gulp.src('.sample-env')
+    .pipe($.rename('.env'))
+    .pipe(gulp.dest('./'));
+ })
 
 
-// Generates a file of all the icons
+/**
+ * Generates a file of all the icons
+ * @todo Move to nightshade-core or make this a more performant function that
+ * runs when page is requested.
+ * @todo remove dependency on createFile
+ */
 gulp.task('icons-config', () => {
 
   const dir = './node_modules/@casper/nightshade-icons/lib/storefront';
   const icons = [];
 
   return fs.readdir(dir, (err, files) => {
-      if (err) throw err;
+    if (err) throw err;
 
-      // Bit naughty but since all of these are .svg, we'll gamble
-      for (let file of files) {
-        icons.push(file.slice(0, -4));
-      }
+    // Bit naughty but since all of these are .svg, we'll gamble
+    for (let file of files) {
+      icons.push(file.slice(0, -4));
+    }
 
-      createFile(`./app/views/icons/icons_list.js`, `export const icons_list = ` + JSON.stringify(icons));
-    });
+    createFile(`./app/views/icons/icons_list.js`, `export const icons_list = ` + JSON.stringify(icons));
+  });
 });
 
-// Generate colors config
+
+/**
+ * Generates Sass color map from JSON file
+ * @todo Move to nightshade-core
+ */
 gulp.task('colors-config', () => {
-  fs.createReadStream(file_paths.nightshade + 'color/lib/config.json')
+  fs.createReadStream(`${config.paths.nightshade}/color/lib/config.json`)
     .pipe(jsonSass({
       prefix: '$colors:',
     }))
-    .pipe(fs.createWriteStream(file_paths.nightshade + 'color/lib/_config.scss'));
+    .pipe(fs.createWriteStream(`${config.paths.nightshade}/'color/lib/_config.scss`));
 });
 
 
-// Compile Sass
+/**
+ * Generates CSS from Sass with sourcemaps and vendor prefixing.
+ */
 gulp.task('sass', () => {
-  return gulp.src(['./app/assets/scss/**/*.scss'])
+  return gulp.src(config.paths.src.styles)
     .pipe($.sourcemaps.init())
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.autoprefixer())
     .pipe($.sourcemaps.write('./maps'))
-    .pipe(gulp.dest(file_paths.css))
+    .pipe(gulp.dest(config.paths.tmp.styles))
     .pipe(browserSync.stream());
 });
 
 
+/**
+ * Minify and rev CSS files to dist directory. Ignores files in maps/.
+ */
+gulp.task('optimize:css', () => {
+  return gulp.src([
+    config.paths.tmp.styles
+  ])
+  .pipe($.plumber())
+  .pipe($.cssnano())
+  .pipe($.rev())
+  .pipe(gulp.dest(config.paths.build.styles))
+  .pipe($.rev.manifest(`rev-manifest-css.json`))
+  .pipe(gulp.dest(config.paths.manifests));
+});
+
+
 // Critical css
+// @todo Cleanup paths in subsequent PR
 gulp.task('critical', ['sass', 'compile'], (cb) =>  {
   critical.generate({
     inline: true,
@@ -125,15 +144,13 @@ gulp.task('critical', ['sass', 'compile'], (cb) =>  {
  * Optimize source SVG, PNG, GIF images. Moves all images to tmp.
  */
 gulp.task('optimize:images', ['move:images'], () => {
-  return gulp.src([
-    `./app/assets/img/**/*.{svg,png,gif}`
-  ])
+  return gulp.src(config.paths.src.imagesOptim)
   .pipe($.imagemin({
     interlaced: true,
     svgoPlugins: [{removeViewBox: false}],
     use: [pngquant({quality: '86'})]
   }))
-  .pipe(gulp.dest('./dist/assets/img'));
+  .pipe(gulp.dest(config.paths.tmp.images));
 });
 
 
@@ -141,12 +158,26 @@ gulp.task('optimize:images', ['move:images'], () => {
  * Moves images that cannot be optimized to tmp directory
  */
 gulp.task('move:images', () => {
-  return gulp.src(`${file_paths.src_assets}/img/**/!(*.svg|*.png|*.gif)`)
-    .pipe(gulp.dest('./dist/assets/img'));
+  return gulp.src(config.paths.src.images)
+    .pipe(gulp.dest(config.paths.tmp.images));
 });
 
 
-// Compile templates to html
+/**
+ * Fingerprint all files in image directory. Save manifest file.
+ */
+gulp.task('rev:images', () => {
+  return gulp.src(config.paths.tmp.images)
+    .pipe($.rev())
+    .pipe(gulp.dest(config.paths.build.images))
+    .pipe($.rev.manifest(`rev-manifest-img.json`))
+    .pipe(gulp.dest(config.paths.manifests));
+});
+
+
+/**
+ * Compiles Nunjucks views to HTML.
+ */
 gulp.task('compile', () => {
   const env = $.nunjucksRender.nunjucks.configure([
     `${__dirname}/app/views/`,
@@ -166,75 +197,73 @@ gulp.task('compile', () => {
     smartypants: false
   });
 
-    return gulp.src(['./app/views/**/[^_]*.html'])
-      .pipe($.plumber())
-      .pipe($.nunjucksRender())
-      .pipe(gulp.dest('./dist'));
+  return gulp.src(config.paths.src.views)
+    .pipe($.plumber())
+    .pipe($.nunjucksRender())
+    .pipe(gulp.dest(config.paths.tmp.views));
 });
 
 
-// Precompile templates to js for rendering in the browser
+/**
+ * Precompiles Nunjucks templates for rendering via JS
+ */
 gulp.task('precompile', () => {
-  return gulp.src([
-    './app/**/_*.html',
-    './node_modules/@casper/nightshade-core/src/**/*.html'
-    ])
+  return gulp.src(config.paths.src.tpls)
     .pipe($.plumber())
     .pipe($.nunjucks())
     .pipe($.concat('templates.js'))
-    .pipe(gulp.dest('./dist/assets/js'));
+    .pipe(gulp.dest(config.paths.tmp.scripts));
 });
 
 
-// Static server
-// @TODO fix sha error and set https: true,
-gulp.task('browser-sync', () => {
+/**
+ * Serve site for development
+ * @todo Cleanup watch task paths?
+ */
+gulp.task('serve', () => {
   browserSync.init({
-      logPrefix: 'Ando',
-      browser: false,
-      reloadDelay: 100,
-      server: {
-        baseDir: ['./app', './dist', './', './node_modules/@casper']
-      },
-      middleware: function (req, res, next) {
-          res.setHeader('Access-Control-Allow-Origin', '*');
-          next();
-      }
-    });
-
-
-  gulp.watch([
-    'app/assets/js/**/*.js',
-    'app/views/**/*.js',
-    'app/dist/**/*.js',
-    './node_modules/@casper/nightshade-core/src/**/*.js'
-     ]).on('change', browserSync.reload);
+    logPrefix: 'Nightshade',
+    browser: false,
+    reloadDelay: 100,
+    server: {
+      baseDir: ['./.tmp', './.tmp/views', './app' ,'./dist', './', './node_modules/@casper']
+    },
+    middleware: function (req, res, next) {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      next();
+    }
+  });
 
   gulp.watch([
-    './app/assets/scss/**/*.scss',
-    './app/views/**/*.scss',
-    './node_modules/@casper/nightshade-core/src/**/*.scss'
-    ], ['sass']);
+    `app/assets/js/**/*.js`,
+    `app/views/**/*.js`,
+    `${config.paths.nightshade}/**/*.js`
+  ]).on('change', browserSync.reload);
 
   gulp.watch([
-    './app/views/**/*.html',
-    './node_modules/@casper/nightshade-core/src/**/*.html'
-    ], ['precompile', 'compile']).on('change', browserSync.reload);
-
-    // gulp.watch(['test/**'], ['test']);
+    `./app/assets/scss/**/*.scss`,
+    `./app/views/**/*.scss`,
+    `${config.paths.nightshade}/**/*.scss`
+  ], ['sass']);
 
   gulp.watch([
-    './node_modules/@casper/nightshade-core/src/**/*.json'
-    ], ['colors-config']);
+    `./app/views/**/*.html`,
+    `${config.paths.nightshade}/**/*.html`
+  ], ['precompile', 'compile']).on('change', browserSync.reload);
 
+  gulp.watch([
+    `${config.paths.nightshade}/**/*.json`
+  ], ['colors-config']);
 });
 
 
-//Sassdoc task
+/**
+ * Generate Sass documentation for Nightshade
+ */
 gulp.task('sassdoc', () => {
   return gulp.src([
-    'app/**/*.scss',
-    './node_modules/nightshade-core/src/**/*.scss'
+    `app/**/*.scss`,
+    `${config.paths.nightshade}/**/*.scss`
   ])
   .pipe(sassdoc({
       dest: './dist/sassdoc'
@@ -242,8 +271,20 @@ gulp.task('sassdoc', () => {
 });
 
 
-// clean tasks
-// @@@ TODO: tasks to remove generated files (Dist)
+/**
+ * Clean tasks to remove files from tmp and dist directory
+ */
+gulp.task('clean:images', () => {
+  del(config.paths.tmp.images);
+});
+
+gulp.task('clean:dist', () => {
+  del('./dist/');
+});
+
+gulp.task('clean:tmp', () => {
+  del(config.paths.tmp.base);
+});
 
 
 /**
@@ -276,14 +317,14 @@ gulp.task('publish', () => {
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property
   const publisher = $.awspublish.create({
     params: {
-      region: production ? config.production.s3.region : config.staging.s3.region,
-      Bucket: production ? config.production.s3.bucket : config.staging.s3.bucket
+      region: production ? config.s3.production.region : config.s3.staging.region,
+      Bucket: production ? config.s3.production.bucket : config.s3.staging.bucket
     },
       "accessKeyId": env.S3_ACCESSID,
       "secretAccessKey": env.S3_KEY
   });
 
-  return gulp.src(`${file_paths.dest}/**/*`)
+  return gulp.src(config.paths.build.base)
     .pipe($.plumber())
     .pipe($.if(gzipTypes, $.awspublish.gzip()))
     .pipe($.if(cacheBustedTypes, publisher.publish(future)))
@@ -294,9 +335,21 @@ gulp.task('publish', () => {
 });
 
 
-// Start task (default gulp)
-gulp.task('default', ['precompile', 'compile', 'sass', 'sassdoc', 'browser-sync']);
+/**
+ * Task to start the application (gulp)
+ */
+gulp.task('default', [
+  'precompile',
+  'compile',
+  'sass',
+  'optimize:images',
+  'sassdoc',
+  'serve'
+]);
 
 
-// Build task
+/**
+ * Build task
+ * @todo Add build:prod
+ */
 gulp.task('build', ['critical']);

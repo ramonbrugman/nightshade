@@ -12,7 +12,7 @@ WebFontConfig = {
       'Calibre Light',
       'Calibre Medium'
     ],
-    urls: ['//cloud.typography.com/6021872/6049352/css/fonts.css']
+    urls: ['//s3.amazonaws.com/nightshade-fonts/fonts.min.css']
   },
   timeout: 20000,
   active: function() {

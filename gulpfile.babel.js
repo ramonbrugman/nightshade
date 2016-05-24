@@ -365,15 +365,14 @@ gulp.task('publish', () => {
 /**
  * Task to start the application (gulp)
  */
-gulp.task('default', [
-  'data',
-  'sass',
-  'sassdoc',
-  'optimize:images',
-  'precompile',
-  'compile',
-  'serve'
-]);
+ gulp.task('default', function(cb) {
+   $.runSequence(
+     'data',
+     ['sass', 'precompile', 'sassdoc', 'optimize:images'],
+     'compile',
+     'serve',
+      cb);
+ });
 
 
 /**

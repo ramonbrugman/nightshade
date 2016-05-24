@@ -53,9 +53,8 @@
   "dependencies": {
     "babel-preset-es2015": "^6.3.13",
     "babel-register": "^6.3.13",
-    "normalize.css": "^3.0.3",
-    "nunjucks": "^2.2.0",
-    "jspm": "^0.17.0-beta.14"
+    "jspm": "^0.17.0-beta.14",
+    "nunjucks": "^2.2.0"
   },
   "jspm": {
     "dependencies": {

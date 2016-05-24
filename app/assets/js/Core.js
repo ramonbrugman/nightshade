@@ -5,7 +5,7 @@
  * @todo Modularize the init() method
 */
 
-import feature from 'viljamis/feature.js';
+import feature from 'feature.js';
 import attachFastClick from 'fastclick';
 import pepjs from 'pepjs';
 import { ImgixSettings } from 'nightshade-core/media/ImgixSettings.js';

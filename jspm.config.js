@@ -1,5 +1,8 @@
 SystemJS.config({
-  transpiler: "plugin-babel"
+  transpiler: "plugin-babel",
+  map: {
+    "feature.js": "github:viljamis/feature.js@1.0.1"
+  }
 });
 
 

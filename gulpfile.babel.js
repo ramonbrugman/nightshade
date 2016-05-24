@@ -19,9 +19,13 @@ import pngquant from 'imagemin-pngquant';
 
 import { config } from './app_config.js';
 
-const env = dotenv.config();
 const browserSync = browsersync.create();
-const $ = require('gulp-load-plugins')();
+const $ = require('gulp-load-plugins')({
+  rename: {
+    'gulp-yaml-validate': 'yamlLint',
+    'gulp-merge-json': 'merge'
+  }
+});
 
 /* Flags for gulp cli */
 const argv = yargs.argv;
@@ -176,9 +180,22 @@ gulp.task('rev:images', () => {
 
 
 /**
- * Compiles Nunjucks views to HTML.
- */
-gulp.task('compile', () => {
+ * Compiles yaml content files into one json files
+*/
+gulp.task('data', (cb) => {
+  return gulp.src('./content/**/*.yml')
+  .pipe($.plumber())
+  .pipe($.yamlLint({safe: true}))
+  .pipe($.yaml())
+  .pipe($.merge('content_api.json'))
+  .pipe(gulp.dest('./data'));
+})
+
+
+/**
+* Compiles Nunjucks views to HTML.
+*/
+gulp.task('compile', (cb) => {
   const env = $.nunjucksRender.nunjucks.configure([
     `${__dirname}/app/views/`,
     `${__dirname}/node_modules/@casper/`,
@@ -199,6 +216,10 @@ gulp.task('compile', () => {
 
   return gulp.src(config.paths.src.views)
     .pipe($.plumber())
+    .pipe($.data(function(file, cb) {
+      const data = JSON.parse(fs.readFileSync('./data/content_api.json'));
+      return cb(undefined, data);
+    }))
     .pipe($.nunjucksRender())
     .pipe(gulp.dest(config.paths.tmp.views));
 });
@@ -250,6 +271,12 @@ gulp.task('serve', () => {
     `./app/views/**/*.html`,
     `${config.paths.nightshade}/**/*.html`
   ], ['precompile', 'compile']).on('change', browserSync.reload);
+
+  gulp.watch(['./content/**/*.yml'], ['data']);
+
+  gulp.watch([
+    './data/**/*.json'
+  ], ['compile']).on('change', browserSync.reload);
 
   gulp.watch([
     `${config.paths.nightshade}/**/*.json`
@@ -339,11 +366,12 @@ gulp.task('publish', () => {
  * Task to start the application (gulp)
  */
 gulp.task('default', [
+  'data',
+  'sass',
+  'sassdoc',
+  'optimize:images',
   'precompile',
   'compile',
-  'sass',
-  'optimize:images',
-  'sassdoc',
   'serve'
 ]);
 

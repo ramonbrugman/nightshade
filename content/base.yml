@@ -1,0 +1,13 @@
+en:
+  index:
+    page_title: "Nightshade Design System"
+    page_description: "Add pattern description"
+    intro_abstract: >
+      Welcome to Nightshade, the internal Casper styleguide, the best resource
+      for folks interested in designing and building interfaces for Casper.
+    intro_copy: >
+      Nightshade is our UI kit that powers Casper.com. Nightshade provides
+      guidelines for the aesthetic function and form of Casper's user interface.
+      It defines collection of elements that can assemble new UIs quickly without
+      accruing new technical or design debt. Nightshade also provides code
+      standards and guidelines to ensure a solid, future proof code base.

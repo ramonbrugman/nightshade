@@ -2,8 +2,6 @@
 
 {% import 'layout/pattern.macros.html' as pattern %}
 
-{% set page_title = data.name if data.name else page_title %}
-
 {% block page_styles %}
 <link href="/assets/css/highlight.css" media="screen" rel="stylesheet">
 {% endblock %}
@@ -11,8 +9,8 @@
 {% block page_content %}
 <article class="pattern">
   <header class="pattern-header">
-    <h1 class="heading--primary-light">{{ page_title }}</h1>
-    <p class="pattern-description">{{ data.description }}</p>
+    <h1 class="heading--primary-light">{{ data.page_title }}</h1>
+    <p class="pattern-description">{{ data.page_description }}</p>
   </header>
 
   <nav class="pattern-nav heading--smallcaps-light">

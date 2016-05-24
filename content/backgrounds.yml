@@ -1,0 +1,4 @@
+en:
+  backgrounds:
+    page_title: "Backgrounds"
+    page_description: "Helper classes for generating solid and pattern backgrounds for containers."

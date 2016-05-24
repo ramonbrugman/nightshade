@@ -19,8 +19,9 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# Tmp directory
+# Build directories/files
 .tmp
+data/content_api.json
 
 # node-waf configuration
 .lock-wscript

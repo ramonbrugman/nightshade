@@ -3,15 +3,13 @@
  * @module NightshadeBase.js
 */
 
-import { BasePage } from 'assets/js/pages/BasePage.js';
+import { Core } from 'assets/Core.js';
 import { NavDrawer } from 'views/layout/NavDrawer.js';
 
 export const NightshadeBase = {
 
-  __proto__: BasePage,
-
   init() {
-    this.__proto__.init();
+    Core.init();
     NavDrawer.init();
   },
 

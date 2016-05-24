@@ -6,7 +6,7 @@
 */
 
 import { PatternPage } from 'views/layout/PatternPage.js';
-import { Tooltips } from 'nightshade-core/src/tooltips/Tooltips.js';
+import { Tooltips } from 'nightshade-core/tooltips/Tooltips.js';
 
 export const TooltipsPage = {
 

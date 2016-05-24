@@ -6,7 +6,7 @@
 */
 
 import { PatternPage } from 'views/layout/PatternPage.js';
-import { Popovers } from 'nightshade-core/src/popovers/Popovers.js';
+import { Popovers } from 'nightshade-core/popovers/Popovers.js';
 
 export const PopoversPage = {
 

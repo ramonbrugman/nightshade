@@ -1,6 +1,6 @@
 /**
  * @overview Base module to be imported as the foundation for all pages
- * @module BasePage.js
+ * @module Core.js
  * @todo Move `touch` class injection into function if we keep Feature.js
  * @todo Modularize the init() method
 */
@@ -8,10 +8,10 @@
 import feature from 'viljamis/feature.js';
 import attachFastClick from 'fastclick';
 import pepjs from 'pepjs';
-import { ImgixSettings } from 'node_modules/@casper/nightshade-core/src/media/ImgixSettings';
-import { SpriteFetcher } from 'assets/js/SpriteFetcher.js';
+import { ImgixSettings } from 'nightshade-core/media/ImgixSettings.js';
+import { SpriteFetcher } from 'assets/SpriteFetcher.js';
 
-export const BasePage = {
+export const Core = {
 
   init() {
     console.log(`base page activated`);

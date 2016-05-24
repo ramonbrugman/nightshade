@@ -6,8 +6,8 @@
 */
 
 import { NightshadeBase } from 'views/layout/NightshadeBase.js';
-import { ScrollTo } from 'nightshade-core/src/animation/ScrollTo.js';
-import hljs from 'assets/js/vendor/highlight.js';
+import { ScrollTo } from 'nightshade-core/animation/ScrollTo.js';
+import hljs from 'assets/vendor/highlight.js';
 
 export const PatternPage = {
 

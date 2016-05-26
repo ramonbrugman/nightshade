@@ -22,7 +22,7 @@
 {% endblock %}
 
 {% block inline_js %}
-  System.import('nightshade-core/src/gallery/Gallery.js').then( function(mod) {
+  System.import('nightshade-core/gallery/Gallery.js').then( function(mod) {
     mod.Gallery.init();
   } );
 {% endblock %}
